@@ -396,9 +396,11 @@ document.write(`
                 <article class="bd-article">
                   
   <script type="text/javascript" >
-    $(document).ready(function(){
-        $('#bd-docs-nav').find('*').each(function(index, value){$(this).collapse('show').css('display','block')})
-    })
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.bd-links .bd-toc-item details').forEach(function(details) {
+            details.open = true;  // This should expand the details element
+        });
+    });
 </script><section id="perfsim-a-performance-simulator-for-cloud-native-microservice-chains">
 <h1>PerfSim: A Performance Simulator for Cloud Native Microservice Chains<a class="headerlink" href="#perfsim-a-performance-simulator-for-cloud-native-microservice-chains" title="Link to this heading">#</a></h1>
 <section id="description">
