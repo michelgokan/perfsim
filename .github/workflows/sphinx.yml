@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]  # branch to trigger deployment
 
+permissions:  # Explicitly setting permissions
+  contents: write
+  pages: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-22.04  # Specifies the runner environment
