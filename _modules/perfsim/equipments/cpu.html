@@ -1,0 +1,1294 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>perfsim.equipments.cpu &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/perfsim/equipments/cpu';</script>
+    <script src="../../../_static/js/custom.js"></script>
+    <link rel="icon" href="../../../_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="../../../_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../perfsim.html">perfsim</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for perfsim.equipments.cpu</h1><div class="highlight"><pre>
+<span></span><span class="c1">#  Copyright (C) 2020 Michel Gokan Khan</span>
+<span class="c1">#  This program is free software; you can redistribute it and/or modify</span>
+<span class="c1">#  it under the terms of the GNU General Public License as published by</span>
+<span class="c1">#  the Free Software Foundation; either version 2 of the License, or</span>
+<span class="c1">#  (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is distributed in the hope that it will be useful,</span>
+<span class="c1">#  but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#  GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1">#  You should have received a copy of the GNU General Public License along</span>
+<span class="c1">#  with this program; if not, write to the Free Software Foundation, Inc.,</span>
+<span class="c1">#  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.</span>
+<span class="c1">#</span>
+<span class="c1">#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.</span>
+<span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
+
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span> <span class="k">as</span> <span class="nn">tt</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Set</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">from</span> <span class="nn">sortedcontainers</span> <span class="kn">import</span> <span class="n">SortedDict</span><span class="p">,</span> <span class="n">SortedSet</span>
+
+<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">Core</span><span class="p">,</span> <span class="n">RunQueue</span><span class="p">,</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">CPULogObserver</span><span class="p">,</span> <span class="n">Utils</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">ReplicaThread</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Host</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A *CPU* object represents a single NUMA node with a given *clock_rate* and *name*</span>
+<span class="sd">in the system. Each NUMA node contains a number of cores represented by the </span>
+<span class="sd">*cores_count*. </span>
+
+<span class="sd">Here are the possible initialization parameters:</span>
+
+<span class="sd">        `name`</span>
+<span class="sd">            Name of the CPU. i.e. *CPU1*</span>
+
+<span class="sd">        `cores_count`</span>
+<span class="sd">            Number of cores that this CPU contains.</span>
+
+<span class="sd">        `cpu_clock_rate`</span>
+<span class="sd">            The maximum clock rate of this CPU for this host (in Hertz).</span>
+
+<span class="sd">There are also other parameters that one can access after initialization:        </span>
+<span class="sd">        `cores`</span>
+<span class="sd">            Return a list of cores in a *Cpu*</span>
+<span class="sd">            </span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="CPU">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU">[docs]</a>
+<span class="k">class</span> <span class="nc">CPU</span><span class="p">(</span><span class="n">Observable</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The CPU class represents a single NUMA node in the system. It contains a number</span>
+<span class="sd">    of cores and has a clock rate. It is responsible for load balancing among the</span>
+<span class="sd">    cores and the threads that are assigned to them.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">#: The list of cores in this CPU</span>
+    <span class="n">cores</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Core</span><span class="p">]</span>
+
+    <span class="c1">#: sched_domain_hierarchy similar to the Linux kernel</span>
+    <span class="n">sched_domain_hierarchy</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;core pairs&quot;</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">]</span>
+
+    <span class="c1">#: The clock rate of the CPU in Hertz</span>
+    <span class="n">_clock_rate</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1">#: The clock rate of the CPU in nanohertz</span>
+    <span class="n">_clock_rate_in_nanohertz</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="c1">#: The host that this CPU belongs to</span>
+    <span class="n">host</span><span class="p">:</span> <span class="n">Host</span>
+
+    <span class="c1">#: Sorted dictionary of all threads (by load) belongs to this CPU (not reliable, only for emergency load balancing)</span>
+    <span class="n">threads_sorted</span><span class="p">:</span> <span class="n">SortedDict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">SortedDict</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="n">ReplicaThread</span><span class="p">]]]</span>
+
+    <span class="c1">#: Sorted dictionary of all pairs (by load) belongs to this CPU (not reliable, only for load balancing)</span>
+    <span class="n">pairs_sorted</span><span class="p">:</span> <span class="n">SortedDict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Set</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+
+    <span class="c1">#: Stores the id of cores in pairs that are idle (the key is pair_id in CPU and values are idle cores)</span>
+    <span class="n">idle_core_pair_ids</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">SortedSet</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+
+    <span class="c1">#: Stores the id of idle pairs (sorted by the pair id)</span>
+    <span class="n">idle_pair_ids</span><span class="p">:</span> <span class="n">SortedSet</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+
+    <span class="c1">#: Stores the id of idle cores (sorted by the core id)</span>
+    <span class="n">idle_core_ids</span><span class="p">:</span> <span class="n">SortedSet</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+
+    <span class="c1">#: Stores the load of each pair (sorted by the load)</span>
+    <span class="n">pairs_load</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cores_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">clock_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="n">Host</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clock_rate</span> <span class="o">=</span> <span class="n">clock_rate</span>  <span class="c1"># in hertz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cores</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_cpu_requests</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cores_count</span><span class="p">))}}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thread_events</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cores_count</span><span class="p">))}}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span> <span class="o">=</span> <span class="n">SortedDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span> <span class="o">=</span> <span class="n">SortedDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_pair_ids</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idle_pair_ids</span> <span class="o">=</span> <span class="n">SortedSet</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_ids</span> <span class="o">=</span> <span class="n">SortedSet</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pairs_load</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">core_id</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cores_count</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Core</span><span class="p">(</span><span class="n">cpu</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_core&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">core_id</span><span class="p">),</span> <span class="n">core_id_in_cpu</span><span class="o">=</span><span class="n">core_id</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idle_pair_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">pair_id</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">core_id</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">pair_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_pair_ids</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_pair_ids</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">pair_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">SortedSet</span><span class="p">([</span><span class="n">core_id</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pairs_load</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_pair_ids</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">pair_id</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">core_id</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sched_domains</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sched_groups</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">host</span><span class="o">.</span><span class="n">cluster</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attach_observer</span><span class="p">(</span><span class="n">CPULogObserver</span><span class="p">(</span><span class="n">cpu</span><span class="o">=</span><span class="bp">self</span><span class="p">))</span>
+
+        <span class="c1"># _core_rq_exec_order = SortedList(core_rqs[0])</span>
+        <span class="c1"># _core_rq_exec_order = 0</span>
+
+<div class="viewcode-block" id="CPU.reinit">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.reinit">[docs]</a>
+    <span class="k">def</span> <span class="nf">reinit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reinitialize the CPU</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cores_count</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">),</span> <span class="n">clock_rate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clock_rate</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CPU.register_events">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.register_events">[docs]</a>
+    <span class="k">def</span> <span class="nf">register_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="CPU.get_available">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_available">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_available</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns available cores in the *CPU*</span>
+
+<span class="sd">        :return: Returns available cores in the *CPU*</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">available</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">:</span>
+            <span class="n">available</span> <span class="o">+=</span> <span class="n">core</span><span class="o">.</span><span class="n">get_available</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">available</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">capacity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the total capacity of the *CPU* in terms of CPU requests (each core is 1000 milicores).</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">capacity</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">:</span>
+            <span class="n">capacity</span> <span class="o">+=</span> <span class="n">core</span><span class="o">.</span><span class="n">capacity</span>
+
+        <span class="k">return</span> <span class="n">capacity</span>
+
+<div class="viewcode-block" id="CPU.is_there_enough_resources_to_reserve">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.is_there_enough_resources_to_reserve">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_there_enough_resources_to_reserve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if there are enough resources to reserve *amount* of CPU in the *CPU*.</span>
+
+<span class="sd">        :param amount:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_available</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="CPU.reserve">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.reserve">[docs]</a>
+    <span class="k">def</span> <span class="nf">reserve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Uniformly reserve a given *amount* of CPU within all the *cores* in the</span>
+<span class="sd">        *CPU*.</span>
+
+<span class="sd">        :param amount:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">cpu_requests_per_core</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">amount</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">:</span>
+            <span class="n">core</span><span class="o">.</span><span class="n">reserve</span><span class="p">(</span><span class="n">amount</span><span class="o">=</span><span class="n">cpu_requests_per_core</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CPU.release">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.release">[docs]</a>
+    <span class="k">def</span> <span class="nf">release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Uniformly release a given *amount* of CPU within all the *cores* in the</span>
+<span class="sd">        *CPU*.</span>
+
+<span class="sd">        :param amount:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">cpu_requests_per_core</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">amount</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">:</span>
+            <span class="n">core</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">amount</span><span class="o">=</span><span class="n">cpu_requests_per_core</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_get_clock_rate_in_nanohertz</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the clock rate of the CPU in nanohertz</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock_rate</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">9</span>
+
+<div class="viewcode-block" id="CPU.get_idle_core_in_sd">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_idle_core_in_sd">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_idle_core_in_sd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sd_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sd</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">numa_node_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">current_core_in_sd</span><span class="p">:</span> <span class="n">Core</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the idle core in the given sched domain</span>
+
+<span class="sd">        :param sd_name:</span>
+<span class="sd">        :param sd:</span>
+<span class="sd">        :param numa_node_id:</span>
+<span class="sd">        :param current_core_in_sd:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sd</span><span class="p">[</span><span class="n">numa_node_id</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sd_name</span> <span class="o">==</span> <span class="n">CPU</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">the_other_core_id_in_pair</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_the_other_core_in_pair</span><span class="p">(</span><span class="n">core_id</span><span class="o">=</span><span class="n">current_core_in_sd</span><span class="o">.</span><span class="n">id_in_cpu</span><span class="p">,</span>
+                                                                            <span class="n">return_same_if_not_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">the_other_core_id_in_pair</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_pair_ids</span><span class="p">[</span><span class="n">current_core_in_sd</span><span class="o">.</span><span class="n">pair_id</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="n">the_other_core_id_in_pair</span>
+                <span class="k">elif</span> <span class="n">current_core_in_sd</span><span class="o">.</span><span class="n">id_in_cpu</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_ids</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">current_core_in_sd</span><span class="o">.</span><span class="n">id_in_cpu</span>
+            <span class="k">elif</span> <span class="n">sd_name</span> <span class="o">==</span> <span class="n">CPU</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idle_pair_ids</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">_next_idle_pair_id</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idle_pair_ids</span><span class="p">))</span>
+                    <span class="n">next_idle_core_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_pair_ids</span><span class="p">[</span><span class="n">_next_idle_pair_id</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="k">return</span> <span class="n">next_idle_core_id</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="CPU.get_the_other_core_in_pair">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_the_other_core_in_pair">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_the_other_core_in_pair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">return_same_if_not_exists</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the other core in the pair</span>
+
+<span class="sd">        :param core_id:</span>
+<span class="sd">        :param return_same_if_not_exists:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">core_id</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># TODO: If in the future, we want to support more than one NUMA node, we need to change this</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span><span class="p">[</span><span class="s1">&#39;core pairs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="nb">int</span><span class="p">(</span><span class="n">core_id</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># There is only one core in the pair</span>
+                <span class="k">return</span> <span class="n">core_id</span> <span class="k">if</span> <span class="n">return_same_if_not_exists</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">core_id</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">core_id</span> <span class="o">-</span> <span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="CPU.get_core_pairs">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_core_pairs">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_core_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the core pairs</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">numa_node_id</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">pairs_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">core_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">core_id</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">pairs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">core_id</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pairs</span><span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">core_id</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">core_id</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">pairs</span></div>
+
+
+<div class="viewcode-block" id="CPU.get_sched_domains">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_sched_domains">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_sched_domains</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the sched domains</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">numa_node_id</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">numa_node_id</span><span class="p">)</span>  <span class="c1"># assume we have 1 CPU socket per host</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">numa_node_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_core_pairs</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">numa_node_id</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span></div>
+
+
+<div class="viewcode-block" id="CPU.get_busiest_core_in_pair_by_core_id">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_busiest_core_in_pair_by_core_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_busiest_core_in_pair_by_core_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the busiest core in the pair</span>
+
+<span class="sd">        :param core_id:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">the_other_core_id_in_cur_pair</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_the_other_core_in_pair</span><span class="p">(</span><span class="n">core_id</span><span class="o">=</span><span class="n">core_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">the_other_core_id_in_cur_pair</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span>
+
+        <span class="n">busiest_core</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">load</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">the_other_core_id_in_cur_pair</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">load</span><span class="p">:</span>
+            <span class="n">busiest_core</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">load</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">the_other_core_id_in_cur_pair</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">load</span><span class="p">:</span>
+            <span class="n">busiest_core</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">the_other_core_id_in_cur_pair</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span> <span class="o">&gt;=</span> \
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">the_other_core_id_in_cur_pair</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">):</span>
+            <span class="n">busiest_core</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">busiest_core</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">the_other_core_id_in_cur_pair</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">busiest_core</span></div>
+
+
+<div class="viewcode-block" id="CPU.get_busiest_core_in_pair">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_busiest_core_in_pair">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_busiest_core_in_pair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the busiest core in the pair</span>
+
+<span class="sd">        :param pair_id:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_busiest_core_in_pair_by_core_id</span><span class="p">(</span><span class="n">core_id</span><span class="o">=</span><span class="n">pair_id</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CPU.get_busiest_core_in_busiest_pair">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_busiest_core_in_busiest_pair">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_busiest_core_in_busiest_pair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_pair_id</span><span class="p">,</span> <span class="n">numa_node_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the busiest core in the busiest pair</span>
+
+<span class="sd">        :param current_pair_id:</span>
+<span class="sd">        :param numa_node_id:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">_busiest_pair_inverted_load</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span><span class="p">))</span>
+            <span class="n">_busiest_pair_load</span> <span class="o">=</span> <span class="n">_busiest_pair_inverted_load</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pairs_load</span><span class="p">[</span><span class="n">current_pair_id</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">_busiest_pair_load</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;How come the busiest pair (load = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pairs_load</span><span class="p">[</span><span class="n">current_pair_id</span><span class="p">])</span> <span class="o">+</span>
+                                <span class="s2">&quot;) is lighter than the current pair (load = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">_busiest_pair_inverted_load</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)?&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">pairs_load</span><span class="p">[</span><span class="n">current_pair_id</span><span class="p">]</span> <span class="o">==</span> <span class="n">_busiest_pair_load</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+            <span class="n">_busiest_pairs_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span><span class="p">[</span><span class="n">_busiest_pair_inverted_load</span><span class="p">])</span>
+            <span class="n">_next_busiest_pair</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">_busiest_pairs_iter</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">_next_busiest_pair</span> <span class="o">==</span> <span class="n">current_pair_id</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span><span class="p">[</span><span class="n">_busiest_pair_inverted_load</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">_next_busiest_pair</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">_busiest_pairs_iter</span><span class="p">)</span>
+
+            <span class="n">busiest_core_in_pair</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_busiest_core_in_pair</span><span class="p">(</span><span class="n">_next_busiest_pair</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">busiest_core_in_pair</span> <span class="k">if</span> <span class="n">busiest_core_in_pair</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">_next_busiest_pair</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="CPU.load_balance_threads_among_runqueues">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.load_balance_threads_among_runqueues">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_balance_threads_among_runqueues</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">RunQueue</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load balance threads among runqueues</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">time1</span> <span class="o">=</span> <span class="n">tt</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">numa_node_id</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">break_flag</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">core_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">sd_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span><span class="p">:</span>
+                <span class="n">idle_core</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_idle_core_in_sd</span><span class="p">(</span><span class="n">sd_name</span><span class="o">=</span><span class="n">sd_name</span><span class="p">,</span>
+                                                     <span class="n">sd</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sched_domains</span><span class="p">[</span><span class="n">sd_name</span><span class="p">],</span>
+                                                     <span class="n">numa_node_id</span><span class="o">=</span><span class="n">numa_node_id</span><span class="p">,</span>
+                                                     <span class="n">current_core_in_sd</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">])</span>
+
+                <span class="k">if</span> <span class="n">idle_core</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">core_id</span> <span class="o">!=</span> <span class="n">idle_core</span><span class="p">:</span>
+                        <span class="k">continue</span>
+
+                <span class="n">break_flag</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">while</span> <span class="n">break_flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">busiest_core</span> <span class="o">=</span> <span class="kc">None</span>
+
+                    <span class="k">if</span> <span class="n">sd_name</span> <span class="o">==</span> <span class="n">CPU</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                        <span class="n">busiest_core</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_busiest_core_in_pair_by_core_id</span><span class="p">(</span><span class="n">core_id</span><span class="o">=</span><span class="n">core_id</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">sd_name</span> <span class="o">==</span> <span class="n">CPU</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                        <span class="n">busiest_core</span> <span class="o">=</span> \
+                            <span class="bp">self</span><span class="o">.</span><span class="n">get_busiest_core_in_busiest_pair</span><span class="p">(</span><span class="n">current_pair_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">pair_id</span><span class="p">,</span>
+                                                                  <span class="n">numa_node_id</span><span class="o">=</span><span class="n">numa_node_id</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">busiest_core</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">break_flag</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="k">break</span>
+
+                    <span class="k">if</span> <span class="n">sd_name</span> <span class="o">==</span> <span class="n">CPU</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">busiest_core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="n">break_flag</span> <span class="o">=</span> <span class="mi">1</span>
+                            <span class="k">break</span>
+
+                        <span class="n">lightest_thread_load_in_busiest_core</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">busiest_core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">lightest_threads_in_rq</span><span class="p">))</span>
+                        <span class="n">local_new_load</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">load</span> <span class="o">+</span> <span class="n">lightest_thread_load_in_busiest_core</span>
+                        <span class="n">busiest_new_load</span> <span class="o">=</span> <span class="n">busiest_core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">load</span> <span class="o">-</span> <span class="n">lightest_thread_load_in_busiest_core</span>
+
+                        <span class="k">if</span> <span class="nb">round</span><span class="p">(</span><span class="n">busiest_new_load</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">round</span><span class="p">(</span><span class="n">local_new_load</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="ow">and</span> \
+                                <span class="nb">len</span><span class="p">(</span><span class="n">busiest_core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="n">lightest_threads_set</span> <span class="o">=</span> \
+                                <span class="n">busiest_core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">lightest_threads_in_rq</span><span class="p">[</span><span class="n">lightest_thread_load_in_busiest_core</span><span class="p">]</span>
+                            <span class="n">lightest_thread_vruntime_in_busiest_core</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">lightest_threads_set</span><span class="p">))</span>
+                            <span class="n">lightest_thread_in_busiest_core</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span>
+                                <span class="n">lightest_threads_set</span><span class="p">[</span><span class="n">lightest_thread_vruntime_in_busiest_core</span><span class="p">]))</span>
+                            <span class="n">busiest_core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">dequeue_task_by_thread</span><span class="p">(</span><span class="n">thread</span><span class="o">=</span><span class="n">lightest_thread_in_busiest_core</span><span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">enqueue_task</span><span class="p">(</span><span class="n">thread</span><span class="o">=</span><span class="n">lightest_thread_in_busiest_core</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">break</span>
+                    <span class="k">elif</span> <span class="n">sd_name</span> <span class="o">==</span> <span class="n">CPU</span><span class="o">.</span><span class="n">sched_domain_hierarchy</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                        <span class="n">the_other_core_id_in_busiest_pair</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_the_other_core_in_pair</span><span class="p">(</span>
+                            <span class="n">core_id</span><span class="o">=</span><span class="n">busiest_core</span><span class="o">.</span><span class="n">id_in_cpu</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">the_other_core_id_in_busiest_pair</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="n">number_of_cores_in_busiest_pair</span> <span class="o">=</span> <span class="mi">2</span>
+                            <span class="n">the_other_core_in_busiest_pair</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">the_other_core_id_in_busiest_pair</span><span class="p">]</span>
+                            <span class="n">total_number_of_threads_in_busiest_pair</span> <span class="o">=</span> \
+                                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">busiest_core</span><span class="o">.</span><span class="n">id_in_cpu</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span> <span class="o">+</span> \
+                                <span class="nb">len</span><span class="p">(</span><span class="n">the_other_core_in_busiest_pair</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">number_of_cores_in_busiest_pair</span> <span class="o">=</span> <span class="mi">1</span>
+                            <span class="n">total_number_of_threads_in_busiest_pair</span> <span class="o">=</span> \
+                                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">busiest_core</span><span class="o">.</span><span class="n">id_in_cpu</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span>
+
+                        <span class="k">if</span> <span class="n">total_number_of_threads_in_busiest_pair</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="n">break_flag</span> <span class="o">=</span> <span class="mi">1</span>
+                            <span class="k">break</span>
+
+                        <span class="k">for</span> <span class="n">counter</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">number_of_cores_in_busiest_pair</span><span class="p">):</span>
+                            <span class="k">if</span> <span class="n">counter</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                                <span class="n">busiest_core_id</span> <span class="o">=</span> <span class="n">the_other_core_id_in_busiest_pair</span>
+                                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">busiest_core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                                    <span class="n">break_flag</span> <span class="o">=</span> <span class="mi">1</span>
+                                    <span class="k">break</span>  <span class="c1"># --&gt; break mikonim chon nemishe chizi kand az busiest pair</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">busiest_core_id</span> <span class="o">=</span> <span class="n">busiest_core</span><span class="o">.</span><span class="n">id_in_cpu</span>
+
+                            <span class="n">lightest_thread_load_in_busiest_core</span> <span class="o">=</span> \
+                                <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">busiest_core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">lightest_threads_in_rq</span><span class="p">))</span>
+                            <span class="n">local_new_load</span> <span class="o">=</span> \
+                                <span class="bp">self</span><span class="o">.</span><span class="n">pairs_load</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">pair_id</span><span class="p">]</span> <span class="o">+</span> <span class="n">lightest_thread_load_in_busiest_core</span>
+                            <span class="n">busiest_new_load</span> <span class="o">=</span> \
+                                <span class="bp">self</span><span class="o">.</span><span class="n">pairs_load</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">busiest_core_id</span><span class="p">]</span><span class="o">.</span><span class="n">pair_id</span><span class="p">]</span> <span class="o">-</span> \
+                                <span class="n">lightest_thread_load_in_busiest_core</span>
+
+                            <span class="k">if</span> <span class="nb">round</span><span class="p">(</span><span class="n">busiest_new_load</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">round</span><span class="p">(</span><span class="n">local_new_load</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+                                <span class="n">lightest_threads_set</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">busiest_core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">lightest_threads_in_rq</span><span class="p">[</span>
+                                    <span class="n">lightest_thread_load_in_busiest_core</span><span class="p">]</span>
+                                <span class="n">lightest_thread_vruntime_in_busiest_core</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">lightest_threads_set</span><span class="p">))</span>
+                                <span class="n">lightest_thread_in_busiest_core</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span>
+                                    <span class="n">lightest_threads_set</span><span class="p">[</span><span class="n">lightest_thread_vruntime_in_busiest_core</span><span class="p">]))</span>
+
+                                <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">busiest_core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">dequeue_task_by_thread</span><span class="p">(</span>
+                                    <span class="n">thread</span><span class="o">=</span><span class="n">lightest_thread_in_busiest_core</span><span class="p">)</span>
+                                <span class="k">if</span> <span class="n">lightest_thread_in_busiest_core</span><span class="o">.</span><span class="n">instructions</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Are you kidding me?! How come this zombie made its way here?&quot;</span><span class="p">)</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">enqueue_task</span><span class="p">(</span><span class="n">thread</span><span class="o">=</span><span class="n">lightest_thread_in_busiest_core</span><span class="p">)</span>
+                                <span class="k">break</span>
+                            <span class="k">elif</span> <span class="n">counter</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># --&gt; break mikonim chon nemishe chizi kand az busiest pair, bikhial sho</span>
+                                <span class="n">break_flag</span> <span class="o">=</span> <span class="mi">1</span>
+                                <span class="k">break</span>
+
+        <span class="n">_time2</span> <span class="o">=</span> <span class="n">tt</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">Logger</span><span class="o">.</span><span class="n">lb_timer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_time2</span> <span class="o">-</span> <span class="n">time1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">hosts_need_load_balancing</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">load_balancing_needed</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="CPU.emergency_load_balance_idle_cores">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.emergency_load_balance_idle_cores">[docs]</a>
+    <span class="k">def</span> <span class="nf">emergency_load_balance_idle_cores</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Emergency load balance idle cores</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">time1</span> <span class="o">=</span> <span class="n">tt</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">numa_node_id</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">cores_that_became_busy</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">core_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_ids</span><span class="p">:</span>
+            <span class="n">core</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span>
+            <span class="n">heaviest_thread</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">core_id_of_the_rq_containing_heaviest_load</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+            <span class="n">break_flag</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">to_discard</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">thread_load</span><span class="p">,</span> <span class="n">thread_sorted_set</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">vruntime</span><span class="p">,</span> <span class="n">thread_set</span> <span class="ow">in</span> <span class="n">thread_sorted_set</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">thread</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">thread_set</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">thread</span><span class="o">.</span><span class="n">on_rq</span> <span class="ow">or</span> <span class="n">thread</span><span class="o">.</span><span class="n">load</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">thread</span><span class="o">.</span><span class="n">instructions</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="n">to_discard</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">thread_load</span><span class="p">,</span> <span class="n">thread</span><span class="p">))</span>
+                            <span class="k">continue</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">thread</span><span class="o">.</span><span class="n">core</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">thread</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">id_in_cpu</span> <span class="o">==</span> <span class="n">core_id</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span>
+                                <span class="n">thread</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">rq</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="k">continue</span>
+                        <span class="n">heaviest_thread</span> <span class="o">=</span> <span class="n">thread</span>
+                        <span class="n">core_id_of_the_rq_containing_heaviest_load</span> <span class="o">=</span> <span class="n">thread</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">id_in_cpu</span>
+                        <span class="n">break_flag</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="k">break</span>
+                    <span class="k">if</span> <span class="n">break_flag</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="k">break</span>
+
+            <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">thread_load_tuple</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">to_discard</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">remove_from_threads_sorted</span><span class="p">(</span><span class="n">thread</span><span class="o">=</span><span class="n">thread_load_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">inverted_thread_load</span><span class="o">=</span><span class="n">thread_load_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="n">core_id_of_the_rq_containing_heaviest_load</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id_of_the_rq_containing_heaviest_load</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">dequeue_task_by_thread</span><span class="p">(</span>
+                    <span class="n">thread</span><span class="o">=</span><span class="n">heaviest_thread</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">enqueue_task</span><span class="p">(</span><span class="n">thread</span><span class="o">=</span><span class="n">heaviest_thread</span><span class="p">)</span>
+
+            <span class="c1"># self.cores[core_id].runqueue.recalculate_cpu_requests_shares()</span>
+
+        <span class="n">time2</span> <span class="o">=</span> <span class="n">tt</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">Logger</span><span class="o">.</span><span class="n">lb_timer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time2</span> <span class="o">-</span> <span class="n">time1</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CPU.recalculate_cpu_requests_shares">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.recalculate_cpu_requests_shares">[docs]</a>
+    <span class="k">def</span> <span class="nf">recalculate_cpu_requests_shares</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Recalculate CPU requests shares</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">core_id</span><span class="p">,</span> <span class="n">core</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">):</span>
+            <span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">recalculate_cpu_requests_shares</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="CPU.kill_zombie_threads">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.kill_zombie_threads">[docs]</a>
+    <span class="k">def</span> <span class="nf">kill_zombie_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Kill zombie threads</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">transmission_time_recalculation_list</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">cores_killed_a_thread_in</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">thread</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">zombie_threads</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">thread</span><span class="o">.</span><span class="n">instructions</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;How is that even possible!?&quot;</span><span class="p">)</span>
+
+            <span class="n">cores_killed_a_thread_in</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">thread</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">id_in_cpu</span><span class="p">)</span>
+            <span class="n">thread</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">thread</span><span class="o">.</span><span class="n">parent_request</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">thread</span><span class="o">.</span><span class="n">parent_request</span><span class="o">.</span><span class="n">current_active_threads</span><span class="p">[</span><span class="n">thread</span><span class="o">.</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">thread</span><span class="o">.</span><span class="n">parent_request</span><span class="o">.</span><span class="n">current_active_threads</span><span class="p">[</span><span class="n">thread</span><span class="o">.</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">calc_todo</span> <span class="o">=</span> <span class="n">thread</span><span class="o">.</span><span class="n">parent_request</span><span class="o">.</span><span class="n">init_transmission</span><span class="p">(</span><span class="n">node_in_alt_graph</span><span class="o">=</span><span class="n">thread</span><span class="o">.</span><span class="n">node_in_alt_graph</span><span class="p">)</span>
+                <span class="n">transmission_time_recalculation_list</span><span class="p">[</span><span class="n">thread</span><span class="o">.</span><span class="n">parent_request</span><span class="p">]</span> <span class="o">=</span> <span class="n">calc_todo</span>
+            <span class="k">elif</span> <span class="n">thread</span><span class="o">.</span><span class="n">parent_request</span><span class="o">.</span><span class="n">current_active_threads</span><span class="p">[</span><span class="n">thread</span><span class="o">.</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;What the hell is going on here? Number of active threads in subchain id #&quot;</span> <span class="o">+</span>
+                                <span class="nb">str</span><span class="p">(</span><span class="n">thread</span><span class="o">.</span><span class="n">subchain_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; belonging to request &quot;</span> <span class="o">+</span>
+                                <span class="nb">str</span><span class="p">(</span><span class="n">thread</span><span class="o">.</span><span class="n">parent_request</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; is less than zero !!!!&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">zombie_threads</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">transmission_time_recalculation_list</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># TODO: do we really need to recalculate transmission bw on ALL LINKS? Isn&#39;t it enough to recalculate for a</span>
+            <span class="c1">#  subset of links only?</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">recalculate_transmissions_bw_on_all_links</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="CPU.plot">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.plot">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plot the CPU requests share and threads count on run queues</span>
+
+<span class="sd">        :param save_dir:</span>
+<span class="sd">        :param show:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">share_events</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">thread_events</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="mi">1000000000</span>  <span class="c1">#: 1s</span>
+        <span class="n">_share_events</span> <span class="o">=</span> <span class="n">SortedDict</span><span class="p">(</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">))</span>
+        <span class="n">_threads_events</span> <span class="o">=</span> <span class="n">SortedDict</span><span class="p">(</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thread_events</span><span class="p">))</span>
+        <span class="n">timerange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="n">step</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">step</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">core_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">))</span>
+
+        <span class="n">df_share</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">_share_events</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+        <span class="n">df_threads</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">_threads_events</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">time_range</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">timerange</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">time_range</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_share_events</span><span class="p">:</span>
+                <span class="n">get_last_share</span> <span class="o">=</span> <span class="n">df_share</span><span class="p">[</span><span class="n">df_share</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">time_range</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">get_last_threads_count</span> <span class="o">=</span> <span class="n">df_threads</span><span class="p">[</span><span class="n">df_threads</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">time_range</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+                <span class="n">_share_events</span><span class="p">[</span><span class="n">time_range</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">_threads_events</span><span class="p">[</span><span class="n">time_range</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+                <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="n">core_range</span><span class="p">:</span>
+                    <span class="n">_share_events</span><span class="p">[</span><span class="n">time_range</span><span class="p">][</span><span class="n">core</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_last_share</span><span class="p">[</span><span class="n">core</span><span class="p">]</span>
+                    <span class="n">_threads_events</span><span class="p">[</span><span class="n">time_range</span><span class="p">][</span><span class="n">core</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_last_threads_count</span><span class="p">[</span><span class="n">core</span><span class="p">]</span>
+
+        <span class="n">share_events_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">_share_events</span><span class="p">)</span>
+        <span class="n">share_events_list_items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">_share_events</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+        <span class="n">thread_events_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">_threads_events</span><span class="p">)</span>
+        <span class="n">thread_events_list_items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">_threads_events</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+        <span class="n">event_number</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># step = 1000000  #: 1ms</span>
+        <span class="n">current_event_time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">xaxis_nticks</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">yaxis_nticks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">current_event_time</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">if</span> <span class="n">current_event_time</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="k">else</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">time_range</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">timerange</span><span class="p">):</span>
+            <span class="n">xaxis_nticks</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">current_range_end</span> <span class="o">=</span> <span class="n">time_range</span> <span class="o">+</span> <span class="n">step</span>
+
+            <span class="k">while</span> <span class="n">event_number</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">share_events_list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">share_events_list</span><span class="p">[</span><span class="n">event_number</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">current_range_end</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">time_range</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">share_events</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">share_events</span><span class="p">[</span><span class="n">time_range</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">core_id</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">core_id</span> <span class="ow">in</span> <span class="n">core_range</span><span class="p">}</span>
+                    <span class="n">thread_events</span><span class="p">[</span><span class="n">time_range</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">core_id</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">core_id</span> <span class="ow">in</span> <span class="n">core_range</span><span class="p">}</span>
+
+                <span class="n">time_weight</span> <span class="o">=</span> <span class="p">(</span><span class="n">share_events_list</span><span class="p">[</span><span class="n">event_number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">share_events_list</span><span class="p">[</span><span class="n">event_number</span><span class="p">])</span> <span class="o">/</span> <span class="n">step</span>
+
+                <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="n">core_range</span><span class="p">:</span>
+                    <span class="n">share_events</span><span class="p">[</span><span class="n">time_range</span><span class="p">][</span><span class="n">core</span><span class="p">]</span> <span class="o">+=</span> <span class="n">share_events_list_items</span><span class="p">[</span><span class="n">event_number</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="n">core</span><span class="p">]</span> <span class="o">*</span> <span class="n">time_weight</span>
+                    <span class="n">thread_events</span><span class="p">[</span><span class="n">time_range</span><span class="p">][</span><span class="n">core</span><span class="p">]</span> <span class="o">+=</span> <span class="n">thread_events_list_items</span><span class="p">[</span><span class="n">event_number</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="n">core</span><span class="p">]</span> <span class="o">*</span> <span class="n">time_weight</span>
+
+                <span class="n">event_number</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">a</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">))]</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">))]</span>
+
+        <span class="n">step_id</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">value1</span> <span class="ow">in</span> <span class="n">share_events</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">core_id</span><span class="p">,</span> <span class="n">value2</span> <span class="ow">in</span> <span class="n">value1</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">core_id</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">step_id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">a</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value2</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">a</span><span class="p">[</span><span class="n">core_id</span><span class="p">][</span><span class="n">step_id</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value2</span><span class="p">)</span>
+            <span class="n">step_id</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">step_id</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">value1</span> <span class="ow">in</span> <span class="n">thread_events</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">core_id</span><span class="p">,</span> <span class="n">value2</span> <span class="ow">in</span> <span class="n">value1</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">core_id</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">step_id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">b</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value2</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">b</span><span class="p">[</span><span class="n">core_id</span><span class="p">][</span><span class="n">step_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">value2</span>
+            <span class="n">step_id</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">fig_share</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Time (in secs)&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Core ID&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Average CPU Requests Share&quot;</span><span class="p">),</span>
+                              <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+        <span class="n">fig_threads</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Time (in secs)&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Core ID&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Threads count&quot;</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+
+        <span class="n">fig_share</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Average cpu_requests_share load on run queues for host &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                <span class="n">xaxis_nticks</span><span class="o">=</span><span class="n">xaxis_nticks</span><span class="p">,</span>
+                                <span class="n">yaxis_nticks</span><span class="o">=</span><span class="n">yaxis_nticks</span><span class="p">,</span>
+                                <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">tickmode</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="n">tickvals</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">xaxis_nticks</span><span class="p">))),</span>
+                                <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">tickmode</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="n">tickvals</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">yaxis_nticks</span><span class="p">))))</span>
+
+        <span class="n">fig_threads</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Average threads count on run queues for host &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                  <span class="n">xaxis_nticks</span><span class="o">=</span><span class="n">xaxis_nticks</span><span class="p">,</span>
+                                  <span class="n">yaxis_nticks</span><span class="o">=</span><span class="n">yaxis_nticks</span><span class="p">,</span>
+                                  <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">tickmode</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="n">tickvals</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">xaxis_nticks</span><span class="p">))),</span>
+                                  <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">tickmode</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="n">tickvals</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">yaxis_nticks</span><span class="p">))))</span>
+
+        <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+            <span class="n">fig_share</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+            <span class="n">fig_threads</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">save_dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">Utils</span><span class="o">.</span><span class="n">mkdir_p</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span>
+                <span class="n">file_name1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">-threads-lb-cpu_requests_share.html&quot;</span>
+                <span class="n">file_name2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">-threads-lb-threads.html&quot;</span>
+                <span class="n">file_path1</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">file_name1</span><span class="p">)</span>
+                <span class="n">file_path2</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">file_name2</span><span class="p">)</span>
+                <span class="n">file_path3</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">-dashboard.html&quot;</span><span class="p">)</span>
+                <span class="n">fig_share</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="n">file_path1</span><span class="p">)</span>
+                <span class="n">fig_threads</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="n">file_path2</span><span class="p">)</span>
+                <span class="n">Plotter</span><span class="o">.</span><span class="n">figures_to_html</span><span class="p">(</span><span class="n">figs</span><span class="o">=</span><span class="p">[(</span><span class="n">file_name1</span><span class="p">,</span> <span class="n">fig_share</span><span class="p">),</span> <span class="p">(</span><span class="n">file_name2</span><span class="p">,</span> <span class="n">fig_threads</span><span class="p">)],</span> <span class="n">filename</span><span class="o">=</span><span class="n">file_path3</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">fig_share</span><span class="p">,</span> <span class="n">fig_threads</span><span class="p">]</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__update_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">_time</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thread_events</span><span class="p">[</span><span class="n">_time</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">core_id</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">)):</span>
+            <span class="n">nr</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">_time</span><span class="p">][</span><span class="n">core_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">load</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">thread_events</span><span class="p">[</span><span class="n">_time</span><span class="p">][</span><span class="n">core_id</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">core_id</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CPU.load_balance">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.load_balance">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load balance the CPU by balancing the threads among the runqueues</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">kill_zombie_threads</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">load_balancing_needed</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">is_active</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_balance_threads_among_runqueues</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">emergency_load_balance_idle_cores</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recalculate_cpu_requests_shares</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">log_cpu_events</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__update_events</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="CPU.add_to_pairs_sorted">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.add_to_pairs_sorted">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_to_pairs_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair_id</span><span class="p">,</span> <span class="n">inverted_pair_load</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add to pairs sorted dictionary</span>
+<span class="sd">        :param pair_id:</span>
+<span class="sd">        :param inverted_pair_load:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">inverted_pair_load</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span><span class="p">[</span><span class="n">inverted_pair_load</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pair_id</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span><span class="p">[</span><span class="n">inverted_pair_load</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">pair_id</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="CPU.add_to_threads_sorted">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.add_to_threads_sorted">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_to_threads_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">inverted_thread_load</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add to threads sorted dictionary</span>
+<span class="sd">        :param thread:</span>
+<span class="sd">        :param inverted_thread_load:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">inverted_thread_load</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">inverted_thread_load</span> <span class="o">=</span> <span class="n">thread</span><span class="o">.</span><span class="n">load</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">inverted_thread_load</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">thread</span><span class="o">.</span><span class="n">vruntime</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">[</span><span class="n">inverted_thread_load</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">[</span><span class="n">inverted_thread_load</span><span class="p">][</span><span class="n">thread</span><span class="o">.</span><span class="n">vruntime</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">[</span><span class="n">inverted_thread_load</span><span class="p">][</span><span class="n">thread</span><span class="o">.</span><span class="n">vruntime</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">thread</span><span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">[</span><span class="n">inverted_thread_load</span><span class="p">]</span> <span class="o">=</span> <span class="n">SortedDict</span><span class="p">({</span><span class="n">thread</span><span class="o">.</span><span class="n">vruntime</span><span class="p">:</span> <span class="p">{</span><span class="n">thread</span><span class="p">}})</span>
+
+        <span class="n">thread</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">add_to_lightest_threads_in_rq</span><span class="p">(</span><span class="n">thread</span><span class="o">=</span><span class="n">thread</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CPU.remove_from_pairs_sorted">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.remove_from_pairs_sorted">[docs]</a>
+    <span class="k">def</span> <span class="nf">remove_from_pairs_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair_id</span><span class="p">,</span> <span class="n">inverted_pair_load</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove from pairs sorted dictionary</span>
+
+<span class="sd">        :param pair_id:</span>
+<span class="sd">        :param inverted_pair_load:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">inverted_pair_load</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span><span class="p">[</span><span class="n">inverted_pair_load</span><span class="p">]</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">pair_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span><span class="p">[</span><span class="n">inverted_pair_load</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">pairs_sorted</span><span class="p">[</span><span class="n">inverted_pair_load</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="CPU.remove_from_threads_sorted">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.remove_from_threads_sorted">[docs]</a>
+    <span class="k">def</span> <span class="nf">remove_from_threads_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">inverted_thread_load</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove from threads sorted dictionary</span>
+
+<span class="sd">        :param thread:</span>
+<span class="sd">        :param inverted_thread_load:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">inverted_thread_load</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">inverted_thread_load</span> <span class="o">=</span> <span class="n">thread</span><span class="o">.</span><span class="n">load</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">inverted_thread_load</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">thread</span><span class="o">.</span><span class="n">vruntime</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">[</span><span class="n">inverted_thread_load</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">[</span><span class="n">inverted_thread_load</span><span class="p">][</span><span class="n">thread</span><span class="o">.</span><span class="n">vruntime</span><span class="p">]</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">[</span><span class="n">inverted_thread_load</span><span class="p">][</span><span class="n">thread</span><span class="o">.</span><span class="n">vruntime</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">[</span><span class="n">inverted_thread_load</span><span class="p">][</span><span class="n">thread</span><span class="o">.</span><span class="n">vruntime</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">[</span><span class="n">inverted_thread_load</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">threads_sorted</span><span class="p">[</span><span class="n">inverted_thread_load</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">thread</span><span class="o">.</span><span class="n">core</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">thread</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">remove_from_lightest_threads_in_rq</span><span class="p">(</span><span class="n">thread</span><span class="o">=</span><span class="n">thread</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Thread </span><span class="si">{</span><span class="n">thread</span><span class="si">}</span><span class="s2"> is not in threads_sorted[&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">thread</span><span class="o">.</span><span class="n">vruntime</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;] &quot;</span> <span class="o">+</span>
+                                 <span class="s2">&quot;(perhaps vruntime was changed without updating threads_sorted?)&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Thread </span><span class="si">{</span><span class="n">thread</span><span class="si">}</span><span class="s2"> is not in threads_sorted&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CPU.update_idle_pairs">
+<a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.update_idle_pairs">[docs]</a>
+    <span class="k">def</span> <span class="nf">update_idle_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update idle pairs in the CPU by checking the load of the cores in the pair</span>
+
+<span class="sd">        :param core:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">other_core_id_in_pair</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_the_other_core_in_pair</span><span class="p">(</span><span class="n">core_id</span><span class="o">=</span><span class="n">core</span><span class="o">.</span><span class="n">id_in_cpu</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">other_core_id_in_pair</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">other_core_in_pair</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">other_core_id_in_pair</span><span class="p">]</span>
+            <span class="n">total_active_threads_in_pair</span> <span class="o">=</span> \
+                <span class="nb">len</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span> <span class="o">+</span> \
+                <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">other_core_in_pair</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span> <span class="k">if</span> <span class="n">other_core_in_pair</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">total_active_threads_in_pair</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">total_active_threads_in_pair</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_pair_ids</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">pair_id</span><span class="p">]</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">id_in_cpu</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idle_core_pair_ids</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">pair_id</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">idle_pair_ids</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">pair_id</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_pair_ids</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">pair_id</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">id_in_cpu</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idle_pair_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">pair_id</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">id_in_cpu</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idle_core_ids</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">id_in_cpu</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">clock_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the clock rate of the CPU in Hertz</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clock_rate</span>
+
+    <span class="nd">@clock_rate</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">clock_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the clock rate of the CPU in Hertz and update the clock rate in nanohertz</span>
+
+<span class="sd">        :param value:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clock_rate</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clock_rate_in_nanohertz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_clock_rate_in_nanohertz</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">clock_rate_in_nanohertz</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the clock rate of the CPU in nanohertz</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clock_rate_in_nanohertz</span>
+
+    <span class="nd">@clock_rate_in_nanohertz</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">clock_rate_in_nanohertz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the clock rate of the CPU in nanohertz</span>
+
+<span class="sd">        :param value:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;clock_rate_in_nanohertz is read-only! Set clock_rate instead.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        String representation of the CPU</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

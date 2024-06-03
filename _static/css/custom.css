@@ -1,0 +1,7 @@
+/*div.body h2 {*/
+/*    font-size: 170%;*/
+/*}*/
+
+.logo__image.only-dark {
+    content: url('../../_static/perfsim-logo-dark.png');
+}

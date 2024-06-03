@@ -1,0 +1,3168 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <script src="_static/js/custom.js"></script>
+    <link rel="icon" href="_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="perfsim.html">perfsim</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.action_space">action_space (perfsim.environment.settings.Settings attribute)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.action_spaces">action_spaces (perfsim.environment.settings.Settings attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster_scheduler.ClusterScheduler.active_hosts">active_hosts (perfsim.cluster_scheduler.ClusterScheduler attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster_scheduler.ClusterScheduler.active_threads">active_threads (perfsim.cluster_scheduler.ClusterScheduler attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.active_threads">(perfsim.equipments.run_queue.RunQueue attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.process.Process.active_threads_count">active_threads_count (perfsim.service_chain.process.Process property)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.active_transmissions">active_transmissions (perfsim.prototypes.topology_prototype.TopologyPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.thread_set.ThreadSet.add">add() (perfsim.service_chain.thread_set.ThreadSet method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.add_edge">add_edge() (perfsim.prototypes.topology_prototype.TopologyPrototype method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.add_edges_from">add_edges_from() (perfsim.prototypes.topology_prototype.TopologyPrototype method)</a>
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain.add_edges_from">(perfsim.service_chain.service_chain.ServiceChain method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.microservice_prototype.MicroservicePrototype.add_endpoint_function_prototype">add_endpoint_function_prototype() (perfsim.prototypes.microservice_prototype.MicroservicePrototype method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.add_equipments">add_equipments() (perfsim.prototypes.topology_prototype.TopologyPrototype method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.add_host_affinity_with">add_host_affinity_with() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.add_host_anti_affinity_with">add_host_anti_affinity_with() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.add_microservice_affinity_with">add_microservice_affinity_with() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.add_microservice_anti_affinity_with">add_microservice_anti_affinity_with() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain.add_node">add_node() (perfsim.service_chain.service_chain.ServiceChain method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain.add_nodes_from">add_nodes_from() (perfsim.service_chain.service_chain.ServiceChain method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype.add_threads">add_threads() (perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.add_to_lightest_threads_in_rq">add_to_lightest_threads_in_rq() (perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.add_to_pairs_sorted">add_to_pairs_sorted() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.add_to_threads_sorted">add_to_threads_sorted() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.cluster_prototype.ClusterPrototype.affinity_prototypes_dict">affinity_prototypes_dict (perfsim.prototypes.cluster_prototype.ClusterPrototype attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.affinity_prototypes_dict">(perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.affinity_prototypes_dict">(perfsim.simulation.Simulation attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario.affinity_scenarios">affinity_scenarios (perfsim.scenario.simulation_scenario.SimulationScenario attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.affinity_prototype.AffinityPrototype">AffinityPrototype (class in perfsim.prototypes.affinity_prototype)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.affinity_scenario.AffinityScenario">AffinityScenario (class in perfsim.scenario.affinity_scenario)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_calling_is_there_a_thread_that_ends_sooner_function">after_calling_is_there_a_thread_that_ends_sooner_function (perfsim.observers.cluster_log_observer.ClusterLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_completing_load_generation">after_completing_load_generation (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.observers.html#perfsim.observers.results_observer.ResultsObserver.after_completing_load_generation">(perfsim.observers.results_observer.ResultsObserver attribute)</a>
+</li>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.after_completing_load_generation">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_estimating_time_of_next_event">after_estimating_time_of_next_event (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.after_estimating_time_of_next_event">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.after_executing_thread">after_executing_thread (perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.observers.html#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.after_executing_thread">(perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver attribute)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.after_executing_thread">(perfsim.service_chain.replica_thread.ReplicaThread attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.observers.html#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_finish_running_a_thread">after_finish_running_a_thread (perfsim.observers.cluster_log_observer.ClusterLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_finish_running_threads_on_a_host">after_finish_running_threads_on_a_host (perfsim.observers.cluster_log_observer.ClusterLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver.after_finish_transmission">after_finish_transmission (perfsim.observers.request_log_observer.RequestLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.after_finish_transmission">(perfsim.traffic.request.Request attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_generate_request_threads">after_generate_request_threads (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.after_generate_request_threads">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver.after_init_next_microservices">after_init_next_microservices (perfsim.observers.request_log_observer.RequestLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.after_init_next_microservices">(perfsim.traffic.request.Request attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver.after_init_transmission">after_init_transmission (perfsim.observers.request_log_observer.RequestLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.after_init_transmission">(perfsim.traffic.request.Request attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_next_batch_arrival_time_calculation">after_next_batch_arrival_time_calculation (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.after_next_batch_arrival_time_calculation">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_requests_start">after_requests_start (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.after_requests_start">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.after_transmission_estimation">after_transmission_estimation (perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_transmit_requests_in_network_and_load_balancing_threads">after_transmit_requests_in_network_and_load_balancing_threads (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.after_transmit_requests_in_network_and_load_balancing_threads">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_transmitting_an_active_transmission">after_transmitting_an_active_transmission (perfsim.observers.cluster_log_observer.ClusterLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.placement_scenario.PlacementScenario.algorithm">algorithm (perfsim.scenario.placement_scenario.PlacementScenario attribute)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.placement_algorithm.PlacementAlgorithm.algorithm_name">algorithm_name (perfsim.placement.placement_algorithm.PlacementAlgorithm property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.alternative_graph">alternative_graph (perfsim.service_chain.service_chain_manager.ServiceChainManager attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_CPU_FREE_TIER_VPU_SEC_PER_MONTH">ALWAYS_ALLOC_CPU_FREE_TIER_VPU_SEC_PER_MONTH (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_CPU_PRICE_PER_VCPU_SEC">ALWAYS_ALLOC_CPU_PRICE_PER_VCPU_SEC (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_MEM_FREE_TIER_GB_SEC_PER_MONTH">ALWAYS_ALLOC_MEM_FREE_TIER_GB_SEC_PER_MONTH (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_MEM_PRICE_PER_GB_SEC">ALWAYS_ALLOC_MEM_PRICE_PER_GB_SEC (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.app">app (perfsim.environment.perfsim_server.PerfSimServer attribute)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.args">args (perfsim.environment.settings.Settings attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.arrival_interval_ns">arrival_interval_ns (perfsim.prototypes.traffic_prototype.TrafficPrototype property)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.arrival_table">arrival_table (perfsim.prototypes.traffic_prototype.TrafficPrototype property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict.arrival_times">arrival_times (perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict attribute)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.arrivals">arrivals (perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.assign_cpu_requests_share">assign_cpu_requests_share() (perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.observable.Observable.attach_observer">attach_observer() (perfsim.observers.observable.Observable method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict.avg_latency">avg_latency (perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.bandwidth">bandwidth (perfsim.equipments.nic.Nic attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.bandwidth_requests_total">bandwidth_requests_total (perfsim.equipments.nic.Nic attribute)</a>
+</li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.base_dir">base_dir (perfsim.drivers.file_storage_driver.FileStorageDriver attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.base_prototype.BasePrototype">BasePrototype (class in perfsim.prototypes.base_prototype)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_calling_is_there_a_thread_that_ends_sooner_function">before_calling_is_there_a_thread_that_ends_sooner_function (perfsim.observers.cluster_log_observer.ClusterLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_checking_a_thread_ends_sooner">before_checking_a_thread_ends_sooner (perfsim.observers.cluster_log_observer.ClusterLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver.before_concluding_request">before_concluding_request (perfsim.observers.request_log_observer.RequestLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.before_concluding_request">(perfsim.traffic.request.Request attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_exec_time_estimation">before_exec_time_estimation (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.before_exec_time_estimation">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.before_executing_thread">before_executing_thread (perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.observers.html#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.before_executing_thread">(perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver attribute)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.before_executing_thread">(perfsim.service_chain.replica_thread.ReplicaThread attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_executing_threads">before_executing_threads (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.before_executing_threads">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver.before_finalizing_subchain">before_finalizing_subchain (perfsim.observers.request_log_observer.RequestLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.before_finalizing_subchain">(perfsim.traffic.request.Request attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver.before_finish_transmission">before_finish_transmission (perfsim.observers.request_log_observer.RequestLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.before_finish_transmission">(perfsim.traffic.request.Request attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_generate_request_threads">before_generate_request_threads (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.before_generate_request_threads">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_generate_threads">before_generate_threads (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.before_generate_threads">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver.before_init_next_microservices">before_init_next_microservices (perfsim.observers.request_log_observer.RequestLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.before_init_next_microservices">(perfsim.traffic.request.Request attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver.before_init_transmission">before_init_transmission (perfsim.observers.request_log_observer.RequestLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.before_init_transmission">(perfsim.traffic.request.Request attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.before_killing_thread">before_killing_thread (perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.observers.html#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.before_killing_thread">(perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver attribute)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.before_killing_thread">(perfsim.service_chain.replica_thread.ReplicaThread attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_load_balancing_a_host">before_load_balancing_a_host (perfsim.observers.cluster_log_observer.ClusterLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.topology.Topology.before_recalculate_transmissions_bw_on_all_links">before_recalculate_transmissions_bw_on_all_links (perfsim.equipments.topology.Topology attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.observers.html#perfsim.observers.topology_log_ovserver.TopologyLogObserver.before_recalculate_transmissions_bw_on_all_links">(perfsim.observers.topology_log_ovserver.TopologyLogObserver attribute)</a>
+</li>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.before_recalculate_transmissions_bw_on_all_links">(perfsim.prototypes.topology_prototype.TopologyPrototype attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_request_created">before_request_created (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.before_request_created">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_requests_start">before_requests_start (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.before_requests_start">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_traffic_start">before_traffic_start (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.before_traffic_start">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_transmit_requests_in_network">before_transmit_requests_in_network (perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.before_transmit_requests_in_network">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_transmitting_requests_in_network">before_transmitting_requests_in_network (perfsim.observers.cluster_log_observer.ClusterLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.best_effort_active_threads">best_effort_active_threads (perfsim.equipments.run_queue.RunQueue attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cost_events_dict.CostEventsDict.best_effort_periods">best_effort_periods (perfsim.equipments.cost_events_dict.CostEventsDict attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.blkio_capacity">blkio_capacity (perfsim.service_chain.microservice.Microservice attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.burstable_active_threads">burstable_active_threads (perfsim.equipments.run_queue.RunQueue attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.burstable_limited_active_threads">burstable_limited_active_threads (perfsim.equipments.run_queue.RunQueue attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.burstable_unlimited_active_threads">burstable_unlimited_active_threads (perfsim.equipments.run_queue.RunQueue attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.calculate_average_latency_in_seconds">calculate_average_latency_in_seconds() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.calculate_requested_bw">calculate_requested_bw() (perfsim.traffic.transmission.Transmission method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.calculate_transmission_time">calculate_transmission_time() (perfsim.equipments.nic.Nic method)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.calculate_transmission_time">(perfsim.traffic.transmission.Transmission method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.event_observer.EventObserver.callable">callable (perfsim.observers.event_observer.EventObserver attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.capacity">capacity (perfsim.equipments.cpu.CPU property)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource.capacity">(perfsim.equipments.resource.Resource attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.categorize_thread_into_sets">categorize_thread_into_sets() (perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.chunks">chunks (perfsim.environment.settings.Settings attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.results_storage_driver_dict.ResultsStorageDriverDict.classpath">classpath (perfsim.scenario.results_storage_driver_dict.ResultsStorageDriverDict attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.clock_rate">clock_rate (perfsim.equipments.cpu.CPU property)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.clock_rate_in_nanohertz">clock_rate_in_nanohertz (perfsim.equipments.cpu.CPU property)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster">Cluster (class in perfsim.cluster)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster_scheduler.ClusterScheduler.cluster">cluster (perfsim.cluster_scheduler.ClusterScheduler attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.cluster">(perfsim.equipments.host.Host property)</a>
+</li>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.cluster">(perfsim.simulation.Simulation attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.cluster_scheduler">cluster_scheduler (perfsim.cluster.Cluster attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.cluster_log_observer.ClusterLogObserver">ClusterLogObserver (class in perfsim.observers.cluster_log_observer)</a>
+</li>
+      <li><a href="perfsim.exceptions.html#perfsim.exceptions.cluster_overloaded_error.ClusterOverloadedError">ClusterOverloadedError</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.cluster_prototype.ClusterPrototype">ClusterPrototype (class in perfsim.prototypes.cluster_prototype)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster_scheduler.ClusterScheduler">ClusterScheduler (class in perfsim.cluster_scheduler)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.columns">columns (perfsim.environment.settings.Settings attribute)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.completed_requests">completed_requests (perfsim.traffic.load_generator.LoadGenerator property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict.completion_times">completion_times (perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict attribute)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.compute_times">compute_times (perfsim.traffic.request.Request property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.conclude">conclude() (perfsim.traffic.request.Request method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.concurrent_requests_per_container">concurrent_requests_per_container (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.configure_routes">configure_routes() (perfsim.environment.perfsim_server.PerfSimServer method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.connect_host">connect_host() (perfsim.equipments.router.Router method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.connect_router">connect_router() (perfsim.equipments.router.Router method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.plotter.Plotter.convert_networkx_graph_to_cytoscape_json">convert_networkx_graph_to_cytoscape_json() (perfsim.helpers.plotter.Plotter static method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.copy_sim_scenarios_to_dict">copy_sim_scenarios_to_dict() (perfsim.simulation.Simulation static method)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.placement_algorithm.PlacementAlgorithm.copy_to_dict">copy_to_dict() (perfsim.placement.placement_algorithm.PlacementAlgorithm static method)</a>
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.affinity_prototype.AffinityPrototype.copy_to_dict">(perfsim.prototypes.affinity_prototype.AffinityPrototype static method)</a>
+</li>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.copy_to_dict">(perfsim.prototypes.topology_prototype.TopologyPrototype static method)</a>
+</li>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.copy_to_dict">(perfsim.prototypes.traffic_prototype.TrafficPrototype static method)</a>
+</li>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.resource_allocation_scenario.ResourceAllocationScenario.copy_to_dict">(perfsim.scenario.resource_allocation_scenario.ResourceAllocationScenario static method)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain.copy_to_dict">(perfsim.service_chain.service_chain.ServiceChain static method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.core.Core">Core (class in perfsim.equipments.core)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.core">core (perfsim.equipments.run_queue.RunQueue attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.core">(perfsim.service_chain.replica_thread.ReplicaThread property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cost_events_dict.CostEventsDict.core_reserved_periods">core_reserved_periods (perfsim.equipments.cost_events_dict.CostEventsDict attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.core_sorting_timer">core_sorting_timer (perfsim.helpers.logger.Logger attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.core_log_observer.CoreLogObserver">CoreLogObserver (class in perfsim.observers.core_log_observer)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.cores">cores (perfsim.equipments.cpu.CPU attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cost_dict.CostDict.cost_best_effort_per_minute">cost_best_effort_per_minute (perfsim.equipments.cost_dict.CostDict attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.host_prototype.HostPrototype.cost_dict">cost_dict (perfsim.prototypes.host_prototype.HostPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.cost_events">cost_events (perfsim.equipments.host.Host attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cost_dict.CostDict.cost_extra_per_minute">cost_extra_per_minute (perfsim.equipments.cost_dict.CostDict attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.cost_for_always_allocated_instance">cost_for_always_allocated_instance() (perfsim.helpers.cost_calculator.CostCalculator static method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.cost_for_only_allocated_during_request_instance">cost_for_only_allocated_during_request_instance() (perfsim.helpers.cost_calculator.CostCalculator static method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cost_dict.CostDict.cost_per_core_per_minute">cost_per_core_per_minute (perfsim.equipments.cost_dict.CostDict attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cost_dict.CostDict.cost_per_gb_per_minute">cost_per_gb_per_minute (perfsim.equipments.cost_dict.CostDict attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cost_dict.CostDict.cost_start_up">cost_start_up (perfsim.equipments.cost_dict.CostDict attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator">CostCalculator (class in perfsim.helpers.cost_calculator)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cost_dict.CostDict">CostDict (class in perfsim.equipments.cost_dict)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cost_events_dict.CostEventsDict">CostEventsDict (class in perfsim.equipments.cost_events_dict)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.count_total_service_edges">count_total_service_edges() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU">CPU (class in perfsim.equipments.cpu)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.cpu">cpu (perfsim.equipments.host.Host attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.cpu_limits">cpu_limits (perfsim.service_chain.microservice.Microservice property)</a>
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.process.Process.cpu_limits">(perfsim.service_chain.process.Process property)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.cpu_limits">(perfsim.service_chain.replica_thread.ReplicaThread property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.cpu_requests">cpu_requests (perfsim.service_chain.microservice.Microservice property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.process.Process.cpu_requests_share">cpu_requests_share (perfsim.service_chain.process.Process property)</a>
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.cpu_requests_share">(perfsim.service_chain.replica_thread.ReplicaThread property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.cpu_log_observer.CPULogObserver">CPULogObserver (class in perfsim.observers.cpu_log_observer)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.create_scenario_manager">create_scenario_manager() (perfsim.environment.perfsim_server.PerfSimServer method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.current_bw">current_bw (perfsim.traffic.transmission.Transmission property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.current_nodes">current_nodes (perfsim.traffic.request.Request property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.current_replicas_in_nodes">current_replicas_in_nodes (perfsim.traffic.request.Request property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.data">data (perfsim.environment.settings.Settings attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.debug_dict.DebugDict.debug">debug (perfsim.helpers.debug_dict.DebugDict attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario.debug">(perfsim.scenario.simulation_scenario.SimulationScenario attribute)</a>
+</li>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.debug">(perfsim.simulation.Simulation property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.debug_dict.DebugDict.debug_file_location">debug_file_location (perfsim.helpers.debug_dict.DebugDict attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.debug_file_location">(perfsim.simulation.Simulation property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.debug_dict.DebugDict.debug_level">debug_level (perfsim.helpers.debug_dict.DebugDict attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.debug_level">(perfsim.simulation.Simulation property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.debug_dict.DebugDict">DebugDict (class in perfsim.helpers.debug_dict)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.decategorize_thread_from_sets">decategorize_thread_from_sets() (perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.DEFAULT_DEBUG_FILE_LOCATION">DEFAULT_DEBUG_FILE_LOCATION (perfsim.simulation.Simulation attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.DEFAULT_DEBUG_LEVEL">DEFAULT_DEBUG_LEVEL (perfsim.simulation.Simulation attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.DEFAULT_LOG_CPU_EVENTS">DEFAULT_LOG_CPU_EVENTS (perfsim.simulation.Simulation attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.DEFAULT_LOG_TIMELINE">DEFAULT_LOG_TIMELINE (perfsim.simulation.Simulation attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.delete_host_affinity_with">delete_host_affinity_with() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.delete_host_anti_affinity_with">delete_host_anti_affinity_with() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.delete_microservice_affinity_with">delete_microservice_affinity_with() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.delete_microservice_anti_affinity_with">delete_microservice_anti_affinity_with() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.dequeue_task_by_thread">dequeue_task_by_thread() (perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.dequeue_task_by_thread_index">dequeue_task_by_thread_index() (perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.dest_nic">dest_nic (perfsim.traffic.transmission.Transmission property)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.observable.Observable.detach_observer">detach_observer() (perfsim.observers.observable.Observable method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.disconnect_host">disconnect_host() (perfsim.equipments.router.Router method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.disconnect_router">disconnect_router() (perfsim.equipments.router.Router method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.dismiss_bw">dismiss_bw() (perfsim.equipments.nic.Nic method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.draw">draw() (perfsim.prototypes.topology_prototype.TopologyPrototype method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.draw_all_service_chains">draw_all_service_chains() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.draw_alternative_graph">draw_alternative_graph() (perfsim.service_chain.service_chain_manager.ServiceChainManager method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_figures">draw_figures() (perfsim.helpers.plotter.Plotter static method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_graph">draw_graph() (perfsim.helpers.plotter.Plotter static method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.draw_service_chain">draw_service_chain() (perfsim.service_chain.service_chain_manager.ServiceChainManager method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_timeline_graph">draw_timeline_graph() (perfsim.helpers.plotter.Plotter static method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_topology">draw_topology() (perfsim.helpers.plotter.Plotter static method)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.results_storage_driver_dict.ResultsStorageDriverDict.driver_class">driver_class (perfsim.scenario.results_storage_driver_dict.ResultsStorageDriverDict attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.duration">duration (perfsim.prototypes.traffic_prototype.TrafficPrototype property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.egress_bw">egress_bw (perfsim.service_chain.microservice.Microservice attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.egress_err">egress_err (perfsim.prototypes.topology_prototype.TopologyPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.router_prototype.RouterPrototype.egress_ingress_original_bw">egress_ingress_original_bw (perfsim.prototypes.router_prototype.RouterPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.egress_latency">egress_latency (perfsim.service_chain.microservice.Microservice attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.emergency_load_balance_idle_cores">emergency_load_balance_idle_cores() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype">endpoint_function_prototype (perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype_name">endpoint_function_prototype_name (perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.microservice_prototype.MicroservicePrototype.endpoint_function_prototypes_dict">endpoint_function_prototypes_dict (perfsim.prototypes.microservice_prototype.MicroservicePrototype property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.endpoint_functions">endpoint_functions (perfsim.service_chain.microservice.Microservice attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.enqueue_task">enqueue_task() (perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.enqueue_tasks">enqueue_tasks() (perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.equipment.Equipment">Equipment (class in perfsim.equipments.equipment)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.equipment">equipment (perfsim.equipments.nic.Nic attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict.estimated_cost">estimated_cost (perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.event.Event">Event (class in perfsim.observers.event)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.event_observer.EventObserver">EventObserver (class in perfsim.observers.event_observer)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.event_observer.EventObserver.events">events (perfsim.observers.event_observer.EventObserver property)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.evict_replica">evict_replica() (perfsim.equipments.host.Host method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.exec">exec() (perfsim.service_chain.replica_thread.ReplicaThread method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.core.Core.exec_threads">exec_threads() (perfsim.equipments.core.Core method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.execute_traffic">execute_traffic() (perfsim.traffic.load_generator.LoadGenerator method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.extract_subchains">extract_subchains() (perfsim.service_chain.service_chain_manager.ServiceChainManager method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.plotter.Plotter.figures_to_html">figures_to_html() (perfsim.helpers.plotter.Plotter static method)</a>
+</li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver">FileStorageDriver (class in perfsim.drivers.file_storage_driver)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.finalize_subchain">finalize_subchain() (perfsim.traffic.request.Request method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.finish">finish() (perfsim.traffic.transmission.Transmission method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.finish_transmission">finish_transmission() (perfsim.traffic.request.Request method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.finish_transmission_by_subchain_id">finish_transmission_by_subchain_id() (perfsim.traffic.request.Request method)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.first_fit.FirstFit.first_fit">first_fit() (perfsim.placement.first_fit.FirstFit static method)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.first_fit_decreasing.FirstFitDecreasing.first_fit_decreasing">first_fit_decreasing() (perfsim.placement.first_fit_decreasing.FirstFitDecreasing method)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.first_fit.FirstFit">FirstFit (class in perfsim.placement.first_fit)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.first_fit_decreasing.FirstFitDecreasing">FirstFitDecreasing (class in perfsim.placement.first_fit_decreasing)</a>
+</li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver.from_config">from_config() (perfsim.drivers.results_storage_driver.ResultsStorageDriver static method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.from_config">(perfsim.equipments.host.Host static method)</a>
+</li>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.from_config">(perfsim.equipments.router.Router static method)</a>
+</li>
+        <li><a href="perfsim.placement.html#perfsim.placement.placement_algorithm.PlacementAlgorithm.from_config">(perfsim.placement.placement_algorithm.PlacementAlgorithm static method)</a>
+</li>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.affinity_prototype.AffinityPrototype.from_config">(perfsim.prototypes.affinity_prototype.AffinityPrototype static method)</a>
+</li>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.host_prototype.HostPrototype.from_config">(perfsim.prototypes.host_prototype.HostPrototype static method)</a>
+</li>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.microservice_prototype.MicroservicePrototype.from_config">(perfsim.prototypes.microservice_prototype.MicroservicePrototype static method)</a>
+</li>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.router_prototype.RouterPrototype.from_config">(perfsim.prototypes.router_prototype.RouterPrototype static method)</a>
+</li>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype.from_config">(perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype static method)</a>
+</li>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.from_config">(perfsim.prototypes.topology_prototype.TopologyPrototype static method)</a>
+</li>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.from_config">(perfsim.prototypes.traffic_prototype.TrafficPrototype static method)</a>
+</li>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.resource_allocation_scenario.ResourceAllocationScenario.from_config">(perfsim.scenario.resource_allocation_scenario.ResourceAllocationScenario static method)</a>
+</li>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario.from_config">(perfsim.scenario.simulation_scenario.SimulationScenario static method)</a>
+</li>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.from_config">(perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager class method)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain.from_config">(perfsim.service_chain.service_chain.ServiceChain static method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.from_config_file">from_config_file() (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager class method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.from_host_prototype">from_host_prototype() (perfsim.equipments.host.Host class method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.topology.Topology.from_prototype">from_prototype() (perfsim.equipments.topology.Topology class method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.topology_link.TopologyLink.from_prototype">(perfsim.equipments.topology_link.TopologyLink class method)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.from_prototype">(perfsim.service_chain.microservice.Microservice class method)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction.from_prototype">(perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction class method)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_link.ServiceChainLink.from_prototype">(perfsim.service_chain.service_chain_link.ServiceChainLink class method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.from_router_prototype">from_router_prototype() (perfsim.equipments.router.Router class method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.from_scenarios_manager">from_scenarios_manager() (perfsim.simulation.Simulation static method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.generate_alternative_graph">generate_alternative_graph() (perfsim.service_chain.service_chain_manager.ServiceChainManager method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.generate_random_instances">generate_random_instances() (perfsim.equipments.host.Host static method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica.generate_threads">generate_threads() (perfsim.service_chain.microservice_replica.MicroserviceReplica method)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.get_all_latencies">get_all_latencies() (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_available">get_available() (perfsim.equipments.cpu.CPU method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.get_available">(perfsim.equipments.nic.Nic method)</a>
+</li>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource.get_available">(perfsim.equipments.resource.Resource method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.get_bandwidth_on_link">get_bandwidth_on_link() (perfsim.traffic.transmission.Transmission static method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.get_best_effort_cpu_requests_share">get_best_effort_cpu_requests_share() (perfsim.service_chain.replica_thread.ReplicaThread method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_busiest_core_in_busiest_pair">get_busiest_core_in_busiest_pair() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_busiest_core_in_pair">get_busiest_core_in_pair() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_busiest_core_in_pair_by_core_id">get_busiest_core_in_pair_by_core_id() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.get_copy">get_copy() (perfsim.service_chain.service_chain_manager.ServiceChainManager static method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.core.Core.get_core_clock_cycle">get_core_clock_cycle() (perfsim.equipments.core.Core method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_core_pairs">get_core_pairs() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.process.Process.get_cpu_request_per_thread">get_cpu_request_per_thread() (perfsim.service_chain.process.Process method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.get_current_replicas_host_names">get_current_replicas_host_names() (perfsim.traffic.request.Request method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.get_current_replicas_names">get_current_replicas_names() (perfsim.traffic.request.Request method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.plotter.Plotter.get_cytoscape_template">get_cytoscape_template() (perfsim.helpers.plotter.Plotter static method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.get_exec_time_on_rq">get_exec_time_on_rq() (perfsim.service_chain.replica_thread.ReplicaThread method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_idle_core_in_sd">get_idle_core_in_sd() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.get_latencies_grouped_by_sfc">get_latencies_grouped_by_sfc() (perfsim.traffic.load_generator.LoadGenerator method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.get_latencies_summary">get_latencies_summary() (perfsim.helpers.logger.Logger method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.get_link_data">get_link_data() (perfsim.traffic.transmission.Transmission method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.get_next_nodes_names">get_next_nodes_names() (perfsim.traffic.request.Request static method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.get_next_replicas_host_names">get_next_replicas_host_names() (perfsim.traffic.request.Request method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.get_next_replicas_names">get_next_replicas_names() (perfsim.traffic.request.Request method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.get_nics_by_host">get_nics_by_host() (perfsim.equipments.router.Router method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.get_nics_by_router">get_nics_by_router() (perfsim.equipments.router.Router method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.topology_link.TopologyLink.get_node_from_dicts_by_name">get_node_from_dicts_by_name() (perfsim.equipments.topology_link.TopologyLink static method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.get_node_names">get_node_names() (perfsim.traffic.request.Request method)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.get_obj">get_obj() (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager static method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.base_prototype.BasePrototype.get_prototypes">get_prototypes() (perfsim.prototypes.base_prototype.BasePrototype static method)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.get_random_chunk">get_random_chunk() (perfsim.environment.settings.Settings static method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.get_relative_guaranteed_cpu_requests_share">get_relative_guaranteed_cpu_requests_share() (perfsim.service_chain.replica_thread.ReplicaThread method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_sched_domains">get_sched_domains() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.get_space">get_space() (in module perfsim.environment.settings)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_the_other_core_in_pair">get_the_other_core_in_pair() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.ram_set.RamSet.get_transfer_time_in_ns">get_transfer_time_in_ns() (perfsim.equipments.ram_set.RamSet method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.storage.Storage.get_transfer_time_in_ns">(perfsim.equipments.storage.Storage method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource.get_utilization">get_utilization() (perfsim.equipments.resource.Resource method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.guaranteed_active_threads">guaranteed_active_threads (perfsim.equipments.run_queue.RunQueue attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.handler">handler (perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host">Host (class in perfsim.equipments.host)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.host">host (perfsim.environment.perfsim_server.PerfSimServer property)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.host">(perfsim.equipments.cpu.CPU attribute)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica.host">(perfsim.service_chain.microservice_replica.MicroserviceReplica property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.host_affinity_rules">host_affinity_rules (perfsim.service_chain.microservice.Microservice property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.host_antiaffinity_rules">host_antiaffinity_rules (perfsim.service_chain.microservice.Microservice property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.host_prototypes_dict">host_prototypes_dict (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.host_prototype.HostPrototype">HostPrototype (class in perfsim.prototypes.host_prototype)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.hosts">hosts (perfsim.equipments.router.Router attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.TopologyEquipmentSet.hosts">(perfsim.scenario.simulation_scenario_manager.TopologyEquipmentSet attribute)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.hosts">(perfsim.service_chain.microservice.Microservice property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.html#perfsim.cluster_scheduler.ClusterScheduler.hosts_dict">hosts_dict (perfsim.cluster_scheduler.ClusterScheduler attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.hosts_dict">(perfsim.prototypes.topology_prototype.TopologyPrototype attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.html#perfsim.cluster_scheduler.ClusterScheduler.hosts_need_load_balancing">hosts_need_load_balancing (perfsim.cluster_scheduler.ClusterScheduler attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.id">id (perfsim.traffic.request.Request attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.core.Core.id_in_cpu">id_in_cpu (perfsim.equipments.core.Core attribute)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.id_in_iteration">id_in_iteration (perfsim.traffic.request.Request attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.idle_core_ids">idle_core_ids (perfsim.equipments.cpu.CPU attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.idle_core_pair_ids">idle_core_pair_ids (perfsim.equipments.cpu.CPU attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.idle_pair_ids">idle_pair_ids (perfsim.equipments.cpu.CPU attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.cluster_log_observer.ClusterLogObserver.in_transmitting_an_active_transmission">in_transmitting_an_active_transmission (perfsim.observers.cluster_log_observer.ClusterLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.index">index (perfsim.environment.settings.Settings attribute)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.indices">indices (perfsim.environment.settings.Settings attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.ingress_bw">ingress_bw (perfsim.service_chain.microservice.Microservice attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.ingress_err">ingress_err (perfsim.prototypes.topology_prototype.TopologyPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.ingress_latency">ingress_latency (perfsim.service_chain.microservice.Microservice attribute)</a>
+</li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.init_neptune">init_neptune() (perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.init_next_microservices">init_next_microservices() (perfsim.traffic.request.Request method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.init_transmission">init_transmission() (perfsim.traffic.request.Request method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.instructions">instructions (perfsim.service_chain.replica_thread.ReplicaThread property)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.is_active">is_active() (perfsim.equipments.host.Host method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.is_best_effort">is_best_effort() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.is_burstable">is_burstable() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.is_guaranteed">is_guaranteed() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.is_limited_burstable">is_limited_burstable() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.is_replica_placeable_on_host_from_resource_perspective">is_replica_placeable_on_host_from_resource_perspective() (perfsim.equipments.host.Host method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.is_runnable">is_runnable() (perfsim.service_chain.replica_thread.ReplicaThread method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.is_there_a_thread_that_ends_sooner">is_there_a_thread_that_ends_sooner() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.is_there_enough_resources_to_reserve">is_there_enough_resources_to_reserve() (perfsim.equipments.cpu.CPU method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource.is_there_enough_resources_to_reserve">(perfsim.equipments.resource.Resource method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.is_unlimited_burstable">is_unlimited_burstable() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.iteration_id">iteration_id (perfsim.traffic.request.Request attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_iteration_dict.ServiceChainResultIterationDict.iterations">iterations (perfsim.service_chain.service_chain_result_iteration_dict.ServiceChainResultIterationDict attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.iterations_count">iterations_count (perfsim.prototypes.traffic_prototype.TrafficPrototype property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.kill">kill() (perfsim.service_chain.replica_thread.ReplicaThread method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.kill_zombie_threads">kill_zombie_threads() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.last_transmission_id">last_transmission_id (perfsim.traffic.load_generator.LoadGenerator property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict.latencies">latencies (perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.latencies">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.router_prototype.RouterPrototype.latency">latency (perfsim.prototypes.router_prototype.RouterPrototype attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype.latency">(perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype attribute)</a>
+</li>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.latency">(perfsim.traffic.request.Request attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.lb_timer">lb_timer (perfsim.helpers.logger.Logger attribute)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.least_fit.LeastFit.least_fit_score">least_fit_score() (perfsim.placement.least_fit.LeastFit static method)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.least_fit.LeastFit">LeastFit (class in perfsim.placement.least_fit)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.least_fit.LeastFitOptions">LeastFitOptions (class in perfsim.placement.least_fit)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.lightest_threads_in_rq">lightest_threads_in_rq (perfsim.equipments.run_queue.RunQueue attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.link_prototypes_dict">link_prototypes_dict (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.links">links (perfsim.traffic.transmission.Transmission property)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.load">load (perfsim.equipments.run_queue.RunQueue property)</a>
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.load">(perfsim.service_chain.replica_thread.ReplicaThread property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.load_balance">load_balance() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.load_balance_threads_among_runqueues">load_balance_threads_among_runqueues() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.load_balance_threads_in_all_hosts">load_balance_threads_in_all_hosts() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.load_balancer">load_balancer (perfsim.service_chain.microservice.Microservice attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.load_generator">load_generator (perfsim.simulation.Simulation attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.load_generator">(perfsim.traffic.request.Request attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.load_balancer.LoadBalancer">LoadBalancer (class in perfsim.service_chain.load_balancer)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator">LoadGenerator (class in perfsim.traffic.load_generator)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver">LoadGeneratorLogObserver (class in perfsim.observers.load_generator_log_observer)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.log">log() (perfsim.helpers.logger.Logger method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.debug_dict.DebugDict.log_cpu_events">log_cpu_events (perfsim.helpers.debug_dict.DebugDict attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.log_cpu_events">(perfsim.simulation.Simulation property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.debug_dict.DebugDict.log_timeline">log_timeline (perfsim.helpers.debug_dict.DebugDict attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.log_timeline">(perfsim.simulation.Simulation property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger">Logger (class in perfsim.helpers.logger)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.log_observer.LogObserver.logger">logger (perfsim.observers.log_observer.LogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.logger">(perfsim.simulation.Simulation attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.log_observer.LogObserver">LogObserver (class in perfsim.observers.log_observer)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.make_error_response">make_error_response() (perfsim.environment.perfsim_server.PerfSimServer static method)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.make_function_response">make_function_response() (perfsim.environment.perfsim_server.PerfSimServer method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.memory_requests">memory_requests (perfsim.service_chain.microservice.Microservice attribute)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.merge_arrival_tables">merge_arrival_tables() (perfsim.traffic.load_generator.LoadGenerator method)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.merge_spaces">merge_spaces() (in module perfsim.environment.settings)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.merged_arrival_table">merged_arrival_table (perfsim.traffic.load_generator.LoadGenerator property)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.event.Event.methods">methods() (perfsim.observers.event.Event class method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice">Microservice (class in perfsim.service_chain.microservice)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.affinity_scenario.AffinityScenario.microservice">microservice (perfsim.scenario.affinity_scenario.AffinityScenario attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.scaling_scenario.ScalingScenario.microservice">(perfsim.scenario.scaling_scenario.ScalingScenario attribute)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction.microservice">(perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction property)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica.microservice">(perfsim.service_chain.microservice_replica.MicroserviceReplica property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.microservice_prototypes_dict">microservice_prototypes_dict (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction">MicroserviceEndpointFunction (class in perfsim.service_chain.microservice_endpoint_function)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_endpoint_function_dtype.MicroserviceEndpointFunctionDtype">MicroserviceEndpointFunctionDtype (class in perfsim.service_chain.microservice_endpoint_function_dtype)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype">MicroserviceEndpointFunctionPrototype (class in perfsim.prototypes.microservice_endpoint_function_prototype)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype">MicroserviceEndpointFunctionPrototypeDtype (class in perfsim.prototypes.microservice_endpoint_function_prototype_dtype)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.microservice_prototype.MicroservicePrototype">MicroservicePrototype (class in perfsim.prototypes.microservice_prototype)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica">MicroserviceReplica (class in perfsim.service_chain.microservice_replica)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.microservices_dict">microservices_dict (perfsim.cluster.Cluster property)</a>
+
+      <ul>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.microservices_dict">(perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain.microservices_dict">(perfsim.service_chain.service_chain.ServiceChain attribute)</a>
+</li>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.microservices_dict">(perfsim.simulation.Simulation attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain.microservices_to_dict_from_dict">microservices_to_dict_from_dict() (perfsim.service_chain.service_chain.ServiceChain static method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain.microservices_to_dict_from_list">microservices_to_dict_from_list() (perfsim.service_chain.service_chain.ServiceChain static method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.utils.Utils.mkdir_p">mkdir_p() (perfsim.helpers.utils.Utils static method)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="perfsim.html#module-perfsim">perfsim</a>
+</li>
+        <li><a href="perfsim.html#module-perfsim.cluster">perfsim.cluster</a>
+</li>
+        <li><a href="perfsim.html#module-perfsim.cluster_scheduler">perfsim.cluster_scheduler</a>
+</li>
+        <li><a href="perfsim.drivers.html#module-perfsim.drivers">perfsim.drivers</a>
+</li>
+        <li><a href="perfsim.drivers.html#module-perfsim.drivers.file_storage_driver">perfsim.drivers.file_storage_driver</a>
+</li>
+        <li><a href="perfsim.drivers.html#module-perfsim.drivers.neptune_storage_driver">perfsim.drivers.neptune_storage_driver</a>
+</li>
+        <li><a href="perfsim.drivers.html#module-perfsim.drivers.results_storage_driver">perfsim.drivers.results_storage_driver</a>
+</li>
+        <li><a href="perfsim.environment.html#module-perfsim.environment">perfsim.environment</a>
+</li>
+        <li><a href="perfsim.environment.html#module-perfsim.environment.perfsim_server">perfsim.environment.perfsim_server</a>
+</li>
+        <li><a href="perfsim.environment.html#module-perfsim.environment.settings">perfsim.environment.settings</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments">perfsim.equipments</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.core">perfsim.equipments.core</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.cost_dict">perfsim.equipments.cost_dict</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.cost_events_dict">perfsim.equipments.cost_events_dict</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.cpu">perfsim.equipments.cpu</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.equipment">perfsim.equipments.equipment</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.host">perfsim.equipments.host</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.nic">perfsim.equipments.nic</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.ram_set">perfsim.equipments.ram_set</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.resource">perfsim.equipments.resource</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.router">perfsim.equipments.router</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.run_queue">perfsim.equipments.run_queue</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.storage">perfsim.equipments.storage</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.topology">perfsim.equipments.topology</a>
+</li>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.topology_link">perfsim.equipments.topology_link</a>
+</li>
+        <li><a href="perfsim.exceptions.html#module-perfsim.exceptions">perfsim.exceptions</a>
+</li>
+        <li><a href="perfsim.exceptions.html#module-perfsim.exceptions.cluster_overloaded_error">perfsim.exceptions.cluster_overloaded_error</a>
+</li>
+        <li><a href="perfsim.exceptions.html#module-perfsim.exceptions.resource_not_available_error">perfsim.exceptions.resource_not_available_error</a>
+</li>
+        <li><a href="perfsim.exceptions.html#module-perfsim.exceptions.response_exception">perfsim.exceptions.response_exception</a>
+</li>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers">perfsim.helpers</a>
+</li>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers.cost_calculator">perfsim.helpers.cost_calculator</a>
+</li>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers.debug_dict">perfsim.helpers.debug_dict</a>
+</li>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers.logger">perfsim.helpers.logger</a>
+</li>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers.plotter">perfsim.helpers.plotter</a>
+</li>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers.utils">perfsim.helpers.utils</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers">perfsim.observers</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.cluster_log_observer">perfsim.observers.cluster_log_observer</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.core_log_observer">perfsim.observers.core_log_observer</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.cpu_log_observer">perfsim.observers.cpu_log_observer</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.event">perfsim.observers.event</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.event_observer">perfsim.observers.event_observer</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.load_generator_log_observer">perfsim.observers.load_generator_log_observer</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.log_observer">perfsim.observers.log_observer</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.observable">perfsim.observers.observable</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.replica_thread_log_observer">perfsim.observers.replica_thread_log_observer</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.replica_thread_timeline_observer">perfsim.observers.replica_thread_timeline_observer</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.request_log_observer">perfsim.observers.request_log_observer</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.results_observer">perfsim.observers.results_observer</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.topology_log_ovserver">perfsim.observers.topology_log_ovserver</a>
+</li>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.transmission_log_observer">perfsim.observers.transmission_log_observer</a>
+</li>
+        <li><a href="perfsim.placement.html#module-perfsim.placement">perfsim.placement</a>
+</li>
+        <li><a href="perfsim.placement.html#module-perfsim.placement.first_fit">perfsim.placement.first_fit</a>
+</li>
+        <li><a href="perfsim.placement.html#module-perfsim.placement.first_fit_decreasing">perfsim.placement.first_fit_decreasing</a>
+</li>
+        <li><a href="perfsim.placement.html#module-perfsim.placement.least_fit">perfsim.placement.least_fit</a>
+</li>
+        <li><a href="perfsim.placement.html#module-perfsim.placement.placement_algorithm">perfsim.placement.placement_algorithm</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes">perfsim.prototypes</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.affinity_prototype">perfsim.prototypes.affinity_prototype</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.base_prototype">perfsim.prototypes.base_prototype</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.cluster_prototype">perfsim.prototypes.cluster_prototype</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.host_prototype">perfsim.prototypes.host_prototype</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.microservice_endpoint_function_prototype">perfsim.prototypes.microservice_endpoint_function_prototype</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.microservice_endpoint_function_prototype_dtype">perfsim.prototypes.microservice_endpoint_function_prototype_dtype</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.microservice_prototype">perfsim.prototypes.microservice_prototype</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.router_prototype">perfsim.prototypes.router_prototype</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.service_chain_link_prototype">perfsim.prototypes.service_chain_link_prototype</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.topology_link_prototype">perfsim.prototypes.topology_link_prototype</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.topology_prototype">perfsim.prototypes.topology_prototype</a>
+</li>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.traffic_prototype">perfsim.prototypes.traffic_prototype</a>
+</li>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario">perfsim.scenario</a>
+</li>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.affinity_scenario">perfsim.scenario.affinity_scenario</a>
+</li>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.placement_scenario">perfsim.scenario.placement_scenario</a>
+</li>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.resource_allocation_scenario">perfsim.scenario.resource_allocation_scenario</a>
+</li>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.results_storage_driver_dict">perfsim.scenario.results_storage_driver_dict</a>
+</li>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.scaling_scenario">perfsim.scenario.scaling_scenario</a>
+</li>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.simulation_scenario">perfsim.scenario.simulation_scenario</a>
+</li>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.simulation_scenario_manager">perfsim.scenario.simulation_scenario_manager</a>
+</li>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.simulation_scenario_manager_result_dict">perfsim.scenario.simulation_scenario_manager_result_dict</a>
+</li>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.simulation_scenario_result_dict">perfsim.scenario.simulation_scenario_result_dict</a>
+</li>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.traffic_scenario">perfsim.scenario.traffic_scenario</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain">perfsim.service_chain</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.load_balancer">perfsim.service_chain.load_balancer</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.microservice">perfsim.service_chain.microservice</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.microservice_endpoint_function">perfsim.service_chain.microservice_endpoint_function</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.microservice_endpoint_function_dtype">perfsim.service_chain.microservice_endpoint_function_dtype</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.microservice_replica">perfsim.service_chain.microservice_replica</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.process">perfsim.service_chain.process</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.replica_thread">perfsim.service_chain.replica_thread</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.service_chain">perfsim.service_chain.service_chain</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.service_chain_link">perfsim.service_chain.service_chain_link</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.service_chain_manager">perfsim.service_chain.service_chain_manager</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.service_chain_result_dict">perfsim.service_chain.service_chain_result_dict</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.service_chain_result_iteration_dict">perfsim.service_chain.service_chain_result_iteration_dict</a>
+</li>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.thread_set">perfsim.service_chain.thread_set</a>
+</li>
+        <li><a href="perfsim.html#module-perfsim.simulation">perfsim.simulation</a>
+</li>
+        <li><a href="perfsim.traffic.html#module-perfsim.traffic">perfsim.traffic</a>
+</li>
+        <li><a href="perfsim.traffic.html#module-perfsim.traffic.load_generator">perfsim.traffic.load_generator</a>
+</li>
+        <li><a href="perfsim.traffic.html#module-perfsim.traffic.request">perfsim.traffic.request</a>
+</li>
+        <li><a href="perfsim.traffic.html#module-perfsim.traffic.transmission">perfsim.traffic.transmission</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.ms_affinity_rules">ms_affinity_rules (perfsim.service_chain.microservice.Microservice property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.ms_antiaffinity_rules">ms_antiaffinity_rules (perfsim.service_chain.microservice.Microservice property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.name">name (perfsim.cluster.Cluster attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver.name">(perfsim.drivers.results_storage_driver.ResultsStorageDriver attribute)</a>
+</li>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.equipment.Equipment.name">(perfsim.equipments.equipment.Equipment attribute)</a>
+</li>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.name">(perfsim.equipments.nic.Nic attribute)</a>
+</li>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource.name">(perfsim.equipments.resource.Resource attribute)</a>
+</li>
+        <li><a href="perfsim.observers.html#perfsim.observers.event_observer.EventObserver.name">(perfsim.observers.event_observer.EventObserver attribute)</a>
+</li>
+        <li><a href="perfsim.placement.html#perfsim.placement.placement_algorithm.PlacementAlgorithm.name">(perfsim.placement.placement_algorithm.PlacementAlgorithm attribute)</a>
+</li>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.router_prototype.RouterPrototype.name">(perfsim.prototypes.router_prototype.RouterPrototype attribute)</a>
+</li>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.placement_scenario.PlacementScenario.name">(perfsim.scenario.placement_scenario.PlacementScenario attribute)</a>
+</li>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario.name">(perfsim.scenario.simulation_scenario.SimulationScenario attribute)</a>
+</li>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.traffic_scenario.TrafficScenario.name">(perfsim.scenario.traffic_scenario.TrafficScenario attribute)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.name">(perfsim.service_chain.microservice.Microservice attribute)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_endpoint_function_dtype.MicroserviceEndpointFunctionDtype.name">(perfsim.service_chain.microservice_endpoint_function_dtype.MicroserviceEndpointFunctionDtype attribute)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.name">(perfsim.service_chain.service_chain_manager.ServiceChainManager attribute)</a>
+</li>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.name">(perfsim.simulation.Simulation attribute)</a>
+</li>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.name">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver">NeptuneStorageDriver (class in perfsim.drivers.neptune_storage_driver)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.network_timeout">network_timeout (perfsim.cluster.Cluster attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario.network_timeout">(perfsim.scenario.simulation_scenario.SimulationScenario attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.load_balancer.LoadBalancer.next">next() (perfsim.service_chain.load_balancer.LoadBalancer method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.next_batch_arrival_time">next_batch_arrival_time (perfsim.traffic.load_generator.LoadGenerator property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.next_nodes">next_nodes (perfsim.traffic.request.Request property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.next_replica">next_replica() (perfsim.service_chain.microservice.Microservice method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.next_replicas_in_nodes">next_replicas_in_nodes (perfsim.traffic.request.Request property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.next_trans_completion_times">next_trans_completion_times (perfsim.traffic.load_generator.LoadGenerator property)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic">Nic (class in perfsim.equipments.nic)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.nics">nics (perfsim.equipments.router.Router attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.node_in_alt_graph">node_in_alt_graph (perfsim.service_chain.replica_thread.ReplicaThread property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.node_subchain_id_map">node_subchain_id_map (perfsim.service_chain.service_chain_manager.ServiceChainManager attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.observable.Observable.notify_all_observers">notify_all_observers() (perfsim.observers.observable.Observable method)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.observable.Observable.notify_observers">notify_observers() (perfsim.observers.observable.Observable method)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.observable.Observable.notify_observers_on_event">notify_observers_on_event (perfsim.observers.observable.Observable attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.obs_spaces">obs_spaces (perfsim.environment.settings.Settings attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.observable.Observable">Observable (class in perfsim.observers.observable)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.observation_space">observation_space (perfsim.environment.settings.Settings attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.event_observer.EventObserver.observe">observe() (perfsim.observers.event_observer.EventObserver method)</a>
+
+      <ul>
+        <li><a href="perfsim.observers.html#perfsim.observers.log_observer.LogObserver.observe">(perfsim.observers.log_observer.LogObserver method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.observable.Observable.observers">observers (perfsim.observers.observable.Observable attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_after_transmission_time_calculation">on_after_transmission_time_calculation (perfsim.observers.transmission_log_observer.TransmissionLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_all_transmissions_end">on_all_transmissions_end (perfsim.observers.transmission_log_observer.TransmissionLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_all_transmissions_start">on_all_transmissions_start (perfsim.observers.transmission_log_observer.TransmissionLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_before_transmission_time_calculation">on_before_transmission_time_calculation (perfsim.observers.transmission_log_observer.TransmissionLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_current_bw_change">on_current_bw_change (perfsim.observers.transmission_log_observer.TransmissionLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver.on_init_transmission">on_init_transmission (perfsim.observers.request_log_observer.RequestLogObserver attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.on_init_transmission">(perfsim.traffic.request.Request attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.on_rq">on_rq (perfsim.service_chain.replica_thread.ReplicaThread property)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.core_log_observer.CoreLogObserver.on_thread_completion">on_thread_completion (perfsim.observers.core_log_observer.CoreLogObserver attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC">ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC_IDLE">ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC_IDLE (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_FREE_TIER_VPU_SEC_PER_MONTH">ONLY_ALLOC_DURING_REQ_FREE_TIER_VPU_SEC_PER_MONTH (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_FREE_TIER_GB_SEC_PER_MONTH">ONLY_ALLOC_DURING_REQ_MEM_FREE_TIER_GB_SEC_PER_MONTH (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC">ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC_IDLE">ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC_IDLE (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_PRICE">ONLY_ALLOC_DURING_REQ_PRICE (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_REQ_FREE_TIER_COUNT">ONLY_ALLOC_DURING_REQ_REQ_FREE_TIER_COUNT (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.placement_algorithm.PlacementAlgorithm.options">options (perfsim.placement.placement_algorithm.PlacementAlgorithm attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.placement_scenario.PlacementScenario.options">(perfsim.scenario.placement_scenario.PlacementScenario attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.process.Process.original_cpu_requests_share">original_cpu_requests_share (perfsim.service_chain.process.Process property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.pairs_load">pairs_load (perfsim.equipments.cpu.CPU attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.pairs_sorted">pairs_sorted (perfsim.equipments.cpu.CPU attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.parallel_user">parallel_user (perfsim.prototypes.traffic_prototype.TrafficPrototype property)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.results_storage_driver_dict.ResultsStorageDriverDict.params">params (perfsim.scenario.results_storage_driver_dict.ResultsStorageDriverDict attribute)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.perf_logs">perf_logs (perfsim.environment.perfsim_server.PerfSimServer attribute)</a>
+</li>
+      <li>
+    perfsim
+
+      <ul>
+        <li><a href="perfsim.html#module-perfsim">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.cluster
+
+      <ul>
+        <li><a href="perfsim.html#module-perfsim.cluster">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.cluster_scheduler
+
+      <ul>
+        <li><a href="perfsim.html#module-perfsim.cluster_scheduler">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.drivers
+
+      <ul>
+        <li><a href="perfsim.drivers.html#module-perfsim.drivers">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.drivers.file_storage_driver
+
+      <ul>
+        <li><a href="perfsim.drivers.html#module-perfsim.drivers.file_storage_driver">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.drivers.neptune_storage_driver
+
+      <ul>
+        <li><a href="perfsim.drivers.html#module-perfsim.drivers.neptune_storage_driver">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.drivers.results_storage_driver
+
+      <ul>
+        <li><a href="perfsim.drivers.html#module-perfsim.drivers.results_storage_driver">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.environment
+
+      <ul>
+        <li><a href="perfsim.environment.html#module-perfsim.environment">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.environment.perfsim_server
+
+      <ul>
+        <li><a href="perfsim.environment.html#module-perfsim.environment.perfsim_server">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.environment.settings
+
+      <ul>
+        <li><a href="perfsim.environment.html#module-perfsim.environment.settings">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.core
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.core">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.cost_dict
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.cost_dict">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.cost_events_dict
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.cost_events_dict">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.cpu
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.cpu">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.equipment
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.equipment">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.host
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.host">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.nic
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.nic">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.ram_set
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.ram_set">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.resource
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.resource">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.router
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.router">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.run_queue
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.run_queue">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.storage
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.storage">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.topology
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.topology">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.equipments.topology_link
+
+      <ul>
+        <li><a href="perfsim.equipments.html#module-perfsim.equipments.topology_link">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.exceptions
+
+      <ul>
+        <li><a href="perfsim.exceptions.html#module-perfsim.exceptions">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.exceptions.cluster_overloaded_error
+
+      <ul>
+        <li><a href="perfsim.exceptions.html#module-perfsim.exceptions.cluster_overloaded_error">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.exceptions.resource_not_available_error
+
+      <ul>
+        <li><a href="perfsim.exceptions.html#module-perfsim.exceptions.resource_not_available_error">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.exceptions.response_exception
+
+      <ul>
+        <li><a href="perfsim.exceptions.html#module-perfsim.exceptions.response_exception">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.helpers
+
+      <ul>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.helpers.cost_calculator
+
+      <ul>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers.cost_calculator">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.helpers.debug_dict
+
+      <ul>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers.debug_dict">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.helpers.logger
+
+      <ul>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers.logger">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.helpers.plotter
+
+      <ul>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers.plotter">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.helpers.utils
+
+      <ul>
+        <li><a href="perfsim.helpers.html#module-perfsim.helpers.utils">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.cluster_log_observer
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.cluster_log_observer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.core_log_observer
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.core_log_observer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.cpu_log_observer
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.cpu_log_observer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.event
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.event">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.event_observer
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.event_observer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.load_generator_log_observer
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.load_generator_log_observer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.log_observer
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.log_observer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.observable
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.observable">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.replica_thread_log_observer
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.replica_thread_log_observer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.replica_thread_timeline_observer
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.replica_thread_timeline_observer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.request_log_observer
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.request_log_observer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.results_observer
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.results_observer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.topology_log_ovserver
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.topology_log_ovserver">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.observers.transmission_log_observer
+
+      <ul>
+        <li><a href="perfsim.observers.html#module-perfsim.observers.transmission_log_observer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.placement
+
+      <ul>
+        <li><a href="perfsim.placement.html#module-perfsim.placement">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.placement.first_fit
+
+      <ul>
+        <li><a href="perfsim.placement.html#module-perfsim.placement.first_fit">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.placement.first_fit_decreasing
+
+      <ul>
+        <li><a href="perfsim.placement.html#module-perfsim.placement.first_fit_decreasing">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.placement.least_fit
+
+      <ul>
+        <li><a href="perfsim.placement.html#module-perfsim.placement.least_fit">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.placement.placement_algorithm
+
+      <ul>
+        <li><a href="perfsim.placement.html#module-perfsim.placement.placement_algorithm">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    perfsim.prototypes.affinity_prototype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.affinity_prototype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes.base_prototype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.base_prototype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes.cluster_prototype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.cluster_prototype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes.host_prototype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.host_prototype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes.microservice_endpoint_function_prototype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.microservice_endpoint_function_prototype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes.microservice_endpoint_function_prototype_dtype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.microservice_endpoint_function_prototype_dtype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes.microservice_prototype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.microservice_prototype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes.router_prototype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.router_prototype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes.service_chain_link_prototype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.service_chain_link_prototype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes.topology_link_prototype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.topology_link_prototype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes.topology_prototype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.topology_prototype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.prototypes.traffic_prototype
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#module-perfsim.prototypes.traffic_prototype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.scenario
+
+      <ul>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.scenario.affinity_scenario
+
+      <ul>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.affinity_scenario">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.scenario.placement_scenario
+
+      <ul>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.placement_scenario">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.scenario.resource_allocation_scenario
+
+      <ul>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.resource_allocation_scenario">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.scenario.results_storage_driver_dict
+
+      <ul>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.results_storage_driver_dict">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.scenario.scaling_scenario
+
+      <ul>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.scaling_scenario">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.scenario.simulation_scenario
+
+      <ul>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.simulation_scenario">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.scenario.simulation_scenario_manager
+
+      <ul>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.simulation_scenario_manager">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.scenario.simulation_scenario_manager_result_dict
+
+      <ul>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.simulation_scenario_manager_result_dict">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.scenario.simulation_scenario_result_dict
+
+      <ul>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.simulation_scenario_result_dict">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.scenario.traffic_scenario
+
+      <ul>
+        <li><a href="perfsim.scenario.html#module-perfsim.scenario.traffic_scenario">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.load_balancer
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.load_balancer">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.microservice
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.microservice">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.microservice_endpoint_function
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.microservice_endpoint_function">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.microservice_endpoint_function_dtype
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.microservice_endpoint_function_dtype">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.microservice_replica
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.microservice_replica">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.process
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.process">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.replica_thread
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.replica_thread">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.service_chain
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.service_chain">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.service_chain_link
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.service_chain_link">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.service_chain_manager
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.service_chain_manager">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.service_chain_result_dict
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.service_chain_result_dict">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.service_chain_result_iteration_dict
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.service_chain_result_iteration_dict">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.service_chain.thread_set
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#module-perfsim.service_chain.thread_set">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.simulation
+
+      <ul>
+        <li><a href="perfsim.html#module-perfsim.simulation">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.traffic
+
+      <ul>
+        <li><a href="perfsim.traffic.html#module-perfsim.traffic">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.traffic.load_generator
+
+      <ul>
+        <li><a href="perfsim.traffic.html#module-perfsim.traffic.load_generator">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.traffic.request
+
+      <ul>
+        <li><a href="perfsim.traffic.html#module-perfsim.traffic.request">module</a>
+</li>
+      </ul></li>
+      <li>
+    perfsim.traffic.transmission
+
+      <ul>
+        <li><a href="perfsim.traffic.html#module-perfsim.traffic.transmission">module</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer">PerfSimServer (class in perfsim.environment.perfsim_server)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.first_fit.FirstFit.place">place() (perfsim.placement.first_fit.FirstFit method)</a>
+
+      <ul>
+        <li><a href="perfsim.placement.html#perfsim.placement.first_fit_decreasing.FirstFitDecreasing.place">(perfsim.placement.first_fit_decreasing.FirstFitDecreasing method)</a>
+</li>
+        <li><a href="perfsim.placement.html#perfsim.placement.least_fit.LeastFit.place">(perfsim.placement.least_fit.LeastFit method)</a>
+</li>
+        <li><a href="perfsim.placement.html#perfsim.placement.placement_algorithm.PlacementAlgorithm.place">(perfsim.placement.placement_algorithm.PlacementAlgorithm method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.place_replica">place_replica() (perfsim.equipments.host.Host method)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario.placement_algorithm">placement_algorithm (perfsim.scenario.simulation_scenario.SimulationScenario attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.placement_algorithms_dict">placement_algorithms_dict (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster_scheduler.ClusterScheduler.placement_matrix">placement_matrix (perfsim.cluster_scheduler.ClusterScheduler property)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.cluster_prototype.ClusterPrototype.placement_scenario">placement_scenario (perfsim.prototypes.cluster_prototype.ClusterPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.placement_scenarios_dict">placement_scenarios_dict (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.placement_algorithm.PlacementAlgorithm">PlacementAlgorithm (class in perfsim.placement.placement_algorithm)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.placement_scenario.PlacementScenario">PlacementScenario (class in perfsim.scenario.placement_scenario)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.plot">plot() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.plot_hosts_cpu_heatmaps">plot_hosts_cpu_heatmaps() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.plot_latencies">plot_latencies() (perfsim.traffic.load_generator.LoadGenerator method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.plotter.Plotter">Plotter (class in perfsim.helpers.plotter)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.port">port (perfsim.environment.perfsim_server.PerfSimServer property)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.router_prototype.RouterPrototype.ports_count">ports_count (perfsim.prototypes.router_prototype.RouterPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cost_events_dict.CostEventsDict.power_on_periods">power_on_periods (perfsim.equipments.cost_events_dict.CostEventsDict attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.print_all">print_all() (perfsim.helpers.logger.Logger method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.print_and_plot_scenarios">print_and_plot_scenarios() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.print_cluster_info">print_cluster_info() (perfsim.helpers.logger.Logger method)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver.print_current_and_next_nodes_and_replicas">print_current_and_next_nodes_and_replicas() (perfsim.observers.request_log_observer.RequestLogObserver method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.print_hosts_info">print_hosts_info() (perfsim.helpers.logger.Logger method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.print_latencies">print_latencies() (perfsim.helpers.logger.Logger method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.print_microservices_info">print_microservices_info() (perfsim.helpers.logger.Logger method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.print_subchains">print_subchains() (perfsim.helpers.logger.Logger method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.print_traffic_details">print_traffic_details() (perfsim.helpers.logger.Logger method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.process.Process">Process (class in perfsim.service_chain.process)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.process">process (perfsim.service_chain.replica_thread.ReplicaThread property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_endpoint_function_dtype.MicroserviceEndpointFunctionDtype.prototype">prototype (perfsim.service_chain.microservice_endpoint_function_dtype.MicroserviceEndpointFunctionDtype attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.ram_set.RamSet">RamSet (class in perfsim.equipments.ram_set)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_all_properties">recalc_all_properties() (perfsim.prototypes.traffic_prototype.TrafficPrototype method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_arrival_table">recalc_arrival_table() (perfsim.prototypes.traffic_prototype.TrafficPrototype method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.recalc_bw_considering_err">recalc_bw_considering_err() (perfsim.traffic.transmission.Transmission static method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_iterations_count">recalc_iterations_count() (perfsim.prototypes.traffic_prototype.TrafficPrototype method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_requests_count">recalc_requests_count() (perfsim.prototypes.traffic_prototype.TrafficPrototype method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.recalculate_cpu_requests_shares">recalculate_cpu_requests_shares() (perfsim.equipments.cpu.CPU method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.recalculate_cpu_requests_shares">(perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.thread_set.ThreadSet.recalculate_sum_cpu_requests">recalculate_sum_cpu_requests() (perfsim.service_chain.thread_set.ThreadSet method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.topology.Topology.recalculate_transmissions_bw_on_all_links">recalculate_transmissions_bw_on_all_links() (perfsim.equipments.topology.Topology method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.topology.Topology.recalculate_transmissions_portion_of_bandwidth_on_link">recalculate_transmissions_portion_of_bandwidth_on_link() (perfsim.equipments.topology.Topology method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.recalculate_transmissions_times">recalculate_transmissions_times() (perfsim.prototypes.topology_prototype.TopologyPrototype static method)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.observable.Observable.register_event">register_event() (perfsim.observers.observable.Observable method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.register_events">register_events() (perfsim.cluster.Cluster method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.core.Core.register_events">(perfsim.equipments.core.Core method)</a>
+</li>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.register_events">(perfsim.equipments.cpu.CPU method)</a>
+</li>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.topology.Topology.register_events">(perfsim.equipments.topology.Topology method)</a>
+</li>
+        <li><a href="perfsim.observers.html#perfsim.observers.observable.Observable.register_events">(perfsim.observers.observable.Observable method)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.register_events">(perfsim.service_chain.replica_thread.ReplicaThread method)</a>
+</li>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.register_events">(perfsim.traffic.load_generator.LoadGenerator method)</a>
+</li>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.register_events">(perfsim.traffic.request.Request method)</a>
+</li>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.register_events">(perfsim.traffic.transmission.Transmission method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.observers.html#perfsim.observers.observable.Observable.registered_events">registered_events (perfsim.observers.observable.Observable attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.reinit">reinit() (perfsim.cluster.Cluster method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.core.Core.reinit">(perfsim.equipments.core.Core method)</a>
+</li>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.reinit">(perfsim.equipments.cpu.CPU method)</a>
+</li>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.reinit">(perfsim.equipments.host.Host method)</a>
+</li>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.reinit">(perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica.reinit">(perfsim.service_chain.microservice_replica.MicroserviceReplica method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.reinitiate_topology">reinitiate_topology() (perfsim.prototypes.topology_prototype.TopologyPrototype method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.release">release() (perfsim.equipments.cpu.CPU method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource.release">(perfsim.equipments.resource.Resource method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica.release_egress_bw">release_egress_bw() (perfsim.service_chain.microservice_replica.MicroserviceReplica method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica.release_ingress_bw">release_ingress_bw() (perfsim.service_chain.microservice_replica.MicroserviceReplica method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.release_transmission_for_request">release_transmission_for_request() (perfsim.equipments.nic.Nic method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.release_transmission_in_nic">release_transmission_in_nic() (perfsim.equipments.nic.Nic method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.thread_set.ThreadSet.remove">remove() (perfsim.service_chain.thread_set.ThreadSet method)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.microservice_prototype.MicroservicePrototype.remove_endpoint_function_prototype">remove_endpoint_function_prototype() (perfsim.prototypes.microservice_prototype.MicroservicePrototype method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.remove_from_lightest_threads_in_rq">remove_from_lightest_threads_in_rq() (perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.remove_from_pairs_sorted">remove_from_pairs_sorted() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.remove_from_threads_sorted">remove_from_threads_sorted() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica.remove_host_without_eviction">remove_host_without_eviction() (perfsim.service_chain.microservice_replica.MicroserviceReplica method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.replica">replica (perfsim.service_chain.replica_thread.ReplicaThread attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.replica_count">replica_count (perfsim.service_chain.microservice.Microservice property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.replica_identifier_in_subchain">replica_identifier_in_subchain (perfsim.service_chain.replica_thread.ReplicaThread attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster_scheduler.ClusterScheduler.replicas">replicas (perfsim.cluster_scheduler.ClusterScheduler attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.replicas">(perfsim.service_chain.microservice.Microservice property)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread">ReplicaThread (class in perfsim.service_chain.replica_thread)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver">ReplicaThreadLogObserver (class in perfsim.observers.replica_thread_log_observer)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.observers.html#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver">ReplicaThreadTimelineObserver (class in perfsim.observers.replica_thread_timeline_observer)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request">Request (class in perfsim.traffic.request)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.request_bw">request_bw() (perfsim.equipments.nic.Nic method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.request_execution_time">request_execution_time (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver">RequestLogObserver (class in perfsim.observers.request_log_observer)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.cost_calculator.CostCalculator.requests">requests (perfsim.helpers.cost_calculator.CostCalculator attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.requests">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.requests_count">requests_count (perfsim.prototypes.traffic_prototype.TrafficPrototype property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.requests_ready_for_thread_generation">requests_ready_for_thread_generation (perfsim.traffic.load_generator.LoadGenerator property)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.requeue_task">requeue_task() (perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.res_alloc_scenarios_dict">res_alloc_scenarios_dict (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster_scheduler.ClusterScheduler.reschedule">reschedule() (perfsim.cluster_scheduler.ClusterScheduler method)</a>
+
+      <ul>
+        <li><a href="perfsim.placement.html#perfsim.placement.least_fit.LeastFit.reschedule">(perfsim.placement.least_fit.LeastFit method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.reserve">reserve() (perfsim.equipments.cpu.CPU method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource.reserve">(perfsim.equipments.resource.Resource method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica.reserve_egress_bw">reserve_egress_bw() (perfsim.service_chain.microservice_replica.MicroserviceReplica method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica.reserve_ingress_bw">reserve_ingress_bw() (perfsim.service_chain.microservice_replica.MicroserviceReplica method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.reserve_transmission_for_request">reserve_transmission_for_request() (perfsim.equipments.nic.Nic method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.reserve_transmission_in_nic">reserve_transmission_in_nic() (perfsim.equipments.nic.Nic method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource.reserved">reserved (perfsim.equipments.resource.Resource property)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource">Resource (class in perfsim.equipments.resource)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.resource_allocation_scenario">resource_allocation_scenario (perfsim.service_chain.microservice.Microservice attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.cluster_prototype.ClusterPrototype.resource_allocation_scenarios_dict">resource_allocation_scenarios_dict (perfsim.prototypes.cluster_prototype.ClusterPrototype attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.resource_allocation_scenarios_dict">(perfsim.simulation.Simulation attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.resource_allocation_scenario.ResourceAllocationScenario">ResourceAllocationScenario (class in perfsim.scenario.resource_allocation_scenario)</a>
+</li>
+      <li><a href="perfsim.exceptions.html#perfsim.exceptions.resource_not_available_error.ResourceNotAvailableError">ResourceNotAvailableError</a>
+</li>
+      <li><a href="perfsim.exceptions.html#perfsim.exceptions.response_exception.ResponseException">ResponseException</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.results_storage_driver">results_storage_driver (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver.results_with_graphs">results_with_graphs (perfsim.drivers.results_storage_driver.ResultsStorageDriver attribute)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.results_observer.ResultsObserver">ResultsObserver (class in perfsim.observers.results_observer)</a>
+</li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver">ResultsStorageDriver (class in perfsim.drivers.results_storage_driver)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.results_storage_driver_dict.ResultsStorageDriverDict">ResultsStorageDriverDict (class in perfsim.scenario.results_storage_driver_dict)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.root">root (perfsim.service_chain.service_chain_manager.ServiceChainManager property)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router">Router (class in perfsim.equipments.router)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.router">router (perfsim.equipments.host.Host property)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.router_prototypes_dict">router_prototypes_dict (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.router_prototype.RouterPrototype">RouterPrototype (class in perfsim.prototypes.router_prototype)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.routers">routers (perfsim.equipments.router.Router attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.TopologyEquipmentSet.routers">(perfsim.scenario.simulation_scenario_manager.TopologyEquipmentSet attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.routers_dict">routers_dict (perfsim.prototypes.topology_prototype.TopologyPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings.row">row (perfsim.environment.settings.Settings attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.rq">rq (perfsim.equipments.run_queue.RunQueue attribute)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.run">run() (perfsim.environment.perfsim_server.PerfSimServer method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.run_active_threads">run_active_threads() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.run_idle">run_idle() (perfsim.cluster.Cluster method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.run_idle">(perfsim.equipments.run_queue.RunQueue method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.run_scenario">run_scenario() (perfsim.environment.perfsim_server.PerfSimServer method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.run_threads_on_hosts">run_threads_on_hosts() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue">RunQueue (class in perfsim.equipments.run_queue)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.core.Core.runqueue">runqueue (perfsim.equipments.core.Core attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_all">save_all() (perfsim.drivers.file_storage_driver.FileStorageDriver method)</a>
+
+      <ul>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_all">(perfsim.drivers.results_storage_driver.ResultsStorageDriver method)</a>
+</li>
+        <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.save_all">(perfsim.environment.perfsim_server.PerfSimServer method)</a>
+</li>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.save_all">(perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_cluster_topology_graph">save_cluster_topology_graph() (perfsim.drivers.file_storage_driver.FileStorageDriver method)</a>
+
+      <ul>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_cluster_topology_graph">(perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver method)</a>
+</li>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_cluster_topology_graph">(perfsim.drivers.results_storage_driver.ResultsStorageDriver method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.utils.Utils.save_file">save_file() (perfsim.helpers.utils.Utils static method)</a>
+</li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_hosts_cores_heatmap">save_hosts_cores_heatmap() (perfsim.drivers.file_storage_driver.FileStorageDriver method)</a>
+
+      <ul>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_hosts_cores_heatmap">(perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver method)</a>
+</li>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_hosts_cores_heatmap">(perfsim.drivers.results_storage_driver.ResultsStorageDriver method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.utils.Utils.save_results_json">save_results_json() (perfsim.helpers.utils.Utils static method)</a>
+</li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chain_result_graph">save_service_chain_result_graph() (perfsim.drivers.file_storage_driver.FileStorageDriver method)</a>
+
+      <ul>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chain_result_graph">(perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver method)</a>
+</li>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chain_result_graph">(perfsim.drivers.results_storage_driver.ResultsStorageDriver method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_alternative_graph">save_service_chains_alternative_graph() (perfsim.drivers.file_storage_driver.FileStorageDriver method)</a>
+
+      <ul>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chains_alternative_graph">(perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver method)</a>
+</li>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chains_alternative_graph">(perfsim.drivers.results_storage_driver.ResultsStorageDriver method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_original_graph">save_service_chains_original_graph() (perfsim.drivers.file_storage_driver.FileStorageDriver method)</a>
+
+      <ul>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chains_original_graph">(perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver method)</a>
+</li>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chains_original_graph">(perfsim.drivers.results_storage_driver.ResultsStorageDriver method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_simulation_scenario_results">save_simulation_scenario_results() (perfsim.drivers.file_storage_driver.FileStorageDriver method)</a>
+
+      <ul>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_simulation_scenario_results">(perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver method)</a>
+</li>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_simulation_scenario_results">(perfsim.drivers.results_storage_driver.ResultsStorageDriver method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_timeline_graph">save_timeline_graph() (perfsim.drivers.file_storage_driver.FileStorageDriver method)</a>
+
+      <ul>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_timeline_graph">(perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver method)</a>
+</li>
+        <li><a href="perfsim.drivers.html#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_timeline_graph">(perfsim.drivers.results_storage_driver.ResultsStorageDriver method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario.scaling_scenarios">scaling_scenarios (perfsim.scenario.simulation_scenario.SimulationScenario attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.scaling_scenario.ScalingScenario">ScalingScenario (class in perfsim.scenario.scaling_scenario)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.scenario">scenario (perfsim.simulation.Simulation attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.cluster_prototype.ClusterPrototype.scenario_name">scenario_name (perfsim.prototypes.cluster_prototype.ClusterPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.sched_domain_hierarchy">sched_domain_hierarchy (perfsim.equipments.cpu.CPU attribute)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.scm">scm (perfsim.traffic.request.Request attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.scm_dict">scm_dict (perfsim.cluster.Cluster property)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.cluster_prototype.ClusterPrototype.scms_dict">scms_dict (perfsim.prototypes.cluster_prototype.ClusterPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.server">server (perfsim.environment.perfsim_server.PerfSimServer attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_result_dict.SimulationScenarioResultDict.service_chains">service_chains (perfsim.scenario.simulation_scenario_result_dict.SimulationScenarioResultDict attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.traffic_scenario.TrafficScenario.service_chains">(perfsim.scenario.traffic_scenario.TrafficScenario attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.cluster_prototype.ClusterPrototype.service_chains_dict">service_chains_dict (perfsim.prototypes.cluster_prototype.ClusterPrototype attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.service_chains_dict">(perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.service_chains_dict">(perfsim.simulation.Simulation attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain">ServiceChain (class in perfsim.service_chain.service_chain)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_link.ServiceChainLink">ServiceChainLink (class in perfsim.service_chain.service_chain_link)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.service_chain_link_prototype.ServiceChainLinkPrototype">ServiceChainLinkPrototype (class in perfsim.prototypes.service_chain_link_prototype)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager">ServiceChainManager (class in perfsim.service_chain.service_chain_manager)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict">ServiceChainResultDict (class in perfsim.service_chain.service_chain_result_dict)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_iteration_dict.ServiceChainResultIterationDict">ServiceChainResultIterationDict (class in perfsim.service_chain.service_chain_result_iteration_dict)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.set_current_bw">set_current_bw() (perfsim.traffic.transmission.Transmission method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.set_debug_properties">set_debug_properties() (perfsim.simulation.Simulation method)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.set_next_nodes_and_replicas">set_next_nodes_and_replicas() (perfsim.traffic.request.Request method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.set_node_in_alt_graph">set_node_in_alt_graph() (perfsim.service_chain.replica_thread.ReplicaThread method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.set_object">set_object() (perfsim.simulation.Simulation static method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.set_scm_dict">set_scm_dict() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.set_service_chains_dict">set_service_chains_dict() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.setting_affinity_scenarios">setting_affinity_scenarios() (perfsim.simulation.Simulation method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.setting_scaling_scenario">setting_scaling_scenario() (perfsim.simulation.Simulation method)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.settings.Settings">Settings (class in perfsim.environment.settings)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.sim">sim (perfsim.cluster.Cluster attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.sim">(perfsim.helpers.logger.Logger attribute)</a>
+</li>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.sim">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation">Simulation (class in perfsim.simulation)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict.simulation_name">simulation_name (perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.cluster_prototype.ClusterPrototype.simulation_scenario">simulation_scenario (perfsim.prototypes.cluster_prototype.ClusterPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager_result_dict.SimulationScenarioManagerResultDict.simulation_scenarios">simulation_scenarios (perfsim.scenario.simulation_scenario_manager_result_dict.SimulationScenarioManagerResultDict attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.simulation_scenarios_dict">simulation_scenarios_dict (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.simulations_dict">simulations_dict (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario">SimulationScenario (class in perfsim.scenario.simulation_scenario)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager">SimulationScenarioManager (class in perfsim.scenario.simulation_scenario_manager)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager_result_dict.SimulationScenarioManagerResultDict">SimulationScenarioManagerResultDict (class in perfsim.scenario.simulation_scenario_manager_result_dict)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_result_dict.SimulationScenarioResultDict">SimulationScenarioResultDict (class in perfsim.scenario.simulation_scenario_result_dict)</a>
+</li>
+      <li><a href="perfsim.environment.html#perfsim.environment.perfsim_server.PerfSimServer.sm">sm (perfsim.environment.perfsim_server.PerfSimServer attribute)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.source_nic">source_nic (perfsim.traffic.transmission.Transmission property)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype.start_at">start_at (perfsim.prototypes.traffic_prototype.TrafficPrototype property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.status">status (perfsim.traffic.request.Request attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.storage.Storage">Storage (class in perfsim.equipments.storage)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.storage_driver">storage_driver (perfsim.simulation.Simulation attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cost_events_dict.CostEventsDict.storage_reserved_periods">storage_reserved_periods (perfsim.equipments.cost_events_dict.CostEventsDict attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.subchains">subchains (perfsim.service_chain.service_chain_manager.ServiceChainManager attribute)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.subchains_status">subchains_status (perfsim.traffic.request.Request property)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.event_observer.EventObserver.subject">subject (perfsim.observers.event_observer.EventObserver property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict.successful_requests">successful_requests (perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.thread_set.ThreadSet.sum_cpu_requests">sum_cpu_requests (perfsim.service_chain.thread_set.ThreadSet attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.thread_id_in_node">thread_id_in_node (perfsim.service_chain.replica_thread.ReplicaThread property)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.thread_set_dict">thread_set_dict (perfsim.equipments.run_queue.RunQueue attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.threads">threads (perfsim.equipments.host.Host property)</a>
+
+      <ul>
+        <li><a href="perfsim.service_chain.html#perfsim.service_chain.process.Process.threads">(perfsim.service_chain.process.Process attribute)</a>
+</li>
+        <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.threads">(perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.threads_dict">threads_dict (perfsim.traffic.load_generator.LoadGenerator attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.threads_sorted">threads_sorted (perfsim.equipments.cpu.CPU attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.thread_set.ThreadSet">ThreadSet (class in perfsim.service_chain.thread_set)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource.throttleable">throttleable (perfsim.equipments.resource.Resource attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict.throughput">throughput (perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.logger.Logger.tick_timer">tick_timer (perfsim.helpers.logger.Logger attribute)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.time">time (perfsim.simulation.Simulation property)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict.timeout_requests">timeout_requests (perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.host.Host.to_dict">to_dict() (perfsim.equipments.host.Host static method)</a>
+
+      <ul>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.router.Router.to_dict">(perfsim.equipments.router.Router static method)</a>
+</li>
+        <li><a href="perfsim.equipments.html#perfsim.equipments.topology_link.TopologyLink.to_dict">(perfsim.equipments.topology_link.TopologyLink static method)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.topologies_prototype_dict">topologies_prototype_dict (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.topology.Topology">Topology (class in perfsim.equipments.topology)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.topology">topology (perfsim.cluster.Cluster attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.prototypes.html#perfsim.prototypes.cluster_prototype.ClusterPrototype.topology">(perfsim.prototypes.cluster_prototype.ClusterPrototype attribute)</a>
+</li>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario.topology">(perfsim.scenario.simulation_scenario.SimulationScenario attribute)</a>
+</li>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.topology">(perfsim.simulation.Simulation attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.topology_equipments_dict">topology_equipments_dict (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype.topology_links_dict">topology_links_dict (perfsim.prototypes.topology_prototype.TopologyPrototype attribute)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.TopologyEquipmentSet">TopologyEquipmentSet (class in perfsim.scenario.simulation_scenario_manager)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.topology_link.TopologyLink">TopologyLink (class in perfsim.equipments.topology_link)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype">TopologyLinkPrototype (class in perfsim.prototypes.topology_link_prototype)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.topology_log_ovserver.TopologyLogObserver">TopologyLogObserver (class in perfsim.observers.topology_log_ovserver)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.topology_prototype.TopologyPrototype">TopologyPrototype (class in perfsim.prototypes.topology_prototype)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict.total_requests">total_requests (perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict attribute)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.total_requests_count">total_requests_count (perfsim.traffic.load_generator.LoadGenerator property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.traffic_prototype">traffic_prototype (perfsim.traffic.request.Request attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.cluster_prototype.ClusterPrototype.traffic_prototypes_dict">traffic_prototypes_dict (perfsim.prototypes.cluster_prototype.ClusterPrototype attribute)</a>
+
+      <ul>
+        <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.traffic_prototypes_dict">(perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager attribute)</a>
+</li>
+        <li><a href="perfsim.html#perfsim.simulation.Simulation.traffic_prototypes_dict">(perfsim.simulation.Simulation attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario.traffic_scenario">traffic_scenario (perfsim.scenario.simulation_scenario.SimulationScenario attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict.traffic_types">traffic_types (perfsim.service_chain.service_chain_result_dict.ServiceChainResultDict attribute)</a>
+</li>
+      <li><a href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype">TrafficPrototype (class in perfsim.prototypes.traffic_prototype)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.traffic_scenario.TrafficScenario">TrafficScenario (class in perfsim.scenario.traffic_scenario)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.trans_deltatimes">trans_deltatimes (perfsim.traffic.request.Request property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.trans_exact_times">trans_exact_times (perfsim.traffic.request.Request property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.trans_init_times">trans_init_times (perfsim.traffic.request.Request property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.request.Request.trans_times">trans_times (perfsim.traffic.request.Request property)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission">Transmission (class in perfsim.traffic.transmission)</a>
+</li>
+      <li><a href="perfsim.observers.html#perfsim.observers.transmission_log_observer.TransmissionLogObserver">TransmissionLogObserver (class in perfsim.observers.transmission_log_observer)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.nic.Nic.transmissions">transmissions (perfsim.equipments.nic.Nic attribute)</a>
+</li>
+      <li><a href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission.transmit">transmit() (perfsim.traffic.transmission.Transmission method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.cluster.Cluster.transmit_requests_in_network">transmit_requests_in_network() (perfsim.cluster.Cluster method)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource.type">type (perfsim.equipments.resource.Resource attribute)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.thread_set.ThreadSet.type_of_set">type_of_set (perfsim.service_chain.thread_set.ThreadSet property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.resource.Resource.unit_of_measure">unit_of_measure (perfsim.equipments.resource.Resource attribute)</a>
+</li>
+      <li><a href="perfsim.equipments.html#perfsim.equipments.cpu.CPU.update_idle_pairs">update_idle_pairs() (perfsim.equipments.cpu.CPU method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction.update_name_with_microservice_prefix">update_name_with_microservice_prefix() (perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.utils.Utils">Utils (class in perfsim.helpers.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_affinity_scenarios">validate_affinity_scenarios() (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager method)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_placement_algorithms">validate_placement_algorithms() (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager method)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_scaling_scenarios">validate_scaling_scenarios() (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager method)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_service_chain">validate_service_chain() (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager method)</a>
+</li>
+      <li><a href="perfsim.html#perfsim.simulation.Simulation.validate_simulation_scenario">validate_simulation_scenario() (perfsim.simulation.Simulation method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_simulation_scenarios">validate_simulation_scenarios() (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager method)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_topology">validate_topology() (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager method)</a>
+</li>
+      <li><a href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_traffic_prototype">validate_traffic_prototype() (perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager method)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.utils.Utils.view_pydot">view_pydot() (perfsim.helpers.utils.Utils static method)</a>
+</li>
+      <li><a href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.vruntime">vruntime (perfsim.service_chain.replica_thread.ReplicaThread property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.placement.html#perfsim.placement.least_fit.LeastFitOptions.w_blkio">w_blkio (perfsim.placement.least_fit.LeastFitOptions attribute)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.least_fit.LeastFitOptions.w_cpu">w_cpu (perfsim.placement.least_fit.LeastFitOptions attribute)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.least_fit.LeastFitOptions.w_egress">w_egress (perfsim.placement.least_fit.LeastFitOptions attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.placement.html#perfsim.placement.least_fit.LeastFitOptions.w_ingress">w_ingress (perfsim.placement.least_fit.LeastFitOptions attribute)</a>
+</li>
+      <li><a href="perfsim.placement.html#perfsim.placement.least_fit.LeastFitOptions.w_mem">w_mem (perfsim.placement.least_fit.LeastFitOptions attribute)</a>
+</li>
+      <li><a href="perfsim.helpers.html#perfsim.helpers.utils.Utils.write_a_line_to_a_log_file_static">write_a_line_to_a_log_file_static() (perfsim.helpers.utils.Utils static method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="perfsim.html#perfsim.cluster_scheduler.ClusterScheduler.zombie_threads">zombie_threads (perfsim.cluster_scheduler.ClusterScheduler attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

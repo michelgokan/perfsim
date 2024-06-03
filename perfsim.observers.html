@@ -1,0 +1,1363 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>perfsim.observers &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'perfsim.observers';</script>
+    <script src="_static/js/custom.js"></script>
+    <link rel="icon" href="_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="perfsim.placement" href="perfsim.placement.html" />
+    <link rel="prev" title="perfsim.helpers" href="perfsim.helpers.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="perfsim.html">perfsim</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/perfsim.observers.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>perfsim.observers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.cluster_log_observer">perfsim.observers.cluster_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_finish_running_threads_on_a_host"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.after_finish_running_threads_on_a_host</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_finish_running_a_thread"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.after_finish_running_a_thread</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_transmitting_requests_in_network"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.before_transmitting_requests_in_network</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.in_transmitting_an_active_transmission"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.in_transmitting_an_active_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_transmitting_an_active_transmission"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.after_transmitting_an_active_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_load_balancing_a_host"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.before_load_balancing_a_host</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_calling_is_there_a_thread_that_ends_sooner_function"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.before_calling_is_there_a_thread_that_ends_sooner_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_checking_a_thread_ends_sooner"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.before_checking_a_thread_ends_sooner</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_calling_is_there_a_thread_that_ends_sooner_function"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.after_calling_is_there_a_thread_that_ends_sooner_function</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.core_log_observer">perfsim.observers.core_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.core_log_observer.CoreLogObserver"><code class="docutils literal notranslate"><span class="pre">CoreLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.core_log_observer.CoreLogObserver.on_thread_completion"><code class="docutils literal notranslate"><span class="pre">CoreLogObserver.on_thread_completion</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.cpu_log_observer">perfsim.observers.cpu_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cpu_log_observer.CPULogObserver"><code class="docutils literal notranslate"><span class="pre">CPULogObserver</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.event">perfsim.observers.event module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event.Event"><code class="docutils literal notranslate"><span class="pre">Event</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event.Event.methods"><code class="docutils literal notranslate"><span class="pre">Event.methods()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.event_observer">perfsim.observers.event_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver"><code class="docutils literal notranslate"><span class="pre">EventObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver.callable"><code class="docutils literal notranslate"><span class="pre">EventObserver.callable</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver.events"><code class="docutils literal notranslate"><span class="pre">EventObserver.events</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver.subject"><code class="docutils literal notranslate"><span class="pre">EventObserver.subject</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver.name"><code class="docutils literal notranslate"><span class="pre">EventObserver.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver.observe"><code class="docutils literal notranslate"><span class="pre">EventObserver.observe()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.load_generator_log_observer">perfsim.observers.load_generator_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_traffic_start"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_traffic_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_requests_start"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_requests_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_generate_threads"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_generate_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_exec_time_estimation"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_exec_time_estimation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_executing_threads"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_executing_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_completing_load_generation"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_completing_load_generation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_next_batch_arrival_time_calculation"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_next_batch_arrival_time_calculation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_generate_request_threads"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_generate_request_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_generate_request_threads"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_generate_request_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_estimating_time_of_next_event"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_estimating_time_of_next_event</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_transmit_requests_in_network"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_transmit_requests_in_network</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_transmit_requests_in_network_and_load_balancing_threads"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_transmit_requests_in_network_and_load_balancing_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_request_created"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_request_created</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_requests_start"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_requests_start</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.log_observer">perfsim.observers.log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.log_observer.LogObserver"><code class="docutils literal notranslate"><span class="pre">LogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.log_observer.LogObserver.logger"><code class="docutils literal notranslate"><span class="pre">LogObserver.logger</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.log_observer.LogObserver.observe"><code class="docutils literal notranslate"><span class="pre">LogObserver.observe()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.observable">perfsim.observers.observable module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable"><code class="docutils literal notranslate"><span class="pre">Observable</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.attach_observer"><code class="docutils literal notranslate"><span class="pre">Observable.attach_observer()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.notify_all_observers"><code class="docutils literal notranslate"><span class="pre">Observable.notify_all_observers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.notify_observers"><code class="docutils literal notranslate"><span class="pre">Observable.notify_observers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.detach_observer"><code class="docutils literal notranslate"><span class="pre">Observable.detach_observer()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.register_event"><code class="docutils literal notranslate"><span class="pre">Observable.register_event()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.observers"><code class="docutils literal notranslate"><span class="pre">Observable.observers</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.notify_observers_on_event"><code class="docutils literal notranslate"><span class="pre">Observable.notify_observers_on_event</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.registered_events"><code class="docutils literal notranslate"><span class="pre">Observable.registered_events</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.register_events"><code class="docutils literal notranslate"><span class="pre">Observable.register_events()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.replica_thread_log_observer">perfsim.observers.replica_thread_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.before_executing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadLogObserver.before_executing_thread</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.after_executing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadLogObserver.after_executing_thread</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.before_killing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadLogObserver.before_killing_thread</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.replica_thread_timeline_observer">perfsim.observers.replica_thread_timeline_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadTimelineObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.before_killing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadTimelineObserver.before_killing_thread</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.before_executing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadTimelineObserver.before_executing_thread</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.after_executing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadTimelineObserver.after_executing_thread</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.request_log_observer">perfsim.observers.request_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_init_next_microservices"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.before_init_next_microservices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.print_current_and_next_nodes_and_replicas"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.print_current_and_next_nodes_and_replicas()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.after_init_next_microservices"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.after_init_next_microservices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_finalizing_subchain"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.before_finalizing_subchain</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_concluding_request"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.before_concluding_request</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_init_transmission"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.before_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.on_init_transmission"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.on_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.after_init_transmission"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.after_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_finish_transmission"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.before_finish_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.after_finish_transmission"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.after_finish_transmission</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.results_observer">perfsim.observers.results_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.results_observer.ResultsObserver"><code class="docutils literal notranslate"><span class="pre">ResultsObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.results_observer.ResultsObserver.after_completing_load_generation"><code class="docutils literal notranslate"><span class="pre">ResultsObserver.after_completing_load_generation</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.topology_log_ovserver">perfsim.observers.topology_log_ovserver module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.topology_log_ovserver.TopologyLogObserver"><code class="docutils literal notranslate"><span class="pre">TopologyLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.topology_log_ovserver.TopologyLogObserver.before_recalculate_transmissions_bw_on_all_links"><code class="docutils literal notranslate"><span class="pre">TopologyLogObserver.before_recalculate_transmissions_bw_on_all_links</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.transmission_log_observer">perfsim.observers.transmission_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_current_bw_change"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver.on_current_bw_change</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_all_transmissions_start"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver.on_all_transmissions_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_all_transmissions_end"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver.on_all_transmissions_end</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_before_transmission_time_calculation"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver.on_before_transmission_time_calculation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_after_transmission_time_calculation"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver.on_after_transmission_time_calculation</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="perfsim-observers">
+<h1>perfsim.observers<a class="headerlink" href="#perfsim-observers" title="Link to this heading">#</a></h1>
+<section id="module-perfsim.observers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-perfsim.observers" title="Link to this heading">#</a></h2>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-perfsim.observers.cluster_log_observer">
+<span id="perfsim-observers-cluster-log-observer-module"></span><h2>perfsim.observers.cluster_log_observer module<a class="headerlink" href="#module-perfsim.observers.cluster_log_observer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.cluster_log_observer.ClusterLogObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.cluster_log_observer.</span></span><span class="sig-name descname"><span class="pre">ClusterLogObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/cluster_log_observer.html#ClusterLogObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.observers.log_observer.LogObserver" title="perfsim.observers.log_observer.LogObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogObserver</span></code></a></p>
+<p>This class is responsible for logging the events of the cluster.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.html#perfsim.cluster.Cluster" title="perfsim.cluster.Cluster"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cluster</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.cluster_log_observer.ClusterLogObserver.after_finish_running_threads_on_a_host">
+<span class="sig-name descname"><span class="pre">after_finish_running_threads_on_a_host</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_finish_running_threads_on_a_host" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.cluster_log_observer.ClusterLogObserver.after_finish_running_a_thread">
+<span class="sig-name descname"><span class="pre">after_finish_running_a_thread</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_finish_running_a_thread" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.cluster_log_observer.ClusterLogObserver.before_transmitting_requests_in_network">
+<span class="sig-name descname"><span class="pre">before_transmitting_requests_in_network</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_transmitting_requests_in_network" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.cluster_log_observer.ClusterLogObserver.in_transmitting_an_active_transmission">
+<span class="sig-name descname"><span class="pre">in_transmitting_an_active_transmission</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.in_transmitting_an_active_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.cluster_log_observer.ClusterLogObserver.after_transmitting_an_active_transmission">
+<span class="sig-name descname"><span class="pre">after_transmitting_an_active_transmission</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_transmitting_an_active_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.cluster_log_observer.ClusterLogObserver.before_load_balancing_a_host">
+<span class="sig-name descname"><span class="pre">before_load_balancing_a_host</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_load_balancing_a_host" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.cluster_log_observer.ClusterLogObserver.before_calling_is_there_a_thread_that_ends_sooner_function">
+<span class="sig-name descname"><span class="pre">before_calling_is_there_a_thread_that_ends_sooner_function</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_calling_is_there_a_thread_that_ends_sooner_function" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.cluster_log_observer.ClusterLogObserver.before_checking_a_thread_ends_sooner">
+<span class="sig-name descname"><span class="pre">before_checking_a_thread_ends_sooner</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_checking_a_thread_ends_sooner" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.cluster_log_observer.ClusterLogObserver.after_calling_is_there_a_thread_that_ends_sooner_function">
+<span class="sig-name descname"><span class="pre">after_calling_is_there_a_thread_that_ends_sooner_function</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_calling_is_there_a_thread_that_ends_sooner_function" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.core_log_observer">
+<span id="perfsim-observers-core-log-observer-module"></span><h2>perfsim.observers.core_log_observer module<a class="headerlink" href="#module-perfsim.observers.core_log_observer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.core_log_observer.CoreLogObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.core_log_observer.</span></span><span class="sig-name descname"><span class="pre">CoreLogObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">core</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/core_log_observer.html#CoreLogObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.core_log_observer.CoreLogObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.observers.log_observer.LogObserver" title="perfsim.observers.log_observer.LogObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogObserver</span></code></a></p>
+<p>This class is an observer that logs the completion of a thread.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>core</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.core.Core" title="perfsim.equipments.core.Core"><code class="xref py py-class docutils literal notranslate"><span class="pre">Core</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.core_log_observer.CoreLogObserver.on_thread_completion">
+<span class="sig-name descname"><span class="pre">on_thread_completion</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.core_log_observer.CoreLogObserver.on_thread_completion" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.cpu_log_observer">
+<span id="perfsim-observers-cpu-log-observer-module"></span><h2>perfsim.observers.cpu_log_observer module<a class="headerlink" href="#module-perfsim.observers.cpu_log_observer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.cpu_log_observer.CPULogObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.cpu_log_observer.</span></span><span class="sig-name descname"><span class="pre">CPULogObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cpu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/cpu_log_observer.html#CPULogObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.cpu_log_observer.CPULogObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.observers.log_observer.LogObserver" title="perfsim.observers.log_observer.LogObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogObserver</span></code></a></p>
+<p>This class is responsible for logging the events of the CPU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cpu</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.cpu.CPU" title="perfsim.equipments.cpu.CPU"><code class="xref py py-class docutils literal notranslate"><span class="pre">CPU</span></code></a></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.event">
+<span id="perfsim-observers-event-module"></span><h2>perfsim.observers.event module<a class="headerlink" href="#module-perfsim.observers.event" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.event.Event">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.event.</span></span><span class="sig-name descname"><span class="pre">Event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/event.html#Event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.event.Event" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is a decorator that marks a method as an event.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.observers.event.Event.methods">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">methods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/event.html#Event.methods"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.event.Event.methods" title="Link to this definition">#</a></dt>
+<dd><p>Get the methods of the subject that are marked as events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>subject</strong></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary of the methods of the subject that are marked as events.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.event_observer">
+<span id="perfsim-observers-event-observer-module"></span><h2>perfsim.observers.event_observer module<a class="headerlink" href="#module-perfsim.observers.event_observer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.event_observer.EventObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.event_observer.</span></span><span class="sig-name descname"><span class="pre">EventObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/event_observer.html#EventObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.event_observer.EventObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>This class is an abstract class that represents an observer of an observable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>subject</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#perfsim.observers.observable.Observable" title="perfsim.observers.observable.Observable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observable</span></code></a></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.event_observer.EventObserver.callable">
+<span class="sig-name descname"><span class="pre">callable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></em><a class="headerlink" href="#perfsim.observers.event_observer.EventObserver.callable" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.observers.event_observer.EventObserver.events">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">events</span></span><a class="headerlink" href="#perfsim.observers.event_observer.EventObserver.events" title="Link to this definition">#</a></dt>
+<dd><p>Get the events of the observer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The events of the observer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.observers.event_observer.EventObserver.subject">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">subject</span></span><a class="headerlink" href="#perfsim.observers.event_observer.EventObserver.subject" title="Link to this definition">#</a></dt>
+<dd><p>Get the subject of the observer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The subject of the observer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.event_observer.EventObserver.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#perfsim.observers.event_observer.EventObserver.name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.observers.event_observer.EventObserver.observe">
+<span class="sig-name descname"><span class="pre">observe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/event_observer.html#EventObserver.observe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.event_observer.EventObserver.observe" title="Link to this definition">#</a></dt>
+<dd><p>Observe an event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The name of the event to observe.</p></li>
+<li><p><strong>kwargs</strong> – The arguments of the event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of the event.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.load_generator_log_observer">
+<span id="perfsim-observers-load-generator-log-observer-module"></span><h2>perfsim.observers.load_generator_log_observer module<a class="headerlink" href="#module-perfsim.observers.load_generator_log_observer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.load_generator_log_observer.</span></span><span class="sig-name descname"><span class="pre">LoadGeneratorLogObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_generator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/load_generator_log_observer.html#LoadGeneratorLogObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.observers.log_observer.LogObserver" title="perfsim.observers.log_observer.LogObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogObserver</span></code></a></p>
+<p>This class is responsible for logging the events of the load generator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>load_generator</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator" title="perfsim.traffic.load_generator.LoadGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoadGenerator</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_traffic_start">
+<span class="sig-name descname"><span class="pre">before_traffic_start</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_traffic_start" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_requests_start">
+<span class="sig-name descname"><span class="pre">before_requests_start</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_requests_start" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_generate_threads">
+<span class="sig-name descname"><span class="pre">before_generate_threads</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_generate_threads" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_exec_time_estimation">
+<span class="sig-name descname"><span class="pre">before_exec_time_estimation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_exec_time_estimation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_executing_threads">
+<span class="sig-name descname"><span class="pre">before_executing_threads</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_executing_threads" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_completing_load_generation">
+<span class="sig-name descname"><span class="pre">after_completing_load_generation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_completing_load_generation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_next_batch_arrival_time_calculation">
+<span class="sig-name descname"><span class="pre">after_next_batch_arrival_time_calculation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_next_batch_arrival_time_calculation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_generate_request_threads">
+<span class="sig-name descname"><span class="pre">before_generate_request_threads</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_generate_request_threads" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_generate_request_threads">
+<span class="sig-name descname"><span class="pre">after_generate_request_threads</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_generate_request_threads" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_estimating_time_of_next_event">
+<span class="sig-name descname"><span class="pre">after_estimating_time_of_next_event</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_estimating_time_of_next_event" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_transmit_requests_in_network">
+<span class="sig-name descname"><span class="pre">before_transmit_requests_in_network</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_transmit_requests_in_network" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_transmit_requests_in_network_and_load_balancing_threads">
+<span class="sig-name descname"><span class="pre">after_transmit_requests_in_network_and_load_balancing_threads</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_transmit_requests_in_network_and_load_balancing_threads" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_request_created">
+<span class="sig-name descname"><span class="pre">before_request_created</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_request_created" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_requests_start">
+<span class="sig-name descname"><span class="pre">after_requests_start</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_requests_start" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.log_observer">
+<span id="perfsim-observers-log-observer-module"></span><h2>perfsim.observers.log_observer module<a class="headerlink" href="#module-perfsim.observers.log_observer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.log_observer.LogObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.log_observer.</span></span><span class="sig-name descname"><span class="pre">LogObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/log_observer.html#LogObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.log_observer.LogObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.observers.event_observer.EventObserver" title="perfsim.observers.event_observer.EventObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventObserver</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>subject</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#perfsim.observers.observable.Observable" title="perfsim.observers.observable.Observable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observable</span></code></a></span>)</p></li>
+<li><p><strong>logger</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.helpers.html#perfsim.helpers.logger.Logger" title="perfsim.helpers.logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.log_observer.LogObserver.logger">
+<span class="sig-name descname"><span class="pre">logger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Logger</span></em><a class="headerlink" href="#perfsim.observers.log_observer.LogObserver.logger" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.observers.log_observer.LogObserver.observe">
+<span class="sig-name descname"><span class="pre">observe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/log_observer.html#LogObserver.observe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.log_observer.LogObserver.observe" title="Link to this definition">#</a></dt>
+<dd><p>Observe an event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>kwargs</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.observable">
+<span id="perfsim-observers-observable-module"></span><h2>perfsim.observers.observable module<a class="headerlink" href="#module-perfsim.observers.observable" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.observable.Observable">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.observable.</span></span><span class="sig-name descname"><span class="pre">Observable</span></span><a class="reference internal" href="_modules/perfsim/observers/observable.html#Observable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.observable.Observable" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>This class is an abstract class that represents an observable.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.observers.observable.Observable.attach_observer">
+<span class="sig-name descname"><span class="pre">attach_observer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/observable.html#Observable.attach_observer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.observable.Observable.attach_observer" title="Link to this definition">#</a></dt>
+<dd><p>Attach an observer to the observable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>observer</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#perfsim.observers.event_observer.EventObserver" title="perfsim.observers.event_observer.EventObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventObserver</span></code></a></span>) – The observer to attach.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.observers.observable.Observable.notify_all_observers">
+<span class="sig-name descname"><span class="pre">notify_all_observers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/observable.html#Observable.notify_all_observers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.observable.Observable.notify_all_observers" title="Link to this definition">#</a></dt>
+<dd><p>Notify all observers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – The arguments to pass to the observers.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.observers.observable.Observable.notify_observers">
+<span class="sig-name descname"><span class="pre">notify_observers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/observable.html#Observable.notify_observers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.observable.Observable.notify_observers" title="Link to this definition">#</a></dt>
+<dd><p>Notify the observers of an event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The name of the event.</p></li>
+<li><p><strong>kwargs</strong> – The arguments to pass to the observers.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.observers.observable.Observable.detach_observer">
+<span class="sig-name descname"><span class="pre">detach_observer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/observable.html#Observable.detach_observer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.observable.Observable.detach_observer" title="Link to this definition">#</a></dt>
+<dd><p>Detach an observer from the observable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>observer</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#perfsim.observers.event_observer.EventObserver" title="perfsim.observers.event_observer.EventObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventObserver</span></code></a></span>) – The observer to detach.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.observers.observable.Observable.register_event">
+<span class="sig-name descname"><span class="pre">register_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/observable.html#Observable.register_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.observable.Observable.register_event" title="Link to this definition">#</a></dt>
+<dd><p>Register an event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.observable.Observable.observers">
+<span class="sig-name descname"><span class="pre">observers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code><span class="pre">[</span><a class="reference internal" href="#perfsim.observers.event_observer.EventObserver" title="perfsim.observers.event_observer.EventObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventObserver</span></code></a><span class="pre">]]</span></em><a class="headerlink" href="#perfsim.observers.observable.Observable.observers" title="Link to this definition">#</a></dt>
+<dd><p>A dictionary of observers, indexed by event type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.observable.Observable.notify_observers_on_event">
+<span class="sig-name descname"><span class="pre">notify_observers_on_event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="headerlink" href="#perfsim.observers.observable.Observable.notify_observers_on_event" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.observable.Observable.registered_events">
+<span class="sig-name descname"><span class="pre">registered_events</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="headerlink" href="#perfsim.observers.observable.Observable.registered_events" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.observers.observable.Observable.register_events">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/observable.html#Observable.register_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.observable.Observable.register_events" title="Link to this definition">#</a></dt>
+<dd><p>This is for performance optimization purposes. Instead of generating strings for each event, we can register the
+event_names as attributes, then we send the event_name as reference, instead of copying the string every time.
+This (slightly) improves performance, specially because we are calling the notify_observers method several times
+for each request during the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.replica_thread_log_observer">
+<span id="perfsim-observers-replica-thread-log-observer-module"></span><h2>perfsim.observers.replica_thread_log_observer module<a class="headerlink" href="#module-perfsim.observers.replica_thread_log_observer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.replica_thread_log_observer.</span></span><span class="sig-name descname"><span class="pre">ReplicaThreadLogObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">replica_thread</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/replica_thread_log_observer.html#ReplicaThreadLogObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.observers.log_observer.LogObserver" title="perfsim.observers.log_observer.LogObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogObserver</span></code></a></p>
+<p>This class is responsible for logging the replica thread events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>replica_thread</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread" title="perfsim.service_chain.replica_thread.ReplicaThread"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReplicaThread</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.before_executing_thread">
+<span class="sig-name descname"><span class="pre">before_executing_thread</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.before_executing_thread" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.after_executing_thread">
+<span class="sig-name descname"><span class="pre">after_executing_thread</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.after_executing_thread" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.before_killing_thread">
+<span class="sig-name descname"><span class="pre">before_killing_thread</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.before_killing_thread" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.replica_thread_timeline_observer">
+<span id="perfsim-observers-replica-thread-timeline-observer-module"></span><h2>perfsim.observers.replica_thread_timeline_observer module<a class="headerlink" href="#module-perfsim.observers.replica_thread_timeline_observer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.replica_thread_timeline_observer.</span></span><span class="sig-name descname"><span class="pre">ReplicaThreadTimelineObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">replica_thread</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/replica_thread_timeline_observer.html#ReplicaThreadTimelineObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.observers.event_observer.EventObserver" title="perfsim.observers.event_observer.EventObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventObserver</span></code></a></p>
+<p>This class is responsible for logging the replica thread events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>replica_thread</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread" title="perfsim.service_chain.replica_thread.ReplicaThread"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReplicaThread</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.before_killing_thread">
+<span class="sig-name descname"><span class="pre">before_killing_thread</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.before_killing_thread" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.before_executing_thread">
+<span class="sig-name descname"><span class="pre">before_executing_thread</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.before_executing_thread" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.after_executing_thread">
+<span class="sig-name descname"><span class="pre">after_executing_thread</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.after_executing_thread" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.request_log_observer">
+<span id="perfsim-observers-request-log-observer-module"></span><h2>perfsim.observers.request_log_observer module<a class="headerlink" href="#module-perfsim.observers.request_log_observer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.request_log_observer.RequestLogObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.request_log_observer.</span></span><span class="sig-name descname"><span class="pre">RequestLogObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/request_log_observer.html#RequestLogObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.request_log_observer.RequestLogObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.observers.log_observer.LogObserver" title="perfsim.observers.log_observer.LogObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogObserver</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.traffic.html#perfsim.traffic.request.Request" title="perfsim.traffic.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.request_log_observer.RequestLogObserver.before_init_next_microservices">
+<span class="sig-name descname"><span class="pre">before_init_next_microservices</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_init_next_microservices" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.observers.request_log_observer.RequestLogObserver.print_current_and_next_nodes_and_replicas">
+<span class="sig-name descname"><span class="pre">print_current_and_next_nodes_and_replicas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/request_log_observer.html#RequestLogObserver.print_current_and_next_nodes_and_replicas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.request_log_observer.RequestLogObserver.print_current_and_next_nodes_and_replicas" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.request_log_observer.RequestLogObserver.after_init_next_microservices">
+<span class="sig-name descname"><span class="pre">after_init_next_microservices</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.request_log_observer.RequestLogObserver.after_init_next_microservices" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.request_log_observer.RequestLogObserver.before_finalizing_subchain">
+<span class="sig-name descname"><span class="pre">before_finalizing_subchain</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_finalizing_subchain" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.request_log_observer.RequestLogObserver.before_concluding_request">
+<span class="sig-name descname"><span class="pre">before_concluding_request</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_concluding_request" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.request_log_observer.RequestLogObserver.before_init_transmission">
+<span class="sig-name descname"><span class="pre">before_init_transmission</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_init_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.request_log_observer.RequestLogObserver.on_init_transmission">
+<span class="sig-name descname"><span class="pre">on_init_transmission</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.request_log_observer.RequestLogObserver.on_init_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.request_log_observer.RequestLogObserver.after_init_transmission">
+<span class="sig-name descname"><span class="pre">after_init_transmission</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.request_log_observer.RequestLogObserver.after_init_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.request_log_observer.RequestLogObserver.before_finish_transmission">
+<span class="sig-name descname"><span class="pre">before_finish_transmission</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_finish_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.request_log_observer.RequestLogObserver.after_finish_transmission">
+<span class="sig-name descname"><span class="pre">after_finish_transmission</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.request_log_observer.RequestLogObserver.after_finish_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.results_observer">
+<span id="perfsim-observers-results-observer-module"></span><h2>perfsim.observers.results_observer module<a class="headerlink" href="#module-perfsim.observers.results_observer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.results_observer.ResultsObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.results_observer.</span></span><span class="sig-name descname"><span class="pre">ResultsObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_generator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/results_observer.html#ResultsObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.results_observer.ResultsObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.observers.event_observer.EventObserver" title="perfsim.observers.event_observer.EventObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventObserver</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>load_generator</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator" title="perfsim.traffic.load_generator.LoadGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoadGenerator</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.results_observer.ResultsObserver.after_completing_load_generation">
+<span class="sig-name descname"><span class="pre">after_completing_load_generation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.results_observer.ResultsObserver.after_completing_load_generation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.topology_log_ovserver">
+<span id="perfsim-observers-topology-log-ovserver-module"></span><h2>perfsim.observers.topology_log_ovserver module<a class="headerlink" href="#module-perfsim.observers.topology_log_ovserver" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.topology_log_ovserver.TopologyLogObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.topology_log_ovserver.</span></span><span class="sig-name descname"><span class="pre">TopologyLogObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topology</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/topology_log_ovserver.html#TopologyLogObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.topology_log_ovserver.TopologyLogObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.observers.log_observer.LogObserver" title="perfsim.observers.log_observer.LogObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogObserver</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>topology</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.topology.Topology" title="perfsim.equipments.topology.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.topology_log_ovserver.TopologyLogObserver.before_recalculate_transmissions_bw_on_all_links">
+<span class="sig-name descname"><span class="pre">before_recalculate_transmissions_bw_on_all_links</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.topology_log_ovserver.TopologyLogObserver.before_recalculate_transmissions_bw_on_all_links" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.observers.transmission_log_observer">
+<span id="perfsim-observers-transmission-log-observer-module"></span><h2>perfsim.observers.transmission_log_observer module<a class="headerlink" href="#module-perfsim.observers.transmission_log_observer" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.observers.transmission_log_observer.TransmissionLogObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.observers.transmission_log_observer.</span></span><span class="sig-name descname"><span class="pre">TransmissionLogObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transmission</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/observers/transmission_log_observer.html#TransmissionLogObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.observers.log_observer.LogObserver" title="perfsim.observers.log_observer.LogObserver"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogObserver</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>transmission</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission" title="perfsim.traffic.transmission.Transmission"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transmission</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_current_bw_change">
+<span class="sig-name descname"><span class="pre">on_current_bw_change</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_current_bw_change" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_all_transmissions_start">
+<span class="sig-name descname"><span class="pre">on_all_transmissions_start</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_all_transmissions_start" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_all_transmissions_end">
+<span class="sig-name descname"><span class="pre">on_all_transmissions_end</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_all_transmissions_end" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_before_transmission_time_calculation">
+<span class="sig-name descname"><span class="pre">on_before_transmission_time_calculation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_before_transmission_time_calculation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_after_transmission_time_calculation">
+<span class="sig-name descname"><span class="pre">on_after_transmission_time_calculation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;perfsim.observers.event.Event</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_after_transmission_time_calculation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="perfsim.helpers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">perfsim.helpers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="perfsim.placement.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">perfsim.placement</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.cluster_log_observer">perfsim.observers.cluster_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_finish_running_threads_on_a_host"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.after_finish_running_threads_on_a_host</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_finish_running_a_thread"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.after_finish_running_a_thread</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_transmitting_requests_in_network"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.before_transmitting_requests_in_network</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.in_transmitting_an_active_transmission"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.in_transmitting_an_active_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_transmitting_an_active_transmission"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.after_transmitting_an_active_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_load_balancing_a_host"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.before_load_balancing_a_host</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_calling_is_there_a_thread_that_ends_sooner_function"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.before_calling_is_there_a_thread_that_ends_sooner_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.before_checking_a_thread_ends_sooner"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.before_checking_a_thread_ends_sooner</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cluster_log_observer.ClusterLogObserver.after_calling_is_there_a_thread_that_ends_sooner_function"><code class="docutils literal notranslate"><span class="pre">ClusterLogObserver.after_calling_is_there_a_thread_that_ends_sooner_function</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.core_log_observer">perfsim.observers.core_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.core_log_observer.CoreLogObserver"><code class="docutils literal notranslate"><span class="pre">CoreLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.core_log_observer.CoreLogObserver.on_thread_completion"><code class="docutils literal notranslate"><span class="pre">CoreLogObserver.on_thread_completion</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.cpu_log_observer">perfsim.observers.cpu_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.cpu_log_observer.CPULogObserver"><code class="docutils literal notranslate"><span class="pre">CPULogObserver</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.event">perfsim.observers.event module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event.Event"><code class="docutils literal notranslate"><span class="pre">Event</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event.Event.methods"><code class="docutils literal notranslate"><span class="pre">Event.methods()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.event_observer">perfsim.observers.event_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver"><code class="docutils literal notranslate"><span class="pre">EventObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver.callable"><code class="docutils literal notranslate"><span class="pre">EventObserver.callable</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver.events"><code class="docutils literal notranslate"><span class="pre">EventObserver.events</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver.subject"><code class="docutils literal notranslate"><span class="pre">EventObserver.subject</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver.name"><code class="docutils literal notranslate"><span class="pre">EventObserver.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.event_observer.EventObserver.observe"><code class="docutils literal notranslate"><span class="pre">EventObserver.observe()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.load_generator_log_observer">perfsim.observers.load_generator_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_traffic_start"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_traffic_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_requests_start"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_requests_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_generate_threads"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_generate_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_exec_time_estimation"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_exec_time_estimation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_executing_threads"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_executing_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_completing_load_generation"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_completing_load_generation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_next_batch_arrival_time_calculation"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_next_batch_arrival_time_calculation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_generate_request_threads"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_generate_request_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_generate_request_threads"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_generate_request_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_estimating_time_of_next_event"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_estimating_time_of_next_event</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_transmit_requests_in_network"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_transmit_requests_in_network</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_transmit_requests_in_network_and_load_balancing_threads"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_transmit_requests_in_network_and_load_balancing_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.before_request_created"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.before_request_created</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver.after_requests_start"><code class="docutils literal notranslate"><span class="pre">LoadGeneratorLogObserver.after_requests_start</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.log_observer">perfsim.observers.log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.log_observer.LogObserver"><code class="docutils literal notranslate"><span class="pre">LogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.log_observer.LogObserver.logger"><code class="docutils literal notranslate"><span class="pre">LogObserver.logger</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.log_observer.LogObserver.observe"><code class="docutils literal notranslate"><span class="pre">LogObserver.observe()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.observable">perfsim.observers.observable module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable"><code class="docutils literal notranslate"><span class="pre">Observable</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.attach_observer"><code class="docutils literal notranslate"><span class="pre">Observable.attach_observer()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.notify_all_observers"><code class="docutils literal notranslate"><span class="pre">Observable.notify_all_observers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.notify_observers"><code class="docutils literal notranslate"><span class="pre">Observable.notify_observers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.detach_observer"><code class="docutils literal notranslate"><span class="pre">Observable.detach_observer()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.register_event"><code class="docutils literal notranslate"><span class="pre">Observable.register_event()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.observers"><code class="docutils literal notranslate"><span class="pre">Observable.observers</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.notify_observers_on_event"><code class="docutils literal notranslate"><span class="pre">Observable.notify_observers_on_event</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.registered_events"><code class="docutils literal notranslate"><span class="pre">Observable.registered_events</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.observable.Observable.register_events"><code class="docutils literal notranslate"><span class="pre">Observable.register_events()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.replica_thread_log_observer">perfsim.observers.replica_thread_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.before_executing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadLogObserver.before_executing_thread</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.after_executing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadLogObserver.after_executing_thread</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_log_observer.ReplicaThreadLogObserver.before_killing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadLogObserver.before_killing_thread</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.replica_thread_timeline_observer">perfsim.observers.replica_thread_timeline_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadTimelineObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.before_killing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadTimelineObserver.before_killing_thread</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.before_executing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadTimelineObserver.before_executing_thread</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.replica_thread_timeline_observer.ReplicaThreadTimelineObserver.after_executing_thread"><code class="docutils literal notranslate"><span class="pre">ReplicaThreadTimelineObserver.after_executing_thread</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.request_log_observer">perfsim.observers.request_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_init_next_microservices"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.before_init_next_microservices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.print_current_and_next_nodes_and_replicas"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.print_current_and_next_nodes_and_replicas()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.after_init_next_microservices"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.after_init_next_microservices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_finalizing_subchain"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.before_finalizing_subchain</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_concluding_request"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.before_concluding_request</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_init_transmission"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.before_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.on_init_transmission"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.on_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.after_init_transmission"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.after_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.before_finish_transmission"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.before_finish_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.request_log_observer.RequestLogObserver.after_finish_transmission"><code class="docutils literal notranslate"><span class="pre">RequestLogObserver.after_finish_transmission</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.results_observer">perfsim.observers.results_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.results_observer.ResultsObserver"><code class="docutils literal notranslate"><span class="pre">ResultsObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.results_observer.ResultsObserver.after_completing_load_generation"><code class="docutils literal notranslate"><span class="pre">ResultsObserver.after_completing_load_generation</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.topology_log_ovserver">perfsim.observers.topology_log_ovserver module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.topology_log_ovserver.TopologyLogObserver"><code class="docutils literal notranslate"><span class="pre">TopologyLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.topology_log_ovserver.TopologyLogObserver.before_recalculate_transmissions_bw_on_all_links"><code class="docutils literal notranslate"><span class="pre">TopologyLogObserver.before_recalculate_transmissions_bw_on_all_links</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.observers.transmission_log_observer">perfsim.observers.transmission_log_observer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_current_bw_change"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver.on_current_bw_change</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_all_transmissions_start"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver.on_all_transmissions_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_all_transmissions_end"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver.on_all_transmissions_end</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_before_transmission_time_calculation"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver.on_before_transmission_time_calculation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.observers.transmission_log_observer.TransmissionLogObserver.on_after_transmission_time_calculation"><code class="docutils literal notranslate"><span class="pre">TransmissionLogObserver.on_after_transmission_time_calculation</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,919 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>perfsim.traffic.request &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/perfsim/traffic/request';</script>
+    <script src="../../../_static/js/custom.js"></script>
+    <link rel="icon" href="../../../_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="../../../_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../perfsim.html">perfsim</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for perfsim.traffic.request</h1><div class="highlight"><pre>
+<span></span><span class="c1">#  Copyright (C) 2020 Michel Gokan Khan</span>
+<span class="c1">#  This program is free software; you can redistribute it and/or modify</span>
+<span class="c1">#  it under the terms of the GNU General Public License as published by</span>
+<span class="c1">#  the Free Software Foundation; either version 2 of the License, or</span>
+<span class="c1">#  (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is distributed in the hope that it will be useful,</span>
+<span class="c1">#  but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#  GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1">#  You should have received a copy of the GNU General Public License along</span>
+<span class="c1">#  with this program; if not, write to the Free Software Foundation, Inc.,</span>
+<span class="c1">#  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.</span>
+<span class="c1">#</span>
+<span class="c1">#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.</span>
+<span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
+
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">MicroserviceReplica</span><span class="p">,</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">RequestLogObserver</span><span class="p">,</span> <span class="n">TrafficPrototype</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">LoadGenerator</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">,</span> <span class="n">ServiceChainManager</span>
+
+
+<div class="viewcode-block" id="Request">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request">[docs]</a>
+<span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="n">Observable</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Request class is used to represent a real request in a service chain.</span>
+<span class="sd">    Note that a &quot;node&quot; here means a tuple of (subchain_id, microservice_endpoint_function).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Latency of the request</span>
+    <span class="n">latency</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="c1"># The service chain manager that is responsible for this request</span>
+    <span class="n">scm</span><span class="p">:</span> <span class="n">ServiceChainManager</span>
+
+    <span class="c1">#: The load generator that generated this request</span>
+    <span class="n">load_generator</span><span class="p">:</span> <span class="n">LoadGenerator</span>
+
+    <span class="c1">#: Request ID</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: ID of the iteration that this request was generated in</span>
+    <span class="n">iteration_id</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1">#: ID of the request within the iteration that this request was generated in</span>
+    <span class="n">id_in_iteration</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1">#: The current list of endpoint functions that this request is being routed to (as tuples of (subchain id,endpoint))</span>
+    <span class="n">_current_nodes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">]]]</span>
+
+    <span class="c1">#: The list of current replicas that this request is being routed to (as tuples of (subchain id, replica))</span>
+    <span class="n">_current_replicas_in_nodes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceReplica</span><span class="p">]]]</span>
+
+    <span class="c1">#: The list of next endpoint functions that this request is being routed to (as tuples of (subchain id,endpoint))</span>
+    <span class="n">_next_nodes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">]]]</span>
+
+    <span class="c1">#: The list of next replicas that this request is being routed to (as tuples of (subchain id, replica))</span>
+    <span class="n">_next_replicas_in_nodes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceReplica</span><span class="p">]]]</span>
+
+    <span class="c1">#: The list of the latency lists for each endpoint functions in each subchain (subchain id as key)</span>
+    <span class="n">_compute_times</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span>
+
+    <span class="c1">#: The list transmission times among replicas per each subchain id as key (and transmission time as value)</span>
+    <span class="n">_trans_times</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+
+    <span class="c1">#: The list of exact simulation time that the request is being routed to a replica in the subchain (as key)</span>
+    <span class="n">_trans_exact_times</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+
+    <span class="c1">#: The list of transmissions source replicas per subchain id as key (and transmission source replica as value)</span>
+    <span class="n">_trans_src_replicas</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">MicroserviceReplica</span><span class="p">]]</span>
+
+    <span class="c1">#: List of exact simulation times that a transmission is being started (per subchain id as key)</span>
+    <span class="n">_trans_init_times</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+
+    <span class="c1">#: List of all active subchains ids that this request is currently being served in</span>
+    <span class="n">_active_subchain_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Keeps track of subchains status. Can take one of the following values:</span>
+<span class="sd">     - &quot;CREATED&quot;</span>
+<span class="sd">     - &quot;CONCLUDED&quot;</span>
+<span class="sd">     - &quot;IN TRANSMISSION&quot;</span>
+<span class="sd">     - &quot;INIT MICROSERVICE&quot;</span>
+<span class="sd">     &quot;&quot;&quot;</span>
+    <span class="n">_subchains_status</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span>
+
+    <span class="c1">#: The number of subchains that this request is already being served in</span>
+    <span class="n">_completed_subchains_count</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1">#: The request status (IN_PROGRESS, COMPLETED, TIMED_OUT)</span>
+    <span class="n">status</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The traffic prototype in which this request is being created from</span>
+    <span class="n">traffic_prototype</span><span class="p">:</span> <span class="n">TrafficPrototype</span>
+
+    <span class="n">before_init_next_microservices</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">after_init_next_microservices</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">before_finalizing_subchain</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">before_concluding_request</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">before_init_transmission</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">after_init_transmission</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">on_init_transmission</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">before_finish_transmission</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">after_finish_transmission</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">request_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">iteration_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">id_in_iteration</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">load_generator</span><span class="p">:</span> <span class="n">LoadGenerator</span><span class="p">,</span>
+                 <span class="n">traffic_prototype</span><span class="p">:</span> <span class="n">TrafficPrototype</span><span class="p">,</span>
+                 <span class="n">scm</span><span class="p">:</span> <span class="n">ServiceChainManager</span><span class="p">,</span>
+                 <span class="n">arrival_time</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">waiting_time</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arrival_time</span> <span class="o">=</span> <span class="n">arrival_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">completion_time</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_generator</span> <span class="o">=</span> <span class="n">load_generator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">traffic_prototype</span> <span class="o">=</span> <span class="n">traffic_prototype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scm</span> <span class="o">=</span> <span class="n">scm</span>
+        <span class="c1"># self.execution_time = execution_time  # Time required by the job to execute.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_microservice_id</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latency</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_active_threads</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_current_active_threads</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">request_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iteration_id</span> <span class="o">=</span> <span class="n">iteration_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id_in_iteration</span> <span class="o">=</span> <span class="n">id_in_iteration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_replicas_in_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;IN_PROGRESS&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_compute_times</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trans_times</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trans_exact_times</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trans_deltatimes</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trans_src_replicas</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trans_init_times</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_active_subchain_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># self.current_active_node_in_subchains = [None for i, v in enumerate(self.service_chain_manager.subchains)]</span>
+        <span class="c1"># self.current_active_node_in_subchains[0] = None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_subchains_status</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CREATED&quot;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_completed_subchains_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug_level</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attach_observer</span><span class="p">(</span><span class="n">observer</span><span class="o">=</span><span class="n">RequestLogObserver</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="bp">self</span><span class="p">))</span>
+
+<div class="viewcode-block" id="Request.register_events">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.register_events">[docs]</a>
+    <span class="k">def</span> <span class="nf">register_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_init_next_microservices&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_init_next_microservices&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_finalizing_subchain&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_concluding_request&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_init_transmission&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_init_transmission&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;on_init_transmission&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_finish_transmission&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_finish_transmission&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Request.finalize_subchain">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.finalize_subchain">[docs]</a>
+    <span class="k">def</span> <span class="nf">finalize_subchain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_finalizing_subchain</span><span class="p">,</span> <span class="n">subchain_id</span><span class="o">=</span><span class="n">subchain_id</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subchains_status</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;CONCLUDED&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_subchains_status</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;CONCLUDED&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_completed_subchains_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_replicas_in_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_active_subchain_ids</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_compute_times</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trans_init_times</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_completed_subchains_count</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">subchains</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">conclude</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Request.set_next_nodes_and_replicas">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.set_next_nodes_and_replicas">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_next_nodes_and_replicas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">next_nodes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">]]):</span>
+        <span class="k">for</span> <span class="n">next_node</span> <span class="ow">in</span> <span class="n">next_nodes</span><span class="p">:</span>
+            <span class="n">next_endpoint_func</span> <span class="o">=</span> <span class="n">next_node</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">next_endpoint_func_identifier_in_subchain</span> <span class="o">=</span> <span class="n">next_node</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">next_replica</span> <span class="o">=</span> <span class="n">next_endpoint_func</span><span class="o">.</span><span class="n">microservice</span><span class="o">.</span><span class="n">next_replica</span><span class="p">()</span>
+            <span class="n">node_subchain_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">node_subchain_id_map</span><span class="p">[</span><span class="n">next_node</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_next_replicas_in_nodes</span><span class="p">[</span><span class="n">node_subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">next_endpoint_func_identifier_in_subchain</span><span class="p">,</span> <span class="n">next_replica</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_next_nodes</span><span class="p">[</span><span class="n">node_subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">next_endpoint_func_identifier_in_subchain</span><span class="p">,</span> <span class="n">next_endpoint_func</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Request.init_transmission">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.init_transmission">[docs]</a>
+    <span class="k">def</span> <span class="nf">init_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_in_alt_graph</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">next_nodes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">alternative_graph</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">node_in_alt_graph</span><span class="p">))</span>
+        <span class="n">subchain_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">node_subchain_id_map</span><span class="p">[</span><span class="n">node_in_alt_graph</span><span class="p">]</span>
+        <span class="n">current_replica_of_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_next_nodes_and_replicas</span><span class="p">(</span><span class="n">next_nodes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_compute_times</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trans_init_times</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_init_transmission</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="n">node_in_alt_graph</span><span class="p">,</span> <span class="n">next_nodes</span><span class="o">=</span><span class="n">next_nodes</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">next_nodes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">finalize_subchain</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="c1"># min_transmission_time = float(&#39;inf&#39;)</span>
+        <span class="c1"># subchain_ids_of_fastest_transmissions = []</span>
+
+        <span class="n">next_node_subchain_ids_transmissions</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">next_node</span> <span class="ow">in</span> <span class="n">next_nodes</span><span class="p">:</span>
+            <span class="n">next_node_subchain_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">node_subchain_id_map</span><span class="p">[</span><span class="n">next_node</span><span class="p">]</span>
+            <span class="n">current_node_replica</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span>
+            <span class="n">next_node_replica</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_replicas_in_nodes</span><span class="p">[</span><span class="n">next_node_subchain_id</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">current_node_replica</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;WTF!?&quot;</span><span class="p">)</span>
+                <span class="c1"># _current_node_replica = self.next_replicas_in_nodes[_next_node_subchain_id]</span>
+
+            <span class="n">current_replica</span> <span class="o">=</span> <span class="n">current_node_replica</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_subchains_status</span><span class="p">[</span><span class="n">next_node_subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;IN TRANSMISSION&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_trans_init_times</span><span class="p">[</span><span class="n">next_node_subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span>
+
+            <span class="n">next_node_subchain_ids_transmissions</span><span class="p">[</span><span class="n">next_node_subchain_id</span><span class="p">]</span> <span class="o">=</span> \
+                <span class="n">current_replica_of_node</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">nic</span><span class="p">[</span><span class="s2">&quot;egress&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reserve_transmission_for_request</span><span class="p">(</span>
+                    <span class="n">request</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+                    <span class="n">subchain_id</span><span class="o">=</span><span class="n">next_node_subchain_id</span><span class="p">,</span>
+                    <span class="n">src_replica</span><span class="o">=</span><span class="n">current_replica_of_node</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="n">source_node</span><span class="o">=</span><span class="n">node_in_alt_graph</span><span class="p">,</span>
+                    <span class="n">destination_replica</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_next_replicas_in_nodes</span><span class="p">[</span><span class="n">next_node_subchain_id</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="n">destination_node</span><span class="o">=</span><span class="n">next_node</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_trans_src_replicas</span><span class="p">[</span><span class="n">next_node_subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_replica</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_active_subchain_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_node_subchain_id</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_init_transmission</span><span class="p">,</span>
+                                  <span class="n">current_node</span><span class="o">=</span><span class="n">node_in_alt_graph</span><span class="p">,</span>
+                                  <span class="n">next_node</span><span class="o">=</span><span class="n">next_node</span><span class="p">,</span>
+                                  <span class="n">current_replica</span><span class="o">=</span><span class="n">current_node_replica</span><span class="p">,</span>
+                                  <span class="n">next_replica</span><span class="o">=</span><span class="n">next_node_replica</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span><span class="p">[</span><span class="n">next_node_subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_replicas_in_nodes</span><span class="p">[</span><span class="n">next_node_subchain_id</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_current_nodes</span><span class="p">[</span><span class="n">next_node_subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_nodes</span><span class="p">[</span><span class="n">next_node_subchain_id</span><span class="p">]</span>
+
+        <span class="c1"># self.recalculate_transmission_times(next_node_subchain_ids_transmissions)</span>
+        <span class="c1"># self.find_and_set_next_transmissions_in_all_subchains()</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">next_nodes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">finalize_subchain</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">after_init_transmission</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="n">node_in_alt_graph</span><span class="p">)</span>
+
+        <span class="c1"># return _min_transmission_time</span>
+        <span class="k">return</span> <span class="n">next_node_subchain_ids_transmissions</span></div>
+
+
+    <span class="c1"># def recalculate_transmission_times(self, next_node_subchain_ids_transmissions):</span>
+    <span class="c1">#     for _next_node_subchain_id in next_node_subchain_ids_transmissions:</span>
+    <span class="c1">#         previous_transmission_exact_time = next_node_subchain_ids_transmissions[_next_node_subchain_id]</span>
+    <span class="c1">#         self.transmission_times[_next_node_subchain_id] = \</span>
+    <span class="c1">#             next_node_subchain_ids_transmissions[_next_node_subchain_id].calculate_transmission_time()</span>
+    <span class="c1">#         self.transmission_exact_times[_next_node_subchain_id] = \</span>
+    <span class="c1">#             self.transmission_times[_next_node_subchain_id] + self.load_generator.time</span>
+    <span class="c1">#</span>
+    <span class="c1">#         if next_node_subchain_ids_transmissions[_next_node_subchain_id].transmission_exact_time != \</span>
+    <span class="c1">#                 previous_transmission_exact_time:</span>
+    <span class="c1">#             self.load_generator._next_trans_completion_times.pop(previous_transmission_exact_time, 0)</span>
+    <span class="c1">#             self.load_generator._next_trans_completion_times.update({</span>
+    <span class="c1">#                 self.transmission_exact_times[_next_node_subchain_id]: {</span>
+    <span class="c1">#                     &quot;request&quot;: self,</span>
+    <span class="c1">#                     &quot;source_host&quot;: self.transmission_src_replicas[_next_node_subchain_id].host,</span>
+    <span class="c1">#                     &quot;transmission&quot;: next_node_subchain_ids_transmissions[_next_node_subchain_id]</span>
+    <span class="c1">#                 }})</span>
+    <span class="c1">#         self.sim.logger.log(</span>
+    <span class="c1">#             &quot;     ***** Transmission time is &quot; + str(</span>
+    <span class="c1">#                 self.transmission_times[_next_node_subchain_id]), 3)</span>
+
+    <span class="c1"># def recalculate_transmission_times(self, next_node_subchain_ids_transmissions):</span>
+    <span class="c1">#     for _next_node_subchain_id in next_node_subchain_ids_transmissions:</span>
+    <span class="c1">#         self.transmission_times[_next_node_subchain_id] = \</span>
+    <span class="c1">#             next_node_subchain_ids_transmissions[_next_node_subchain_id].calculate_transmission_time()</span>
+    <span class="c1">#         self.transmission_exact_times[_next_node_subchain_id] = \</span>
+    <span class="c1">#             self.transmission_times[_next_node_subchain_id] + self.load_generator.time</span>
+    <span class="c1">#         self.load_generator._next_trans_completion_times.update({</span>
+    <span class="c1">#             self.transmission_exact_times[_next_node_subchain_id]: {</span>
+    <span class="c1">#                 &quot;request&quot;: self,</span>
+    <span class="c1">#                 &quot;source_host&quot;: self.transmission_src_replicas[_next_node_subchain_id].host,</span>
+    <span class="c1">#                 &quot;transmission&quot;: next_node_subchain_ids_transmissions[_next_node_subchain_id]</span>
+    <span class="c1">#             }})</span>
+    <span class="c1">#         self.sim.logger.log(</span>
+    <span class="c1">#             &quot;     ***** Transmission time is &quot; + str(self.transmission_times[_next_node_subchain_id]) +</span>
+    <span class="c1">#             &quot; (payload = &quot; +</span>
+    <span class="c1">#             str(next_node_subchain_ids_transmissions[_next_node_subchain_id].remaining_payload_size) +</span>
+    <span class="c1">#             &quot; | remaining network latency = &quot; +</span>
+    <span class="c1">#             str(next_node_subchain_ids_transmissions[_next_node_subchain_id].total_latency) + &quot;)&quot;, 3)</span>
+
+    <span class="c1"># def find_and_set_next_transmissions_in_all_subchains(self):</span>
+    <span class="c1">#     _min_transmission_time = float(&#39;inf&#39;)</span>
+    <span class="c1">#     _fastest_transmittable_subchain_ids = []</span>
+    <span class="c1">#     _active_hosts_in_subchain_ids = []</span>
+    <span class="c1">#     _source_host = None</span>
+    <span class="c1">#</span>
+    <span class="c1">#     for subchain_id in self.active_subchain_ids:</span>
+    <span class="c1">#         _transmission_time = self.transmission_times[subchain_id]</span>
+    <span class="c1">#</span>
+    <span class="c1">#         if _transmission_time is not None and self.statuses[subchain_id] == &quot;IN TRANSMISSION&quot;:</span>
+    <span class="c1">#             if _min_transmission_time == self.transmission_times[subchain_id]:</span>
+    <span class="c1">#                 _fastest_transmittable_subchain_ids.append(subchain_id)</span>
+    <span class="c1">#                 _active_hosts_in_subchain_ids.append(self.current_replicas_in_nodes[subchain_id][1].host)</span>
+    <span class="c1">#             elif self.transmission_times[subchain_id] &lt; _min_transmission_time:</span>
+    <span class="c1">#                 _min_transmission_time = self.transmission_times[subchain_id]</span>
+    <span class="c1">#                 _fastest_transmittable_subchain_ids = [subchain_id]</span>
+    <span class="c1">#                 _active_hosts_in_subchain_ids = [self.current_replicas_in_nodes[subchain_id][1].host]</span>
+    <span class="c1">#                 _source_host = self.transmission_src_replicas[subchain_id].host</span>
+    <span class="c1">#</span>
+    <span class="c1">#             # if _transmission_time == 0 and self.statuses == &quot;IN TRANSMISSION&quot;:  # same host</span>
+    <span class="c1">#             #     self.load_generator._requests_ready_for_thread_generation.append((subchain_id, self))</span>
+    <span class="c1">#             #     self.load_generator.next_event = &quot;MICROSERVICE&quot;</span>
+    <span class="c1">#             #     self.finish_transmission(self.current_nodes[_subchain_id])</span>
+    <span class="c1">#             # else:  # different host</span>
+    <span class="c1">#     # TODO: is this line needed?</span>
+    <span class="c1">#     self.next_subchain_ids_to_finish_transmission = _fastest_transmittable_subchain_ids.copy()</span>
+    <span class="c1">#</span>
+    <span class="c1">#     next_transmission_exact_time = _min_transmission_time + self.load_generator.time</span>
+    <span class="c1">#     # self.load_generator.next_trans_completion_times.add(_min_transmission_time)</span>
+    <span class="c1">#     self.load_generator._next_trans_completion_times.update(</span>
+    <span class="c1">#         {next_transmission_exact_time: {</span>
+    <span class="c1">#             &quot;request&quot;: self,</span>
+    <span class="c1">#             &quot;subchain_id&quot;: _fastest_transmittable_subchain_ids,</span>
+    <span class="c1">#             &quot;destination_hosts&quot;: _active_hosts_in_subchain_ids,</span>
+    <span class="c1">#             &quot;source_host&quot;: _source_host</span>
+    <span class="c1">#         }</span>
+    <span class="c1">#         })</span>
+    <span class="c1">#     self.sim.logger.log(</span>
+    <span class="c1">#         &quot;@@@ Add a transmission time in the load generator with duration=&quot; +</span>
+    <span class="c1">#         str(_min_transmission_time) + &quot; (T=&quot; +</span>
+    <span class="c1">#         str(next_transmission_exact_time) +</span>
+    <span class="c1">#         &quot;), however, next transmission is going to end at T=&quot; +</span>
+    <span class="c1">#         str(</span>
+    <span class="c1">#             self.load_generator._next_trans_completion_times.peekitem(</span>
+    <span class="c1">#                 0)[0]) +</span>
+    <span class="c1">#         &quot; @@@&quot;, 2)</span>
+    <span class="c1">#     self.sim.logger.log(</span>
+    <span class="c1">#         &quot;@@@ Next subchain ids to finish transmissions in this request &quot; + str(</span>
+    <span class="c1">#             self) + &quot; = &quot; +</span>
+    <span class="c1">#         str(self.next_subchain_ids_to_finish_transmission) +</span>
+    <span class="c1">#         &quot;) @@@&quot;, 2)</span>
+
+<div class="viewcode-block" id="Request.finish_transmission_by_subchain_id">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.finish_transmission_by_subchain_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">finish_transmission_by_subchain_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">finish_transmission</span><span class="p">(</span><span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Request.finish_transmission">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.finish_transmission">[docs]</a>
+    <span class="k">def</span> <span class="nf">finish_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_in_alt_graph</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_finish_transmission</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="n">node_in_alt_graph</span><span class="p">)</span>
+        <span class="n">subchain_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">node_subchain_id_map</span><span class="p">[</span><span class="n">node_in_alt_graph</span><span class="p">]</span>
+        <span class="n">_active_replica_in_subchain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trans_times</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_subchains_status</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;INIT MICROSERVICE&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trans_deltatimes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">trans_init_times</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">after_finish_transmission</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="n">node_in_alt_graph</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Request.init_next_microservices">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.init_next_microservices">[docs]</a>
+    <span class="k">def</span> <span class="nf">init_next_microservices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceReplica</span><span class="p">]]:</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">current_node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">next_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">root</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">next_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">alternative_graph</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">current_node</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Let&#39;s call set_next_nodes_and_replicas because current replica in current subchain is not set</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_next_nodes_and_replicas</span><span class="p">(</span><span class="n">next_nodes</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_init_next_microservices</span><span class="p">,</span>
+                              <span class="n">subchain_id</span><span class="o">=</span><span class="n">subchain_id</span><span class="p">,</span>
+                              <span class="n">next_nodes</span><span class="o">=</span><span class="n">next_nodes</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trans_init_times</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_subchains_status</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;IN TRANSMISSION&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_replicas_in_nodes</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_nodes</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">after_init_next_microservices</span><span class="p">,</span>
+                              <span class="n">subchain_id</span><span class="o">=</span><span class="n">subchain_id</span><span class="p">,</span>
+                              <span class="n">replicas</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span></div>
+
+
+<div class="viewcode-block" id="Request.get_node_names">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.get_node_names">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_node_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;None&quot;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_nodes</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Request.get_next_nodes_names">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.get_next_nodes_names">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_next_nodes_names</span><span class="p">(</span><span class="n">next_nodes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">]]):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;None&quot;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">next_nodes</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Request.get_current_replicas_names">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.get_current_replicas_names">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_current_replicas_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span> <span class="k">if</span> <span class="n">r</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;None&quot;</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Request.get_next_replicas_names">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.get_next_replicas_names">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_next_replicas_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span> <span class="k">if</span> <span class="n">r</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;None&quot;</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_next_replicas_in_nodes</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Request.get_current_replicas_host_names">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.get_current_replicas_host_names">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_current_replicas_host_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">host</span><span class="p">)</span> <span class="k">if</span> <span class="n">r</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;None&quot;</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Request.get_next_replicas_host_names">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.get_next_replicas_host_names">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_next_replicas_host_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">host</span><span class="p">)</span> <span class="k">if</span> <span class="n">r</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;None&quot;</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_replicas_in_nodes</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Request.conclude">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.request.Request.conclude">[docs]</a>
+    <span class="k">def</span> <span class="nf">conclude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_concluding_request</span><span class="p">)</span>
+        <span class="c1"># self.__compute_times.append(self.load_generator.time - self.current_microservice_init_time)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">completed_requests</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">completion_time</span> <span class="o">=</span> <span class="n">time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latency</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">completion_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">arrival_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;COMPLETED&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">latencies</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;scenario #&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">scenario</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+                                                      <span class="s2">&quot;SFC&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                                      <span class="s2">&quot;iteration_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">iteration_id</span><span class="p">,</span>
+                                                      <span class="s2">&quot;req_id_in_iteration&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_in_iteration</span><span class="p">,</span>
+                                                      <span class="s2">&quot;latency&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latency</span><span class="p">),</span>
+                                                      <span class="s2">&quot;arrival_time&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arrival_time</span><span class="p">),</span>
+                                                      <span class="s2">&quot;completion_time&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">completion_time</span><span class="p">),</span>
+                                                      <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
+                                                      <span class="s2">&quot;traffic_type&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">traffic_prototype</span><span class="o">.</span><span class="n">name</span><span class="p">}</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">compute_times</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_times</span>
+
+    <span class="nd">@compute_times</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">compute_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Attribute compute_times is read-only! It is not supposed to be set.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">trans_times</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trans_times</span>
+
+    <span class="nd">@trans_times</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">trans_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Attribute transmission_times is read-only! It is not supposed to be set.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">trans_exact_times</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trans_exact_times</span>
+
+    <span class="nd">@trans_exact_times</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">trans_exact_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Attribute transmission_exact_times is read-only! It is not supposed to be set.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">trans_init_times</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trans_init_times</span>
+
+    <span class="nd">@trans_init_times</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">trans_init_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Attribute trans_init_times is read-only! It is not supposed to be set.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">current_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_nodes</span>
+
+    <span class="nd">@current_nodes</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">current_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Attribute current_nodes is read-only! It is not supposed to be set.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">current_replicas_in_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_replicas_in_nodes</span>
+
+    <span class="nd">@current_replicas_in_nodes</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">current_replicas_in_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Attribute current_replicas_in_nodes is read-only! It is not supposed to be set.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">subchains_status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subchains_status</span>
+
+    <span class="nd">@subchains_status</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">subchains_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Attribute subchains_status is read-only! It is not supposed to be set.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">next_replicas_in_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_replicas_in_nodes</span>
+
+    <span class="nd">@next_replicas_in_nodes</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">next_replicas_in_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Attribute next_replicas_in_nodes is read-only! It is not supposed to be set from outside&quot;</span>
+                             <span class="s2">&quot;of the class.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">next_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_nodes</span>
+
+    <span class="nd">@next_nodes</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">next_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Attribute next_nodes is read-only! It is not supposed to be set from outside of the &quot;</span>
+                             <span class="s2">&quot;class.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">trans_deltatimes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trans_deltatimes</span>
+
+    <span class="nd">@trans_deltatimes</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">trans_deltatimes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Attribute trans_deltatimes is read-only! It is not supposed to be set from outside of &quot;</span>
+                             <span class="s2">&quot;the class.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">arrival_time</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">arrival_time</span>
+
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">arrival_time</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">arrival_time</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">arrival_time</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">arrival_time</span>
+
+    <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">arrival_time</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">arrival_time</span>
+
+    <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">arrival_time</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">arrival_time</span>
+
+    <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">arrival_time</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">arrival_time</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

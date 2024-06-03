@@ -1,0 +1,831 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>perfsim.service_chain.replica_thread &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/perfsim/service_chain/replica_thread';</script>
+    <script src="../../../_static/js/custom.js"></script>
+    <link rel="icon" href="../../../_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="../../../_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../perfsim.html">perfsim</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for perfsim.service_chain.replica_thread</h1><div class="highlight"><pre>
+<span></span><span class="c1">#  Copyright (C) 2020 Michel Gokan Khan</span>
+<span class="c1">#  This program is free software; you can redistribute it and/or modify</span>
+<span class="c1">#  it under the terms of the GNU General Public License as published by</span>
+<span class="c1">#  the Free Software Foundation; either version 2 of the License, or</span>
+<span class="c1">#  (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is distributed in the hope that it will be useful,</span>
+<span class="c1">#  but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#  GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1">#  You should have received a copy of the GNU General Public License along</span>
+<span class="c1">#  with this program; if not, write to the Free Software Foundation, Inc.,</span>
+<span class="c1">#  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.</span>
+<span class="c1">#</span>
+<span class="c1">#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.</span>
+<span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
+
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">ReplicaThreadLogObserver</span><span class="p">,</span> <span class="n">ReplicaThreadTimelineObserver</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">MicroserviceReplica</span><span class="p">,</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Core</span><span class="p">,</span> <span class="n">Request</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span>
+
+
+<div class="viewcode-block" id="ReplicaThread">
+<a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread">[docs]</a>
+<span class="k">class</span> <span class="nc">ReplicaThread</span><span class="p">(</span><span class="n">Observable</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class represents a thread of execution of a microservice replica.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#: The event that is going to be notified before killing a thread.</span>
+    <span class="n">before_killing_thread</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is going to be notified before executing a thread.</span>
+    <span class="n">before_executing_thread</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is going to be notified after executing a thread.</span>
+    <span class="n">after_executing_thread</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: Indicates whether the thread is on a core&#39;s runqueue or not.</span>
+    <span class="n">_on_rq</span><span class="p">:</span> <span class="nb">bool</span>
+
+    <span class="c1">#: The process that the thread belongs to.</span>
+    <span class="n">_process</span><span class="p">:</span> <span class="n">Process</span>
+
+    <span class="c1">#: The vruntime represents the virtual runtime of the thread (as in the Linux scheduler).</span>
+    <span class="n">_vruntime</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="c1">#: Thread&#39;s load.</span>
+    <span class="n">_load</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1">#: Replica that the thread belongs to.</span>
+    <span class="n">replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span>
+
+    <span class="c1">#: Replica&#39;s identifier in the subchain.</span>
+    <span class="n">replica_identifier_in_subchain</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1">#: Thread&#39;s cpu_requests_share.</span>
+    <span class="n">_cpu_requests_share</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1">#: Thread&#39;s cpu_limits.</span>
+    <span class="n">_cpu_limits</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1">#: The current core that the thread is running on.</span>
+    <span class="n">_core</span><span class="p">:</span> <span class="n">Core</span>
+
+    <span class="c1">#: The index id of the thread in the node of the alternative graph.</span>
+    <span class="n">_thread_id_in_node</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1">#: The node in the alternative graph that this thread belongs to.</span>
+    <span class="n">_node_in_alt_graph</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">]</span>
+
+    <span class="n">__in_best_effort_active_threads</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">__in_burstable_active_threads</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">__in_guaranteed_active_threads</span><span class="p">:</span> <span class="nb">bool</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">process</span><span class="p">:</span> <span class="n">Process</span><span class="p">,</span>
+                 <span class="n">replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">,</span>
+                 <span class="n">replica_identifier_in_subchain</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">node_in_alt_graph</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">],</span>
+                 <span class="n">thread_id_in_node</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">average_load</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">core</span><span class="p">:</span> <span class="n">Core</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">parent_request</span><span class="p">:</span> <span class="n">Request</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process</span> <span class="o">=</span> <span class="n">process</span>
+        <span class="c1"># self._process_backup = process</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">parent_request</span><span class="o">.</span><span class="n">id</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> \
+                  <span class="nb">str</span><span class="p">(</span><span class="n">parent_request</span><span class="o">.</span><span class="n">iteration_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">process</span><span class="o">.</span><span class="n">pname</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> \
+                  <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">threads</span><span class="p">))</span>
+        <span class="c1"># self.__hash = int.from_bytes(self.id.encode(), byteorder=&#39;big&#39;)</span>
+
+        <span class="c1"># TODO: Is this really needed?!</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">threads</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">average_load</span> <span class="o">=</span> <span class="n">average_load</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_requests_share</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_limits</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">period</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_core</span> <span class="o">=</span> <span class="n">core</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vruntime</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_on_rq</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">executed_instructions</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># self.cache_penalty = 0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__in_best_effort_active_threads</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__in_burstable_active_threads</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__in_guaranteed_active_threads</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__in_burstable_unlimited_active_threads</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__in_burstable_limited_active_threads</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># self.total_runtime = 0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_idle</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replica</span> <span class="o">=</span> <span class="n">replica</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replica_identifier_in_subchain</span> <span class="o">=</span> <span class="n">replica_identifier_in_subchain</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_node_in_alt_graph</span><span class="p">(</span><span class="n">node</span><span class="o">=</span><span class="n">node_in_alt_graph</span><span class="p">,</span> <span class="n">thread_id_in_node</span><span class="o">=</span><span class="n">thread_id_in_node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duration_to_finish</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_request</span> <span class="o">=</span> <span class="n">parent_request</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subchain_id</span> <span class="o">=</span> <span class="n">subchain_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">active_threads_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_request</span><span class="o">.</span><span class="n">current_active_threads</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">subchain_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug_level</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attach_observer</span><span class="p">(</span><span class="n">ReplicaThreadLogObserver</span><span class="p">(</span><span class="n">replica_thread</span><span class="o">=</span><span class="bp">self</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">log_timeline</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attach_observer</span><span class="p">(</span><span class="n">ReplicaThreadTimelineObserver</span><span class="p">(</span><span class="n">replica_thread</span><span class="o">=</span><span class="bp">self</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">node_in_alt_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_node_in_alt_graph</span>
+
+    <span class="nd">@node_in_alt_graph</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">node_in_alt_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Cannot set node_in_alt_graph directly. Use set_node_in_alt_graph() instead.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">thread_id_in_node</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_thread_id_in_node</span>
+
+    <span class="nd">@thread_id_in_node</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">thread_id_in_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread_id_in_node</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Cannot set thread_id_in_node directly. Use set_node_in_alt_graph() instead.&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ReplicaThread.set_node_in_alt_graph">
+<a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.set_node_in_alt_graph">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_node_in_alt_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">],</span> <span class="n">thread_id_in_node</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_thread_id_in_node</span> <span class="o">=</span> <span class="n">thread_id_in_node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_node_in_alt_graph</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_values_from_endpoint_function</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ReplicaThread.register_events">
+<a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.register_events">[docs]</a>
+    <span class="k">def</span> <span class="nf">register_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_killing_thread&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_executing_thread&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_executing_thread&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ReplicaThread.kill">
+<a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.kill">[docs]</a>
+    <span class="k">def</span> <span class="nf">kill</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">before_killing_thread</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">active_threads_count</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">threads</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">active_threads</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">is_active</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">active_hosts</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">load_balancing_needed</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">hosts_need_load_balancing</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">load_balancing_needed</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">hosts_need_load_balancing</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">threads</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">dequeue_task_by_thread</span><span class="p">(</span><span class="n">thread</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_rq</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># We are already calculating cpu_requests_share in cpu.recalculate_share</span>
+        <span class="c1"># for _thread in self.process.threads:</span>
+        <span class="c1">#     if _thread.on_rq:</span>
+        <span class="c1">#         _thread.cpu_requests_share = _thread.cpu_requests_share / self.process.active_threads_count</span>
+        <span class="c1">#         a=1</span>
+
+        <span class="c1"># self._process_backup = self.process</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">process</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__recalculate_cache_penalty</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">millicores</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]):</span>
+        <span class="n">miss_rate</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">replica_single_core_isolated_cache_misses</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">replica_single_core_isolated_cache_refs</span><span class="p">)</span>
+        <span class="n">contention_penalty</span> <span class="o">=</span> <span class="mf">0.033420389</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">active_threads</span><span class="p">))</span> <span class="o">+</span> <span class="mf">0.003341528</span>
+        <span class="c1"># altered_millicores = millicores if millicores &gt;= 100 else 100</span>
+        <span class="c1"># millicores = (share * self.core.cpu.max_cpu_requests) / 1000</span>
+        <span class="c1"># |___&gt; it supposed to (1000 * share) / max_cpu_requests</span>
+        <span class="n">cpu_size_penalty</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.02509033</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">millicores</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.17859156</span>
+        <span class="n">miss_rate</span> <span class="o">+=</span> <span class="n">miss_rate</span> <span class="o">*</span> <span class="n">cpu_size_penalty</span>
+        <span class="n">miss_rate</span> <span class="o">+=</span> <span class="n">miss_rate</span> <span class="o">*</span> <span class="n">contention_penalty</span>
+
+        <span class="k">return</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">replica_memory_accesses</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">original_instructions</span><span class="p">)</span> <span class="o">*</span>
+                <span class="n">miss_rate</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">replica_avg_cache_miss_penalty</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__get_share_proportion</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="n">millicores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_relative_guaranteed_cpu_requests_share</span><span class="p">()</span>
+        <span class="n">cache_penalty</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__recalculate_cache_penalty</span><span class="p">(</span><span class="n">millicores</span><span class="o">=</span><span class="n">millicores</span><span class="p">)</span>
+        <span class="c1"># _share_considering_cache_miss = ((self.cpi + self.cache_penalty) * (_cpu_requests_share ** 2)) / \</span>
+        <span class="c1">#                                     (self.cpi * self.core.cpu.max_cpu_requests)</span>
+        <span class="n">millicores_to_share</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="n">millicores</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>
+        <span class="n">share_considering_cache_miss</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cpi</span> <span class="o">*</span> <span class="n">millicores_to_share</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cpi</span> <span class="o">+</span> <span class="n">cache_penalty</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">share_considering_cache_miss</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">max_cpu_requests</span>
+
+<div class="viewcode-block" id="ReplicaThread.is_runnable">
+<a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.is_runnable">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_runnable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_rq</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">instructions</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="ReplicaThread.exec">
+<a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.exec">[docs]</a>
+    <span class="k">def</span> <span class="nf">exec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">simultaneous_flag</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_runnable</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;You can&#39;t execute a zombie thread and/or a thread without any instructions left!&quot;</span><span class="p">)</span>
+
+        <span class="c1"># if not simultaneous_flag:</span>
+        <span class="c1">#     self.total_runtime += duration</span>
+        <span class="c1"># self.core.runqueue.time += duration</span>
+
+        <span class="n">relative_share_proportion</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_share_proportion</span><span class="p">()</span>
+        <span class="n">instructions_to_consume</span> <span class="o">=</span> <span class="p">(</span><span class="n">duration</span> <span class="o">*</span> <span class="n">relative_share_proportion</span> <span class="o">/</span>
+                                   <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cpi</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">clock_rate_in_nanohertz</span><span class="p">)))</span>
+        <span class="n">remaining_instructions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instructions</span> <span class="o">-</span> <span class="n">instructions_to_consume</span>
+        <span class="k">if</span> <span class="o">-</span><span class="mf">0.001</span> <span class="o">&lt;</span> <span class="n">remaining_instructions</span> <span class="o">&lt;</span> <span class="mf">0.001</span><span class="p">:</span>
+            <span class="n">instructions_to_consume</span> <span class="o">+=</span> <span class="n">remaining_instructions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_executing_thread</span><span class="p">,</span>
+                              <span class="n">simultaneous_flag</span><span class="o">=</span><span class="n">simultaneous_flag</span><span class="p">,</span>
+                              <span class="n">duration</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span>
+                              <span class="n">instructions_to_consume</span><span class="o">=</span><span class="n">instructions_to_consume</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instructions</span> <span class="o">-=</span> <span class="n">instructions_to_consume</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">executed_instructions</span> <span class="o">+=</span> <span class="n">instructions_to_consume</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vruntime</span> <span class="o">+=</span> <span class="n">duration</span> <span class="o">*</span> <span class="n">relative_share_proportion</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">after_executing_thread</span><span class="p">,</span>
+                              <span class="n">simultaneous_flag</span><span class="o">=</span><span class="n">simultaneous_flag</span><span class="p">,</span>
+                              <span class="n">duration</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span>
+                              <span class="n">instructions_to_consume</span><span class="o">=</span><span class="n">instructions_to_consume</span><span class="p">,</span>
+                              <span class="n">relative_share_proportion</span><span class="o">=</span><span class="n">relative_share_proportion</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">instructions</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="ReplicaThread.get_best_effort_cpu_requests_share">
+<a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.get_best_effort_cpu_requests_share">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_best_effort_cpu_requests_share</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">ms_replica</span><span class="o">.</span><span class="n">microservice</span><span class="o">.</span><span class="n">is_best_effort</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">max_cpu_requests</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">ms_replica</span><span class="o">.</span><span class="n">microservice</span><span class="o">.</span><span class="n">is_burstable</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests_share</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">max_cpu_requests</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests_share</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">ms_replica</span><span class="o">.</span><span class="n">microservice</span><span class="o">.</span><span class="n">is_guaranteed</span><span class="p">():</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unknown microservice type&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ReplicaThread.get_relative_guaranteed_cpu_requests_share">
+<a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.get_relative_guaranteed_cpu_requests_share">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_relative_guaranteed_cpu_requests_share</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">my_actual_guaranteed_cpu_requests_share</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests_share</span>
+            <span class="k">if</span> <span class="n">my_actual_guaranteed_cpu_requests_share</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">max_cpu_requests</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">max_cpu_requests</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">my_actual_guaranteed_cpu_requests_share</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># if thread is best effort</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests_share</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;I&#39;m not sure this is an error, but thread supposed to get a cpu request before&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests_share</span></div>
+
+            <span class="c1"># v = (self.core.cpu.max_cpu_requests * my_actual_guaranteed_cpu_requests_share)</span>
+            <span class="c1"># return v / self.core.runqueue.total_guaranteed_cpu_requests</span>
+            <span class="c1"># best_effort_cpu_requests_share_proportion =</span>
+            <span class="c1"># my_actual_guaranteed_cpu_requests_share / self.core.runqueue.total_guaranteed_cpu_requests</span>
+            <span class="c1"># rq_free_share = self.core.cpu.max_cpu_requests - self.core.runqueue.total_guaranteed_cpu_requests</span>
+            <span class="c1"># relative_share =</span>
+            <span class="c1"># my_actual_guaranteed_cpu_requests_share + (best_effort_cpu_requests_share_proportion * rq_free_share)</span>
+            <span class="c1"># return relative_share</span>
+
+<div class="viewcode-block" id="ReplicaThread.get_exec_time_on_rq">
+<a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.replica_thread.ReplicaThread.get_exec_time_on_rq">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_exec_time_on_rq</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="n">relative_share_proportion</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_share_proportion</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duration_to_finish</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instructions</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpi</span><span class="p">)</span> <span class="o">/</span> \
+                                  <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">clock_rate_in_nanohertz</span> <span class="o">*</span> <span class="n">relative_share_proportion</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">duration_to_finish</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">instructions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instructions</span>
+
+    <span class="nd">@instructions</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">instructions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__instructions</span> <span class="o">=</span> <span class="n">v</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instructions</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">zombie_threads</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process</span>
+
+    <span class="nd">@process</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Process</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="c1"># if self._process is not None:</span>
+        <span class="c1">#     self._process_backup = v</span>
+
+    <span class="c1"># @property</span>
+    <span class="c1"># def process_backup(self):</span>
+    <span class="c1">#     return self._process_backup</span>
+
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">load</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vruntime</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">vruntime</span>
+
+    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">load</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vruntime</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">vruntime</span>
+
+    <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">load</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vruntime</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">vruntime</span>
+
+    <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">load</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vruntime</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">vruntime</span>
+
+    <span class="c1"># def __hash__(self):</span>
+    <span class="c1">#     return self.__hash</span>
+    <span class="c1">#</span>
+    <span class="c1"># def __eq__(self, other):</span>
+    <span class="c1">#     return self.__hash__() == other.__hash__()</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_set_values_from_endpoint_function</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReplicaThread</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_in_alt_graph</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">thread_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">thread_id_in_node</span>
+
+        <span class="k">if</span> <span class="n">func</span><span class="o">.</span><span class="n">microservice</span><span class="o">.</span><span class="n">cpu_requests</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests_share</span> <span class="o">=</span> \
+                <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">max_cpu_requests</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="n">microservice</span><span class="o">.</span><span class="n">cpu_requests</span> <span class="o">/</span> <span class="n">func</span><span class="o">.</span><span class="n">threads_count</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests_share</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">max_cpu_requests</span> <span class="o">/</span> <span class="n">func</span><span class="o">.</span><span class="n">threads_count</span>
+
+        <span class="k">if</span> <span class="n">func</span><span class="o">.</span><span class="n">microservice</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">microservice</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">/</span> <span class="n">func</span><span class="o">.</span><span class="n">threads_count</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">instructions</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">threads_instructions</span><span class="p">[</span><span class="n">thread_id</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cpi</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">threads_avg_cpi</span><span class="p">[</span><span class="n">thread_id</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replica_memory_accesses</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">threads_avg_mem_accesses</span><span class="p">[</span><span class="n">thread_id</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">original_instructions</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">threads_instructions</span><span class="p">[</span><span class="n">thread_id</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replica_single_core_isolated_cache_misses</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">threads_single_core_isolated_cache_misses</span><span class="p">[</span><span class="n">thread_id</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replica_single_core_isolated_cache_refs</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">threads_single_core_isolated_cache_refs</span><span class="p">[</span><span class="n">thread_id</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replica_avg_cache_miss_penalty</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">threads_avg_cache_miss_penalty</span><span class="p">[</span><span class="n">thread_id</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">on_rq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_rq</span>
+
+    <span class="nd">@on_rq</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">on_rq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_on_rq</span> <span class="o">=</span> <span class="n">v</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vruntime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vruntime</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_core</span>
+
+    <span class="nd">@core</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Core</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;core&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_core</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">remove_from_threads_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_core</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_core</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">add_to_threads_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="nd">@vruntime</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">vruntime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">remove_from_threads_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vruntime</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">add_to_threads_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="nd">@load</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_load</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load</span> <span class="o">!=</span> <span class="n">v</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">remove_from_threads_sorted</span><span class="p">(</span><span class="n">thread</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">inverted_thread_load</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_load</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">load</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_load</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">add_to_threads_sorted</span><span class="p">(</span><span class="n">thread</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">inverted_thread_load</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_load</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">load</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cpu_requests_share</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_requests_share</span>
+
+    <span class="nd">@cpu_requests_share</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cpu_requests_share</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
+            <span class="n">error_message</span> <span class="o">=</span> <span class="s2">&quot;CPU requests share cannot be greater than </span><span class="si">{}</span><span class="s2"> in a single &quot;</span> \
+                            <span class="s2">&quot;thread placed in a core. </span><span class="si">{}</span><span class="s2"> Given!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">max_cpu_requests</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">error_message</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">difference</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_requests_share</span> <span class="o">-</span> <span class="n">v</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_requests_share</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="c1"># TODO: I originally started with millicores = 1024, but I think it should be 1000. So, I converted</span>
+            <span class="c1">#  all the millicores to 1000.</span>
+            <span class="n">millicores_to_share</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cpu_requests_share</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">max_cpu_requests</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">average_load</span> <span class="o">*</span> <span class="n">millicores_to_share</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">difference</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">thread_set</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">thread_set_dict</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">]:</span>
+                    <span class="c1"># if thread_set.sum_cpu_requests != 0:</span>
+                    <span class="n">thread_set</span><span class="o">.</span><span class="n">sum_cpu_requests</span> <span class="o">-=</span> <span class="n">difference</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cpu_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_limits</span>
+
+    <span class="nd">@cpu_limits</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cpu_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
+            <span class="n">error_message</span> <span class="o">=</span> <span class="s2">&quot;CPU limits share cannot be greater than </span><span class="si">{}</span><span class="s2"> in a single &quot;</span> \
+                            <span class="s2">&quot;thread placed in a core. </span><span class="si">{}</span><span class="s2"> Given!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">max_cpu_requests</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">error_message</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">decategorize_thread_from_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_limits</span> <span class="o">=</span> <span class="n">v</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">categorize_thread_into_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

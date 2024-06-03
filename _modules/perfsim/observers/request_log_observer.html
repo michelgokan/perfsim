@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>perfsim.observers.request_log_observer &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/perfsim/observers/request_log_observer';</script>
+    <script src="../../../_static/js/custom.js"></script>
+    <link rel="icon" href="../../../_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="../../../_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../perfsim.html">perfsim</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for perfsim.observers.request_log_observer</h1><div class="highlight"><pre>
+<span></span><span class="c1">#  Copyright (C) 2020 Michel Gokan Khan</span>
+<span class="c1">#  This program is free software; you can redistribute it and/or modify</span>
+<span class="c1">#  it under the terms of the GNU General Public License as published by</span>
+<span class="c1">#  the Free Software Foundation; either version 2 of the License, or</span>
+<span class="c1">#  (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is distributed in the hope that it will be useful,</span>
+<span class="c1">#  but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#  GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1">#  You should have received a copy of the GNU General Public License along</span>
+<span class="c1">#  with this program; if not, write to the Free Software Foundation, Inc.,</span>
+<span class="c1">#  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.</span>
+<span class="c1">#</span>
+<span class="c1">#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.</span>
+<span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">LogObserver</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">MicroserviceReplica</span><span class="p">,</span> <span class="n">Request</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">,</span> <span class="n">MicroserviceReplica</span>
+
+
+<div class="viewcode-block" id="RequestLogObserver">
+<a class="viewcode-back" href="../../../perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver">[docs]</a>
+<span class="k">class</span> <span class="nc">RequestLogObserver</span><span class="p">(</span><span class="n">LogObserver</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="s1">&#39;Request&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;RequestLogObserver&quot;</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">logger</span><span class="p">)</span>
+
+    <span class="nd">@Event</span>
+    <span class="k">def</span> <span class="nf">before_init_next_microservices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                       <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                       <span class="n">next_nodes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;MicroserviceEndpointFunction&#39;</span><span class="p">]]]):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">current_node</span> <span class="o">=</span> <span class="s2">&quot;None&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_node</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;- Initializing next microservices for request #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; in scm #&quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="c1"># self.cluster.print_log(&quot; * Active subchain IDs are &quot; + str(self.active_subchain_ids), 3)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot; * For subchain ID: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="c1"># if self.is_last_microservice_running():</span>
+            <span class="c1">#     self.cluster.print_log(&quot; * No microservice left!&quot;, 3)</span>
+            <span class="c1">#     return False</span>
+            <span class="c1"># else:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot; * Looking inside subchain #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="n">next_nodes_in_subchain</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_nodes</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;root&quot;</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Current node in subchain are &quot;</span> <span class="o">+</span> <span class="n">current_node</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Next nodes in subchain are &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_nodes_in_subchain</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_replicas_in_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Current replicas for subchain id &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; is not set!&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Current replicas for subchain id &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; are &quot;</span> <span class="o">+</span>
+                                <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_replicas_in_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  *** Setting transmission init time to &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  *** Setting status of subchain to IN TRANSMISSION&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_current_and_next_nodes_and_replicas</span><span class="p">()</span>
+
+<div class="viewcode-block" id="RequestLogObserver.print_current_and_next_nodes_and_replicas">
+<a class="viewcode-back" href="../../../perfsim.observers.html#perfsim.observers.request_log_observer.RequestLogObserver.print_current_and_next_nodes_and_replicas">[docs]</a>
+    <span class="k">def</span> <span class="nf">print_current_and_next_nodes_and_replicas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot; * Setting current_replicas_in_nodes to next_replicas_in_nodes&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Current replicas = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_current_replicas_names</span><span class="p">()),</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;   *** Current replicas hosts: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_current_replicas_host_names</span><span class="p">()),</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Next replicas = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_next_replicas_names</span><span class="p">()),</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;   *** Next replicas hosts: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_next_replicas_host_names</span><span class="p">()),</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Now, current replicas will be replaces by the next replicas&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span></div>
+
+
+    <span class="nd">@Event</span>
+    <span class="k">def</span> <span class="nf">after_init_next_microservices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                      <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                      <span class="n">replicas</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;MicroserviceReplica&#39;</span><span class="p">]]]):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot; * Request #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; in subchain id &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">)</span> <span class="o">+</span>
+                            <span class="s2">&quot; reached replicas &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_current_replicas_names</span><span class="p">()[</span><span class="n">subchain_id</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_current_and_next_nodes_and_replicas</span><span class="p">()</span>
+
+    <span class="nd">@Event</span>
+    <span class="k">def</span> <span class="nf">before_finalizing_subchain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot; * Finalizing subchain #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; in scm #&quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; in request #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+
+    <span class="nd">@Event</span>
+    <span class="k">def</span> <span class="nf">before_concluding_request</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;- All subchains are done! Concluding request #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="p">))</span>
+
+    <span class="nd">@Event</span>
+    <span class="k">def</span> <span class="nf">before_init_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                 <span class="n">node</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;MicroserviceEndpointFunction&#39;</span><span class="p">],</span>
+                                 <span class="n">next_nodes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;MicroserviceEndpointFunction&#39;</span><span class="p">]]):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="n">subchain_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">node_subchain_id_map</span><span class="p">[</span><span class="n">node</span><span class="p">]</span>
+            <span class="n">current_replica_of_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_replicas_in_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span>
+            <span class="n">replica_name</span> <span class="o">=</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_replica_of_node</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_replica_of_node</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
+            <span class="n">host_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_replica_of_node</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">host</span><span class="p">)</span>
+            <span class="n">current_replicas_host_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_current_replicas_host_names</span><span class="p">()</span>
+            <span class="n">current_replicas_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_current_replicas_names</span><span class="p">()</span>
+            <span class="n">current_node_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_node_names</span><span class="p">()</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot; * Node (&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;) belonging to request &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">+</span>
+                            <span class="s2">&quot; is done. Initializing transmission to next node...&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;&lt;&lt;&lt; INITIATING A SET OF TRANSMISSIONS &gt;&gt;&gt;&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot; * Initiating a set of transmissions in scm #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span>
+                            <span class="s2">&quot; from replica #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">replica_name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of microservice &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; in host &quot;</span> <span class="o">+</span>
+                            <span class="n">host_name</span> <span class="o">+</span> <span class="s2">&quot; belonging to request #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Compute time for current node=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">compute_times</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">next_nodes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** There is no next node in subchain #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">)</span> <span class="o">+</span>
+                                <span class="s2">&quot;! Finalizing subchain!&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">next_nodes_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_next_nodes_names</span><span class="p">(</span><span class="n">next_nodes</span><span class="p">)</span>
+                <span class="n">next_replicas_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_next_replicas_names</span><span class="p">()</span>
+                <span class="n">next_replicas_host_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">get_next_replicas_host_names</span><span class="p">()</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Setting next nodes to -&gt;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_nodes_names</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Current nodes = -&gt;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_node_names</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Setting next replicas to -&gt;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_replicas_names</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Current replicas =&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_replicas_names</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Current replicas host names =&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_replicas_host_names</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;  ** Next replicas host names =&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_replicas_host_names</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+
+    <span class="nd">@Event</span>
+    <span class="k">def</span> <span class="nf">on_init_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                             <span class="n">current_node</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;MicroserviceEndpointFunction&#39;</span><span class="p">],</span>
+                             <span class="n">next_node</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;MicroserviceEndpointFunction&#39;</span><span class="p">],</span>
+                             <span class="n">current_replica</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;MicroserviceReplica&#39;</span><span class="p">],</span>
+                             <span class="n">next_replica</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;MicroserviceReplica&#39;</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="n">next_subchain_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">node_subchain_id_map</span><span class="p">[</span><span class="n">next_node</span><span class="p">]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;   *** Current node&#39;s replica is #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_replica</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; in subchain ID &quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="n">current_replica</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;   *** Next node&#39;s replica is #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_replica</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; in subchain ID &quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="n">next_replica</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;    **** Reserving transmission bandwidth in the NIC of host &quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="n">current_replica</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">host</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;       ****** Setting current_replicas_in_nodes of node (&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_node</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="n">next_node</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;) in subchain id &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_subchain_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of request &quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">id_in_cpu</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; to (&quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">next_replicas_in_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span>
+                            <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">next_replicas_in_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">current_node_to_log</span> <span class="o">=</span> <span class="s2">&quot;None&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_node_to_log</span> <span class="o">=</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> \
+                                      <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_replicas_in_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">current_replica_to_log</span> <span class="o">=</span> <span class="s2">&quot;None&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_replica_to_log</span> <span class="o">=</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_replicas_in_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> \
+                                         <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_replicas_in_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;       ****** Replacing current_node &quot;</span> <span class="o">+</span> <span class="n">current_node_to_log</span> <span class="o">+</span> <span class="s2">&quot; in subchain id &quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="n">next_subchain_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; with (&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">next_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span>
+                            <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">next_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;       ****** Replacing current_replicas_in_nodes &quot;</span> <span class="o">+</span> <span class="n">current_replica_to_log</span> <span class="o">+</span>
+                            <span class="s2">&quot; in subchain id &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_subchain_id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; with (&quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">next_replicas_in_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">next_replicas_in_nodes</span><span class="p">[</span><span class="n">next_subchain_id</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+    <span class="nd">@Event</span>
+    <span class="k">def</span> <span class="nf">after_init_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;MicroserviceEndpointFunction&#39;</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="nd">@Event</span>
+    <span class="k">def</span> <span class="nf">before_finish_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;MicroserviceEndpointFunction&#39;</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;### FINISHING A SINGLE TRANSMISSIONS ###&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="nd">@Event</span>
+    <span class="k">def</span> <span class="nf">after_finish_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;MicroserviceEndpointFunction&#39;</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="n">node_subchain_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">node_subchain_id_map</span><span class="p">[</span><span class="n">node</span><span class="p">]</span>
+            <span class="n">active_replica_in_subchain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_replicas_in_nodes</span><span class="p">[</span><span class="n">node_subchain_id</span><span class="p">]</span>
+            <span class="n">replica_name</span> <span class="o">=</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">active_replica_in_subchain</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">active_replica_in_subchain</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot; * Finishing a transmission in scm #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">scm</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; related to &quot;</span>
+                                                                                                  <span class="s2">&quot;replica #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                <span class="n">replica_name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of &quot;</span> <span class="o">+</span> <span class="s2">&quot;microservice &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; in host &quot;</span> <span class="o">+</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="n">active_replica_in_subchain</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">host</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; belonging to request #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">+</span>
+                            <span class="s2">&quot; (delta time=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">trans_deltatimes</span><span class="p">[</span><span class="n">node_subchain_id</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;########################################&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

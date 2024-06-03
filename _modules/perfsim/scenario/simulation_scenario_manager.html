@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>perfsim.scenario.simulation_scenario_manager &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/perfsim/scenario/simulation_scenario_manager';</script>
+    <script src="../../../_static/js/custom.js"></script>
+    <link rel="icon" href="../../../_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="../../../_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../perfsim.html">perfsim</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for perfsim.scenario.simulation_scenario_manager</h1><div class="highlight"><pre>
+<span></span><span class="c1">#  Copyright (C) 2020 Michel Gokan Khan</span>
+<span class="c1">#  This program is free software; you can redistribute it and/or modify</span>
+<span class="c1">#  it under the terms of the GNU General Public License as published by</span>
+<span class="c1">#  the Free Software Foundation; either version 2 of the License, or</span>
+<span class="c1">#  (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is distributed in the hope that it will be useful,</span>
+<span class="c1">#  but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#  GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1">#  You should have received a copy of the GNU General Public License along</span>
+<span class="c1">#  with this program; if not, write to the Free Software Foundation, Inc.,</span>
+<span class="c1">#  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.</span>
+<span class="c1">#</span>
+<span class="c1">#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.</span>
+<span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">TypedDict</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span>
+
+<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">MicroservicePrototype</span><span class="p">,</span> <span class="n">HostPrototype</span><span class="p">,</span> <span class="n">RouterPrototype</span><span class="p">,</span> <span class="n">TrafficPrototype</span><span class="p">,</span> <span class="n">Host</span><span class="p">,</span> <span class="n">Router</span><span class="p">,</span> \
+    <span class="n">TopologyLinkPrototype</span><span class="p">,</span> <span class="n">Microservice</span><span class="p">,</span> <span class="n">ServiceChain</span><span class="p">,</span> <span class="n">ResourceAllocationScenario</span><span class="p">,</span> \
+    <span class="n">PlacementScenario</span><span class="p">,</span> <span class="n">AffinityPrototype</span><span class="p">,</span> <span class="n">SimulationScenario</span><span class="p">,</span> <span class="n">AffinityScenario</span><span class="p">,</span> \
+    <span class="n">PlacementAlgorithm</span><span class="p">,</span> <span class="n">Simulation</span><span class="p">,</span> <span class="n">TopologyPrototype</span><span class="p">,</span> <span class="n">SimulationScenarioManagerResultDict</span><span class="p">,</span> <span class="n">ScalingScenario</span><span class="p">,</span> \
+    <span class="n">ResultsStorageDriver</span><span class="p">,</span> <span class="n">FileStorageDriver</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">ResultsStorageDriver</span>
+
+
+<div class="viewcode-block" id="TopologyEquipmentSet">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.TopologyEquipmentSet">[docs]</a>
+<span class="k">class</span> <span class="nc">TopologyEquipmentSet</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">hosts</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Host</span><span class="p">]</span>
+    <span class="n">routers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Router</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="SimulationScenarioManager">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager">[docs]</a>
+<span class="k">class</span> <span class="nc">SimulationScenarioManager</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class represents a simulation scenario manager. It is responsible for managing simulation scenarios.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">microservice_prototypes_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">MicroservicePrototype</span><span class="p">]</span>
+    <span class="n">host_prototypes_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HostPrototype</span><span class="p">]</span>
+    <span class="n">router_prototypes_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">RouterPrototype</span><span class="p">]</span>
+    <span class="n">traffic_prototypes_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TrafficPrototype</span><span class="p">]</span>
+    <span class="n">link_prototypes_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TopologyLinkPrototype</span><span class="p">]</span>
+    <span class="n">topology_equipments_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TopologyEquipmentSet</span><span class="p">]</span>
+    <span class="n">service_chains_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChain</span><span class="p">]</span>
+    <span class="n">topologies_prototype_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TopologyPrototype</span><span class="p">]</span>
+    <span class="n">microservices_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Microservice</span><span class="p">]</span>
+    <span class="n">simulation_scenarios_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SimulationScenario</span><span class="p">]</span>
+    <span class="n">simulations_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Simulation</span><span class="p">]</span>
+    <span class="n">affinity_prototypes_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">AffinityPrototype</span><span class="p">]</span>
+    <span class="n">res_alloc_scenarios_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ResourceAllocationScenario</span><span class="p">]</span>
+    <span class="n">placement_scenarios_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PlacementScenario</span><span class="p">]</span>
+    <span class="n">placement_algorithms_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PlacementAlgorithm</span><span class="p">]</span>
+    <span class="n">results_storage_driver</span><span class="p">:</span> <span class="s1">&#39;ResultsStorageDriver&#39;</span>
+
+<div class="viewcode-block" id="SimulationScenarioManager.from_config_file">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.from_config_file">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_config_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config_file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">config_file_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Either config_file_path should be provided to initiate a ScenarioManager!&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Decoding JSON has failed!&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">_config</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SimulationScenarioManager.get_obj">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.get_obj">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">attr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">attr_key</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">conf</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>
+                <span class="n">sm</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;SimulationScenarioManager&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">other</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method first checks if the provided key is exists in the provided configuration dictionary. If it is, it</span>
+<span class="sd">        returns the result of `from_config` method of the provided class (subj). If not, it checks if an existing</span>
+<span class="sd">        SimulationScenarioManager is provided (e.g., if the scenario manager is already initialized). If it is, it</span>
+<span class="sd">        returns the requested attribute (attr_key) of the provided SimulationScenarioManager (sm). If not, it raises</span>
+<span class="sd">        a ValueError exception.</span>
+
+<span class="sd">        The benefit of this method is that it allows to use the same configuration file and/or an existing</span>
+<span class="sd">        SimulationScenarioManager to initialize a new SimulationScenarioManager.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">key_list</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+        <span class="n">conf_dict</span> <span class="o">=</span> <span class="n">conf</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Key cannot be empty!&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">key_item</span> <span class="ow">in</span> <span class="n">key_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key_item</span> <span class="ow">in</span> <span class="n">conf_dict</span><span class="p">:</span>
+                <span class="n">conf_dict</span> <span class="o">=</span> <span class="n">conf_dict</span><span class="p">[</span><span class="n">key_item</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">sm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">sm_attr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+                <span class="n">attr_key_list</span> <span class="o">=</span> <span class="n">attr_key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">attr_key_item</span> <span class="ow">in</span> <span class="n">attr_key_list</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">attr_key_item</span> <span class="ow">in</span> <span class="n">sm_attr</span><span class="p">:</span>
+                        <span class="n">sm_attr</span> <span class="o">=</span> <span class="n">sm_attr</span><span class="p">[</span><span class="n">attr_key_item</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">attr_key_item</span><span class="si">}</span><span class="s2"> not found in </span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="n">sm_attr</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key_item</span><span class="si">}</span><span class="s2"> is not defined in the configuration file!&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">subj</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">conf_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">other</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SimulationScenarioManager.from_config">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.from_config">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">existing_scenario_manager</span><span class="p">:</span> <span class="s1">&#39;SimulationScenarioManager&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">conf</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Either config or sm object should be provided to initiate a ScenarioManager!&quot;</span><span class="p">)</span>
+
+        <span class="n">topology_equipments_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TopologyEquipmentSet</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">microservice_prototypes_dict</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">MicroservicePrototype</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;prototypes.microservices&quot;</span><span class="p">,</span>
+                                                   <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;microservice_prototypes_dict&quot;</span><span class="p">,</span> <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span>
+                                                   <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">)</span>
+        <span class="n">host_prototypes_dict</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">HostPrototype</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;prototypes.hosts&quot;</span><span class="p">,</span>
+                                           <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;host_prototypes_dict&quot;</span><span class="p">,</span> <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span>
+                                           <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">)</span>
+        <span class="n">router_prototypes_dict</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">RouterPrototype</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;prototypes.routers&quot;</span><span class="p">,</span>
+                                             <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;router_prototypes_dict&quot;</span><span class="p">,</span> <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span>
+                                             <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">)</span>
+        <span class="n">link_prototypes_dict</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">TopologyLinkPrototype</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;prototypes.links&quot;</span><span class="p">,</span>
+                                           <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;link_prototypes_dict&quot;</span><span class="p">,</span> <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span>
+                                           <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">)</span>
+        <span class="n">traffic_prototypes_dict</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">TrafficPrototype</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;prototypes.traffics&quot;</span><span class="p">,</span>
+                                              <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;traffic_prototypes_dict&quot;</span><span class="p">,</span> <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span>
+                                              <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_topology_id</span><span class="p">,</span> <span class="n">_topology_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">conf</span><span class="p">[</span><span class="s2">&quot;topologies&quot;</span><span class="p">]):</span>
+            <span class="n">topology_equipments_dict</span><span class="p">[</span><span class="n">_topology_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;hosts&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">&quot;routers&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+            <span class="n">topology_equipments_dict</span><span class="p">[</span><span class="n">_topology_name</span><span class="p">][</span><span class="s2">&quot;hosts&quot;</span><span class="p">]</span> <span class="o">=</span> \
+                <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">Host</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;equipments.hosts&quot;</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;topology_equipments_dict&quot;</span><span class="p">,</span>
+                            <span class="n">attr_key</span><span class="o">=</span><span class="s2">&quot;equipments.hosts&quot;</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">,</span>
+                            <span class="n">host_prototypes_dict</span><span class="o">=</span><span class="n">host_prototypes_dict</span><span class="p">)</span>
+            <span class="n">topology_equipments_dict</span><span class="p">[</span><span class="n">_topology_name</span><span class="p">][</span><span class="s2">&quot;routers&quot;</span><span class="p">]</span> <span class="o">=</span> \
+                <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">Router</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;equipments.routers&quot;</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;topology_equipments_dict&quot;</span><span class="p">,</span>
+                            <span class="n">attr_key</span><span class="o">=</span><span class="s2">&quot;equipments.routers&quot;</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">,</span>
+                            <span class="n">router_prototypes_dict</span><span class="o">=</span><span class="n">router_prototypes_dict</span><span class="p">)</span>
+        <span class="n">topology_prototypes_dict</span> <span class="o">=</span> \
+            <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">TopologyPrototype</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;topologies&quot;</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;topology_prototypes_dict&quot;</span><span class="p">,</span> <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">,</span> <span class="n">topology_equipments_dict</span><span class="o">=</span><span class="n">topology_equipments_dict</span><span class="p">,</span>
+                        <span class="n">link_prototypes_dict</span><span class="o">=</span><span class="n">link_prototypes_dict</span><span class="p">)</span>
+        <span class="n">service_chains_dict</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">ServiceChain</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;service_chains&quot;</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;service_chains_dict&quot;</span><span class="p">,</span>
+                                          <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">,</span>
+                                          <span class="n">microservice_prototypes_dict</span><span class="o">=</span><span class="n">microservice_prototypes_dict</span><span class="p">)</span>
+        <span class="n">resource_allocation_scenarios_dict</span> <span class="o">=</span> \
+            <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">ResourceAllocationScenario</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;resource_allocation_scenarios&quot;</span><span class="p">,</span>
+                        <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;resource_allocation_scenarios_dict&quot;</span><span class="p">,</span> <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span>
+                        <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">)</span>
+        <span class="n">results_storage_driver</span> <span class="o">=</span> \
+            <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">ResultsStorageDriver</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;storage_driver&quot;</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;results_storage_driver&quot;</span><span class="p">,</span>
+                        <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">,</span> <span class="n">default_class</span><span class="o">=</span><span class="n">FileStorageDriver</span><span class="p">,</span>
+                        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;file_storage_driver1&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;./results/&quot;</span><span class="p">)</span>
+        <span class="n">placement_algorithms_dict</span> <span class="o">=</span> \
+            <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">PlacementAlgorithm</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;placement_algorithms&quot;</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;placement_algorithms_dict&quot;</span><span class="p">,</span>
+                        <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">)</span>
+        <span class="n">affinity_prototypes_dict</span> <span class="o">=</span> \
+            <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">AffinityPrototype</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;affinity_rulesets&quot;</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;affinity_prototypes_dict&quot;</span><span class="p">,</span>
+                        <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">)</span>
+        <span class="n">simulation_scenarios_dict</span> <span class="o">=</span> \
+            <span class="bp">cls</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="n">subj</span><span class="o">=</span><span class="n">SimulationScenario</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;simulation_scenarios&quot;</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;simulation_scenarios_dict&quot;</span><span class="p">,</span>
+                        <span class="n">attr_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">existing_scenario_manager</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">simulation_scenarios</span><span class="o">=</span><span class="n">simulation_scenarios_dict</span><span class="p">,</span>
+                   <span class="n">service_chains</span><span class="o">=</span><span class="n">service_chains_dict</span><span class="p">,</span>
+                   <span class="n">topology_prototypes</span><span class="o">=</span><span class="n">topology_prototypes_dict</span><span class="p">,</span>
+                   <span class="n">placement_algorithms</span><span class="o">=</span><span class="n">placement_algorithms_dict</span><span class="p">,</span>
+                   <span class="n">res_alloc_scenarios</span><span class="o">=</span><span class="n">resource_allocation_scenarios_dict</span><span class="p">,</span>
+                   <span class="n">affinity_prototypes</span><span class="o">=</span><span class="n">affinity_prototypes_dict</span><span class="p">,</span>
+                   <span class="n">traffic_prototypes</span><span class="o">=</span><span class="n">traffic_prototypes_dict</span><span class="p">,</span>
+                   <span class="n">results_storage_driver</span><span class="o">=</span><span class="n">results_storage_driver</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">simulation_scenarios</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">SimulationScenario</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SimulationScenario</span><span class="p">]],</span>
+                 <span class="n">service_chains</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">ServiceChain</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChain</span><span class="p">]],</span>
+                 <span class="n">topology_prototypes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">TopologyPrototype</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TopologyPrototype</span><span class="p">]],</span>
+                 <span class="n">placement_algorithms</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PlacementAlgorithm</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PlacementAlgorithm</span><span class="p">]],</span>
+                 <span class="n">res_alloc_scenarios</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">ResourceAllocationScenario</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ResourceAllocationScenario</span><span class="p">]],</span>
+                 <span class="n">affinity_prototypes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">AffinityPrototype</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">AffinityPrototype</span><span class="p">]],</span>
+                 <span class="n">traffic_prototypes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">TrafficPrototype</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TrafficPrototype</span><span class="p">]],</span>
+                 <span class="n">results_storage_driver</span><span class="p">:</span> <span class="n">ResultsStorageDriver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">res_alloc_scenarios_dict</span> <span class="o">=</span> <span class="n">ResourceAllocationScenario</span><span class="o">.</span><span class="n">copy_to_dict</span><span class="p">(</span><span class="n">res_alloc_scenarios</span><span class="o">=</span><span class="n">res_alloc_scenarios</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">affinity_prototypes_dict</span> <span class="o">=</span> <span class="n">AffinityPrototype</span><span class="o">.</span><span class="n">copy_to_dict</span><span class="p">(</span><span class="n">affinity_prototypes</span><span class="o">=</span><span class="n">affinity_prototypes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">service_chains_dict</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">microservices_dict</span> <span class="o">=</span> <span class="n">ServiceChain</span><span class="o">.</span><span class="n">copy_to_dict</span><span class="p">(</span><span class="n">service_chains</span><span class="o">=</span><span class="n">service_chains</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topologies_prototype_dict</span> <span class="o">=</span> <span class="n">TopologyPrototype</span><span class="o">.</span><span class="n">copy_to_dict</span><span class="p">(</span><span class="n">topology_prototypes</span><span class="o">=</span><span class="n">topology_prototypes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">placement_algorithms_dict</span> <span class="o">=</span> <span class="n">PlacementAlgorithm</span><span class="o">.</span><span class="n">copy_to_dict</span><span class="p">(</span><span class="n">placement_algorithms</span><span class="o">=</span><span class="n">placement_algorithms</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">traffic_prototypes_dict</span> <span class="o">=</span> <span class="n">TrafficPrototype</span><span class="o">.</span><span class="n">copy_to_dict</span><span class="p">(</span><span class="n">traffic_prototypes</span><span class="o">=</span><span class="n">traffic_prototypes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">simulation_scenarios_dict</span> <span class="o">=</span> <span class="n">Simulation</span><span class="o">.</span><span class="n">copy_sim_scenarios_to_dict</span><span class="p">(</span><span class="n">sim_scenarios</span><span class="o">=</span><span class="n">simulation_scenarios</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results_storage_driver</span> <span class="o">=</span> <span class="n">results_storage_driver</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">validate_simulation_scenarios</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">simulations_dict</span> <span class="o">=</span> <span class="n">Simulation</span><span class="o">.</span><span class="n">from_scenarios_manager</span><span class="p">(</span><span class="n">sm</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SimulationScenarioManager.validate_simulation_scenarios">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_simulation_scenarios">[docs]</a>
+    <span class="k">def</span> <span class="nf">validate_simulation_scenarios</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">sim_scenario</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulation_scenarios_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">service_chain</span> <span class="ow">in</span> <span class="n">sim_scenario</span><span class="p">[</span><span class="s1">&#39;traffic_scenario&#39;</span><span class="p">][</span><span class="s1">&#39;service_chains&#39;</span><span class="p">]:</span>
+                <span class="n">traffic_prototype</span> <span class="o">=</span> <span class="n">sim_scenario</span><span class="p">[</span><span class="s1">&#39;traffic_scenario&#39;</span><span class="p">][</span><span class="s1">&#39;service_chains&#39;</span><span class="p">][</span><span class="n">service_chain</span><span class="p">][</span><span class="s1">&#39;traffic_type&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">validate_service_chain</span><span class="p">(</span><span class="n">service_chain</span><span class="o">=</span><span class="n">service_chain</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">validate_traffic_prototype</span><span class="p">(</span><span class="n">traffic_prototype</span><span class="o">=</span><span class="n">traffic_prototype</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">validate_scaling_scenarios</span><span class="p">(</span><span class="n">scaling_scenarios</span><span class="o">=</span><span class="n">sim_scenario</span><span class="p">[</span><span class="s1">&#39;scaling_scenarios&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">validate_affinity_scenarios</span><span class="p">(</span><span class="n">affinity_scenarios</span><span class="o">=</span><span class="n">sim_scenario</span><span class="p">[</span><span class="s1">&#39;affinity_scenarios&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">validate_placement_algorithms</span><span class="p">(</span><span class="n">placement_algorithm</span><span class="o">=</span><span class="n">sim_scenario</span><span class="p">[</span><span class="s1">&#39;placement_algorithm&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">validate_topology</span><span class="p">(</span><span class="n">topology</span><span class="o">=</span><span class="n">sim_scenario</span><span class="p">[</span><span class="s1">&#39;topology&#39;</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="SimulationScenarioManager.validate_traffic_prototype">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_traffic_prototype">[docs]</a>
+    <span class="k">def</span> <span class="nf">validate_traffic_prototype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">traffic_prototype</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">traffic_prototype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">traffic_prototypes_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Traffic type </span><span class="si">{</span><span class="n">traffic_prototype</span><span class="si">}</span><span class="s2"> is not defined in the simulation&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SimulationScenarioManager.validate_service_chain">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_service_chain">[docs]</a>
+    <span class="k">def</span> <span class="nf">validate_service_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_chain</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">service_chain</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">service_chains_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Service chain </span><span class="si">{</span><span class="n">service_chain</span><span class="si">}</span><span class="s2"> is not defined in the simulation&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SimulationScenarioManager.validate_scaling_scenarios">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_scaling_scenarios">[docs]</a>
+    <span class="k">def</span> <span class="nf">validate_scaling_scenarios</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scaling_scenarios</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ScalingScenario</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">scaling_scenario</span> <span class="ow">in</span> <span class="n">scaling_scenarios</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">scaling_scenario</span><span class="p">[</span><span class="s1">&#39;microservice&#39;</span><span class="p">]))</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">microservices_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Microservice </span><span class="si">{</span><span class="n">scaling_scenario</span><span class="p">[</span><span class="s1">&#39;microservice&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> not found in the &quot;</span>
+                                 <span class="sa">f</span><span class="s2">&quot;microservices list: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">microservices_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SimulationScenarioManager.validate_affinity_scenarios">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_affinity_scenarios">[docs]</a>
+    <span class="k">def</span> <span class="nf">validate_affinity_scenarios</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">affinity_scenarios</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AffinityScenario</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">affinity_scenario</span> <span class="ow">in</span> <span class="n">affinity_scenarios</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">affinity_scenario</span><span class="p">[</span><span class="s1">&#39;microservice&#39;</span><span class="p">]))</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">affinity_prototypes_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Microservice </span><span class="si">{</span><span class="n">affinity_scenario</span><span class="p">[</span><span class="s1">&#39;microservice&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> not found in the &quot;</span>
+                                 <span class="sa">f</span><span class="s2">&quot;affinity prototypes list: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">affinity_prototypes_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SimulationScenarioManager.validate_placement_algorithms">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_placement_algorithms">[docs]</a>
+    <span class="k">def</span> <span class="nf">validate_placement_algorithms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">placement_algorithm</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">placement_algorithm</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">placement_algorithms_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Placement algorithm </span><span class="si">{</span><span class="n">placement_algorithm</span><span class="si">}</span><span class="s2"> not found in the &quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;placement algorithms list: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">placement_algorithms_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SimulationScenarioManager.validate_topology">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.validate_topology">[docs]</a>
+    <span class="k">def</span> <span class="nf">validate_topology</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topology</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">topology</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">topologies_prototype_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Topology </span><span class="si">{</span><span class="n">topology</span><span class="si">}</span><span class="s2"> not found in the &quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;topologies prototypes list: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topologies_prototype_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SimulationScenarioManager.get_all_latencies">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.get_all_latencies">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_all_latencies</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SimulationScenarioManagerResultDict</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">:</span> <span class="n">SimulationScenarioManagerResultDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;simulation_scenarios&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+        <span class="k">for</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulation_scenarios_dict</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;simulation_scenarios&quot;</span><span class="p">][</span><span class="n">scenario</span><span class="p">]</span> <span class="o">=</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">simulations_dict</span><span class="p">[</span><span class="n">scenario</span><span class="p">]</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">get_latencies_grouped_by_sfc</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="SimulationScenarioManager.save_all">
+<a class="viewcode-back" href="../../../perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager.save_all">[docs]</a>
+    <span class="k">def</span> <span class="nf">save_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">sim_name</span><span class="p">,</span> <span class="n">sim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulations_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">sim_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">storage_driver</span><span class="o">.</span><span class="n">save_simulation_scenario_results</span><span class="p">(</span><span class="n">simulation</span><span class="o">=</span><span class="n">sim</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">results</span></div>
+</div>
+
+    <span class="c1"># def reinit(self, file_path: str = None, config: Dict = None, setup_cluster_and_load_generators: bool = True):</span>
+    <span class="c1">#     self.__init__.py(file_path, config, setup_cluster_and_load_generators, init=True)</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

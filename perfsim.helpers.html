@@ -1,0 +1,1075 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>perfsim.helpers &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'perfsim.helpers';</script>
+    <script src="_static/js/custom.js"></script>
+    <link rel="icon" href="_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="perfsim.observers" href="perfsim.observers.html" />
+    <link rel="prev" title="perfsim.exceptions" href="perfsim.exceptions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="perfsim.html">perfsim</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/perfsim.helpers.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>perfsim.helpers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers.cost_calculator">perfsim.helpers.cost_calculator module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator"><code class="docutils literal notranslate"><span class="pre">CostCalculator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_CPU_PRICE_PER_VCPU_SEC"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ALWAYS_ALLOC_CPU_PRICE_PER_VCPU_SEC</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_CPU_FREE_TIER_VPU_SEC_PER_MONTH"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ALWAYS_ALLOC_CPU_FREE_TIER_VPU_SEC_PER_MONTH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_MEM_PRICE_PER_GB_SEC"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ALWAYS_ALLOC_MEM_PRICE_PER_GB_SEC</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_MEM_FREE_TIER_GB_SEC_PER_MONTH"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ALWAYS_ALLOC_MEM_FREE_TIER_GB_SEC_PER_MONTH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC_IDLE"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC_IDLE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_FREE_TIER_VPU_SEC_PER_MONTH"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_FREE_TIER_VPU_SEC_PER_MONTH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC_IDLE"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC_IDLE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_FREE_TIER_GB_SEC_PER_MONTH"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_FREE_TIER_GB_SEC_PER_MONTH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_PRICE"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_PRICE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_REQ_FREE_TIER_COUNT"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_REQ_FREE_TIER_COUNT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.concurrent_requests_per_container"><code class="docutils literal notranslate"><span class="pre">CostCalculator.concurrent_requests_per_container</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.requests"><code class="docutils literal notranslate"><span class="pre">CostCalculator.requests</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.request_execution_time"><code class="docutils literal notranslate"><span class="pre">CostCalculator.request_execution_time</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.cost_for_always_allocated_instance"><code class="docutils literal notranslate"><span class="pre">CostCalculator.cost_for_always_allocated_instance()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.cost_for_only_allocated_during_request_instance"><code class="docutils literal notranslate"><span class="pre">CostCalculator.cost_for_only_allocated_during_request_instance()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers.debug_dict">perfsim.helpers.debug_dict module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict"><code class="docutils literal notranslate"><span class="pre">DebugDict</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict.debug"><code class="docutils literal notranslate"><span class="pre">DebugDict.debug</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict.debug_level"><code class="docutils literal notranslate"><span class="pre">DebugDict.debug_level</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict.debug_file_location"><code class="docutils literal notranslate"><span class="pre">DebugDict.debug_file_location</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict.log_cpu_events"><code class="docutils literal notranslate"><span class="pre">DebugDict.log_cpu_events</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict.log_timeline"><code class="docutils literal notranslate"><span class="pre">DebugDict.log_timeline</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers.logger">perfsim.helpers.logger module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.lb_timer"><code class="docutils literal notranslate"><span class="pre">Logger.lb_timer</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.tick_timer"><code class="docutils literal notranslate"><span class="pre">Logger.tick_timer</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.core_sorting_timer"><code class="docutils literal notranslate"><span class="pre">Logger.core_sorting_timer</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.sim"><code class="docutils literal notranslate"><span class="pre">Logger.sim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_traffic_details"><code class="docutils literal notranslate"><span class="pre">Logger.print_traffic_details()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_hosts_info"><code class="docutils literal notranslate"><span class="pre">Logger.print_hosts_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_microservices_info"><code class="docutils literal notranslate"><span class="pre">Logger.print_microservices_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_cluster_info"><code class="docutils literal notranslate"><span class="pre">Logger.print_cluster_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_subchains"><code class="docutils literal notranslate"><span class="pre">Logger.print_subchains()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_all"><code class="docutils literal notranslate"><span class="pre">Logger.print_all()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.log"><code class="docutils literal notranslate"><span class="pre">Logger.log()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_latencies"><code class="docutils literal notranslate"><span class="pre">Logger.print_latencies()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.get_latencies_summary"><code class="docutils literal notranslate"><span class="pre">Logger.get_latencies_summary()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers.plotter">perfsim.helpers.plotter module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter"><code class="docutils literal notranslate"><span class="pre">Plotter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.draw_topology"><code class="docutils literal notranslate"><span class="pre">Plotter.draw_topology()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.draw_timeline_graph"><code class="docutils literal notranslate"><span class="pre">Plotter.draw_timeline_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.draw_figures"><code class="docutils literal notranslate"><span class="pre">Plotter.draw_figures()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.draw_graph"><code class="docutils literal notranslate"><span class="pre">Plotter.draw_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.convert_networkx_graph_to_cytoscape_json"><code class="docutils literal notranslate"><span class="pre">Plotter.convert_networkx_graph_to_cytoscape_json()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.get_cytoscape_template"><code class="docutils literal notranslate"><span class="pre">Plotter.get_cytoscape_template()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.figures_to_html"><code class="docutils literal notranslate"><span class="pre">Plotter.figures_to_html()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers.utils">perfsim.helpers.utils module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils"><code class="docutils literal notranslate"><span class="pre">Utils</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils.mkdir_p"><code class="docutils literal notranslate"><span class="pre">Utils.mkdir_p()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils.save_file"><code class="docutils literal notranslate"><span class="pre">Utils.save_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils.view_pydot"><code class="docutils literal notranslate"><span class="pre">Utils.view_pydot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils.save_results_json"><code class="docutils literal notranslate"><span class="pre">Utils.save_results_json()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils.write_a_line_to_a_log_file_static"><code class="docutils literal notranslate"><span class="pre">Utils.write_a_line_to_a_log_file_static()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="perfsim-helpers">
+<h1>perfsim.helpers<a class="headerlink" href="#perfsim-helpers" title="Link to this heading">#</a></h1>
+<section id="module-perfsim.helpers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-perfsim.helpers" title="Link to this heading">#</a></h2>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-perfsim.helpers.cost_calculator">
+<span id="perfsim-helpers-cost-calculator-module"></span><h2>perfsim.helpers.cost_calculator module<a class="headerlink" href="#module-perfsim.helpers.cost_calculator" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.helpers.cost_calculator.</span></span><span class="sig-name descname"><span class="pre">CostCalculator</span></span><a class="reference internal" href="_modules/perfsim/helpers/cost_calculator.html#CostCalculator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Prevent instantiation of this class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_CPU_PRICE_PER_VCPU_SEC">
+<span class="sig-name descname"><span class="pre">ALWAYS_ALLOC_CPU_PRICE_PER_VCPU_SEC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.8e-05</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_CPU_PRICE_PER_VCPU_SEC" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_CPU_FREE_TIER_VPU_SEC_PER_MONTH">
+<span class="sig-name descname"><span class="pre">ALWAYS_ALLOC_CPU_FREE_TIER_VPU_SEC_PER_MONTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">240000</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_CPU_FREE_TIER_VPU_SEC_PER_MONTH" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_MEM_PRICE_PER_GB_SEC">
+<span class="sig-name descname"><span class="pre">ALWAYS_ALLOC_MEM_PRICE_PER_GB_SEC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2e-06</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_MEM_PRICE_PER_GB_SEC" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_MEM_FREE_TIER_GB_SEC_PER_MONTH">
+<span class="sig-name descname"><span class="pre">ALWAYS_ALLOC_MEM_FREE_TIER_GB_SEC_PER_MONTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">450000</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_MEM_FREE_TIER_GB_SEC_PER_MONTH" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC">
+<span class="sig-name descname"><span class="pre">ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2.4e-05</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC_IDLE">
+<span class="sig-name descname"><span class="pre">ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC_IDLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2.5e-06</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC_IDLE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_FREE_TIER_VPU_SEC_PER_MONTH">
+<span class="sig-name descname"><span class="pre">ONLY_ALLOC_DURING_REQ_FREE_TIER_VPU_SEC_PER_MONTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">180000</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_FREE_TIER_VPU_SEC_PER_MONTH" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC">
+<span class="sig-name descname"><span class="pre">ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2.5e-06</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC_IDLE">
+<span class="sig-name descname"><span class="pre">ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC_IDLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2.5e-06</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC_IDLE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_FREE_TIER_GB_SEC_PER_MONTH">
+<span class="sig-name descname"><span class="pre">ONLY_ALLOC_DURING_REQ_MEM_FREE_TIER_GB_SEC_PER_MONTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">360000</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_FREE_TIER_GB_SEC_PER_MONTH" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_PRICE">
+<span class="sig-name descname"><span class="pre">ONLY_ALLOC_DURING_REQ_PRICE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4e-07</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_PRICE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_REQ_FREE_TIER_COUNT">
+<span class="sig-name descname"><span class="pre">ONLY_ALLOC_DURING_REQ_REQ_FREE_TIER_COUNT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2000000</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_REQ_FREE_TIER_COUNT" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.concurrent_requests_per_container">
+<span class="sig-name descname"><span class="pre">concurrent_requests_per_container</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">200</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.concurrent_requests_per_container" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.requests">
+<span class="sig-name descname"><span class="pre">requests</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3000000</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.requests" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.request_execution_time">
+<span class="sig-name descname"><span class="pre">request_execution_time</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.request_execution_time" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.cost_for_always_allocated_instance">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cost_for_always_allocated_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration_in_sec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/cost_calculator.html#CostCalculator.cost_for_always_allocated_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.cost_for_always_allocated_instance" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the cost of an instance that is always allocated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>duration_in_sec</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p></li>
+<li><p><strong>cores</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>memory</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>storage</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.cost_calculator.CostCalculator.cost_for_only_allocated_during_request_instance">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cost_for_only_allocated_during_request_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration_in_sec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">concurrent_requests</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_exec_time_ns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/cost_calculator.html#CostCalculator.cost_for_only_allocated_during_request_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.cost_calculator.CostCalculator.cost_for_only_allocated_during_request_instance" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the cost of an instance that is only allocated during a request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>duration_in_sec</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p></li>
+<li><p><strong>cores</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>memory</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>storage</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>concurrent_requests</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>requests</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>request_exec_time_ns</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.helpers.debug_dict">
+<span id="perfsim-helpers-debug-dict-module"></span><h2>perfsim.helpers.debug_dict module<a class="headerlink" href="#module-perfsim.helpers.debug_dict" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.helpers.debug_dict.DebugDict">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.helpers.debug_dict.</span></span><span class="sig-name descname"><span class="pre">DebugDict</span></span><a class="reference internal" href="_modules/perfsim/helpers/debug_dict.html#DebugDict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.debug_dict.DebugDict" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>This class represents a dictionary of debug parameters.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.debug_dict.DebugDict.debug">
+<span class="sig-name descname"><span class="pre">debug</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="headerlink" href="#perfsim.helpers.debug_dict.DebugDict.debug" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.debug_dict.DebugDict.debug_level">
+<span class="sig-name descname"><span class="pre">debug_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#perfsim.helpers.debug_dict.DebugDict.debug_level" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.debug_dict.DebugDict.debug_file_location">
+<span class="sig-name descname"><span class="pre">debug_file_location</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="headerlink" href="#perfsim.helpers.debug_dict.DebugDict.debug_file_location" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.debug_dict.DebugDict.log_cpu_events">
+<span class="sig-name descname"><span class="pre">log_cpu_events</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="headerlink" href="#perfsim.helpers.debug_dict.DebugDict.log_cpu_events" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.debug_dict.DebugDict.log_timeline">
+<span class="sig-name descname"><span class="pre">log_timeline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="headerlink" href="#perfsim.helpers.debug_dict.DebugDict.log_timeline" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.helpers.logger">
+<span id="perfsim-helpers-logger-module"></span><h2>perfsim.helpers.logger module<a class="headerlink" href="#module-perfsim.helpers.logger" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.helpers.logger.</span></span><span class="sig-name descname"><span class="pre">Logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/logger.html#Logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.logger.Logger" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class represents a logger that logs the simulation events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>simulation</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.html#perfsim.simulation.Simulation" title="perfsim.simulation.Simulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulation</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.lb_timer">
+<span class="sig-name descname"><span class="pre">lb_timer</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#perfsim.helpers.logger.Logger.lb_timer" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.tick_timer">
+<span class="sig-name descname"><span class="pre">tick_timer</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#perfsim.helpers.logger.Logger.tick_timer" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.core_sorting_timer">
+<span class="sig-name descname"><span class="pre">core_sorting_timer</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#perfsim.helpers.logger.Logger.core_sorting_timer" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.sim">
+<span class="sig-name descname"><span class="pre">sim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="perfsim.html#perfsim.simulation.Simulation" title="perfsim.simulation.Simulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulation</span></code></a></em><a class="headerlink" href="#perfsim.helpers.logger.Logger.sim" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.print_traffic_details">
+<span class="sig-name descname"><span class="pre">print_traffic_details</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/logger.html#Logger.print_traffic_details"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.logger.Logger.print_traffic_details" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.print_hosts_info">
+<span class="sig-name descname"><span class="pre">print_hosts_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/logger.html#Logger.print_hosts_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.logger.Logger.print_hosts_info" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.print_microservices_info">
+<span class="sig-name descname"><span class="pre">print_microservices_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/logger.html#Logger.print_microservices_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.logger.Logger.print_microservices_info" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.print_cluster_info">
+<span class="sig-name descname"><span class="pre">print_cluster_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/logger.html#Logger.print_cluster_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.logger.Logger.print_cluster_info" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.print_subchains">
+<span class="sig-name descname"><span class="pre">print_subchains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/logger.html#Logger.print_subchains"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.logger.Logger.print_subchains" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scm</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager" title="perfsim.service_chain.service_chain_manager.ServiceChainManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceChainManager</span></code></a></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.print_all">
+<span class="sig-name descname"><span class="pre">print_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/logger.html#Logger.print_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.logger.Logger.print_all" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/logger.html#Logger.log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.logger.Logger.log" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>level</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.print_latencies">
+<span class="sig-name descname"><span class="pre">print_latencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">summary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detailed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/logger.html#Logger.print_latencies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.logger.Logger.print_latencies" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.logger.Logger.get_latencies_summary">
+<span class="sig-name descname"><span class="pre">get_latencies_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/logger.html#Logger.get_latencies_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.logger.Logger.get_latencies_summary" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.helpers.plotter">
+<span id="perfsim-helpers-plotter-module"></span><h2>perfsim.helpers.plotter module<a class="headerlink" href="#module-perfsim.helpers.plotter" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.helpers.plotter.Plotter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.helpers.plotter.</span></span><span class="sig-name descname"><span class="pre">Plotter</span></span><a class="reference internal" href="_modules/perfsim/helpers/plotter.html#Plotter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.plotter.Plotter" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is responsible for plotting the simulation results.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.plotter.Plotter.draw_topology">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">draw_topology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/plotter.html#Plotter.draw_topology"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.plotter.Plotter.draw_topology" title="Link to this definition">#</a></dt>
+<dd><p>Draw the topology of the cluster.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.plotter.Plotter.draw_timeline_graph">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">draw_timeline_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/plotter.html#Plotter.draw_timeline_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.plotter.Plotter.draw_timeline_graph" title="Link to this definition">#</a></dt>
+<dd><p>Draw the timeline graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_result_dict.SimulationScenarioResultDict" title="perfsim.scenario.simulation_scenario_result_dict.SimulationScenarioResultDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationScenarioResultDict</span></code></a></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.plotter.Plotter.draw_figures">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">draw_figures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_events</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_save_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/home/runner/work/perfsim/perfsim/docs/results/'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/plotter.html#Plotter.draw_figures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.plotter.Plotter.draw_figures" title="Link to this definition">#</a></dt>
+<dd><p>Draw the figures for the simulation results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>load_generator</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator" title="perfsim.traffic.load_generator.LoadGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoadGenerator</span></code></a></span>)</p></li>
+<li><p><strong>scenario_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>show_events</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>)</p></li>
+<li><p><strong>path_to_save_results</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.plotter.Plotter.draw_graph">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">draw_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'html'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_labels_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/plotter.html#Plotter.draw_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.plotter.Plotter.draw_graph" title="Link to this definition">#</a></dt>
+<dd><p>Draw a graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong></p></li>
+<li><p><strong>name</strong></p></li>
+<li><p><strong>save_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>output_type</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>with_labels</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>)</p></li>
+<li><p><strong>relabel</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>)</p></li>
+<li><p><strong>node_labels_map</strong></p></li>
+<li><p><strong>show</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.plotter.Plotter.convert_networkx_graph_to_cytoscape_json">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_networkx_graph_to_cytoscape_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'euler'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/plotter.html#Plotter.convert_networkx_graph_to_cytoscape_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.plotter.Plotter.convert_networkx_graph_to_cytoscape_json" title="Link to this definition">#</a></dt>
+<dd><p>Convert a NetworkX graph to a Cytoscape JSON object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong></p></li>
+<li><p><strong>edge_labels</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>)</p></li>
+<li><p><strong>node_style</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>)</p></li>
+<li><p><strong>edge_style</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>)</p></li>
+<li><p><strong>layout</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.plotter.Plotter.get_cytoscape_template">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_cytoscape_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ready_script</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/plotter.html#Plotter.get_cytoscape_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.plotter.Plotter.get_cytoscape_template" title="Link to this definition">#</a></dt>
+<dd><p>Get the template for the Cytoscape graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ready_script</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.plotter.Plotter.figures_to_html">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">figures_to_html</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dashboard.html'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/plotter.html#Plotter.figures_to_html"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.plotter.Plotter.figures_to_html" title="Link to this definition">#</a></dt>
+<dd><p>Save a list of figures to an HTML file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>figs</strong></p></li>
+<li><p><strong>filename</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.helpers.utils">
+<span id="perfsim-helpers-utils-module"></span><h2>perfsim.helpers.utils module<a class="headerlink" href="#module-perfsim.helpers.utils" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.helpers.utils.Utils">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.helpers.utils.</span></span><span class="sig-name descname"><span class="pre">Utils</span></span><a class="reference internal" href="_modules/perfsim/helpers/utils.html#Utils"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.utils.Utils" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.utils.Utils.mkdir_p">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mkdir_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/utils.html#Utils.mkdir_p"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.utils.Utils.mkdir_p" title="Link to this definition">#</a></dt>
+<dd><p>Creates a directory. equivalent to using mkdir -p on the command line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dir_path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – path to the directory</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.utils.Utils.save_file">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/utils.html#Utils.save_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.utils.Utils.save_file" title="Link to this definition">#</a></dt>
+<dd><p>Save a file with the given content</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>content</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.utils.Utils.view_pydot">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">view_pydot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdot</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/utils.html#Utils.view_pydot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.utils.Utils.view_pydot" title="Link to this definition">#</a></dt>
+<dd><p>View a pydot object in Jupyter notebook</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pdot</strong></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.utils.Utils.save_results_json">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_results_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/utils.html#Utils.save_results_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.utils.Utils.save_results_json" title="Link to this definition">#</a></dt>
+<dd><p>Save the results in a JSON file and return the file path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong> – Results to save</p></li>
+<li><p><strong>save_dir</strong> – The directory to save the file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Returns the file path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.helpers.utils.Utils.write_a_line_to_a_log_file_static">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_a_line_to_a_log_file_static</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">txt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/helpers/utils.html#Utils.write_a_line_to_a_log_file_static"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.helpers.utils.Utils.write_a_line_to_a_log_file_static" title="Link to this definition">#</a></dt>
+<dd><p>Write a line to a log file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_file</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextIO</span></code></span>) – The log file</p></li>
+<li><p><strong>time</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The time</p></li>
+<li><p><strong>txt</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The text to write</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="perfsim.exceptions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">perfsim.exceptions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="perfsim.observers.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">perfsim.observers</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers.cost_calculator">perfsim.helpers.cost_calculator module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator"><code class="docutils literal notranslate"><span class="pre">CostCalculator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_CPU_PRICE_PER_VCPU_SEC"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ALWAYS_ALLOC_CPU_PRICE_PER_VCPU_SEC</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_CPU_FREE_TIER_VPU_SEC_PER_MONTH"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ALWAYS_ALLOC_CPU_FREE_TIER_VPU_SEC_PER_MONTH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_MEM_PRICE_PER_GB_SEC"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ALWAYS_ALLOC_MEM_PRICE_PER_GB_SEC</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ALWAYS_ALLOC_MEM_FREE_TIER_GB_SEC_PER_MONTH"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ALWAYS_ALLOC_MEM_FREE_TIER_GB_SEC_PER_MONTH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC_IDLE"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_CPU_PRICE_PER_VCPU_SEC_IDLE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_FREE_TIER_VPU_SEC_PER_MONTH"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_FREE_TIER_VPU_SEC_PER_MONTH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC_IDLE"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_PRICE_PER_GB_SEC_IDLE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_FREE_TIER_GB_SEC_PER_MONTH"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_MEM_FREE_TIER_GB_SEC_PER_MONTH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_PRICE"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_PRICE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.ONLY_ALLOC_DURING_REQ_REQ_FREE_TIER_COUNT"><code class="docutils literal notranslate"><span class="pre">CostCalculator.ONLY_ALLOC_DURING_REQ_REQ_FREE_TIER_COUNT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.concurrent_requests_per_container"><code class="docutils literal notranslate"><span class="pre">CostCalculator.concurrent_requests_per_container</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.requests"><code class="docutils literal notranslate"><span class="pre">CostCalculator.requests</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.request_execution_time"><code class="docutils literal notranslate"><span class="pre">CostCalculator.request_execution_time</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.cost_for_always_allocated_instance"><code class="docutils literal notranslate"><span class="pre">CostCalculator.cost_for_always_allocated_instance()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.cost_calculator.CostCalculator.cost_for_only_allocated_during_request_instance"><code class="docutils literal notranslate"><span class="pre">CostCalculator.cost_for_only_allocated_during_request_instance()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers.debug_dict">perfsim.helpers.debug_dict module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict"><code class="docutils literal notranslate"><span class="pre">DebugDict</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict.debug"><code class="docutils literal notranslate"><span class="pre">DebugDict.debug</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict.debug_level"><code class="docutils literal notranslate"><span class="pre">DebugDict.debug_level</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict.debug_file_location"><code class="docutils literal notranslate"><span class="pre">DebugDict.debug_file_location</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict.log_cpu_events"><code class="docutils literal notranslate"><span class="pre">DebugDict.log_cpu_events</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.debug_dict.DebugDict.log_timeline"><code class="docutils literal notranslate"><span class="pre">DebugDict.log_timeline</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers.logger">perfsim.helpers.logger module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.lb_timer"><code class="docutils literal notranslate"><span class="pre">Logger.lb_timer</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.tick_timer"><code class="docutils literal notranslate"><span class="pre">Logger.tick_timer</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.core_sorting_timer"><code class="docutils literal notranslate"><span class="pre">Logger.core_sorting_timer</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.sim"><code class="docutils literal notranslate"><span class="pre">Logger.sim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_traffic_details"><code class="docutils literal notranslate"><span class="pre">Logger.print_traffic_details()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_hosts_info"><code class="docutils literal notranslate"><span class="pre">Logger.print_hosts_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_microservices_info"><code class="docutils literal notranslate"><span class="pre">Logger.print_microservices_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_cluster_info"><code class="docutils literal notranslate"><span class="pre">Logger.print_cluster_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_subchains"><code class="docutils literal notranslate"><span class="pre">Logger.print_subchains()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_all"><code class="docutils literal notranslate"><span class="pre">Logger.print_all()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.log"><code class="docutils literal notranslate"><span class="pre">Logger.log()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.print_latencies"><code class="docutils literal notranslate"><span class="pre">Logger.print_latencies()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.logger.Logger.get_latencies_summary"><code class="docutils literal notranslate"><span class="pre">Logger.get_latencies_summary()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers.plotter">perfsim.helpers.plotter module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter"><code class="docutils literal notranslate"><span class="pre">Plotter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.draw_topology"><code class="docutils literal notranslate"><span class="pre">Plotter.draw_topology()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.draw_timeline_graph"><code class="docutils literal notranslate"><span class="pre">Plotter.draw_timeline_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.draw_figures"><code class="docutils literal notranslate"><span class="pre">Plotter.draw_figures()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.draw_graph"><code class="docutils literal notranslate"><span class="pre">Plotter.draw_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.convert_networkx_graph_to_cytoscape_json"><code class="docutils literal notranslate"><span class="pre">Plotter.convert_networkx_graph_to_cytoscape_json()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.get_cytoscape_template"><code class="docutils literal notranslate"><span class="pre">Plotter.get_cytoscape_template()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.plotter.Plotter.figures_to_html"><code class="docutils literal notranslate"><span class="pre">Plotter.figures_to_html()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.helpers.utils">perfsim.helpers.utils module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils"><code class="docutils literal notranslate"><span class="pre">Utils</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils.mkdir_p"><code class="docutils literal notranslate"><span class="pre">Utils.mkdir_p()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils.save_file"><code class="docutils literal notranslate"><span class="pre">Utils.save_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils.view_pydot"><code class="docutils literal notranslate"><span class="pre">Utils.view_pydot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils.save_results_json"><code class="docutils literal notranslate"><span class="pre">Utils.save_results_json()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.helpers.utils.Utils.write_a_line_to_a_log_file_static"><code class="docutils literal notranslate"><span class="pre">Utils.write_a_line_to_a_log_file_static()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

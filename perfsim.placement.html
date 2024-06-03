@@ -1,0 +1,816 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>perfsim.placement &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'perfsim.placement';</script>
+    <script src="_static/js/custom.js"></script>
+    <link rel="icon" href="_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="perfsim.prototypes" href="perfsim.prototypes.html" />
+    <link rel="prev" title="perfsim.observers" href="perfsim.observers.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="perfsim.html">perfsim</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/perfsim.placement.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>perfsim.placement</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.placement">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.placement.first_fit">perfsim.placement.first_fit module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit.FirstFit"><code class="docutils literal notranslate"><span class="pre">FirstFit</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit.FirstFit.place"><code class="docutils literal notranslate"><span class="pre">FirstFit.place()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit.FirstFit.first_fit"><code class="docutils literal notranslate"><span class="pre">FirstFit.first_fit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.placement.first_fit_decreasing">perfsim.placement.first_fit_decreasing module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit_decreasing.FirstFitDecreasing"><code class="docutils literal notranslate"><span class="pre">FirstFitDecreasing</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit_decreasing.FirstFitDecreasing.place"><code class="docutils literal notranslate"><span class="pre">FirstFitDecreasing.place()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit_decreasing.FirstFitDecreasing.first_fit_decreasing"><code class="docutils literal notranslate"><span class="pre">FirstFitDecreasing.first_fit_decreasing()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.placement.least_fit">perfsim.placement.least_fit module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions.w_cpu"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions.w_cpu</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions.w_mem"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions.w_mem</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions.w_ingress"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions.w_ingress</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions.w_egress"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions.w_egress</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions.w_blkio"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions.w_blkio</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFit"><code class="docutils literal notranslate"><span class="pre">LeastFit</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFit.place"><code class="docutils literal notranslate"><span class="pre">LeastFit.place()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFit.least_fit_score"><code class="docutils literal notranslate"><span class="pre">LeastFit.least_fit_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFit.reschedule"><code class="docutils literal notranslate"><span class="pre">LeastFit.reschedule()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.placement.placement_algorithm">perfsim.placement.placement_algorithm module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.name"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.options"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.options</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.place"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.place()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.algorithm_name"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.algorithm_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.copy_to_dict"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.copy_to_dict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.from_config"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="perfsim-placement">
+<h1>perfsim.placement<a class="headerlink" href="#perfsim-placement" title="Link to this heading">#</a></h1>
+<section id="module-perfsim.placement">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-perfsim.placement" title="Link to this heading">#</a></h2>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-perfsim.placement.first_fit">
+<span id="perfsim-placement-first-fit-module"></span><h2>perfsim.placement.first_fit module<a class="headerlink" href="#module-perfsim.placement.first_fit" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.placement.first_fit.FirstFit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.placement.first_fit.</span></span><span class="sig-name descname"><span class="pre">FirstFit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/first_fit.html#FirstFit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.first_fit.FirstFit" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm" title="perfsim.placement.placement_algorithm.PlacementAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlacementAlgorithm</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>options</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.placement.first_fit.FirstFit.place">
+<span class="sig-name descname"><span class="pre">place</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">placement_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replicas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hosts_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/first_fit.html#FirstFit.place"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.first_fit.FirstFit.place" title="Link to this definition">#</a></dt>
+<dd><p>Place the nodes in the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>placement_matrix</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span>)</p></li>
+<li><p><strong>replicas</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica" title="perfsim.service_chain.microservice_replica.MicroserviceReplica"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceReplica</span></code></a>]</span>)</p></li>
+<li><p><strong>hosts_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a>]</span>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.placement.first_fit.FirstFit.first_fit">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">first_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">placement_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replicas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hosts_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/first_fit.html#FirstFit.first_fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.first_fit.FirstFit.first_fit" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>placement_matrix</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span>)</p></li>
+<li><p><strong>replicas</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica" title="perfsim.service_chain.microservice_replica.MicroserviceReplica"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceReplica</span></code></a>]</span>)</p></li>
+<li><p><strong>hosts_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a>]</span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.placement.first_fit_decreasing">
+<span id="perfsim-placement-first-fit-decreasing-module"></span><h2>perfsim.placement.first_fit_decreasing module<a class="headerlink" href="#module-perfsim.placement.first_fit_decreasing" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.placement.first_fit_decreasing.FirstFitDecreasing">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.placement.first_fit_decreasing.</span></span><span class="sig-name descname"><span class="pre">FirstFitDecreasing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/first_fit_decreasing.html#FirstFitDecreasing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.first_fit_decreasing.FirstFitDecreasing" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.placement.first_fit.FirstFit" title="perfsim.placement.first_fit.FirstFit"><code class="xref py py-class docutils literal notranslate"><span class="pre">FirstFit</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>options</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.placement.first_fit_decreasing.FirstFitDecreasing.place">
+<span class="sig-name descname"><span class="pre">place</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">placement_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replicas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hosts_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/first_fit_decreasing.html#FirstFitDecreasing.place"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.first_fit_decreasing.FirstFitDecreasing.place" title="Link to this definition">#</a></dt>
+<dd><p>Place the nodes in the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>placement_matrix</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span>)</p></li>
+<li><p><strong>replicas</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica" title="perfsim.service_chain.microservice_replica.MicroserviceReplica"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceReplica</span></code></a>]</span>)</p></li>
+<li><p><strong>hosts_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a>]</span>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.placement.first_fit_decreasing.FirstFitDecreasing.first_fit_decreasing">
+<span class="sig-name descname"><span class="pre">first_fit_decreasing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">placement_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replicas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hosts_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/first_fit_decreasing.html#FirstFitDecreasing.first_fit_decreasing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.first_fit_decreasing.FirstFitDecreasing.first_fit_decreasing" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>placement_matrix</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span>)</p></li>
+<li><p><strong>replicas</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica" title="perfsim.service_chain.microservice_replica.MicroserviceReplica"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceReplica</span></code></a>]</span>)</p></li>
+<li><p><strong>hosts_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a>]</span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.placement.least_fit">
+<span id="perfsim-placement-least-fit-module"></span><h2>perfsim.placement.least_fit module<a class="headerlink" href="#module-perfsim.placement.least_fit" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.placement.least_fit.LeastFitOptions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.placement.least_fit.</span></span><span class="sig-name descname"><span class="pre">LeastFitOptions</span></span><a class="reference internal" href="_modules/perfsim/placement/least_fit.html#LeastFitOptions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.least_fit.LeastFitOptions" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.placement.least_fit.LeastFitOptions.w_cpu">
+<span class="sig-name descname"><span class="pre">w_cpu</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#perfsim.placement.least_fit.LeastFitOptions.w_cpu" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.placement.least_fit.LeastFitOptions.w_mem">
+<span class="sig-name descname"><span class="pre">w_mem</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#perfsim.placement.least_fit.LeastFitOptions.w_mem" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.placement.least_fit.LeastFitOptions.w_ingress">
+<span class="sig-name descname"><span class="pre">w_ingress</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#perfsim.placement.least_fit.LeastFitOptions.w_ingress" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.placement.least_fit.LeastFitOptions.w_egress">
+<span class="sig-name descname"><span class="pre">w_egress</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#perfsim.placement.least_fit.LeastFitOptions.w_egress" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.placement.least_fit.LeastFitOptions.w_blkio">
+<span class="sig-name descname"><span class="pre">w_blkio</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#perfsim.placement.least_fit.LeastFitOptions.w_blkio" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.placement.least_fit.LeastFit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.placement.least_fit.</span></span><span class="sig-name descname"><span class="pre">LeastFit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/least_fit.html#LeastFit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.least_fit.LeastFit" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm" title="perfsim.placement.placement_algorithm.PlacementAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlacementAlgorithm</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>options</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#perfsim.placement.least_fit.LeastFitOptions" title="perfsim.placement.least_fit.LeastFitOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">LeastFitOptions</span></code></a></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.placement.least_fit.LeastFit.place">
+<span class="sig-name descname"><span class="pre">place</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">placement_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replicas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hosts_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/least_fit.html#LeastFit.place"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.least_fit.LeastFit.place" title="Link to this definition">#</a></dt>
+<dd><p>Place the nodes in the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>placement_matrix</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span>)</p></li>
+<li><p><strong>replicas</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica" title="perfsim.service_chain.microservice_replica.MicroserviceReplica"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceReplica</span></code></a>]</span>)</p></li>
+<li><p><strong>hosts_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a>]</span>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.placement.least_fit.LeastFit.least_fit_score">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">least_fit_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">available</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capacity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requested</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/least_fit.html#LeastFit.least_fit_score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.least_fit.LeastFit.least_fit_score" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>available</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p></li>
+<li><p><strong>capacity</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p></li>
+<li><p><strong>requested</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p></li>
+<li><p><strong>weight</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.placement.least_fit.LeastFit.reschedule">
+<span class="sig-name descname"><span class="pre">reschedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">placement_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replicas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hosts_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/least_fit.html#LeastFit.reschedule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.least_fit.LeastFit.reschedule" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>placement_matrix</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span>)</p></li>
+<li><p><strong>replicas</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica" title="perfsim.service_chain.microservice_replica.MicroserviceReplica"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceReplica</span></code></a>]</span>)</p></li>
+<li><p><strong>hosts_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a>]</span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.placement.placement_algorithm">
+<span id="perfsim-placement-placement-algorithm-module"></span><h2>perfsim.placement.placement_algorithm module<a class="headerlink" href="#module-perfsim.placement.placement_algorithm" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.placement.placement_algorithm.PlacementAlgorithm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.placement.placement_algorithm.</span></span><span class="sig-name descname"><span class="pre">PlacementAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/placement_algorithm.html#PlacementAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>options</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.placement.placement_algorithm.PlacementAlgorithm.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.name" title="Link to this definition">#</a></dt>
+<dd><p>Name of the placement algorithm instance (including options)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.placement.placement_algorithm.PlacementAlgorithm.options">
+<span class="sig-name descname"><span class="pre">options</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code><span class="pre">]</span></em><a class="headerlink" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.options" title="Link to this definition">#</a></dt>
+<dd><p>Options for the placement algorithm</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.placement.placement_algorithm.PlacementAlgorithm.place">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">place</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">placement_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replicas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hosts_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/placement_algorithm.html#PlacementAlgorithm.place"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.place" title="Link to this definition">#</a></dt>
+<dd><p>Place the nodes in the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>placement_matrix</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span>)</p></li>
+<li><p><strong>replicas</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica" title="perfsim.service_chain.microservice_replica.MicroserviceReplica"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceReplica</span></code></a>]</span>)</p></li>
+<li><p><strong>hosts_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a>]</span>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.placement.placement_algorithm.PlacementAlgorithm.algorithm_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">algorithm_name</span></span><a class="headerlink" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.algorithm_name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.placement.placement_algorithm.PlacementAlgorithm.copy_to_dict">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">copy_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">placement_algorithms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/placement_algorithm.html#PlacementAlgorithm.copy_to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.copy_to_dict" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>placement_algorithms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm" title="perfsim.placement.placement_algorithm.PlacementAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlacementAlgorithm</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm" title="perfsim.placement.placement_algorithm.PlacementAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlacementAlgorithm</span></code></a>]]</span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm" title="perfsim.placement.placement_algorithm.PlacementAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlacementAlgorithm</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.placement.placement_algorithm.PlacementAlgorithm.from_config">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/placement/placement_algorithm.html#PlacementAlgorithm.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.from_config" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>conf</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm" title="perfsim.placement.placement_algorithm.PlacementAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlacementAlgorithm</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="perfsim.observers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">perfsim.observers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="perfsim.prototypes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">perfsim.prototypes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.placement">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.placement.first_fit">perfsim.placement.first_fit module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit.FirstFit"><code class="docutils literal notranslate"><span class="pre">FirstFit</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit.FirstFit.place"><code class="docutils literal notranslate"><span class="pre">FirstFit.place()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit.FirstFit.first_fit"><code class="docutils literal notranslate"><span class="pre">FirstFit.first_fit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.placement.first_fit_decreasing">perfsim.placement.first_fit_decreasing module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit_decreasing.FirstFitDecreasing"><code class="docutils literal notranslate"><span class="pre">FirstFitDecreasing</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit_decreasing.FirstFitDecreasing.place"><code class="docutils literal notranslate"><span class="pre">FirstFitDecreasing.place()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.first_fit_decreasing.FirstFitDecreasing.first_fit_decreasing"><code class="docutils literal notranslate"><span class="pre">FirstFitDecreasing.first_fit_decreasing()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.placement.least_fit">perfsim.placement.least_fit module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions.w_cpu"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions.w_cpu</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions.w_mem"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions.w_mem</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions.w_ingress"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions.w_ingress</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions.w_egress"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions.w_egress</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFitOptions.w_blkio"><code class="docutils literal notranslate"><span class="pre">LeastFitOptions.w_blkio</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFit"><code class="docutils literal notranslate"><span class="pre">LeastFit</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFit.place"><code class="docutils literal notranslate"><span class="pre">LeastFit.place()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFit.least_fit_score"><code class="docutils literal notranslate"><span class="pre">LeastFit.least_fit_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.least_fit.LeastFit.reschedule"><code class="docutils literal notranslate"><span class="pre">LeastFit.reschedule()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.placement.placement_algorithm">perfsim.placement.placement_algorithm module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.name"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.options"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.options</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.place"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.place()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.algorithm_name"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.algorithm_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.copy_to_dict"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.copy_to_dict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.placement.placement_algorithm.PlacementAlgorithm.from_config"><code class="docutils literal notranslate"><span class="pre">PlacementAlgorithm.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,872 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>perfsim.traffic.load_generator &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/perfsim/traffic/load_generator';</script>
+    <script src="../../../_static/js/custom.js"></script>
+    <link rel="icon" href="../../../_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="../../../_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../perfsim.html">perfsim</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for perfsim.traffic.load_generator</h1><div class="highlight"><pre>
+<span></span><span class="c1">#  Copyright (C) 2020 Michel Gokan Khan</span>
+<span class="c1">#  This program is free software; you can redistribute it and/or modify</span>
+<span class="c1">#  it under the terms of the GNU General Public License as published by</span>
+<span class="c1">#  the Free Software Foundation; either version 2 of the License, or</span>
+<span class="c1">#  (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is distributed in the hope that it will be useful,</span>
+<span class="c1">#  but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#  GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1">#  You should have received a copy of the GNU General Public License along</span>
+<span class="c1">#  with this program; if not, write to the Free Software Foundation, Inc.,</span>
+<span class="c1">#  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.</span>
+<span class="c1">#</span>
+<span class="c1">#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.</span>
+<span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
+
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">heapq</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">sortedcontainers</span> <span class="kn">import</span> <span class="n">SortedDict</span>
+
+<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">Utils</span><span class="p">,</span> <span class="n">LoadGeneratorLogObserver</span><span class="p">,</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">ServiceChainResultDict</span><span class="p">,</span> \
+    <span class="n">SimulationScenarioResultDict</span>
+<span class="kn">from</span> <span class="nn">perfsim.observers.results_observer</span> <span class="kn">import</span> <span class="n">ResultsObserver</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Simulation</span>
+
+
+<div class="viewcode-block" id="LoadGenerator">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator">[docs]</a>
+<span class="k">class</span> <span class="nc">LoadGenerator</span><span class="p">(</span><span class="n">Observable</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class is responsible for generating a load for each service chain manager in a `simulation`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">#: Name of the LoadGenerator instance.</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The ``Simulation`` object where traffic belongs to.</span>
+    <span class="n">sim</span><span class="p">:</span> <span class="n">Simulation</span>
+
+    <span class="c1">#: All ``Request`` instances in the simulation</span>
+    <span class="n">requests</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Request</span><span class="p">]</span>
+
+    <span class="c1">#: All ``ReplicaThread`` instances in the simulation</span>
+    <span class="n">threads</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ReplicaThread</span><span class="p">]</span>
+
+    <span class="c1">#: All ``ReplicaThread`` instances in the simulation (in dict)</span>
+    <span class="n">threads_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">]</span>
+
+    <span class="c1">#: The next batch request arrival time. </span>
+    <span class="n">_next_batch_arrival_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+
+    <span class="c1">#: Next ``ServiceChainManager``s in the loop that arrive at `_next_batch_arrival_time`</span>
+    <span class="n">_next_scm_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+    <span class="n">_min_arrival_scm_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+    <span class="n">_scm_current_arrival_iteration_ids</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+
+    <span class="c1">#: Requests that are ready for thread generation in the next &quot;THREAD GEN&quot; event. List of tuple(subchain_id, request)</span>
+    <span class="n">_requests_ready_for_thread_generation</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Request</span><span class="p">]]</span>
+
+    <span class="c1">#: A sorted dictionary of all future transmissions completion time (&quot;exact&quot; means the clock time, not duration)</span>
+    <span class="n">_next_trans_completion_times</span><span class="p">:</span> <span class="n">SortedDict</span>
+
+    <span class="c1">#: Sum of all expected requests count in the simulation</span>
+    <span class="n">__total_requests_count</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1">#: Stores whether its the last request by scm_name (as keys)</span>
+    <span class="n">_last_request</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span>
+
+    <span class="c1">#: Stores requests latencies</span>
+    <span class="n">latencies</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+
+    <span class="c1">#: Stores requests arrival times</span>
+    <span class="n">arrivals</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+
+    <span class="c1">#: The event that is being triggered before traffic starts.</span>
+    <span class="n">before_traffic_start</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered</span>
+    <span class="n">before_generate_threads</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered before request is generated.</span>
+    <span class="n">before_requests_start</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered at the end of initiate_next_batch_of_requests in being triggered.</span>
+    <span class="n">after_requests_start</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered before estimating threads execution time.</span>
+    <span class="n">before_exec_time_estimation</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered before start running threads.</span>
+    <span class="n">before_executing_threads</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered after executing all threads/requests of this load generator.</span>
+    <span class="n">after_completing_load_generation</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered after next batch arrival time is being calculated.</span>
+    <span class="n">after_next_batch_arrival_time_calculation</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered before generating a thread for a request (within a subchain).</span>
+    <span class="n">before_generate_request_threads</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered after generating a thread for a request (within a subchain).</span>
+    <span class="n">after_generate_request_threads</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered after transmission completion time is being estimated.</span>
+    <span class="n">after_transmission_estimation</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered after next event time is being estimated.</span>
+    <span class="n">after_estimating_time_of_next_event</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered before transmitting packets</span>
+    <span class="n">before_transmit_requests_in_network</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered after transmitting requests and load balancing threads on all hosts</span>
+    <span class="n">after_transmit_requests_in_network_and_load_balancing_threads</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: The event that is being triggered after transmitting requests and load balancing threads on all hosts</span>
+    <span class="n">before_request_created</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: This property stores the merged arrival tables from the traffic prototypes defined in the simulation scenario.</span>
+    <span class="n">__merged_arrival_table</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Request</span><span class="p">]]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">simulation</span><span class="p">:</span> <span class="n">Simulation</span><span class="p">,</span>
+                 <span class="n">notify_observers_on_event</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A *LoadGenerator* is an object responsible for not only generating a given list of traffic objects</span>
+<span class="sd">        *traffic_prototypes* on a given *simulation.cluster*, but to control the state, events and time of</span>
+<span class="sd">        the entire simulation.</span>
+
+<span class="sd">        :param name: Name of the LoadGenerator instance.</span>
+<span class="sd">        :param simulation: The `Simulation` object where traffic belongs to.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span> <span class="o">=</span> <span class="n">simulation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_event</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">=</span> <span class="s2">&quot;REQUEST&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requests</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latencies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;scenario #&quot;</span><span class="p">,</span>
+                                               <span class="s2">&quot;SFC&quot;</span><span class="p">,</span>
+                                               <span class="s2">&quot;iteration_id&quot;</span><span class="p">,</span>
+                                               <span class="s2">&quot;req_id_in_iteration&quot;</span><span class="p">,</span>
+                                               <span class="s2">&quot;latency&quot;</span><span class="p">,</span>
+                                               <span class="s2">&quot;arrival_time&quot;</span><span class="p">,</span>
+                                               <span class="s2">&quot;completion_time&quot;</span><span class="p">,</span>
+                                               <span class="s2">&quot;status&quot;</span><span class="p">,</span>
+                                               <span class="s2">&quot;traffic_type&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__total_requests_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_total_requests_count</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_scm_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">scm_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scm_current_arrival_iteration_ids</span> <span class="o">=</span> <span class="p">{</span><span class="n">scm_name</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">scm_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_scm_names</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_requests_ready_for_thread_generation</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_trans_completion_times</span> <span class="o">=</span> <span class="n">SortedDict</span><span class="p">({</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">):</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_thread_completion_exact_times</span> <span class="o">=</span> <span class="n">SortedDict</span><span class="p">({</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">):</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_request</span> <span class="o">=</span> <span class="p">{</span><span class="n">scm_name</span><span class="p">:</span> <span class="kc">False</span> <span class="k">for</span> <span class="n">scm_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">traffic_prototypes_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_completed_threads</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_completed_requests</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_batch_arrival_time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_min_arrival_time</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_min_arrival_scm_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_transmission_id</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers_on_event</span> <span class="o">=</span> <span class="n">notify_observers_on_event</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__merged_arrival_table</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">heapq</span><span class="o">.</span><span class="n">heapify</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__merged_arrival_table</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_arrival_tables</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug_level</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attach_observer</span><span class="p">(</span><span class="n">observer</span><span class="o">=</span><span class="n">LoadGeneratorLogObserver</span><span class="p">(</span><span class="n">load_generator</span><span class="o">=</span><span class="bp">self</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attach_observer</span><span class="p">(</span><span class="n">observer</span><span class="o">=</span><span class="n">ResultsObserver</span><span class="p">(</span><span class="n">load_generator</span><span class="o">=</span><span class="bp">self</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__calculate_total_requests_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">requests_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">sfc_name</span><span class="p">,</span> <span class="n">traffic_type_object</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">scenario</span><span class="p">[</span><span class="s2">&quot;traffic_scenario&quot;</span><span class="p">][</span><span class="s2">&quot;service_chains&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">requests_count</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">traffic_prototypes_dict</span><span class="p">[</span><span class="n">traffic_type_object</span><span class="p">[</span><span class="s2">&quot;traffic_type&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">requests_count</span>
+        <span class="k">return</span> <span class="n">requests_count</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">total_requests_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__total_requests_count</span>
+
+    <span class="nd">@total_requests_count</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">total_requests_count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+            <span class="s2">&quot;The attribute total_requests_count is read-only and can only be set during initialization &quot;</span>
+            <span class="s2">&quot;based on give simulation scenario.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">merged_arrival_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__merged_arrival_table</span>
+
+    <span class="nd">@merged_arrival_table</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">merged_arrival_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Cannot set merged_arrival_table!&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LoadGenerator.register_events">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.register_events">[docs]</a>
+    <span class="k">def</span> <span class="nf">register_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_traffic_start&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_requests_start&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_requests_start&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_generate_threads&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_exec_time_estimation&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_executing_threads&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_completing_load_generation&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_next_batch_arrival_time_calculation&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_generate_request_threads&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_generate_request_threads&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_transmission_estimation&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_estimating_time_of_next_event&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_transmit_requests_in_network&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_transmit_requests_in_network_and_load_balancing_threads&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_request_created&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LoadGenerator.execute_traffic">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.execute_traffic">[docs]</a>
+    <span class="k">def</span> <span class="nf">execute_traffic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">ReplicaThread</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This is the main function responsible to start the traffic in the cluster</span>
+
+<span class="sd">        :param: debug: Enable/disable debugging mode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_traffic_start</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">!=</span> <span class="s2">&quot;DONE&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">==</span> <span class="s2">&quot;REQUEST&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_initiate_next_batch_of_requests</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">==</span> <span class="s2">&quot;THREAD GEN&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_initiate_next_endpoint_function_in_chain</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">==</span> <span class="s2">&quot;EXEC TIME EST&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_exec_time_estimation</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">==</span> <span class="s2">&quot;RUN THREADS&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_run_threads_on_hosts</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">host_name</span><span class="p">,</span> <span class="n">host</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">hosts_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">host</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+                <span class="n">host</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span>
+                                                  <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">cores</span><span class="p">)))}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">after_completing_load_generation</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">threads</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_generate_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">load_balance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">current_replicas</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">init_next_microservices</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_generate_request_threads</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> <span class="n">subchain_id</span><span class="o">=</span><span class="n">subchain_id</span><span class="p">)</span>
+        <span class="n">replica_pair</span> <span class="o">=</span> <span class="n">current_replicas</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span>
+        <span class="n">replica_identifier_in_subchain</span> <span class="o">=</span> <span class="n">replica_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">replica</span> <span class="o">=</span> <span class="n">replica_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">current_nodes</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span>
+        <span class="n">threads</span> <span class="o">=</span> <span class="n">replica</span><span class="o">.</span><span class="n">generate_threads</span><span class="p">(</span><span class="n">from_subchain_id</span><span class="o">=</span><span class="n">subchain_id</span><span class="p">,</span>
+                                           <span class="n">node_in_subchain</span><span class="o">=</span><span class="n">current_node</span><span class="p">,</span>
+                                           <span class="n">load_balance</span><span class="o">=</span><span class="n">load_balance</span><span class="p">,</span>
+                                           <span class="n">parent_request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+                                           <span class="n">replica_identifier_in_subchain</span><span class="o">=</span><span class="n">replica_identifier_in_subchain</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threads</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">threads</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">after_generate_request_threads</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> <span class="n">subchain_id</span><span class="o">=</span><span class="n">subchain_id</span><span class="p">,</span>
+                              <span class="n">threads</span><span class="o">=</span><span class="n">threads</span><span class="p">,</span> <span class="n">current_replicas</span><span class="o">=</span><span class="n">current_replicas</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_initiate_next_endpoint_function_in_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_generate_threads</span><span class="p">)</span>
+
+        <span class="n">_id</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">_load_balance_on_id</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_requests_ready_for_thread_generation</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">request_subchainid_pair</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requests_ready_for_thread_generation</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_generate_threads</span><span class="p">(</span><span class="n">subchain_id</span><span class="o">=</span><span class="n">request_subchainid_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                   <span class="n">request</span><span class="o">=</span><span class="n">request_subchainid_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                   <span class="n">load_balance</span><span class="o">=</span><span class="p">(</span><span class="n">_load_balance_on_id</span> <span class="o">==</span> <span class="n">_id</span><span class="p">))</span>
+            <span class="n">_id</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_requests_ready_for_thread_generation</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">=</span> <span class="s2">&quot;EXEC TIME EST&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_event</span> <span class="o">=</span> <span class="s2">&quot;THREAD GEN&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_exec_time_estimation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_exec_time_estimation</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">recalculate_transmissions_bw_on_all_links</span><span class="p">()</span>
+        <span class="n">next_trans_completion_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_trans_completion_times</span><span class="o">.</span><span class="n">peekitem</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">next_trans_completion_time</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_batch_arrival_time</span> <span class="o">&lt;</span> <span class="n">next_trans_completion_time</span><span class="p">:</span>
+            <span class="n">time_of_next_event</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_batch_arrival_time</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">prediction_for_the_next_event_after_running_threads</span> <span class="o">=</span> <span class="s2">&quot;REQUEST&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">time_of_next_event</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_trans_completion_times</span><span class="o">.</span><span class="n">peekitem</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">prediction_for_the_next_event_after_running_threads</span> <span class="o">=</span> <span class="s2">&quot;THREAD GEN&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_of_next_event</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">duration_of_next_event</span><span class="p">,</span> <span class="n">thread_ending_sooner</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">is_there_a_thread_that_ends_sooner</span><span class="p">(</span><span class="n">time_of_next_event</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">duration_of_next_event</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_event</span> <span class="o">!=</span> <span class="s2">&quot;THREAD GEN&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">=</span> <span class="s2">&quot;THREAD GEN&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Next event can&#39;t be inf! Probably a bug! (number of active transmissions=&quot;</span> <span class="o">+</span>
+                                <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">active_transmissions</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">=</span> <span class="s2">&quot;RUN THREADS&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">after_estimating_time_of_next_event</span><span class="p">,</span>
+                              <span class="n">next_trans_completion_time</span><span class="o">=</span><span class="n">next_trans_completion_time</span><span class="p">,</span>
+                              <span class="n">time_of_next_event</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_of_next_event</span><span class="p">,</span>
+                              <span class="n">next_batch_arrival_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_next_batch_arrival_time</span><span class="p">,</span>
+                              <span class="n">estimated_next_event</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">next_event</span><span class="p">,</span>
+                              <span class="n">is_thread_ending_sooner</span><span class="o">=</span><span class="n">thread_ending_sooner</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_event</span> <span class="o">=</span> <span class="s2">&quot;EXEC TIME EST&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_run_threads_on_hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_executing_threads</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">duration_of_next_event</span>
+
+        <span class="n">current_completed_threads</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">run_active_threads</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">duration_of_next_event</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_transmit_requests_in_network</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">transmit_requests_in_network</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">duration_of_next_event</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">load_balance_threads_in_all_hosts</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_completed_threads</span> <span class="o">+=</span> <span class="n">current_completed_threads</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_completed_requests</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_requests_count</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">=</span> <span class="s2">&quot;DONE&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_for_the_next_event_after_running_threads</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">after_transmit_requests_in_network_and_load_balancing_threads</span><span class="p">,</span>
+                              <span class="n">current_completed_threads</span><span class="o">=</span><span class="n">current_completed_threads</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_event</span> <span class="o">=</span> <span class="s2">&quot;RUN THREADS&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_initiate_next_batch_of_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_requests_start</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">requests</span> <span class="o">=</span> <span class="p">[</span><span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__merged_arrival_table</span><span class="p">)[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="n">request_subchain_id_pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="n">requests</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">requests</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">arrival_time</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">=</span> <span class="s2">&quot;EXEC TIME EST&quot;</span>
+            <span class="k">return</span>
+
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">__merged_arrival_table</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">__merged_arrival_table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">requests</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">arrival_time</span><span class="p">:</span>
+            <span class="n">requests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__merged_arrival_table</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">request_subchain_id_pairs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">requests</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">requests</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_requests_ready_for_thread_generation</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">request_subchain_id_pairs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">=</span> <span class="s2">&quot;THREAD GEN&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__merged_arrival_table</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_next_batch_arrival_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__merged_arrival_table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">arrival_time</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_next_batch_arrival_time</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_event</span> <span class="o">=</span> <span class="s2">&quot;REQUEST&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">after_requests_start</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">completed_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return number of all completed requests</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_completed_requests</span>
+
+    <span class="nd">@completed_requests</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">completed_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_completed_requests</span> <span class="o">=</span> <span class="n">v</span>
+
+<div class="viewcode-block" id="LoadGenerator.get_latencies_grouped_by_sfc">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.get_latencies_grouped_by_sfc">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_latencies_grouped_by_sfc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SimulationScenarioResultDict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return list of latencies for all requests of the service chain with the given name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">latencies</span><span class="p">[</span><span class="s1">&#39;scenario #&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">scenario</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+        <span class="n">sim_lats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latencies</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">latencies</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">latencies</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="n">grouped_lats</span> <span class="o">=</span> <span class="n">sim_lats</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;SFC&quot;</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">:</span> <span class="n">SimulationScenarioResultDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;service_chains&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+
+        <span class="k">for</span> <span class="n">sfc_name</span><span class="p">,</span> <span class="n">sfc_latencies</span> <span class="ow">in</span> <span class="n">grouped_lats</span><span class="p">:</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">sfc_latencies</span><span class="p">[</span><span class="s1">&#39;completion_time&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="mf">1e9</span><span class="p">,</span> <span class="mf">1e9</span><span class="p">))</span>
+            <span class="n">grouped_completion_times</span> <span class="o">=</span> <span class="n">ranges</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">ranges</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">grouped_throughput</span> <span class="o">=</span> <span class="n">grouped_completion_times</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="n">grouped_lats_by_iteration</span> <span class="o">=</span> <span class="n">sfc_latencies</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;iteration_id&quot;</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;latency&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">&quot;completion_time&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">&quot;arrival_time&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">&quot;traffic_type&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+
+            <span class="k">for</span> <span class="n">iteration_id</span><span class="p">,</span> <span class="n">sfc_latencies_by_iteration</span> <span class="ow">in</span> <span class="n">grouped_lats_by_iteration</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">r</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">iteration_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                    <span class="k">for</span> <span class="n">_id</span><span class="p">,</span> <span class="n">result_in_iteration</span> <span class="ow">in</span> <span class="n">sfc_latencies_by_iteration</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+                        <span class="n">r</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">iteration_id</span><span class="p">][</span><span class="n">_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">result_in_iteration</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+            <span class="c1"># TODO: Requests timeout need to be implemented</span>
+            <span class="n">sfc</span><span class="p">:</span> <span class="n">ServiceChainResultDict</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;simulation_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="s1">&#39;estimated_cost&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s1">&#39;total_requests&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">sfc_latencies</span><span class="p">),</span>
+                <span class="s1">&#39;successful_requests&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">sfc_latencies</span><span class="p">),</span>
+                <span class="s1">&#39;timeout_requests&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s1">&#39;avg_latency&#39;</span><span class="p">:</span> <span class="n">sfc_latencies</span><span class="p">[</span><span class="s2">&quot;latency&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                <span class="s1">&#39;throughput&#39;</span><span class="p">:</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">grouped_throughput</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">grouped_throughput</span><span class="o">.</span><span class="n">keys</span><span class="p">()},</span>
+                <span class="s1">&#39;arrival_times&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;iterations&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;arrival_time&#39;</span><span class="p">]},</span>
+                <span class="s1">&#39;latencies&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;iterations&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;latency&#39;</span><span class="p">]},</span>
+                <span class="s1">&#39;completion_times&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;iterations&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;completion_time&#39;</span><span class="p">]},</span>
+                <span class="s1">&#39;traffic_types&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;iterations&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;traffic_type&#39;</span><span class="p">]},</span>
+            <span class="p">}</span>
+
+            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;service_chains&quot;</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">sfc_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">sfc</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="LoadGenerator.plot_latencies">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.plot_latencies">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_latencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                       <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                       <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
+                       <span class="n">show_numbers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                       <span class="n">moving_average</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                       <span class="n">save_values</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                       <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ioff</span><span class="p">()</span>
+
+        <span class="n">perfsim_lats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">latencies</span><span class="p">[</span><span class="s2">&quot;latency&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+
+        <span class="k">if</span> <span class="n">moving_average</span><span class="p">:</span>
+            <span class="n">perfsim_lats</span> <span class="o">=</span> <span class="n">perfsim_lats</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">save_values</span><span class="p">:</span>
+            <span class="n">perfsim_lats</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">path_or_buf</span><span class="o">=</span><span class="n">save_dir</span> <span class="o">+</span> <span class="s2">&quot;perfsim_lats.csv&quot;</span><span class="p">)</span>
+            <span class="p">(</span><span class="n">perfsim_lats</span><span class="o">.</span><span class="n">values</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="n">save_dir</span> <span class="o">+</span> <span class="s2">&quot;perfsim_lats_values.txt&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">ax1</span> <span class="o">=</span> <span class="n">perfsim_lats</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;PerfSim (sfc-stress)&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">marker</span><span class="p">)</span>
+        <span class="n">max_latency</span> <span class="o">=</span> <span class="n">perfsim_lats</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">show_numbers</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">perfsim_lats</span><span class="p">):</span>
+                <span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_latency</span> <span class="o">+</span> <span class="n">max_latency</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Request #&quot;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Response Time (ms)&quot;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000000</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">)))</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">save_dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">Utils</span><span class="o">.</span><span class="n">mkdir_p</span><span class="p">(</span><span class="n">dir_path</span><span class="o">=</span><span class="n">save_dir</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save_dir</span> <span class="o">+</span> <span class="s2">&quot;/latency_evaluation.pdf&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">last_transmission_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_transmission_id</span>
+
+    <span class="nd">@last_transmission_id</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">last_transmission_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_transmission_id</span> <span class="o">=</span> <span class="n">v</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">next_trans_completion_times</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_trans_completion_times</span>
+
+    <span class="nd">@next_trans_completion_times</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">next_trans_completion_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;next_trans_completion_times is read-only! It&#39;s going to be set automatically!&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">requests_ready_for_thread_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requests_ready_for_thread_generation</span>
+
+    <span class="nd">@requests_ready_for_thread_generation</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">requests_ready_for_thread_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;requests_ready_for_thread_generation is read-only! It&#39;s going to be set automatically!&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">next_batch_arrival_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_batch_arrival_time</span>
+
+    <span class="nd">@next_batch_arrival_time</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">next_batch_arrival_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;next_batch_arrival_time is read-only! It&#39;s going to be set automatically!&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LoadGenerator.merge_arrival_tables">
+<a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.merge_arrival_tables">[docs]</a>
+    <span class="k">def</span> <span class="nf">merge_arrival_tables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">scm_name</span><span class="p">,</span> <span class="n">traffic_scenario_object</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">scenario</span><span class="p">[</span><span class="s1">&#39;traffic_scenario&#39;</span><span class="p">][</span><span class="s1">&#39;service_chains&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">traffic_proto</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">traffic_prototypes_dict</span><span class="p">[</span><span class="n">traffic_scenario_object</span><span class="p">[</span><span class="s1">&#39;traffic_type&#39;</span><span class="p">]]</span>
+
+            <span class="k">for</span> <span class="n">iteration_id</span><span class="p">,</span> <span class="n">arrival_time</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">traffic_proto</span><span class="o">.</span><span class="n">arrival_table</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">uid</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">traffic_proto</span><span class="o">.</span><span class="n">parallel_user</span><span class="p">):</span>
+                    <span class="n">rq_num</span> <span class="o">=</span> <span class="n">iteration_id</span> <span class="o">*</span> <span class="n">traffic_proto</span><span class="o">.</span><span class="n">parallel_user</span> <span class="o">+</span> <span class="n">uid</span>
+                    <span class="n">req_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">scenario</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">traffic_proto</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">scm_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rq_num</span><span class="p">)</span>
+
+                    <span class="n">arrival_time_request_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="n">arrival_time</span><span class="p">,</span> <span class="n">Request</span><span class="p">(</span><span class="n">request_id</span><span class="o">=</span><span class="n">req_id</span><span class="p">,</span>
+                                                                        <span class="n">iteration_id</span><span class="o">=</span><span class="n">iteration_id</span><span class="p">,</span>
+                                                                        <span class="n">id_in_iteration</span><span class="o">=</span><span class="n">uid</span><span class="p">,</span>
+                                                                        <span class="n">load_generator</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+                                                                        <span class="n">traffic_prototype</span><span class="o">=</span><span class="n">traffic_proto</span><span class="p">,</span>
+                                                                        <span class="n">scm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">scm_dict</span><span class="p">[</span><span class="n">scm_name</span><span class="p">],</span>
+                                                                        <span class="n">arrival_time</span><span class="o">=</span><span class="n">arrival_time</span><span class="p">))</span>
+                    <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__merged_arrival_table</span><span class="p">,</span> <span class="n">arrival_time_request_tuple</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

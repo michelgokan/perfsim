@@ -1,0 +1,1590 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>perfsim.prototypes &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'perfsim.prototypes';</script>
+    <script src="_static/js/custom.js"></script>
+    <link rel="icon" href="_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="perfsim.scenario" href="perfsim.scenario.html" />
+    <link rel="prev" title="perfsim.placement" href="perfsim.placement.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="perfsim.html">perfsim</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/perfsim.prototypes.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>perfsim.prototypes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.affinity_prototype">perfsim.prototypes.affinity_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype"><code class="docutils literal notranslate"><span class="pre">AffinityPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype.copy_to_dict"><code class="docutils literal notranslate"><span class="pre">AffinityPrototype.copy_to_dict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">AffinityPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.base_prototype">perfsim.prototypes.base_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.base_prototype.BasePrototype"><code class="docutils literal notranslate"><span class="pre">BasePrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.base_prototype.BasePrototype.get_prototypes"><code class="docutils literal notranslate"><span class="pre">BasePrototype.get_prototypes()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.cluster_prototype">perfsim.prototypes.cluster_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.placement_scenario"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.placement_scenario</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.traffic_prototypes_dict"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.traffic_prototypes_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.scms_dict"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.scms_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.scenario_name"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.scenario_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.service_chains_dict"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.service_chains_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.topology"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.topology</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.resource_allocation_scenarios_dict"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.resource_allocation_scenarios_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.affinity_prototypes_dict"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.affinity_prototypes_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.simulation_scenario"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.simulation_scenario</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.host_prototype">perfsim.prototypes.host_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.host_prototype.HostPrototype"><code class="docutils literal notranslate"><span class="pre">HostPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.host_prototype.HostPrototype.cost_dict"><code class="docutils literal notranslate"><span class="pre">HostPrototype.cost_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.host_prototype.HostPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">HostPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.microservice_endpoint_function_prototype">perfsim.prototypes.microservice_endpoint_function_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype"><code class="docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype.add_threads"><code class="docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototype.add_threads()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.microservice_endpoint_function_prototype_dtype">perfsim.prototypes.microservice_endpoint_function_prototype_dtype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype"><code class="docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototypeDtype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype_name"><code class="docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype"><code class="docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.microservice_prototype">perfsim.prototypes.microservice_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype"><code class="docutils literal notranslate"><span class="pre">MicroservicePrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.endpoint_function_prototypes_dict"><code class="docutils literal notranslate"><span class="pre">MicroservicePrototype.endpoint_function_prototypes_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.add_endpoint_function_prototype"><code class="docutils literal notranslate"><span class="pre">MicroservicePrototype.add_endpoint_function_prototype()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.remove_endpoint_function_prototype"><code class="docutils literal notranslate"><span class="pre">MicroservicePrototype.remove_endpoint_function_prototype()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.from_config"><code class="docutils literal notranslate"><span class="pre">MicroservicePrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.router_prototype">perfsim.prototypes.router_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype"><code class="docutils literal notranslate"><span class="pre">RouterPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype.name"><code class="docutils literal notranslate"><span class="pre">RouterPrototype.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype.latency"><code class="docutils literal notranslate"><span class="pre">RouterPrototype.latency</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype.egress_ingress_original_bw"><code class="docutils literal notranslate"><span class="pre">RouterPrototype.egress_ingress_original_bw</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype.ports_count"><code class="docutils literal notranslate"><span class="pre">RouterPrototype.ports_count</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">RouterPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.service_chain_link_prototype">perfsim.prototypes.service_chain_link_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.service_chain_link_prototype.ServiceChainLinkPrototype"><code class="docutils literal notranslate"><span class="pre">ServiceChainLinkPrototype</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.topology_link_prototype">perfsim.prototypes.topology_link_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype"><code class="docutils literal notranslate"><span class="pre">TopologyLinkPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype.latency"><code class="docutils literal notranslate"><span class="pre">TopologyLinkPrototype.latency</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">TopologyLinkPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.topology_prototype">perfsim.prototypes.topology_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.before_recalculate_transmissions_bw_on_all_links"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.before_recalculate_transmissions_bw_on_all_links</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.egress_err"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.egress_err</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.ingress_err"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.ingress_err</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.hosts_dict"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.hosts_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.routers_dict"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.routers_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.topology_links_dict"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.topology_links_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.active_transmissions"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.active_transmissions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.add_equipments"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.add_equipments()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.add_edges_from"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.add_edges_from()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.add_edge"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.add_edge()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.reinitiate_topology"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.reinitiate_topology()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.draw"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.draw()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.recalculate_transmissions_times"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.recalculate_transmissions_times()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.copy_to_dict"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.copy_to_dict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.traffic_prototype">perfsim.prototypes.traffic_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.arrival_table"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.arrival_table</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.start_at"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.start_at</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.arrival_interval_ns"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.arrival_interval_ns</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.duration"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.duration</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.parallel_user"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.parallel_user</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.iterations_count"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.iterations_count</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.requests_count"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.requests_count</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_iterations_count"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.recalc_iterations_count()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_requests_count"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.recalc_requests_count()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_arrival_table"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.recalc_arrival_table()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_all_properties"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.recalc_all_properties()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.copy_to_dict"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.copy_to_dict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="perfsim-prototypes">
+<h1>perfsim.prototypes<a class="headerlink" href="#perfsim-prototypes" title="Link to this heading">#</a></h1>
+<section id="module-perfsim.prototypes">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-perfsim.prototypes" title="Link to this heading">#</a></h2>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-perfsim.prototypes.affinity_prototype">
+<span id="perfsim-prototypes-affinity-prototype-module"></span><h2>perfsim.prototypes.affinity_prototype module<a class="headerlink" href="#module-perfsim.prototypes.affinity_prototype" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.affinity_prototype.AffinityPrototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.affinity_prototype.</span></span><span class="sig-name descname"><span class="pre">AffinityPrototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity_microservices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">antiaffinity_microservices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity_hosts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">antiaffinity_hosts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/affinity_prototype.html#AffinityPrototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>affinity_microservices</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>)</p></li>
+<li><p><strong>antiaffinity_microservices</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>)</p></li>
+<li><p><strong>affinity_hosts</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>)</p></li>
+<li><p><strong>antiaffinity_hosts</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.affinity_prototype.AffinityPrototype.copy_to_dict">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">copy_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">affinity_prototypes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/affinity_prototype.html#AffinityPrototype.copy_to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype.copy_to_dict" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>affinity_prototypes</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype" title="perfsim.prototypes.affinity_prototype.AffinityPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">AffinityPrototype</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype" title="perfsim.prototypes.affinity_prototype.AffinityPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">AffinityPrototype</span></code></a>]]</span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype" title="perfsim.prototypes.affinity_prototype.AffinityPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">AffinityPrototype</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.affinity_prototype.AffinityPrototype.from_config">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/affinity_prototype.html#AffinityPrototype.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype.from_config" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>conf</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype" title="perfsim.prototypes.affinity_prototype.AffinityPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">AffinityPrototype</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.prototypes.base_prototype">
+<span id="perfsim-prototypes-base-prototype-module"></span><h2>perfsim.prototypes.base_prototype module<a class="headerlink" href="#module-perfsim.prototypes.base_prototype" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.base_prototype.BasePrototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.base_prototype.</span></span><span class="sig-name descname"><span class="pre">BasePrototype</span></span><a class="reference internal" href="_modules/perfsim/prototypes/base_prototype.html#BasePrototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.base_prototype.BasePrototype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.base_prototype.BasePrototype.get_prototypes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_prototypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">existing_sm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/base_prototype.html#BasePrototype.get_prototypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.base_prototype.BasePrototype.get_prototypes" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>subject</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></span>)</p></li>
+<li><p><strong>key</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>attribute</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>conf</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></span>)</p></li>
+<li><p><strong>existing_sm</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager" title="perfsim.scenario.simulation_scenario_manager.SimulationScenarioManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationScenarioManager</span></code></a></span>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.prototypes.cluster_prototype">
+<span id="perfsim-prototypes-cluster-prototype-module"></span><h2>perfsim.prototypes.cluster_prototype module<a class="headerlink" href="#module-perfsim.prototypes.cluster_prototype" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.cluster_prototype.ClusterPrototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.cluster_prototype.</span></span><span class="sig-name descname"><span class="pre">ClusterPrototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_chains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">placement_algorithm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_allocation_scenarios</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity_prototypes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation_scenario</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/cluster_prototype.html#ClusterPrototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>service_chains</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain" title="perfsim.service_chain.service_chain.ServiceChain"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceChain</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain" title="perfsim.service_chain.service_chain.ServiceChain"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceChain</span></code></a>]]</span>)</p></li>
+<li><p><strong>topology</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.topology.Topology" title="perfsim.equipments.topology.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a></span>)</p></li>
+<li><p><strong>placement_algorithm</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.placement.html#perfsim.placement.placement_algorithm.PlacementAlgorithm" title="perfsim.placement.placement_algorithm.PlacementAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlacementAlgorithm</span></code></a></span>)</p></li>
+<li><p><strong>resource_allocation_scenarios</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.scenario.html#perfsim.scenario.resource_allocation_scenario.ResourceAllocationScenario" title="perfsim.scenario.resource_allocation_scenario.ResourceAllocationScenario"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceAllocationScenario</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="perfsim.scenario.html#perfsim.scenario.resource_allocation_scenario.ResourceAllocationScenario" title="perfsim.scenario.resource_allocation_scenario.ResourceAllocationScenario"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceAllocationScenario</span></code></a>]]</span>)</p></li>
+<li><p><strong>affinity_prototypes</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype" title="perfsim.prototypes.affinity_prototype.AffinityPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">AffinityPrototype</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype" title="perfsim.prototypes.affinity_prototype.AffinityPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">AffinityPrototype</span></code></a>]]</span>)</p></li>
+<li><p><strong>simulation_scenario</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario" title="perfsim.scenario.simulation_scenario.SimulationScenario"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationScenario</span></code></a></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.cluster_prototype.ClusterPrototype.placement_scenario">
+<span class="sig-name descname"><span class="pre">placement_scenario</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="perfsim.placement.html#perfsim.placement.placement_algorithm.PlacementAlgorithm" title="perfsim.placement.placement_algorithm.PlacementAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlacementAlgorithm</span></code></a></em><a class="headerlink" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.placement_scenario" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.cluster_prototype.ClusterPrototype.traffic_prototypes_dict">
+<span class="sig-name descname"><span class="pre">traffic_prototypes_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype" title="perfsim.prototypes.traffic_prototype.TrafficPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrafficPrototype</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.traffic_prototypes_dict" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.cluster_prototype.ClusterPrototype.scms_dict">
+<span class="sig-name descname"><span class="pre">scms_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager" title="perfsim.service_chain.service_chain_manager.ServiceChainManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceChainManager</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.scms_dict" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.cluster_prototype.ClusterPrototype.scenario_name">
+<span class="sig-name descname"><span class="pre">scenario_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.scenario_name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.cluster_prototype.ClusterPrototype.service_chains_dict">
+<span class="sig-name descname"><span class="pre">service_chains_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.service_chain.ServiceChain" title="perfsim.service_chain.service_chain.ServiceChain"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceChain</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.service_chains_dict" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.cluster_prototype.ClusterPrototype.topology">
+<span class="sig-name descname"><span class="pre">topology</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.topology.Topology" title="perfsim.equipments.topology.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a></em><a class="headerlink" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.topology" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.cluster_prototype.ClusterPrototype.resource_allocation_scenarios_dict">
+<span class="sig-name descname"><span class="pre">resource_allocation_scenarios_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="perfsim.scenario.html#perfsim.scenario.resource_allocation_scenario.ResourceAllocationScenario" title="perfsim.scenario.resource_allocation_scenario.ResourceAllocationScenario"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceAllocationScenario</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.resource_allocation_scenarios_dict" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.cluster_prototype.ClusterPrototype.affinity_prototypes_dict">
+<span class="sig-name descname"><span class="pre">affinity_prototypes_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype" title="perfsim.prototypes.affinity_prototype.AffinityPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">AffinityPrototype</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.affinity_prototypes_dict" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.cluster_prototype.ClusterPrototype.simulation_scenario">
+<span class="sig-name descname"><span class="pre">simulation_scenario</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="perfsim.scenario.html#perfsim.scenario.simulation_scenario.SimulationScenario" title="perfsim.scenario.simulation_scenario.SimulationScenario"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationScenario</span></code></a></em><a class="headerlink" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.simulation_scenario" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.prototypes.host_prototype">
+<span id="perfsim-prototypes-host-prototype-module"></span><h2>perfsim.prototypes.host_prototype module<a class="headerlink" href="#module-perfsim.prototypes.host_prototype" title="Link to this heading">#</a></h2>
+<p>A Host object simulates a single host in a cluster. It has a single CPU and a
+single NIC. Number of cores in its CPU can be specifies using the <em>cores_count</em>
+property and its maximum network bandwidth can be specified with the <em>max_bandwidth</em>
+property.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.host_prototype.HostPrototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.host_prototype.</span></span><span class="sig-name descname"><span class="pre">HostPrototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu_core_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu_clock_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_capacity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ram_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_capacity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network_bandwidth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sched_latency_ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sched_min_granularity_ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfs_period_ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/host_prototype.html#HostPrototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.host_prototype.HostPrototype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A <cite>Host</cite> may contain several <cite>Microservices</cite>.
+Here are the possible initialization parameters:</p>
+<blockquote>
+<div><dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Name of the host. In example host1.</p>
+</dd>
+<dt><cite>cores_count</cite></dt><dd><dl class="simple">
+<dt>Number of cores that this host’s CPU contains. It will create a CPU</dt><dd><p>with the given number of cores (can be accessed via self.Cpu). Currently it’s
+been assumed that each <em>Host</em> only has 1 <em>CPU</em>.</p>
+</dd>
+</dl>
+</dd>
+<dt><cite>cpu_clock_rate</cite></dt><dd><p>The maximum clock rate of the CPU for this host (in Hertz).</p>
+</dd>
+<dt><cite>max_bandwidth</cite></dt><dd><p>Maximum bandwidth that this host’s NIC can support. During initiallization,
+a <cite>Nic</cite> object with the given bandwidth is being created. (can be accessed
+via self.Nic)</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>cpu_core_count</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>cpu_clock_rate</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>memory_capacity</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>ram_speed</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>storage_capacity</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>storage_speed</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>network_bandwidth</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>sched_latency_ns</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>sched_min_granularity_ns</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>cfs_period_ns</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>cost_dict</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.cost_dict.CostDict" title="perfsim.equipments.cost_dict.CostDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">CostDict</span></code></a></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.host_prototype.HostPrototype.cost_dict">
+<span class="sig-name descname"><span class="pre">cost_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.cost_dict.CostDict" title="perfsim.equipments.cost_dict.CostDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">CostDict</span></code></a></em><a class="headerlink" href="#perfsim.prototypes.host_prototype.HostPrototype.cost_dict" title="Link to this definition">#</a></dt>
+<dd><p>The cost of running this host per minute</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.host_prototype.HostPrototype.from_config">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/host_prototype.html#HostPrototype.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.host_prototype.HostPrototype.from_config" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>conf</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.host_prototype.HostPrototype" title="perfsim.prototypes.host_prototype.HostPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">HostPrototype</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.prototypes.microservice_endpoint_function_prototype">
+<span id="perfsim-prototypes-microservice-endpoint-function-prototype-module"></span><h2>perfsim.prototypes.microservice_endpoint_function_prototype module<a class="headerlink" href="#module-perfsim.prototypes.microservice_endpoint_function_prototype" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.microservice_endpoint_function_prototype.</span></span><span class="sig-name descname"><span class="pre">MicroserviceEndpointFunctionPrototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_instructions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_avg_cpi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_avg_cpu_usages</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_avg_mem_accesses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_single_core_isolated_cache_misses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_single_core_isolated_cache_refs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_avg_cache_miss_penalty</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_avg_blkio_rw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_timeout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">microservice_prototype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/microservice_endpoint_function_prototype.html#MicroserviceEndpointFunctionPrototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>threads_instructions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>)</p></li>
+<li><p><strong>threads_avg_cpi</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>)</p></li>
+<li><p><strong>threads_avg_cpu_usages</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>)</p></li>
+<li><p><strong>threads_avg_mem_accesses</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>)</p></li>
+<li><p><strong>threads_single_core_isolated_cache_misses</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>)</p></li>
+<li><p><strong>threads_single_core_isolated_cache_refs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>)</p></li>
+<li><p><strong>threads_avg_cache_miss_penalty</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>)</p></li>
+<li><p><strong>threads_avg_blkio_rw</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>)</p></li>
+<li><p><strong>request_timeout</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p></li>
+<li><p><strong>microservice_prototype</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype" title="perfsim.prototypes.microservice_prototype.MicroservicePrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroservicePrototype</span></code></a></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype.add_threads">
+<span class="sig-name descname"><span class="pre">add_threads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threads_instructions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_avg_cpi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_avg_cpu_usage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_avg_mem_accesses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_single_core_isolated_cache_misses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_single_core_isolated_cache_refs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_avg_cache_miss_penalty</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads_avg_blkio_rw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/microservice_endpoint_function_prototype.html#MicroserviceEndpointFunctionPrototype.add_threads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype.add_threads" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.prototypes.microservice_endpoint_function_prototype_dtype">
+<span id="perfsim-prototypes-microservice-endpoint-function-prototype-dtype-module"></span><h2>perfsim.prototypes.microservice_endpoint_function_prototype_dtype module<a class="headerlink" href="#module-perfsim.prototypes.microservice_endpoint_function_prototype_dtype" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.microservice_endpoint_function_prototype_dtype.</span></span><span class="sig-name descname"><span class="pre">MicroserviceEndpointFunctionPrototypeDtype</span></span><a class="reference internal" href="_modules/perfsim/prototypes/microservice_endpoint_function_prototype_dtype.html#MicroserviceEndpointFunctionPrototypeDtype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype_name">
+<span class="sig-name descname"><span class="pre">endpoint_function_prototype_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype_name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype">
+<span class="sig-name descname"><span class="pre">endpoint_function_prototype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype" title="perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototype</span></code></a></em><a class="headerlink" href="#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.prototypes.microservice_prototype">
+<span id="perfsim-prototypes-microservice-prototype-module"></span><h2>perfsim.prototypes.microservice_prototype module<a class="headerlink" href="#module-perfsim.prototypes.microservice_prototype" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.microservice_prototype.MicroservicePrototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.microservice_prototype.</span></span><span class="sig-name descname"><span class="pre">MicroservicePrototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoint_function_prototypes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/microservice_prototype.html#MicroservicePrototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>endpoint_function_prototypes</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype" title="perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototype</span></code></a>]</span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.prototypes.microservice_prototype.MicroservicePrototype.endpoint_function_prototypes_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">endpoint_function_prototypes_dict</span></span><a class="headerlink" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.endpoint_function_prototypes_dict" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.microservice_prototype.MicroservicePrototype.add_endpoint_function_prototype">
+<span class="sig-name descname"><span class="pre">add_endpoint_function_prototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prototype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/microservice_prototype.html#MicroservicePrototype.add_endpoint_function_prototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.add_endpoint_function_prototype" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>prototype</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype" title="perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototype</span></code></a></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.microservice_prototype.MicroservicePrototype.remove_endpoint_function_prototype">
+<span class="sig-name descname"><span class="pre">remove_endpoint_function_prototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prototype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/microservice_prototype.html#MicroservicePrototype.remove_endpoint_function_prototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.remove_endpoint_function_prototype" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>prototype</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype" title="perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototype</span></code></a></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.microservice_prototype.MicroservicePrototype.from_config">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/microservice_prototype.html#MicroservicePrototype.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.from_config" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>conf</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype" title="perfsim.prototypes.microservice_prototype.MicroservicePrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroservicePrototype</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.prototypes.router_prototype">
+<span id="perfsim-prototypes-router-prototype-module"></span><h2>perfsim.prototypes.router_prototype module<a class="headerlink" href="#module-perfsim.prototypes.router_prototype" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.router_prototype.RouterPrototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.router_prototype.</span></span><span class="sig-name descname"><span class="pre">RouterPrototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">egress_ingress_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ports_count</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/router_prototype.html#RouterPrototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.router_prototype.RouterPrototype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>latency</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>egress_ingress_bw</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>ports_count</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.router_prototype.RouterPrototype.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#perfsim.prototypes.router_prototype.RouterPrototype.name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.router_prototype.RouterPrototype.latency">
+<span class="sig-name descname"><span class="pre">latency</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#perfsim.prototypes.router_prototype.RouterPrototype.latency" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.router_prototype.RouterPrototype.egress_ingress_original_bw">
+<span class="sig-name descname"><span class="pre">egress_ingress_original_bw</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#perfsim.prototypes.router_prototype.RouterPrototype.egress_ingress_original_bw" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.router_prototype.RouterPrototype.ports_count">
+<span class="sig-name descname"><span class="pre">ports_count</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#perfsim.prototypes.router_prototype.RouterPrototype.ports_count" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.router_prototype.RouterPrototype.from_config">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/router_prototype.html#RouterPrototype.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.router_prototype.RouterPrototype.from_config" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>conf</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.router_prototype.RouterPrototype" title="perfsim.prototypes.router_prototype.RouterPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">RouterPrototype</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.prototypes.service_chain_link_prototype">
+<span id="perfsim-prototypes-service-chain-link-prototype-module"></span><h2>perfsim.prototypes.service_chain_link_prototype module<a class="headerlink" href="#module-perfsim.prototypes.service_chain_link_prototype" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.service_chain_link_prototype.ServiceChainLinkPrototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.service_chain_link_prototype.</span></span><span class="sig-name descname"><span class="pre">ServiceChainLinkPrototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request_size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/service_chain_link_prototype.html#ServiceChainLinkPrototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.service_chain_link_prototype.ServiceChainLinkPrototype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request_size</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-perfsim.prototypes.topology_link_prototype">
+<span id="perfsim-prototypes-topology-link-prototype-module"></span><h2>perfsim.prototypes.topology_link_prototype module<a class="headerlink" href="#module-perfsim.prototypes.topology_link_prototype" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.topology_link_prototype.</span></span><span class="sig-name descname"><span class="pre">TopologyLinkPrototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latency</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/topology_link_prototype.html#TopologyLinkPrototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The link’s latency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>latency</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype.latency">
+<span class="sig-name descname"><span class="pre">latency</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype.latency" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype.from_config">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/topology_link_prototype.html#TopologyLinkPrototype.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype.from_config" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>conf</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype" title="perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyLinkPrototype</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.prototypes.topology_prototype">
+<span id="perfsim-prototypes-topology-prototype-module"></span><h2>perfsim.prototypes.topology_prototype module<a class="headerlink" href="#module-perfsim.prototypes.topology_prototype" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.topology_prototype.</span></span><span class="sig-name descname"><span class="pre">TopologyPrototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">egress_err</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ingress_err</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incoming_graph_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hosts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">routers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">links</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/topology_prototype.html#TopologyPrototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiDiGraph</span></code></p>
+<p>Initialize a graph with edges, name, or graph attributes.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
+<dl class="simple">
+<dt>incoming_graph_data<span class="classifier">input graph</span></dt><dd><p>Data to initialize graph.  If incoming_graph_data=None (default)
+an empty graph is created.  The data can be an edge list, or any
+NetworkX graph object.  If the corresponding optional Python
+packages are installed the data can also be a 2D NumPy array, a
+SciPy sparse array, or a PyGraphviz graph.</p>
+</dd>
+<dt>multigraph_input<span class="classifier">bool or None (default None)</span></dt><dd><p>Note: Only used when <cite>incoming_graph_data</cite> is a dict.
+If True, <cite>incoming_graph_data</cite> is assumed to be a
+dict-of-dict-of-dict-of-dict structure keyed by
+node to neighbor to edge keys to edge data for multi-edges.
+A NetworkXError is raised if this is not the case.
+If False, <code class="xref py py-func docutils literal notranslate"><span class="pre">to_networkx_graph()</span></code> is used to try to determine
+the dict’s graph data structure as either a dict-of-dict-of-dict
+keyed by node to neighbor to edge data, or a dict-of-iterable
+keyed by node to neighbors.
+If None, the treatment for True is tried, but if it fails,
+the treatment for False is tried.</p>
+</dd>
+<dt>attr<span class="classifier">keyword arguments, optional (default= no attributes)</span></dt><dd><p>Attributes to add to graph as key=value pairs.</p>
+</dd>
+</dl>
+</section>
+<section id="see-also">
+<h3>See Also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h3>
+<p>convert</p>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>  <span class="c1"># or DiGraph, MultiGraph, MultiDiGraph, etc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;my graph&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>  <span class="c1"># list of edges</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Arbitrary graph attribute pairs (key=value) may be assigned</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="s2">&quot;Friday&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">graph</span>
+<span class="go">{&#39;day&#39;: &#39;Friday&#39;}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">param name<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">type name<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+<dt class="field-odd">param egress_err<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">type egress_err<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
+</dd>
+<dt class="field-odd">param ingress_err<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">type ingress_err<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
+</dd>
+<dt class="field-odd">param hosts<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">type hosts<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">param routers<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">type routers<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.router.Router" title="perfsim.equipments.router.Router"><code class="xref py py-class docutils literal notranslate"><span class="pre">Router</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">param links<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">type links<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.topology_link.TopologyLink" title="perfsim.equipments.topology_link.TopologyLink"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyLink</span></code></a>]</span></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.before_recalculate_transmissions_bw_on_all_links">
+<span class="sig-name descname"><span class="pre">before_recalculate_transmissions_bw_on_all_links</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.before_recalculate_transmissions_bw_on_all_links" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.egress_err">
+<span class="sig-name descname"><span class="pre">egress_err</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.egress_err" title="Link to this definition">#</a></dt>
+<dd><p>In Kubernetes, we noticed a slight error between desired and actual ingress_bandwidths. For example, 
+if we set ingress_bandwidth of a pod to 100Mbps, it gets slightly lower bandwidth (~95Mbps - error = 0.05 = 5%). 
+We call this slight error as ingress_err. Use 0.05 if you want to indicate an error of 5%.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.ingress_err">
+<span class="sig-name descname"><span class="pre">ingress_err</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.ingress_err" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.hosts_dict">
+<span class="sig-name descname"><span class="pre">hosts_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.hosts_dict" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.routers_dict">
+<span class="sig-name descname"><span class="pre">routers_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.router.Router" title="perfsim.equipments.router.Router"><code class="xref py py-class docutils literal notranslate"><span class="pre">Router</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.routers_dict" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.topology_links_dict">
+<span class="sig-name descname"><span class="pre">topology_links_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.topology_link.TopologyLink" title="perfsim.equipments.topology_link.TopologyLink"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyLink</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.topology_links_dict" title="Link to this definition">#</a></dt>
+<dd><p>In Kubernetes, we noticed a slight error between desired and actual egress_bandwidths. For example, 
+if we set egress_bandwidth of a pod to 100Mbps, it gets slightly lower bandwidth (~95Mbps - error = 0.05 = 5%). 
+We call this slight error as egress_err. Use 0.05 if you want to indicate an error of 5%.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.active_transmissions">
+<span class="sig-name descname"><span class="pre">active_transmissions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code><span class="pre">[</span><a class="reference internal" href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission" title="perfsim.traffic.transmission.Transmission"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transmission</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.active_transmissions" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.add_equipments">
+<span class="sig-name descname"><span class="pre">add_equipments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hosts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">routers</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/topology_prototype.html#TopologyPrototype.add_equipments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.add_equipments" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hosts</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a>]</span>)</p></li>
+<li><p><strong>routers</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.router.Router" title="perfsim.equipments.router.Router"><code class="xref py py-class docutils literal notranslate"><span class="pre">Router</span></code></a>]</span>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.add_edges_from">
+<span class="sig-name descname"><span class="pre">add_edges_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ebunch_to_add</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/topology_prototype.html#TopologyPrototype.add_edges_from"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.add_edges_from" title="Link to this definition">#</a></dt>
+<dd><p>Add all the edges in ebunch_to_add.</p>
+<section id="id1">
+<h4>Parameters<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<dl>
+<dt>ebunch_to_add<span class="classifier">container of edges</span></dt><dd><p>Each edge given in the container will be added to the
+graph. The edges can be:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>2-tuples (u, v) or</p></li>
+<li><p>3-tuples (u, v, d) for an edge data dict d, or</p></li>
+<li><p>3-tuples (u, v, k) for not iterable key k, or</p></li>
+<li><p>4-tuples (u, v, k, d) for an edge with data and key k</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt>attr<span class="classifier">keyword arguments, optional</span></dt><dd><p>Edge data (or labels or objects) can be assigned using
+keyword arguments.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h4>Returns<a class="headerlink" href="#returns" title="Link to this heading">#</a></h4>
+<p>A list of edge keys assigned to the edges in <cite>ebunch</cite>.</p>
+</section>
+<section id="id2">
+<h4>See Also<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>add_edge : add a single edge
+add_weighted_edges_from : convenient way to add weighted edges</p>
+</section>
+<section id="notes">
+<h4>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h4>
+<p>Adding the same edge twice has no effect but any edge data
+will be updated when each duplicate edge is added.</p>
+<p>Edge attributes specified in an ebunch take precedence over
+attributes specified via keyword arguments.</p>
+<p>Default keys are generated using the method <code class="docutils literal notranslate"><span class="pre">new_edge_key()</span></code>.
+This method can be overridden by subclassing the base class and
+providing a custom <code class="docutils literal notranslate"><span class="pre">new_edge_key()</span></code> method.</p>
+<p>When adding edges from an iterator over the graph you are changing,
+a <cite>RuntimeError</cite> can be raised with message:
+<cite>RuntimeError: dictionary changed size during iteration</cite>. This
+happens when the graph’s underlying dictionary is modified during
+iteration. To avoid this error, evaluate the iterator into a separate
+object, e.g. by using <cite>list(iterator_of_edges)</cite>, and pass this
+object to <cite>G.add_edges_from</cite>.</p>
+</section>
+<section id="id3">
+<h4>Examples<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>  <span class="c1"># or DiGraph, MultiGraph, MultiDiGraph, etc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>  <span class="c1"># using a list of edge tuples</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>  <span class="c1"># Add the path graph 0-1-2-3</span>
+</pre></div>
+</div>
+<p>Associate data to edges</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)],</span> <span class="n">weight</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;WN2898&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Evaluate an iterator over a graph if using it to modify the same graph</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">MultiGraph</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Grow graph by one new node, adding edges to all existing nodes.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># wrong way - will raise RuntimeError</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># G.add_edges_from(((5, n) for n in G.nodes))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># right way - note that there will be no self-edge for node 5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">assigned_keys</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">))</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">param ebunch_to_add<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">type ebunch_to_add<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.topology_link.TopologyLink" title="perfsim.equipments.topology_link.TopologyLink"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyLink</span></code></a>]</span></p>
+</dd>
+</dl>
+</section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ebunch_to_add</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.topology_link.TopologyLink" title="perfsim.equipments.topology_link.TopologyLink"><em>TopologyLink</em></a><em>]</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.add_edge">
+<span class="sig-name descname"><span class="pre">add_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u_for_edge</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_for_edge</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/topology_prototype.html#TopologyPrototype.add_edge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.add_edge" title="Link to this definition">#</a></dt>
+<dd><p>Add an edge between u and v.</p>
+<p>The nodes u and v will be automatically added if they are
+not already in the graph.</p>
+<p>Edge attributes can be specified with keywords or by directly
+accessing the edge’s attribute dictionary. See examples below.</p>
+<section id="id4">
+<h4>Parameters<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<dl class="simple">
+<dt>u_for_edge, v_for_edge<span class="classifier">nodes</span></dt><dd><p>Nodes can be, for example, strings or numbers.
+Nodes must be hashable (and not None) Python objects.</p>
+</dd>
+<dt>key<span class="classifier">hashable identifier, optional (default=lowest unused integer)</span></dt><dd><p>Used to distinguish multiedges between a pair of nodes.</p>
+</dd>
+<dt>attr<span class="classifier">keyword arguments, optional</span></dt><dd><p>Edge data (or labels or objects) can be assigned using
+keyword arguments.</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h4>Returns<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>The edge key assigned to the edge.</p>
+</section>
+<section id="id6">
+<h4>See Also<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p>add_edges_from : add a collection of edges</p>
+</section>
+<section id="id7">
+<h4>Notes<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p>To replace/update edge data, use the optional key argument
+to identify a unique edge.  Otherwise a new edge will be created.</p>
+<p>NetworkX algorithms designed for weighted graphs cannot use
+multigraphs directly because it is not clear how to handle
+multiedge weights.  Convert to Graph using edge attribute
+‘weight’ to enable weighted graph algorithms.</p>
+<p>Default keys are generated using the method <cite>new_edge_key()</cite>.
+This method can be overridden by subclassing the base class and
+providing a custom <cite>new_edge_key()</cite> method.</p>
+</section>
+<section id="id8">
+<h4>Examples<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<p>The following all add the edge e=(1, 2) to graph G:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">MultiDiGraph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">key</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># explicit two-node form</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">)</span>  <span class="c1"># single edge as tuple of two nodes</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>  <span class="c1"># add edges from iterable container</span>
+<span class="go">[2]</span>
+</pre></div>
+</div>
+<p>Associate data to edges using keywords:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">key</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">key</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># update data for key=0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">key</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mf">342.7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For non-string attribute keys, use subscript notation.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ekey</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.reinitiate_topology">
+<span class="sig-name descname"><span class="pre">reinitiate_topology</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/topology_prototype.html#TopologyPrototype.reinitiate_topology"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.reinitiate_topology" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_microservices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'html'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/topology_prototype.html#TopologyPrototype.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.draw" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>show_microservices</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>)</p></li>
+<li><p><strong>save_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>show</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>)</p></li>
+<li><p><strong>type</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.recalculate_transmissions_times">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">recalculate_transmissions_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transmissions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/topology_prototype.html#TopologyPrototype.recalculate_transmissions_times"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.recalculate_transmissions_times" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>transmissions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="perfsim.traffic.html#perfsim.traffic.transmission.Transmission" title="perfsim.traffic.transmission.Transmission"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transmission</span></code></a>]</span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.copy_to_dict">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">copy_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topology_prototypes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/topology_prototype.html#TopologyPrototype.copy_to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.copy_to_dict" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>topology_prototypes</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#perfsim.prototypes.topology_prototype.TopologyPrototype" title="perfsim.prototypes.topology_prototype.TopologyPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyPrototype</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.topology_prototype.TopologyPrototype" title="perfsim.prototypes.topology_prototype.TopologyPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyPrototype</span></code></a>]]</span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.topology_prototype.TopologyPrototype" title="perfsim.prototypes.topology_prototype.TopologyPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyPrototype</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.topology_prototype.TopologyPrototype.from_config">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topology_equipments_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_prototypes_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/topology_prototype.html#TopologyPrototype.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.from_config" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>conf</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.topology_prototype.TopologyPrototype" title="perfsim.prototypes.topology_prototype.TopologyPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyPrototype</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>)</p></li>
+<li><p><strong>egress_err</strong> (<em>float</em>)</p></li>
+<li><p><strong>ingress_err</strong> (<em>float</em>)</p></li>
+<li><p><strong>hosts</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><em>Host</em></a><em>]</em>)</p></li>
+<li><p><strong>routers</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.router.Router" title="perfsim.equipments.router.Router"><em>Router</em></a><em>]</em>)</p></li>
+<li><p><strong>links</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.topology_link.TopologyLink" title="perfsim.equipments.topology_link.TopologyLink"><em>TopologyLink</em></a><em>]</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-perfsim.prototypes.traffic_prototype">
+<span id="perfsim-prototypes-traffic-prototype-module"></span><h2>perfsim.prototypes.traffic_prototype module<a class="headerlink" href="#module-perfsim.prototypes.traffic_prototype" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.prototypes.traffic_prototype.</span></span><span class="sig-name descname"><span class="pre">TrafficPrototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrival_interval_ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel_user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_at</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/traffic_prototype.html#TrafficPrototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TrafficPrototype is a class that holds the traffic configuration, that later on can be used to
+generate traffic for various service chains using a load generator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>arrival_interval_ns</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>duration</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>parallel_user</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>start_at</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.arrival_table">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">arrival_table</span></span><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.arrival_table" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.start_at">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_at</span></span><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.start_at" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.arrival_interval_ns">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">arrival_interval_ns</span></span><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.arrival_interval_ns" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.duration">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">duration</span></span><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.duration" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.parallel_user">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parallel_user</span></span><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.parallel_user" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.iterations_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">iterations_count</span></span><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.iterations_count" title="Link to this definition">#</a></dt>
+<dd><p>Total number of batch request arrivals</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.requests_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">requests_count</span></span><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.requests_count" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_iterations_count">
+<span class="sig-name descname"><span class="pre">recalc_iterations_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/traffic_prototype.html#TrafficPrototype.recalc_iterations_count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_iterations_count" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_requests_count">
+<span class="sig-name descname"><span class="pre">recalc_requests_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/traffic_prototype.html#TrafficPrototype.recalc_requests_count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_requests_count" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_arrival_table">
+<span class="sig-name descname"><span class="pre">recalc_arrival_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/traffic_prototype.html#TrafficPrototype.recalc_arrival_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_arrival_table" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_all_properties">
+<span class="sig-name descname"><span class="pre">recalc_all_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/traffic_prototype.html#TrafficPrototype.recalc_all_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_all_properties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.copy_to_dict">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">copy_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traffic_prototypes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/traffic_prototype.html#TrafficPrototype.copy_to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.copy_to_dict" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>traffic_prototypes</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype" title="perfsim.prototypes.traffic_prototype.TrafficPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrafficPrototype</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype" title="perfsim.prototypes.traffic_prototype.TrafficPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrafficPrototype</span></code></a>]]</span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype" title="perfsim.prototypes.traffic_prototype.TrafficPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrafficPrototype</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.prototypes.traffic_prototype.TrafficPrototype.from_config">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/prototypes/traffic_prototype.html#TrafficPrototype.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.from_config" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>conf</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype" title="perfsim.prototypes.traffic_prototype.TrafficPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrafficPrototype</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="perfsim.placement.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">perfsim.placement</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="perfsim.scenario.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">perfsim.scenario</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.affinity_prototype">perfsim.prototypes.affinity_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype"><code class="docutils literal notranslate"><span class="pre">AffinityPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype.copy_to_dict"><code class="docutils literal notranslate"><span class="pre">AffinityPrototype.copy_to_dict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.affinity_prototype.AffinityPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">AffinityPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.base_prototype">perfsim.prototypes.base_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.base_prototype.BasePrototype"><code class="docutils literal notranslate"><span class="pre">BasePrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.base_prototype.BasePrototype.get_prototypes"><code class="docutils literal notranslate"><span class="pre">BasePrototype.get_prototypes()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.cluster_prototype">perfsim.prototypes.cluster_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.placement_scenario"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.placement_scenario</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.traffic_prototypes_dict"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.traffic_prototypes_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.scms_dict"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.scms_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.scenario_name"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.scenario_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.service_chains_dict"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.service_chains_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.topology"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.topology</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.resource_allocation_scenarios_dict"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.resource_allocation_scenarios_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.affinity_prototypes_dict"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.affinity_prototypes_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.cluster_prototype.ClusterPrototype.simulation_scenario"><code class="docutils literal notranslate"><span class="pre">ClusterPrototype.simulation_scenario</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.host_prototype">perfsim.prototypes.host_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.host_prototype.HostPrototype"><code class="docutils literal notranslate"><span class="pre">HostPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.host_prototype.HostPrototype.cost_dict"><code class="docutils literal notranslate"><span class="pre">HostPrototype.cost_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.host_prototype.HostPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">HostPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.microservice_endpoint_function_prototype">perfsim.prototypes.microservice_endpoint_function_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype"><code class="docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_endpoint_function_prototype.MicroserviceEndpointFunctionPrototype.add_threads"><code class="docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototype.add_threads()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.microservice_endpoint_function_prototype_dtype">perfsim.prototypes.microservice_endpoint_function_prototype_dtype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype"><code class="docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototypeDtype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype_name"><code class="docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_endpoint_function_prototype_dtype.MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype"><code class="docutils literal notranslate"><span class="pre">MicroserviceEndpointFunctionPrototypeDtype.endpoint_function_prototype</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.microservice_prototype">perfsim.prototypes.microservice_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype"><code class="docutils literal notranslate"><span class="pre">MicroservicePrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.endpoint_function_prototypes_dict"><code class="docutils literal notranslate"><span class="pre">MicroservicePrototype.endpoint_function_prototypes_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.add_endpoint_function_prototype"><code class="docutils literal notranslate"><span class="pre">MicroservicePrototype.add_endpoint_function_prototype()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.remove_endpoint_function_prototype"><code class="docutils literal notranslate"><span class="pre">MicroservicePrototype.remove_endpoint_function_prototype()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.microservice_prototype.MicroservicePrototype.from_config"><code class="docutils literal notranslate"><span class="pre">MicroservicePrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.router_prototype">perfsim.prototypes.router_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype"><code class="docutils literal notranslate"><span class="pre">RouterPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype.name"><code class="docutils literal notranslate"><span class="pre">RouterPrototype.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype.latency"><code class="docutils literal notranslate"><span class="pre">RouterPrototype.latency</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype.egress_ingress_original_bw"><code class="docutils literal notranslate"><span class="pre">RouterPrototype.egress_ingress_original_bw</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype.ports_count"><code class="docutils literal notranslate"><span class="pre">RouterPrototype.ports_count</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.router_prototype.RouterPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">RouterPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.service_chain_link_prototype">perfsim.prototypes.service_chain_link_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.service_chain_link_prototype.ServiceChainLinkPrototype"><code class="docutils literal notranslate"><span class="pre">ServiceChainLinkPrototype</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.topology_link_prototype">perfsim.prototypes.topology_link_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype"><code class="docutils literal notranslate"><span class="pre">TopologyLinkPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype.latency"><code class="docutils literal notranslate"><span class="pre">TopologyLinkPrototype.latency</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_link_prototype.TopologyLinkPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">TopologyLinkPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.topology_prototype">perfsim.prototypes.topology_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.before_recalculate_transmissions_bw_on_all_links"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.before_recalculate_transmissions_bw_on_all_links</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.egress_err"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.egress_err</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.ingress_err"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.ingress_err</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.hosts_dict"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.hosts_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.routers_dict"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.routers_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.topology_links_dict"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.topology_links_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.active_transmissions"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.active_transmissions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.add_equipments"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.add_equipments()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.add_edges_from"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.add_edges_from()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.add_edge"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.add_edge()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.reinitiate_topology"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.reinitiate_topology()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.draw"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.draw()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.recalculate_transmissions_times"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.recalculate_transmissions_times()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.copy_to_dict"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.copy_to_dict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.topology_prototype.TopologyPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">TopologyPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.prototypes.traffic_prototype">perfsim.prototypes.traffic_prototype module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.arrival_table"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.arrival_table</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.start_at"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.start_at</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.arrival_interval_ns"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.arrival_interval_ns</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.duration"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.duration</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.parallel_user"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.parallel_user</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.iterations_count"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.iterations_count</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.requests_count"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.requests_count</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_iterations_count"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.recalc_iterations_count()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_requests_count"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.recalc_requests_count()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_arrival_table"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.recalc_arrival_table()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.recalc_all_properties"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.recalc_all_properties()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.copy_to_dict"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.copy_to_dict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.prototypes.traffic_prototype.TrafficPrototype.from_config"><code class="docutils literal notranslate"><span class="pre">TrafficPrototype.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

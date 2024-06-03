@@ -1,0 +1,1319 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>perfsim.traffic &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'perfsim.traffic';</script>
+    <script src="_static/js/custom.js"></script>
+    <link rel="icon" href="_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="perfsim.service_chain" href="perfsim.service_chain.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="perfsim.html">perfsim</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/perfsim.traffic.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>perfsim.traffic</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.traffic">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.traffic.load_generator">perfsim.traffic.load_generator module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator"><code class="docutils literal notranslate"><span class="pre">LoadGenerator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.threads_dict"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.threads_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.arrivals"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.arrivals</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_traffic_start"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_traffic_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_generate_threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_generate_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_requests_start"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_requests_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_requests_start"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_requests_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_exec_time_estimation"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_exec_time_estimation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_executing_threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_executing_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_completing_load_generation"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_completing_load_generation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_next_batch_arrival_time_calculation"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_next_batch_arrival_time_calculation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_generate_request_threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_generate_request_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_generate_request_threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_generate_request_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_transmission_estimation"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_transmission_estimation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_estimating_time_of_next_event"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_estimating_time_of_next_event</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_transmit_requests_in_network"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_transmit_requests_in_network</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_transmit_requests_in_network_and_load_balancing_threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_transmit_requests_in_network_and_load_balancing_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_request_created"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_request_created</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.name"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.sim"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.sim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.requests"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.requests</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.latencies"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.latencies</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.total_requests_count"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.total_requests_count</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.merged_arrival_table"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.merged_arrival_table</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.register_events"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.register_events()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.execute_traffic"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.execute_traffic()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.completed_requests"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.completed_requests</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.get_latencies_grouped_by_sfc"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.get_latencies_grouped_by_sfc()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.plot_latencies"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.plot_latencies()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.last_transmission_id"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.last_transmission_id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.next_trans_completion_times"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.next_trans_completion_times</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.requests_ready_for_thread_generation"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.requests_ready_for_thread_generation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.next_batch_arrival_time"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.next_batch_arrival_time</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.merge_arrival_tables"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.merge_arrival_tables()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.traffic.request">perfsim.traffic.request module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request"><code class="docutils literal notranslate"><span class="pre">Request</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.before_init_next_microservices"><code class="docutils literal notranslate"><span class="pre">Request.before_init_next_microservices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.after_init_next_microservices"><code class="docutils literal notranslate"><span class="pre">Request.after_init_next_microservices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.before_finalizing_subchain"><code class="docutils literal notranslate"><span class="pre">Request.before_finalizing_subchain</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.before_concluding_request"><code class="docutils literal notranslate"><span class="pre">Request.before_concluding_request</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.before_init_transmission"><code class="docutils literal notranslate"><span class="pre">Request.before_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.after_init_transmission"><code class="docutils literal notranslate"><span class="pre">Request.after_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.on_init_transmission"><code class="docutils literal notranslate"><span class="pre">Request.on_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.before_finish_transmission"><code class="docutils literal notranslate"><span class="pre">Request.before_finish_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.after_finish_transmission"><code class="docutils literal notranslate"><span class="pre">Request.after_finish_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.load_generator"><code class="docutils literal notranslate"><span class="pre">Request.load_generator</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.traffic_prototype"><code class="docutils literal notranslate"><span class="pre">Request.traffic_prototype</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.scm"><code class="docutils literal notranslate"><span class="pre">Request.scm</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.latency"><code class="docutils literal notranslate"><span class="pre">Request.latency</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.id"><code class="docutils literal notranslate"><span class="pre">Request.id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.iteration_id"><code class="docutils literal notranslate"><span class="pre">Request.iteration_id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.id_in_iteration"><code class="docutils literal notranslate"><span class="pre">Request.id_in_iteration</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.status"><code class="docutils literal notranslate"><span class="pre">Request.status</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.register_events"><code class="docutils literal notranslate"><span class="pre">Request.register_events()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.finalize_subchain"><code class="docutils literal notranslate"><span class="pre">Request.finalize_subchain()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.set_next_nodes_and_replicas"><code class="docutils literal notranslate"><span class="pre">Request.set_next_nodes_and_replicas()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.init_transmission"><code class="docutils literal notranslate"><span class="pre">Request.init_transmission()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.finish_transmission_by_subchain_id"><code class="docutils literal notranslate"><span class="pre">Request.finish_transmission_by_subchain_id()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.finish_transmission"><code class="docutils literal notranslate"><span class="pre">Request.finish_transmission()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.init_next_microservices"><code class="docutils literal notranslate"><span class="pre">Request.init_next_microservices()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_node_names"><code class="docutils literal notranslate"><span class="pre">Request.get_node_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_next_nodes_names"><code class="docutils literal notranslate"><span class="pre">Request.get_next_nodes_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_current_replicas_names"><code class="docutils literal notranslate"><span class="pre">Request.get_current_replicas_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_next_replicas_names"><code class="docutils literal notranslate"><span class="pre">Request.get_next_replicas_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_current_replicas_host_names"><code class="docutils literal notranslate"><span class="pre">Request.get_current_replicas_host_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_next_replicas_host_names"><code class="docutils literal notranslate"><span class="pre">Request.get_next_replicas_host_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.conclude"><code class="docutils literal notranslate"><span class="pre">Request.conclude()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.compute_times"><code class="docutils literal notranslate"><span class="pre">Request.compute_times</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.trans_times"><code class="docutils literal notranslate"><span class="pre">Request.trans_times</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.trans_exact_times"><code class="docutils literal notranslate"><span class="pre">Request.trans_exact_times</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.trans_init_times"><code class="docutils literal notranslate"><span class="pre">Request.trans_init_times</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.current_nodes"><code class="docutils literal notranslate"><span class="pre">Request.current_nodes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.current_replicas_in_nodes"><code class="docutils literal notranslate"><span class="pre">Request.current_replicas_in_nodes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.subchains_status"><code class="docutils literal notranslate"><span class="pre">Request.subchains_status</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.next_replicas_in_nodes"><code class="docutils literal notranslate"><span class="pre">Request.next_replicas_in_nodes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.next_nodes"><code class="docutils literal notranslate"><span class="pre">Request.next_nodes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.trans_deltatimes"><code class="docutils literal notranslate"><span class="pre">Request.trans_deltatimes</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.traffic.transmission">perfsim.traffic.transmission module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission"><code class="docutils literal notranslate"><span class="pre">Transmission</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.register_events"><code class="docutils literal notranslate"><span class="pre">Transmission.register_events()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.get_link_data"><code class="docutils literal notranslate"><span class="pre">Transmission.get_link_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.recalc_bw_considering_err"><code class="docutils literal notranslate"><span class="pre">Transmission.recalc_bw_considering_err()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.calculate_requested_bw"><code class="docutils literal notranslate"><span class="pre">Transmission.calculate_requested_bw()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.transmit"><code class="docutils literal notranslate"><span class="pre">Transmission.transmit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.links"><code class="docutils literal notranslate"><span class="pre">Transmission.links</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.calculate_transmission_time"><code class="docutils literal notranslate"><span class="pre">Transmission.calculate_transmission_time()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.finish"><code class="docutils literal notranslate"><span class="pre">Transmission.finish()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.get_bandwidth_on_link"><code class="docutils literal notranslate"><span class="pre">Transmission.get_bandwidth_on_link()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.source_nic"><code class="docutils literal notranslate"><span class="pre">Transmission.source_nic</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.dest_nic"><code class="docutils literal notranslate"><span class="pre">Transmission.dest_nic</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.current_bw"><code class="docutils literal notranslate"><span class="pre">Transmission.current_bw</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.set_current_bw"><code class="docutils literal notranslate"><span class="pre">Transmission.set_current_bw()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="perfsim-traffic">
+<h1>perfsim.traffic<a class="headerlink" href="#perfsim-traffic" title="Link to this heading">#</a></h1>
+<section id="module-perfsim.traffic">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-perfsim.traffic" title="Link to this heading">#</a></h2>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-perfsim.traffic.load_generator">
+<span id="perfsim-traffic-load-generator-module"></span><h2>perfsim.traffic.load_generator module<a class="headerlink" href="#module-perfsim.traffic.load_generator" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.traffic.load_generator.</span></span><span class="sig-name descname"><span class="pre">LoadGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notify_observers_on_event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/load_generator.html#LoadGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="perfsim.observers.html#perfsim.observers.observable.Observable" title="perfsim.observers.observable.Observable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observable</span></code></a></p>
+<p>A <em>LoadGenerator</em> is an object responsible for not only generating a given list of traffic objects
+<em>traffic_prototypes</em> on a given <em>simulation.cluster</em>, but to control the state, events and time of
+the entire simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the LoadGenerator instance.</p></li>
+<li><p><strong>simulation</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.html#perfsim.simulation.Simulation" title="perfsim.simulation.Simulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulation</span></code></a></span>) – The <cite>Simulation</cite> object where traffic belongs to.</p></li>
+<li><p><strong>notify_observers_on_event</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.threads_dict">
+<span class="sig-name descname"><span class="pre">threads_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict[str,</span> <span class="pre">ReplicaThread]</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.threads_dict" title="Link to this definition">#</a></dt>
+<dd><p>All <code class="docutils literal notranslate"><span class="pre">ReplicaThread</span></code> instances in the simulation (in dict)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.arrivals">
+<span class="sig-name descname"><span class="pre">arrivals</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pd.DataFrame</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.arrivals" title="Link to this definition">#</a></dt>
+<dd><p>Stores requests arrival times</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.before_traffic_start">
+<span class="sig-name descname"><span class="pre">before_traffic_start</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.before_traffic_start" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered before traffic starts.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.before_generate_threads">
+<span class="sig-name descname"><span class="pre">before_generate_threads</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.before_generate_threads" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.before_requests_start">
+<span class="sig-name descname"><span class="pre">before_requests_start</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.before_requests_start" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered before request is generated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.after_requests_start">
+<span class="sig-name descname"><span class="pre">after_requests_start</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.after_requests_start" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered at the end of initiate_next_batch_of_requests in being triggered.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.before_exec_time_estimation">
+<span class="sig-name descname"><span class="pre">before_exec_time_estimation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.before_exec_time_estimation" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered before estimating threads execution time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.before_executing_threads">
+<span class="sig-name descname"><span class="pre">before_executing_threads</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.before_executing_threads" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered before start running threads.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.after_completing_load_generation">
+<span class="sig-name descname"><span class="pre">after_completing_load_generation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.after_completing_load_generation" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered after executing all threads/requests of this load generator.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.after_next_batch_arrival_time_calculation">
+<span class="sig-name descname"><span class="pre">after_next_batch_arrival_time_calculation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.after_next_batch_arrival_time_calculation" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered after next batch arrival time is being calculated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.before_generate_request_threads">
+<span class="sig-name descname"><span class="pre">before_generate_request_threads</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.before_generate_request_threads" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered before generating a thread for a request (within a subchain).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.after_generate_request_threads">
+<span class="sig-name descname"><span class="pre">after_generate_request_threads</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.after_generate_request_threads" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered after generating a thread for a request (within a subchain).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.after_transmission_estimation">
+<span class="sig-name descname"><span class="pre">after_transmission_estimation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.after_transmission_estimation" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered after transmission completion time is being estimated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.after_estimating_time_of_next_event">
+<span class="sig-name descname"><span class="pre">after_estimating_time_of_next_event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.after_estimating_time_of_next_event" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered after next event time is being estimated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.before_transmit_requests_in_network">
+<span class="sig-name descname"><span class="pre">before_transmit_requests_in_network</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.before_transmit_requests_in_network" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered before transmitting packets</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.after_transmit_requests_in_network_and_load_balancing_threads">
+<span class="sig-name descname"><span class="pre">after_transmit_requests_in_network_and_load_balancing_threads</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.after_transmit_requests_in_network_and_load_balancing_threads" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered after transmitting requests and load balancing threads on all hosts</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.before_request_created">
+<span class="sig-name descname"><span class="pre">before_request_created</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.before_request_created" title="Link to this definition">#</a></dt>
+<dd><p>The event that is being triggered after transmitting requests and load balancing threads on all hosts</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.name" title="Link to this definition">#</a></dt>
+<dd><p>Name of the LoadGenerator instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.sim">
+<span class="sig-name descname"><span class="pre">sim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Simulation</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.sim" title="Link to this definition">#</a></dt>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">Simulation</span></code> object where traffic belongs to.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.requests">
+<span class="sig-name descname"><span class="pre">requests</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list[Request]</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.requests" title="Link to this definition">#</a></dt>
+<dd><p>All <code class="docutils literal notranslate"><span class="pre">Request</span></code> instances in the simulation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.threads">
+<span class="sig-name descname"><span class="pre">threads</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list[ReplicaThread]</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.threads" title="Link to this definition">#</a></dt>
+<dd><p>All <code class="docutils literal notranslate"><span class="pre">ReplicaThread</span></code> instances in the simulation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.latencies">
+<span class="sig-name descname"><span class="pre">latencies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pd.DataFrame</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.latencies" title="Link to this definition">#</a></dt>
+<dd><p>Stores requests latencies</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.total_requests_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total_requests_count</span></span><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.total_requests_count" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.merged_arrival_table">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">merged_arrival_table</span></span><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.merged_arrival_table" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.register_events">
+<span class="sig-name descname"><span class="pre">register_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/load_generator.html#LoadGenerator.register_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.register_events" title="Link to this definition">#</a></dt>
+<dd><p>This is for performance optimization purposes. Instead of generating strings for each event, we can register the
+event_names as attributes, then we send the event_name as reference, instead of copying the string every time.
+This (slightly) improves performance, specially because we are calling the notify_observers method several times
+for each request during the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.execute_traffic">
+<span class="sig-name descname"><span class="pre">execute_traffic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/load_generator.html#LoadGenerator.execute_traffic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.execute_traffic" title="Link to this definition">#</a></dt>
+<dd><p>This is the main function responsible to start the traffic in the cluster</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>debug: Enable/disable debugging mode</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type">[&lt;class ‘perfsim.service_chain.replica_thread.ReplicaThread’&gt;]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.completed_requests">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">completed_requests</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.completed_requests" title="Link to this definition">#</a></dt>
+<dd><p>Return number of all completed requests</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.get_latencies_grouped_by_sfc">
+<span class="sig-name descname"><span class="pre">get_latencies_grouped_by_sfc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/load_generator.html#LoadGenerator.get_latencies_grouped_by_sfc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.get_latencies_grouped_by_sfc" title="Link to this definition">#</a></dt>
+<dd><p>Return list of latencies for all requests of the service chain with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.scenario.html#perfsim.scenario.simulation_scenario_result_dict.SimulationScenarioResultDict" title="perfsim.scenario.simulation_scenario_result_dict.SimulationScenarioResultDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationScenarioResultDict</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.plot_latencies">
+<span class="sig-name descname"><span class="pre">plot_latencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'o'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_numbers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moving_average</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/load_generator.html#LoadGenerator.plot_latencies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.plot_latencies" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>show</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.last_transmission_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">last_transmission_id</span></span><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.last_transmission_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.next_trans_completion_times">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">next_trans_completion_times</span></span><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.next_trans_completion_times" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.requests_ready_for_thread_generation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">requests_ready_for_thread_generation</span></span><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.requests_ready_for_thread_generation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.next_batch_arrival_time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">next_batch_arrival_time</span></span><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.next_batch_arrival_time" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.load_generator.LoadGenerator.merge_arrival_tables">
+<span class="sig-name descname"><span class="pre">merge_arrival_tables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/load_generator.html#LoadGenerator.merge_arrival_tables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.load_generator.LoadGenerator.merge_arrival_tables" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.traffic.request">
+<span id="perfsim-traffic-request-module"></span><h2>perfsim.traffic.request module<a class="headerlink" href="#module-perfsim.traffic.request" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.traffic.request.</span></span><span class="sig-name descname"><span class="pre">Request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_in_iteration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traffic_prototype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrival_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="perfsim.observers.html#perfsim.observers.observable.Observable" title="perfsim.observers.observable.Observable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observable</span></code></a></p>
+<p>Request class is used to represent a real request in a service chain.
+Note that a “node” here means a tuple of (subchain_id, microservice_endpoint_function).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>iteration_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>id_in_iteration</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>load_generator</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#perfsim.traffic.load_generator.LoadGenerator" title="perfsim.traffic.load_generator.LoadGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoadGenerator</span></code></a></span>)</p></li>
+<li><p><strong>traffic_prototype</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.prototypes.html#perfsim.prototypes.traffic_prototype.TrafficPrototype" title="perfsim.prototypes.traffic_prototype.TrafficPrototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrafficPrototype</span></code></a></span>)</p></li>
+<li><p><strong>scm</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager" title="perfsim.service_chain.service_chain_manager.ServiceChainManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceChainManager</span></code></a></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.before_init_next_microservices">
+<span class="sig-name descname"><span class="pre">before_init_next_microservices</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.before_init_next_microservices" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.after_init_next_microservices">
+<span class="sig-name descname"><span class="pre">after_init_next_microservices</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.after_init_next_microservices" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.before_finalizing_subchain">
+<span class="sig-name descname"><span class="pre">before_finalizing_subchain</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.before_finalizing_subchain" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.before_concluding_request">
+<span class="sig-name descname"><span class="pre">before_concluding_request</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.before_concluding_request" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.before_init_transmission">
+<span class="sig-name descname"><span class="pre">before_init_transmission</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.before_init_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.after_init_transmission">
+<span class="sig-name descname"><span class="pre">after_init_transmission</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.after_init_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.on_init_transmission">
+<span class="sig-name descname"><span class="pre">on_init_transmission</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.on_init_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.before_finish_transmission">
+<span class="sig-name descname"><span class="pre">before_finish_transmission</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.before_finish_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.after_finish_transmission">
+<span class="sig-name descname"><span class="pre">after_finish_transmission</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.after_finish_transmission" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.load_generator">
+<span class="sig-name descname"><span class="pre">load_generator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">LoadGenerator</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.load_generator" title="Link to this definition">#</a></dt>
+<dd><p>The load generator that generated this request</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.traffic_prototype">
+<span class="sig-name descname"><span class="pre">traffic_prototype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TrafficPrototype</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.traffic_prototype" title="Link to this definition">#</a></dt>
+<dd><p>The traffic prototype in which this request is being created from</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.scm">
+<span class="sig-name descname"><span class="pre">scm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ServiceChainManager</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.scm" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.latency">
+<span class="sig-name descname"><span class="pre">latency</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.latency" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.id" title="Link to this definition">#</a></dt>
+<dd><p>Request ID</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.iteration_id">
+<span class="sig-name descname"><span class="pre">iteration_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.iteration_id" title="Link to this definition">#</a></dt>
+<dd><p>ID of the iteration that this request was generated in</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.id_in_iteration">
+<span class="sig-name descname"><span class="pre">id_in_iteration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.id_in_iteration" title="Link to this definition">#</a></dt>
+<dd><p>ID of the request within the iteration that this request was generated in</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.status">
+<span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#perfsim.traffic.request.Request.status" title="Link to this definition">#</a></dt>
+<dd><p>The request status (IN_PROGRESS, COMPLETED, TIMED_OUT)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.register_events">
+<span class="sig-name descname"><span class="pre">register_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.register_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.register_events" title="Link to this definition">#</a></dt>
+<dd><p>This is for performance optimization purposes. Instead of generating strings for each event, we can register the
+event_names as attributes, then we send the event_name as reference, instead of copying the string every time.
+This (slightly) improves performance, specially because we are calling the notify_observers method several times
+for each request during the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.finalize_subchain">
+<span class="sig-name descname"><span class="pre">finalize_subchain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subchain_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.finalize_subchain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.finalize_subchain" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>subchain_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.set_next_nodes_and_replicas">
+<span class="sig-name descname"><span class="pre">set_next_nodes_and_replicas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">next_nodes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.set_next_nodes_and_replicas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.set_next_nodes_and_replicas" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>next_nodes</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction" title="perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceEndpointFunction</span></code></a>]]</span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.init_transmission">
+<span class="sig-name descname"><span class="pre">init_transmission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_in_alt_graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.init_transmission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.init_transmission" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node_in_alt_graph</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction" title="perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceEndpointFunction</span></code></a>]</span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.finish_transmission_by_subchain_id">
+<span class="sig-name descname"><span class="pre">finish_transmission_by_subchain_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subchain_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.finish_transmission_by_subchain_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.finish_transmission_by_subchain_id" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>subchain_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.finish_transmission">
+<span class="sig-name descname"><span class="pre">finish_transmission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_in_alt_graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.finish_transmission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.finish_transmission" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node_in_alt_graph</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.init_next_microservices">
+<span class="sig-name descname"><span class="pre">init_next_microservices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subchain_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.init_next_microservices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.init_next_microservices" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>subchain_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica" title="perfsim.service_chain.microservice_replica.MicroserviceReplica"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceReplica</span></code></a>]]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.get_node_names">
+<span class="sig-name descname"><span class="pre">get_node_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.get_node_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.get_node_names" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.get_next_nodes_names">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_next_nodes_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">next_nodes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.get_next_nodes_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.get_next_nodes_names" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>next_nodes</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction" title="perfsim.service_chain.microservice_endpoint_function.MicroserviceEndpointFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceEndpointFunction</span></code></a>]]</span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.get_current_replicas_names">
+<span class="sig-name descname"><span class="pre">get_current_replicas_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.get_current_replicas_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.get_current_replicas_names" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.get_next_replicas_names">
+<span class="sig-name descname"><span class="pre">get_next_replicas_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.get_next_replicas_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.get_next_replicas_names" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.get_current_replicas_host_names">
+<span class="sig-name descname"><span class="pre">get_current_replicas_host_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.get_current_replicas_host_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.get_current_replicas_host_names" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.get_next_replicas_host_names">
+<span class="sig-name descname"><span class="pre">get_next_replicas_host_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.get_next_replicas_host_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.get_next_replicas_host_names" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.conclude">
+<span class="sig-name descname"><span class="pre">conclude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/request.html#Request.conclude"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.request.Request.conclude" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.compute_times">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compute_times</span></span><a class="headerlink" href="#perfsim.traffic.request.Request.compute_times" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.trans_times">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trans_times</span></span><a class="headerlink" href="#perfsim.traffic.request.Request.trans_times" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.trans_exact_times">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trans_exact_times</span></span><a class="headerlink" href="#perfsim.traffic.request.Request.trans_exact_times" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.trans_init_times">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trans_init_times</span></span><a class="headerlink" href="#perfsim.traffic.request.Request.trans_init_times" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.current_nodes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_nodes</span></span><a class="headerlink" href="#perfsim.traffic.request.Request.current_nodes" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.current_replicas_in_nodes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_replicas_in_nodes</span></span><a class="headerlink" href="#perfsim.traffic.request.Request.current_replicas_in_nodes" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.subchains_status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">subchains_status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#perfsim.traffic.request.Request.subchains_status" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.next_replicas_in_nodes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">next_replicas_in_nodes</span></span><a class="headerlink" href="#perfsim.traffic.request.Request.next_replicas_in_nodes" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.next_nodes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">next_nodes</span></span><a class="headerlink" href="#perfsim.traffic.request.Request.next_nodes" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.request.Request.trans_deltatimes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trans_deltatimes</span></span><a class="headerlink" href="#perfsim.traffic.request.Request.trans_deltatimes" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.traffic.transmission">
+<span id="perfsim-traffic-transmission-module"></span><h2>perfsim.traffic.transmission module<a class="headerlink" href="#module-perfsim.traffic.transmission" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.traffic.transmission.</span></span><span class="sig-name descname"><span class="pre">Transmission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payload_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_replica</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_replica</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subchain_id_request_pair</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recalculate_bandwidths_in_links</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/transmission.html#Transmission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.transmission.Transmission" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="perfsim.observers.html#perfsim.observers.observable.Observable" title="perfsim.observers.observable.Observable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observable</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+<li><p><strong>payload_size</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p></li>
+<li><p><strong>src_replica</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica" title="perfsim.service_chain.microservice_replica.MicroserviceReplica"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceReplica</span></code></a></span>)</p></li>
+<li><p><strong>dst_replica</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.microservice_replica.MicroserviceReplica" title="perfsim.service_chain.microservice_replica.MicroserviceReplica"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroserviceReplica</span></code></a></span>)</p></li>
+<li><p><strong>subchain_id_request_pair</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<a class="reference internal" href="#perfsim.traffic.request.Request" title="perfsim.traffic.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>)</p></li>
+<li><p><strong>recalculate_bandwidths_in_links</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.register_events">
+<span class="sig-name descname"><span class="pre">register_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/transmission.html#Transmission.register_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.register_events" title="Link to this definition">#</a></dt>
+<dd><p>This is for performance optimization purposes. Instead of generating strings for each event, we can register the
+event_names as attributes, then we send the event_name as reference, instead of copying the string every time.
+This (slightly) improves performance, specially because we are calling the notify_observers method several times
+for each request during the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.get_link_data">
+<span class="sig-name descname"><span class="pre">get_link_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">link</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/transmission.html#Transmission.get_link_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.get_link_data" title="Link to this definition">#</a></dt>
+<dd><p>Get the data of a link.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>link</strong></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.recalc_bw_considering_err">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">recalc_bw_considering_err</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bandwidth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/transmission.html#Transmission.recalc_bw_considering_err"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.recalc_bw_considering_err" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bandwidth</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p></li>
+<li><p><strong>error</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.calculate_requested_bw">
+<span class="sig-name descname"><span class="pre">calculate_requested_bw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/transmission.html#Transmission.calculate_requested_bw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.calculate_requested_bw" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the requested bandwidth of this transmission.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.transmit">
+<span class="sig-name descname"><span class="pre">transmit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/transmission.html#Transmission.transmit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.transmit" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>duration</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.links">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">links</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span></em><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.links" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.calculate_transmission_time">
+<span class="sig-name descname"><span class="pre">calculate_transmission_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/transmission.html#Transmission.calculate_transmission_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.calculate_transmission_time" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.finish">
+<span class="sig-name descname"><span class="pre">finish</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/transmission.html#Transmission.finish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.finish" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.get_bandwidth_on_link">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_bandwidth_on_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/transmission.html#Transmission.get_bandwidth_on_link"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.get_bandwidth_on_link" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.source_nic">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source_nic</span></span><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.source_nic" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.dest_nic">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dest_nic</span></span><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.dest_nic" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.current_bw">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_bw</span></span><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.current_bw" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.traffic.transmission.Transmission.set_current_bw">
+<span class="sig-name descname"><span class="pre">set_current_bw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/traffic/transmission.html#Transmission.set_current_bw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.traffic.transmission.Transmission.set_current_bw" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>new_bw</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>)</p></li>
+<li><p><strong>edge_data</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</span>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="perfsim.service_chain.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">perfsim.service_chain</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.traffic">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.traffic.load_generator">perfsim.traffic.load_generator module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator"><code class="docutils literal notranslate"><span class="pre">LoadGenerator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.threads_dict"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.threads_dict</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.arrivals"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.arrivals</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_traffic_start"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_traffic_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_generate_threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_generate_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_requests_start"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_requests_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_requests_start"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_requests_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_exec_time_estimation"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_exec_time_estimation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_executing_threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_executing_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_completing_load_generation"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_completing_load_generation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_next_batch_arrival_time_calculation"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_next_batch_arrival_time_calculation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_generate_request_threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_generate_request_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_generate_request_threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_generate_request_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_transmission_estimation"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_transmission_estimation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_estimating_time_of_next_event"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_estimating_time_of_next_event</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_transmit_requests_in_network"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_transmit_requests_in_network</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.after_transmit_requests_in_network_and_load_balancing_threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.after_transmit_requests_in_network_and_load_balancing_threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.before_request_created"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.before_request_created</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.name"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.sim"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.sim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.requests"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.requests</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.threads"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.threads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.latencies"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.latencies</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.total_requests_count"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.total_requests_count</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.merged_arrival_table"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.merged_arrival_table</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.register_events"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.register_events()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.execute_traffic"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.execute_traffic()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.completed_requests"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.completed_requests</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.get_latencies_grouped_by_sfc"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.get_latencies_grouped_by_sfc()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.plot_latencies"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.plot_latencies()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.last_transmission_id"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.last_transmission_id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.next_trans_completion_times"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.next_trans_completion_times</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.requests_ready_for_thread_generation"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.requests_ready_for_thread_generation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.next_batch_arrival_time"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.next_batch_arrival_time</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.load_generator.LoadGenerator.merge_arrival_tables"><code class="docutils literal notranslate"><span class="pre">LoadGenerator.merge_arrival_tables()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.traffic.request">perfsim.traffic.request module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request"><code class="docutils literal notranslate"><span class="pre">Request</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.before_init_next_microservices"><code class="docutils literal notranslate"><span class="pre">Request.before_init_next_microservices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.after_init_next_microservices"><code class="docutils literal notranslate"><span class="pre">Request.after_init_next_microservices</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.before_finalizing_subchain"><code class="docutils literal notranslate"><span class="pre">Request.before_finalizing_subchain</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.before_concluding_request"><code class="docutils literal notranslate"><span class="pre">Request.before_concluding_request</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.before_init_transmission"><code class="docutils literal notranslate"><span class="pre">Request.before_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.after_init_transmission"><code class="docutils literal notranslate"><span class="pre">Request.after_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.on_init_transmission"><code class="docutils literal notranslate"><span class="pre">Request.on_init_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.before_finish_transmission"><code class="docutils literal notranslate"><span class="pre">Request.before_finish_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.after_finish_transmission"><code class="docutils literal notranslate"><span class="pre">Request.after_finish_transmission</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.load_generator"><code class="docutils literal notranslate"><span class="pre">Request.load_generator</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.traffic_prototype"><code class="docutils literal notranslate"><span class="pre">Request.traffic_prototype</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.scm"><code class="docutils literal notranslate"><span class="pre">Request.scm</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.latency"><code class="docutils literal notranslate"><span class="pre">Request.latency</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.id"><code class="docutils literal notranslate"><span class="pre">Request.id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.iteration_id"><code class="docutils literal notranslate"><span class="pre">Request.iteration_id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.id_in_iteration"><code class="docutils literal notranslate"><span class="pre">Request.id_in_iteration</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.status"><code class="docutils literal notranslate"><span class="pre">Request.status</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.register_events"><code class="docutils literal notranslate"><span class="pre">Request.register_events()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.finalize_subchain"><code class="docutils literal notranslate"><span class="pre">Request.finalize_subchain()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.set_next_nodes_and_replicas"><code class="docutils literal notranslate"><span class="pre">Request.set_next_nodes_and_replicas()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.init_transmission"><code class="docutils literal notranslate"><span class="pre">Request.init_transmission()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.finish_transmission_by_subchain_id"><code class="docutils literal notranslate"><span class="pre">Request.finish_transmission_by_subchain_id()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.finish_transmission"><code class="docutils literal notranslate"><span class="pre">Request.finish_transmission()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.init_next_microservices"><code class="docutils literal notranslate"><span class="pre">Request.init_next_microservices()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_node_names"><code class="docutils literal notranslate"><span class="pre">Request.get_node_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_next_nodes_names"><code class="docutils literal notranslate"><span class="pre">Request.get_next_nodes_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_current_replicas_names"><code class="docutils literal notranslate"><span class="pre">Request.get_current_replicas_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_next_replicas_names"><code class="docutils literal notranslate"><span class="pre">Request.get_next_replicas_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_current_replicas_host_names"><code class="docutils literal notranslate"><span class="pre">Request.get_current_replicas_host_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.get_next_replicas_host_names"><code class="docutils literal notranslate"><span class="pre">Request.get_next_replicas_host_names()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.conclude"><code class="docutils literal notranslate"><span class="pre">Request.conclude()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.compute_times"><code class="docutils literal notranslate"><span class="pre">Request.compute_times</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.trans_times"><code class="docutils literal notranslate"><span class="pre">Request.trans_times</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.trans_exact_times"><code class="docutils literal notranslate"><span class="pre">Request.trans_exact_times</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.trans_init_times"><code class="docutils literal notranslate"><span class="pre">Request.trans_init_times</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.current_nodes"><code class="docutils literal notranslate"><span class="pre">Request.current_nodes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.current_replicas_in_nodes"><code class="docutils literal notranslate"><span class="pre">Request.current_replicas_in_nodes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.subchains_status"><code class="docutils literal notranslate"><span class="pre">Request.subchains_status</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.next_replicas_in_nodes"><code class="docutils literal notranslate"><span class="pre">Request.next_replicas_in_nodes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.next_nodes"><code class="docutils literal notranslate"><span class="pre">Request.next_nodes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.request.Request.trans_deltatimes"><code class="docutils literal notranslate"><span class="pre">Request.trans_deltatimes</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.traffic.transmission">perfsim.traffic.transmission module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission"><code class="docutils literal notranslate"><span class="pre">Transmission</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.register_events"><code class="docutils literal notranslate"><span class="pre">Transmission.register_events()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.get_link_data"><code class="docutils literal notranslate"><span class="pre">Transmission.get_link_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.recalc_bw_considering_err"><code class="docutils literal notranslate"><span class="pre">Transmission.recalc_bw_considering_err()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.calculate_requested_bw"><code class="docutils literal notranslate"><span class="pre">Transmission.calculate_requested_bw()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.transmit"><code class="docutils literal notranslate"><span class="pre">Transmission.transmit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.links"><code class="docutils literal notranslate"><span class="pre">Transmission.links</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.calculate_transmission_time"><code class="docutils literal notranslate"><span class="pre">Transmission.calculate_transmission_time()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.finish"><code class="docutils literal notranslate"><span class="pre">Transmission.finish()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.get_bandwidth_on_link"><code class="docutils literal notranslate"><span class="pre">Transmission.get_bandwidth_on_link()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.source_nic"><code class="docutils literal notranslate"><span class="pre">Transmission.source_nic</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.dest_nic"><code class="docutils literal notranslate"><span class="pre">Transmission.dest_nic</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.current_bw"><code class="docutils literal notranslate"><span class="pre">Transmission.current_bw</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.traffic.transmission.Transmission.set_current_bw"><code class="docutils literal notranslate"><span class="pre">Transmission.set_current_bw()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

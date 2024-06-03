@@ -1,0 +1,896 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>perfsim.helpers.plotter &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/perfsim/helpers/plotter';</script>
+    <script src="../../../_static/js/custom.js"></script>
+    <link rel="icon" href="../../../_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="../../../_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../perfsim.html">perfsim</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.drivers.html">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for perfsim.helpers.plotter</h1><div class="highlight"><pre>
+<span></span><span class="c1">#  Copyright (C) 2020 Michel Gokan Khan</span>
+<span class="c1">#  This program is free software; you can redistribute it and/or modify</span>
+<span class="c1">#  it under the terms of the GNU General Public License as published by</span>
+<span class="c1">#  the Free Software Foundation; either version 2 of the License, or</span>
+<span class="c1">#  (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is distributed in the hope that it will be useful,</span>
+<span class="c1">#  but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#  GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1">#  You should have received a copy of the GNU General Public License along</span>
+<span class="c1">#  with this program; if not, write to the Free Software Foundation, Inc.,</span>
+<span class="c1">#  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.</span>
+<span class="c1">#</span>
+<span class="c1">#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.</span>
+<span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
+
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">webbrowser</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.figure_factory</span> <span class="k">as</span> <span class="nn">pff</span>
+<span class="c1"># from networkx.drawing.tests.test_pylab import plt</span>
+<span class="kn">from</span> <span class="nn">networkx.drawing.nx_agraph</span> <span class="kn">import</span> <span class="n">graphviz_layout</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span> <span class="nn">sortedcontainers</span> <span class="kn">import</span> <span class="n">SortedList</span>
+
+<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Utils</span><span class="p">,</span> <span class="n">Transmission</span><span class="p">,</span> <span class="n">SimulationScenarioResultDict</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">LoadGenerator</span>
+
+
+<div class="viewcode-block" id="Plotter">
+<a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter">[docs]</a>
+<span class="k">class</span> <span class="nc">Plotter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class is responsible for plotting the simulation results.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Plotter.draw_topology">
+<a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_topology">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">draw_topology</span><span class="p">(</span><span class="n">cluster</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Draw the topology of the cluster.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">networkx.drawing.tests.test_pylab</span> <span class="kn">import</span> <span class="n">plt</span>
+        <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">cluster</span><span class="o">.</span><span class="n">topology</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Plotter.draw_timeline_graph">
+<a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_timeline_graph">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">draw_timeline_graph</span><span class="p">(</span><span class="n">results</span><span class="p">:</span> <span class="n">SimulationScenarioResultDict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Draw the timeline graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">ticks</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">colors_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">SortedList</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">sfc_name</span><span class="p">,</span> <span class="n">sfc_result_dict</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;service_chains&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">iteration_id</span><span class="p">,</span> <span class="n">lats_dict</span> <span class="ow">in</span> <span class="n">sfc_result_dict</span><span class="p">[</span><span class="s2">&quot;latencies&quot;</span><span class="p">][</span><span class="s1">&#39;iterations&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">lats</span> <span class="ow">in</span> <span class="n">lats_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;Task&quot;</span><span class="p">:</span> <span class="n">index</span><span class="p">,</span>
+                                <span class="s2">&quot;Start&quot;</span><span class="p">:</span> <span class="n">sfc_result_dict</span><span class="p">[</span><span class="s2">&quot;arrival_times&quot;</span><span class="p">][</span><span class="s1">&#39;iterations&#39;</span><span class="p">][</span><span class="n">iteration_id</span><span class="p">][</span><span class="n">index</span><span class="p">],</span>
+                                <span class="s2">&quot;Finish&quot;</span><span class="p">:</span> <span class="n">sfc_result_dict</span><span class="p">[</span><span class="s2">&quot;completion_times&quot;</span><span class="p">][</span><span class="s1">&#39;iterations&#39;</span><span class="p">][</span><span class="n">iteration_id</span><span class="p">][</span><span class="n">index</span><span class="p">],</span>
+                                <span class="s2">&quot;SFC&quot;</span><span class="p">:</span> <span class="n">sfc_name</span>
+                                <span class="p">})</span>
+                    <span class="n">ticks</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sfc_result_dict</span><span class="p">[</span><span class="s2">&quot;arrival_times&quot;</span><span class="p">][</span><span class="s1">&#39;iterations&#39;</span><span class="p">][</span><span class="n">iteration_id</span><span class="p">][</span><span class="n">index</span><span class="p">])</span>
+                    <span class="n">l</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sfc_result_dict</span><span class="p">[</span><span class="s2">&quot;arrival_times&quot;</span><span class="p">][</span><span class="s1">&#39;iterations&#39;</span><span class="p">][</span><span class="n">iteration_id</span><span class="p">][</span><span class="n">index</span><span class="p">])</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">rand_color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#&quot;</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="s1">&#39;ABCDEF0123456789&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)])][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">rand_color</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+                    <span class="n">colors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">rand_color</span><span class="p">)</span>
+                    <span class="k">break</span>
+            <span class="n">colors_dict</span><span class="p">[</span><span class="n">sfc_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand_color</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+
+        <span class="c1"># fig = px.timeline(df, x_start=&quot;Start&quot;, x_end=&quot;Finish&quot;, y=&quot;Request ID&quot;, color=&quot;SFC&quot;, index_col=&quot;Request ID&quot;)</span>
+
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">pff</span><span class="o">.</span><span class="n">create_gantt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors_dict</span><span class="p">,</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showgrid_x</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showgrid_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                               <span class="n">group_tasks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;SFC&quot;</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">xaxis_type</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+        <span class="n">fig</span><span class="p">[</span><span class="s1">&#39;layout&#39;</span><span class="p">][</span><span class="s1">&#39;xaxis&#39;</span><span class="p">][</span><span class="s1">&#39;tickformat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;%L&#39;</span>
+
+        <span class="k">return</span> <span class="n">fig</span></div>
+
+
+<div class="viewcode-block" id="Plotter.draw_figures">
+<a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_figures">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">draw_figures</span><span class="p">(</span><span class="n">load_generator</span><span class="p">:</span> <span class="n">LoadGenerator</span><span class="p">,</span>
+                     <span class="n">scenario_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                     <span class="n">show_events</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="n">path_to_save_results</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/results/&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Draw the figures for the simulation results.</span>
+
+<span class="sd">        :param load_generator:</span>
+<span class="sd">        :param scenario_name:</span>
+<span class="sd">        :param show_events:</span>
+<span class="sd">        :param path_to_save_results:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">__base_path</span> <span class="o">=</span> <span class="n">path_to_save_results</span> <span class="o">+</span> <span class="n">scenario_name</span>
+        <span class="n">Utils</span><span class="o">.</span><span class="n">mkdir_p</span><span class="p">(</span><span class="n">__base_path</span><span class="p">)</span>
+        <span class="n">Utils</span><span class="o">.</span><span class="n">mkdir_p</span><span class="p">(</span><span class="n">__base_path</span> <span class="o">+</span> <span class="s2">&quot;/hosts&quot;</span><span class="p">)</span>
+        <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+        <span class="n">palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;hls&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">load_generator</span><span class="o">.</span><span class="n">threads</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">threads_color_code</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">_t</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">load_generator</span><span class="o">.</span><span class="n">threads</span><span class="p">):</span>
+            <span class="n">threads_color_code</span><span class="p">[</span><span class="n">_t</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+        <span class="n">threads_color_code</span><span class="p">[</span><span class="s2">&quot;idle&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">load_generator</span><span class="o">.</span><span class="n">threads</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">hosts_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">Utils</span><span class="o">.</span><span class="n">mkdir_p</span><span class="p">(</span><span class="n">__base_path</span> <span class="o">+</span> <span class="s2">&quot;/hosts/&quot;</span> <span class="o">+</span> <span class="n">host</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+            <span class="n">count_of_cores</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">cores</span><span class="p">)</span>
+            <span class="c1"># Initialize the figure</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-darkgrid&#39;</span><span class="p">)</span>
+            <span class="n">plot_margin</span> <span class="o">=</span> <span class="mi">1000</span>
+
+            <span class="c1"># create a color palette</span>
+            <span class="n">_palette</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;Set1&#39;</span><span class="p">)</span>
+            <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">count_of_cores</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">count_of_cores</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+            <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">useOffset</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">)</span>
+            <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">useOffset</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">)</span>
+            <span class="n">_top</span> <span class="o">=</span> <span class="mf">0.98</span> <span class="k">if</span> <span class="n">count_of_cores</span> <span class="o">==</span> <span class="mi">8</span> <span class="k">else</span> <span class="mf">0.9</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="n">_top</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mf">0.055</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.965</span><span class="p">)</span>
+            <span class="c1"># Same limits for everybody!</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+            <span class="c1"># multiple line plot</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="k">for</span> <span class="n">_core</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">count_of_cores</span><span class="p">):</span>
+                <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="n">_core</span><span class="p">]</span><span class="o">.</span><span class="n">runqueue</span><span class="o">.</span><span class="n">threads_total_time</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">_counter</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;idle&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">while</span> <span class="n">_counter</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">_current_index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">_counter</span><span class="p">]</span>
+                    <span class="n">_previous_index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">_counter</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                    <span class="n">_current_values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">_current_index</span><span class="p">]</span>
+                    <span class="n">_previous_values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">_previous_index</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">_previous_index</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">_current_index</span><span class="p">:</span>
+                        <span class="n">_time_delta</span> <span class="o">=</span> <span class="n">_current_index</span> <span class="o">-</span> <span class="n">_previous_index</span>
+                        <span class="n">_value_for_a_nanoseconds</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">((</span><span class="n">_time_delta</span> <span class="o">-</span> <span class="n">_current_values</span><span class="p">)</span> <span class="o">/</span> <span class="n">_time_delta</span><span class="p">)</span>
+                        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">_previous_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">_value_for_a_nanoseconds</span>
+                        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">_current_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">_current_index</span><span class="p">]</span> <span class="o">-</span> <span class="n">_value_for_a_nanoseconds</span>
+                        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">_counter</span> <span class="o">-=</span> <span class="mi">1</span>
+
+                <span class="n">_last_index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">_last_index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">_last_index</span><span class="p">][</span><span class="s2">&quot;idle&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">(</span><span class="n">df</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
+                <span class="c1"># df = df[(df.T != 0).any()]</span>
+                <span class="c1"># Find the right spot on the plot</span>
+                <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_useOffset</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_useOffset</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_scientific</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_scientific</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">count_of_cores</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+                    <span class="n">df_split</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">_len</span><span class="p">)</span>
+                    <span class="n">_df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">()</span>
+
+                    <span class="k">for</span> <span class="n">_index</span><span class="p">,</span> <span class="n">sub_df</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_split</span><span class="p">):</span>
+                        <span class="n">time_delta</span> <span class="o">=</span> <span class="n">sub_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">df_split</span><span class="p">[</span><span class="n">_index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">_index</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="n">sum_of_time_slices</span> <span class="o">=</span> <span class="n">sub_df</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+                        <span class="n">time_proportion</span> <span class="o">=</span> <span class="n">sum_of_time_slices</span> <span class="o">/</span> <span class="n">time_delta</span>
+                        <span class="n">_df</span><span class="p">[</span><span class="n">sub_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">time_proportion</span>
+                    <span class="n">_df</span> <span class="o">=</span> <span class="n">_df</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+                    <span class="c1"># _df.loc[0] = 0</span>
+                    <span class="n">_df</span> <span class="o">=</span> <span class="n">_df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+                    <span class="c1"># plot every group, but discreet</span>
+                    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">_df</span><span class="p">:</span>
+                        <span class="n">a</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                                      <span class="n">_df</span><span class="p">[</span><span class="n">v</span><span class="p">],</span>
+                                      <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                      <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="n">threads_color_code</span><span class="p">[</span><span class="n">v</span><span class="p">]],</span>
+                                      <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                      <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                                      <span class="n">label</span><span class="o">=</span><span class="n">_core</span><span class="p">)</span>
+                        <span class="c1"># plt.legend(df.columns.tolist())</span>
+                        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="c1"># Plot the lineplot</span>
+                    <span class="c1"># plt.plot(df[&#39;x&#39;], df[column], marker=&#39;&#39;, color=palette(num + counter), linewidth=2.4, alpha=0.9, label=column)</span>
+
+                    <span class="c1"># Not ticks everywhere</span>
+                    <span class="k">if</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+                        <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelbottom</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">num</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">]:</span>
+                        <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelleft</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+                    <span class="c1"># Add title</span>
+                    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">_core</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="n">num</span><span class="p">])</span>
+                    <span class="c1"># plt.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0)</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_useOffset</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_useOffset</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_scientific</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_scientific</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="c1"># general title</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;CPU Usages &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+                         <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+                         <span class="n">fontweight</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+                         <span class="n">y</span><span class="o">=</span><span class="mf">0.99</span> <span class="k">if</span> <span class="n">count_of_cores</span> <span class="o">==</span> <span class="mi">8</span> <span class="k">else</span> <span class="mf">0.96</span><span class="p">,</span>
+                         <span class="n">style</span><span class="o">=</span><span class="s1">&#39;italic&#39;</span>
+                         <span class="p">)</span>
+
+            <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">__base_path</span> <span class="o">+</span> <span class="s2">&quot;/hosts/&quot;</span> <span class="o">+</span> <span class="n">host</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;/cpu.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">show_events</span><span class="p">:</span>
+                <span class="n">levels</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="c1"># Choose some nice levels</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+                    <span class="n">levels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+                    <span class="n">levels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+                <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">levels</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">timeline_time</span><span class="p">)</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)))[:</span><span class="nb">len</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">timeline_time</span><span class="p">)]</span>
+                <span class="n">fig2</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="c1"># Create figure and plot a stem plot with the date</span>
+                <span class="n">ax2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Simulation events&quot;</span><span class="p">)</span>
+
+                <span class="n">markerline</span><span class="p">,</span> <span class="n">stemline</span><span class="p">,</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">timeline_time</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span>
+                                                          <span class="n">linefmt</span><span class="o">=</span><span class="s2">&quot;C3-&quot;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s2">&quot;k-&quot;</span><span class="p">,</span>
+                                                          <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+                <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">markerline</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+                <span class="c1"># Shift the markers to the baseline by replacing the y-data by zeros.</span>
+                <span class="n">markerline</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">timeline_time</span><span class="p">)))</span>
+
+                <span class="c1"># annotate lines</span>
+                <span class="n">vert</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">])[(</span><span class="n">levels</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)]</span>
+                <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">va</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">timeline_time</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">host</span><span class="o">.</span><span class="n">timeline_event</span><span class="p">,</span> <span class="n">vert</span><span class="p">):</span>
+                    <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">l</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">),</span>
+                                 <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="n">va</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+                <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+                <span class="c1"># remove y axis and spines</span>
+                <span class="n">ax2</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">]:</span>
+                    <span class="n">ax2</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+                <span class="n">ax2</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_useOffset</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_useOffset</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_scientific</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_scientific</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="n">fig2</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">__base_path</span> <span class="o">+</span> <span class="s2">&quot;/hosts/&quot;</span> <span class="o">+</span> <span class="n">host</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;/events.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+
+                <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Plotter.draw_graph">
+<a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_graph">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">draw_graph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">with_labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">relabel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                   <span class="n">node_labels_map</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Draw a graph.</span>
+
+<span class="sd">        :param G:</span>
+<span class="sd">        :param name:</span>
+<span class="sd">        :param save_dir:</span>
+<span class="sd">        :param output_type:</span>
+<span class="sd">        :param with_labels:</span>
+<span class="sd">        :param relabel:</span>
+<span class="sd">        :param node_labels_map:</span>
+<span class="sd">        :param show:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="n">node_labels</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">edge_labels</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">color_map</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">router_color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>
+        <span class="n">host_color</span> <span class="o">=</span> <span class="s1">&#39;#6390AF&#39;</span>
+        <span class="n">replica_color</span> <span class="o">=</span> <span class="s1">&#39;#FFE5B4&#39;</span>
+
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">edge_data</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_edge_data</span><span class="p">(</span><span class="n">u</span><span class="o">=</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="o">=</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="n">edge_data</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_edge_data</span><span class="p">(</span><span class="n">u</span><span class="o">=</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="o">=</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="vm">__name__</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Host&#39;</span><span class="p">,</span> <span class="s1">&#39;Router&#39;</span><span class="p">,</span> <span class="s1">&#39;MicroserviceReplica&#39;</span><span class="p">]:</span>
+                <span class="n">bandwidth</span> <span class="o">=</span> <span class="n">Transmission</span><span class="o">.</span><span class="n">get_bandwidth_on_link</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">destination</span><span class="o">=</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">link_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">edge_data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+                <span class="n">edge_labels</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span> <span class="o">=</span> <span class="n">link_name</span> <span class="o">+</span> <span class="s2">&quot; bw:&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{:.2e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bandwidth</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;MicroserviceEndpointFunction&#39;</span><span class="p">:</span>
+                <span class="n">edge_labels</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">edge_data</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;payload&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;B&quot;</span>
+            <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;tuple&#39;</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;MicroserviceEndpointFunction&#39;</span><span class="p">:</span>
+                <span class="n">edge_labels</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">edge_data</span><span class="p">[</span><span class="s2">&quot;payload&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;B&quot;</span>
+
+        <span class="k">if</span> <span class="n">output_type</span> <span class="o">==</span> <span class="s2">&quot;html&quot;</span><span class="p">:</span>
+            <span class="n">cytoscape_json</span> <span class="o">=</span> <span class="n">Plotter</span><span class="o">.</span><span class="n">convert_networkx_graph_to_cytoscape_json</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">edge_labels</span><span class="p">)</span>
+            <span class="n">cytoscape_js</span> <span class="o">=</span> <span class="n">Plotter</span><span class="o">.</span><span class="n">get_cytoscape_template</span><span class="p">(</span><span class="n">ready_script</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;var cy = cytoscape(</span><span class="si">{</span><span class="n">cytoscape_json</span><span class="si">}</span><span class="s1">);&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">save_dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.html&quot;</span><span class="p">)</span>
+                <span class="n">Utils</span><span class="o">.</span><span class="n">mkdir_p</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span>
+                <span class="n">Utils</span><span class="o">.</span><span class="n">save_file</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">cytoscape_js</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.html&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+                <span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;file://</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">save_dir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cytoscape_js</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;draw_networkx&#39;</span><span class="p">)</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">graphviz_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">prog</span><span class="o">=</span><span class="s1">&#39;dot&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="s1">&#39;-Grankdir=LR&#39;</span><span class="p">)</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="n">with_labels</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">save_dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">save_dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="n">Utils</span><span class="o">.</span><span class="n">mkdir_p</span><span class="p">(</span><span class="n">dir_path</span><span class="o">=</span><span class="n">save_dir</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save_dir</span> <span class="o">+</span> <span class="s2">&quot;alt_graph_&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.pdf&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+    <span class="c1"># Credits: Partially from cytoscape.py (cytoscape_data function)</span>
+<div class="viewcode-block" id="Plotter.convert_networkx_graph_to_cytoscape_json">
+<a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.convert_networkx_graph_to_cytoscape_json">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">convert_networkx_graph_to_cytoscape_json</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">edge_labels</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">node_style</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                                 <span class="n">edge_style</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;euler&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert a NetworkX graph to a Cytoscape JSON object.</span>
+
+<span class="sd">        :param G:</span>
+<span class="sd">        :param edge_labels:</span>
+<span class="sd">        :param node_style:</span>
+<span class="sd">        :param edge_style:</span>
+<span class="sd">        :param layout:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># load all nodes into nodes array</span>
+        <span class="n">final</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">final</span><span class="p">[</span><span class="s2">&quot;directed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">is_directed</span><span class="p">()</span>
+        <span class="n">final</span><span class="p">[</span><span class="s2">&quot;multigraph&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">is_multigraph</span><span class="p">()</span>
+        <span class="c1"># final[&quot;elements&quot;] = {&quot;nodes&quot;: [], &quot;edges&quot;: []}</span>
+        <span class="n">final</span><span class="p">[</span><span class="s2">&quot;elements&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">added_nodes</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="n">node_style</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">node_style</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;data(label)&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;60px&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="s1">&#39;60px&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;background-fit&#39;</span><span class="p">:</span> <span class="s1">&#39;contain&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;background-clip&#39;</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span>
+            <span class="p">}</span>
+        <span class="k">if</span> <span class="n">edge_style</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">edge_style</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;data(label)&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;text-background-color&#39;</span><span class="p">:</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;text-background-opacity&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
+                <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;6px&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;curve-style&#39;</span><span class="p">:</span> <span class="s1">&#39;bezier&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;target-arrow-shape&#39;</span><span class="p">:</span> <span class="s1">&#39;triangle&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;control-point-step-size&#39;</span><span class="p">:</span> <span class="s1">&#39;140px&#39;</span>
+            <span class="p">}</span>
+
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+            <span class="n">nparent</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">ntype</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">ntype</span> <span class="o">==</span> <span class="s2">&quot;MicroserviceEndpointFunction&quot;</span> <span class="ow">or</span>
+                    <span class="p">(</span><span class="n">ntype</span> <span class="o">==</span> <span class="s1">&#39;tuple&#39;</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;MicroserviceEndpointFunction&#39;</span><span class="p">)):</span>
+                <span class="n">_n</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">microservice</span> <span class="k">if</span> <span class="n">ntype</span> <span class="o">!=</span> <span class="s2">&quot;tuple&quot;</span> <span class="k">else</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">microservice</span>
+                <span class="n">_n_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">_n</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">_n_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">added_nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">nparent</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;nodes&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">&quot;classes&quot;</span><span class="p">:</span> <span class="nb">type</span><span class="p">(</span><span class="n">_n</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">}</span>
+                    <span class="n">nparent</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_n_id</span>
+                    <span class="n">nparent</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_n_id</span>
+                    <span class="n">added_nodes</span><span class="p">[</span><span class="n">_n_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">nparent</span>
+                    <span class="n">final</span><span class="p">[</span><span class="s2">&quot;elements&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nparent</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">nparent</span> <span class="o">=</span> <span class="n">added_nodes</span><span class="p">[</span><span class="n">_n_id</span><span class="p">]</span>
+
+            <span class="n">nx</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;nodes&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">&quot;classes&quot;</span><span class="p">:</span> <span class="n">ntype</span><span class="p">}</span>
+            <span class="n">nx_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">nx</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx_id</span>
+            <span class="n">nx</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx_id</span> <span class="k">if</span> <span class="n">ntype</span> <span class="o">!=</span> <span class="s2">&quot;tuple&quot;</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">nparent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">nx</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;parent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">microservice</span><span class="p">)</span> <span class="k">if</span> <span class="n">ntype</span> <span class="o">!=</span> <span class="s2">&quot;tuple&quot;</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">microservice</span><span class="p">)</span>
+            <span class="n">added_nodes</span><span class="p">[</span><span class="n">nx_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span>
+            <span class="c1"># final[&quot;elements&quot;][&quot;nodes&quot;].append(nx.copy())</span>
+            <span class="n">final</span><span class="p">[</span><span class="s2">&quot;elements&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+            <span class="n">nx</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;edges&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+            <span class="n">nx</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">nx</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;source&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">nx</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">nx</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">edge_labels</span><span class="p">[</span><span class="n">e</span><span class="p">])</span> <span class="k">if</span> <span class="n">edge_labels</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;-&gt;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="c1"># final[&quot;elements&quot;][&quot;edges&quot;].append(nx)</span>
+            <span class="n">final</span><span class="p">[</span><span class="s2">&quot;elements&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>
+
+        <span class="n">final</span><span class="p">[</span><span class="s2">&quot;container&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;----&quot;</span>
+        <span class="n">final</span><span class="p">[</span><span class="s2">&quot;layout&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">final</span><span class="p">[</span><span class="s2">&quot;layout&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">layout</span>
+        <span class="n">final</span><span class="p">[</span><span class="s2">&quot;layout&quot;</span><span class="p">][</span><span class="s2">&quot;animate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span>
+        <span class="n">final</span><span class="p">[</span><span class="s2">&quot;layout&quot;</span><span class="p">][</span><span class="s2">&quot;randomize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span>
+        <span class="n">final</span><span class="p">[</span><span class="s2">&quot;layout&quot;</span><span class="p">][</span><span class="s2">&quot;gravity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;-300&quot;</span>
+        <span class="n">final</span><span class="p">[</span><span class="s2">&quot;style&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s1">&#39;node&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="n">node_style</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s1">&#39;edge&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="n">edge_style</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s1">&#39;.Host&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="c1"># &quot;border-color&quot;: &quot;red&quot;,</span>
+                <span class="c1"># &#39;border-width&#39;: 3,</span>
+                <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangle&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;background-image&quot;</span><span class="p">:</span> <span class="s2">&quot;https://raw.githubusercontent.com/michelgokan/perfsim-assets/main/images/host.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;background-color&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s1">&#39;.Router&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="c1"># &quot;border-color&quot;: &quot;red&quot;,</span>
+                <span class="c1"># &#39;border-width&#39;: 3,</span>
+                <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangle&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;background-image&quot;</span><span class="p">:</span> <span class="s2">&quot;https://raw.githubusercontent.com/michelgokan/perfsim-assets/main/images/router.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;background-color&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s1">&#39;.MicroserviceReplica&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="c1"># &quot;border-color&quot;: &quot;red&quot;,</span>
+                <span class="c1"># &#39;border-width&#39;: 3,</span>
+                <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangle&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;background-image&quot;</span><span class="p">:</span> <span class="s2">&quot;https://raw.githubusercontent.com/michelgokan/perfsim-assets/main/images/replica.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;background-color&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}]</span>
+        <span class="n">final</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">final</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">----</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s2">&quot;document.getElementById(&#39;cy&#39;)&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">final</span></div>
+
+
+<div class="viewcode-block" id="Plotter.get_cytoscape_template">
+<a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.get_cytoscape_template">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_cytoscape_template</span><span class="p">(</span><span class="n">ready_script</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the template for the Cytoscape graph.</span>
+
+<span class="sd">        :param ready_script:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;&lt;!DOCTYPE&gt;</span>
+<span class="s2">&lt;html style=</span><span class="se">\&quot;</span><span class="s2">height: 100%;</span><span class="se">\&quot;</span><span class="s2">&gt;</span>
+<span class="s2">    &lt;head&gt;</span>
+<span class="s2">        &lt;script src=</span><span class="se">\&quot;</span><span class="s2">https://code.jquery.com/jquery-3.6.0.min.js</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/script&gt;</span>
+<span class="s2">        &lt;script src=</span><span class="se">\&quot;</span><span class="s2">https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.21.1/cytoscape.min.js</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/script&gt;</span>
+<span class="s2">        &lt;script src=</span><span class="se">\&quot;</span><span class="s2">https://cytoscape.org/cytoscape.js-euler/cytoscape-euler.js</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/script&gt;</span>
+<span class="s2">        &lt;script src=</span><span class="se">\&quot;</span><span class="s2">https://unpkg.com/webcola@3.4.0/WebCola/cola.min.js</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/script&gt;</span>
+<span class="s2">        &lt;script src=</span><span class="se">\&quot;</span><span class="s2">https://cytoscape.org/cytoscape.js-cola/cytoscape-cola.js</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/script&gt;</span>
+
+<span class="s2">        &lt;style&gt;</span>
+<span class="s2">            #cy </span><span class="se">{{</span>
+<span class="s2">                width: 100%;</span>
+<span class="s2">                height: 100%;</span>
+<span class="s2">            </span><span class="se">}}</span>
+<span class="s2">            body </span><span class="se">{{</span>
+<span class="s2">                width: 100%;</span>
+<span class="s2">                height: 100%;</span>
+<span class="s2">            </span><span class="se">}}</span>
+<span class="s2">        &lt;/style&gt;</span>
+<span class="s2">    &lt;/head&gt;</span>
+<span class="s2">    &lt;body&gt;</span>
+<span class="s2">        &lt;div id=</span><span class="se">\&quot;</span><span class="s2">cy</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/div&gt;</span>
+<span class="s2">        &lt;script&gt;</span>
+<span class="s2">            $(document).ready(function () </span><span class="se">{{</span>
+<span class="s2">                </span><span class="si">{</span><span class="n">ready_script</span><span class="si">}</span>
+<span class="s2">            </span><span class="se">}}</span><span class="s2">);</span>
+<span class="s2">        &lt;/script&gt;</span>
+<span class="s2">    &lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">        &quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="Plotter.figures_to_html">
+<a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.figures_to_html">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">figures_to_html</span><span class="p">(</span><span class="n">figs</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dashboard.html&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save a list of figures to an HTML file.</span>
+
+<span class="sd">        :param figs:</span>
+<span class="sd">        :param filename:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dashboard</span><span class="p">:</span>
+            <span class="n">dashboard</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;table style=&#39;width: 100%; height: 100%&#39;&gt;&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">fig_and_names</span> <span class="ow">in</span> <span class="n">figs</span><span class="p">:</span>
+                <span class="c1"># inner_html = fig_and_names[1].to_html()</span>
+                <span class="n">dashboard</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&lt;tr&gt;&lt;td&gt;&lt;iframe id=&#39;FileFrame&#39; style=&#39;width: 100%; height: 100%&#39;&quot;</span>
+                                <span class="s2">&quot; src=&#39;&quot;</span> <span class="o">+</span> <span class="n">fig_and_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;&#39;&gt;&lt;/iframe&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span><span class="p">)</span>
+            <span class="n">dashboard</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

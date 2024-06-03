@@ -1,0 +1,1032 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>perfsim.drivers &#8212; PerfSim: A Performance Simulator for Cloud-naive Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=4fef33c2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'perfsim.drivers';</script>
+    <script src="_static/js/custom.js"></script>
+    <link rel="icon" href="_static/perfsim-logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="perfsim.environment" href="perfsim.environment.html" />
+    <link rel="prev" title="perfsim" href="perfsim.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/perfsim-logo.png" class="logo__image only-light" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>
+    <script>document.write(`<img src="_static/perfsim-logo.png" class="logo__image only-dark" alt="PerfSim: A Performance Simulator for Cloud-naive Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="perfsim.html">perfsim</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">perfsim.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.environment.html">perfsim.environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.equipments.html">perfsim.equipments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.exceptions.html">perfsim.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.helpers.html">perfsim.helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.observers.html">perfsim.observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.placement.html">perfsim.placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.prototypes.html">perfsim.prototypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.scenario.html">perfsim.scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.service_chain.html">perfsim.service_chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfsim.traffic.html">perfsim.traffic</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/perfsim.drivers.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>perfsim.drivers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.drivers">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.drivers.file_storage_driver">perfsim.drivers.file_storage_driver module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.base_dir"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.base_dir</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_all"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_all()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_simulation_scenario_results"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_simulation_scenario_results()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_cluster_topology_graph"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_cluster_topology_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_original_graph"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_service_chains_original_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_alternative_graph"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_service_chains_alternative_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chain_result_graph"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_service_chain_result_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_timeline_graph"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_timeline_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_hosts_cores_heatmap"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_hosts_cores_heatmap()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.drivers.neptune_storage_driver">perfsim.drivers.neptune_storage_driver module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.handler"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.handler</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.init_neptune"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.init_neptune()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_simulation_scenario_results"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_simulation_scenario_results()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_cluster_topology_graph"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_cluster_topology_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chains_original_graph"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_service_chains_original_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chains_alternative_graph"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_service_chains_alternative_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chain_result_graph"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_service_chain_result_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_timeline_graph"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_timeline_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_hosts_cores_heatmap"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_hosts_cores_heatmap()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.drivers.results_storage_driver">perfsim.drivers.results_storage_driver module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.results_with_graphs"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.results_with_graphs</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.name"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chains_original_graph"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_service_chains_original_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chains_alternative_graph"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_service_chains_alternative_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_cluster_topology_graph"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_cluster_topology_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chain_result_graph"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_service_chain_result_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_timeline_graph"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_timeline_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_simulation_scenario_results"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_simulation_scenario_results()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_hosts_cores_heatmap"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_hosts_cores_heatmap()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_all"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_all()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.from_config"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="perfsim-drivers">
+<h1>perfsim.drivers<a class="headerlink" href="#perfsim-drivers" title="Link to this heading">#</a></h1>
+<section id="module-perfsim.drivers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-perfsim.drivers" title="Link to this heading">#</a></h2>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-perfsim.drivers.file_storage_driver">
+<span id="perfsim-drivers-file-storage-driver-module"></span><h2>perfsim.drivers.file_storage_driver module<a class="headerlink" href="#module-perfsim.drivers.file_storage_driver" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.drivers.file_storage_driver.FileStorageDriver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.drivers.file_storage_driver.</span></span><span class="sig-name descname"><span class="pre">FileStorageDriver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/file_storage_driver.html#FileStorageDriver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.file_storage_driver.FileStorageDriver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver" title="perfsim.drivers.results_storage_driver.ResultsStorageDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResultsStorageDriver</span></code></a></p>
+<p>File storage driver is the class responsible for storing the results of the simulation in a file system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>base_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.drivers.file_storage_driver.FileStorageDriver.base_dir">
+<span class="sig-name descname"><span class="pre">base_dir</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.base_dir" title="Link to this definition">#</a></dt>
+<dd><p>The base directory where the results will be stored.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.file_storage_driver.FileStorageDriver.save_all">
+<span class="sig-name descname"><span class="pre">save_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/file_storage_driver.html#FileStorageDriver.save_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_all" title="Link to this definition">#</a></dt>
+<dd><p>Save all the results of the simulation in the file system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>simulation</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.html#perfsim.simulation.Simulation" title="perfsim.simulation.Simulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulation</span></code></a></span>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.file_storage_driver.FileStorageDriver.save_simulation_scenario_results">
+<span class="sig-name descname"><span class="pre">save_simulation_scenario_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/file_storage_driver.html#FileStorageDriver.save_simulation_scenario_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_simulation_scenario_results" title="Link to this definition">#</a></dt>
+<dd><p>Save the results of the simulation scenario in the file system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>simulation</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.html#perfsim.simulation.Simulation" title="perfsim.simulation.Simulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulation</span></code></a></span>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.file_storage_driver.FileStorageDriver.save_cluster_topology_graph">
+<span class="sig-name descname"><span class="pre">save_cluster_topology_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/topologies'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/file_storage_driver.html#FileStorageDriver.save_cluster_topology_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_cluster_topology_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the topology graph of the cluster in the file system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.html#perfsim.cluster.Cluster" title="perfsim.cluster.Cluster"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cluster</span></code></a></span>)</p></li>
+<li><p><strong>save_dir</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_original_graph">
+<span class="sig-name descname"><span class="pre">save_service_chains_original_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_chain_managers_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/service_chains/{middle}/original'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/file_storage_driver.html#FileStorageDriver.save_service_chains_original_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_original_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the original service chains graph of the service chain managers in the file system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service_chain_managers_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager" title="perfsim.service_chain.service_chain_manager.ServiceChainManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceChainManager</span></code></a>]</span>)</p></li>
+<li><p><strong>save_dir</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_alternative_graph">
+<span class="sig-name descname"><span class="pre">save_service_chains_alternative_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_chain_managers_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/service_chains/{middle}/alternative'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/file_storage_driver.html#FileStorageDriver.save_service_chains_alternative_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_alternative_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the alternative service chains graph of the service chain managers in the file system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service_chain_managers_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager" title="perfsim.service_chain.service_chain_manager.ServiceChainManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceChainManager</span></code></a>]</span>)</p></li>
+<li><p><strong>save_dir</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chain_result_graph">
+<span class="sig-name descname"><span class="pre">save_service_chain_result_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/{result_key}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/file_storage_driver.html#FileStorageDriver.save_service_chain_result_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chain_result_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the results of the service chains in the file system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong></p></li>
+<li><p><strong>save_dir</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.file_storage_driver.FileStorageDriver.save_timeline_graph">
+<span class="sig-name descname"><span class="pre">save_timeline_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/{result_key}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/file_storage_driver.html#FileStorageDriver.save_timeline_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_timeline_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the timeline graph of the results in the file system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong></p></li>
+<li><p><strong>save_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.file_storage_driver.FileStorageDriver.save_hosts_cores_heatmap">
+<span class="sig-name descname"><span class="pre">save_hosts_cores_heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hosts_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/cpu/heatmap/{result_key}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/file_storage_driver.html#FileStorageDriver.save_hosts_cores_heatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_hosts_cores_heatmap" title="Link to this definition">#</a></dt>
+<dd><p>Save the hosts cores heatmap graph in the file system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hosts_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a>]</span>)</p></li>
+<li><p><strong>save_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.drivers.neptune_storage_driver">
+<span id="perfsim-drivers-neptune-storage-driver-module"></span><h2>perfsim.drivers.neptune_storage_driver module<a class="headerlink" href="#module-perfsim.drivers.neptune_storage_driver" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.drivers.neptune_storage_driver.</span></span><span class="sig-name descname"><span class="pre">NeptuneStorageDriver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/neptune_storage_driver.html#NeptuneStorageDriver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#perfsim.drivers.file_storage_driver.FileStorageDriver" title="perfsim.drivers.file_storage_driver.FileStorageDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileStorageDriver</span></code></a></p>
+<p>Neptune storage driver is the class responsible for storing the results of the simulation in Neptune.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>project_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>api_token</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.handler">
+<span class="sig-name descname"><span class="pre">handler</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Run</span></code></em><a class="headerlink" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.handler" title="Link to this definition">#</a></dt>
+<dd><p>The Neptune handler.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.init_neptune">
+<span class="sig-name descname"><span class="pre">init_neptune</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/neptune_storage_driver.html#NeptuneStorageDriver.init_neptune"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.init_neptune" title="Link to this definition">#</a></dt>
+<dd><p>Initialize the Neptune handler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_simulation_scenario_results">
+<span class="sig-name descname"><span class="pre">save_simulation_scenario_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/neptune_storage_driver.html#NeptuneStorageDriver.save_simulation_scenario_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_simulation_scenario_results" title="Link to this definition">#</a></dt>
+<dd><p>Save the results of the simulation scenario in Neptune.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>simulation</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.html#perfsim.simulation.Simulation" title="perfsim.simulation.Simulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulation</span></code></a></span>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_cluster_topology_graph">
+<span class="sig-name descname"><span class="pre">save_cluster_topology_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/topologies'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/neptune_storage_driver.html#NeptuneStorageDriver.save_cluster_topology_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_cluster_topology_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the topology graph of the cluster in Neptune.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="perfsim.html#perfsim.cluster.Cluster" title="perfsim.cluster.Cluster"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cluster</span></code></a></span>)</p></li>
+<li><p><strong>save_dir</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chains_original_graph">
+<span class="sig-name descname"><span class="pre">save_service_chains_original_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_chain_managers_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/service_chains/{middle}/original/{middle}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/neptune_storage_driver.html#NeptuneStorageDriver.save_service_chains_original_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chains_original_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the original service chains graph in Neptune.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service_chain_managers_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager" title="perfsim.service_chain.service_chain_manager.ServiceChainManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceChainManager</span></code></a>]</span>)</p></li>
+<li><p><strong>save_dir</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chains_alternative_graph">
+<span class="sig-name descname"><span class="pre">save_service_chains_alternative_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_chain_managers_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/service_chains/{middle}/alternative'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/neptune_storage_driver.html#NeptuneStorageDriver.save_service_chains_alternative_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chains_alternative_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the alternative service chains graph in Neptune.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service_chain_managers_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager" title="perfsim.service_chain.service_chain_manager.ServiceChainManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceChainManager</span></code></a>]</span>)</p></li>
+<li><p><strong>save_dir</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chain_result_graph">
+<span class="sig-name descname"><span class="pre">save_service_chain_result_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/{result_key}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/neptune_storage_driver.html#NeptuneStorageDriver.save_service_chain_result_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chain_result_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the service chain result graph in Neptune.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong></p></li>
+<li><p><strong>save_dir</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_timeline_graph">
+<span class="sig-name descname"><span class="pre">save_timeline_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/timeline'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/neptune_storage_driver.html#NeptuneStorageDriver.save_timeline_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_timeline_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the timeline graph in Neptune.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong></p></li>
+<li><p><strong>save_dir</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_hosts_cores_heatmap">
+<span class="sig-name descname"><span class="pre">save_hosts_cores_heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hosts_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'results/cpu/heatmap/{result_key}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/neptune_storage_driver.html#NeptuneStorageDriver.save_hosts_cores_heatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_hosts_cores_heatmap" title="Link to this definition">#</a></dt>
+<dd><p>Save the hosts cores heatmap in Neptune.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hosts_dict</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="perfsim.equipments.html#perfsim.equipments.host.Host" title="perfsim.equipments.host.Host"><code class="xref py py-class docutils literal notranslate"><span class="pre">Host</span></code></a>]</span>)</p></li>
+<li><p><strong>save_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-perfsim.drivers.results_storage_driver">
+<span id="perfsim-drivers-results-storage-driver-module"></span><h2>perfsim.drivers.results_storage_driver module<a class="headerlink" href="#module-perfsim.drivers.results_storage_driver" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">perfsim.drivers.results_storage_driver.</span></span><span class="sig-name descname"><span class="pre">ResultsStorageDriver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/results_storage_driver.html#ResultsStorageDriver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>The ResultsStorageDriver class is the abstract class for the different storage drivers that can be used to store
+the results of the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver.results_with_graphs">
+<span class="sig-name descname"><span class="pre">results_with_graphs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></em><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.results_with_graphs" title="Link to this definition">#</a></dt>
+<dd><p>The results with graphs.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.name" title="Link to this definition">#</a></dt>
+<dd><p>The name of the storage driver.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chains_original_graph">
+<span class="sig-name descname"><span class="pre">save_service_chains_original_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_chain_managers_dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">atr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/results_storage_driver.html#ResultsStorageDriver.save_service_chains_original_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chains_original_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the original service chains graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service_chain_managers_dict</strong></p></li>
+<li><p><strong>atr</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chains_alternative_graph">
+<span class="sig-name descname"><span class="pre">save_service_chains_alternative_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_chain_managers_dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">atr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/results_storage_driver.html#ResultsStorageDriver.save_service_chains_alternative_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chains_alternative_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the alternative service chains graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service_chain_managers_dict</strong></p></li>
+<li><p><strong>atr</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_cluster_topology_graph">
+<span class="sig-name descname"><span class="pre">save_cluster_topology_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">atr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/results_storage_driver.html#ResultsStorageDriver.save_cluster_topology_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_cluster_topology_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the topology graph of the cluster.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster</strong></p></li>
+<li><p><strong>atr</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chain_result_graph">
+<span class="sig-name descname"><span class="pre">save_service_chain_result_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">atr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/results_storage_driver.html#ResultsStorageDriver.save_service_chain_result_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chain_result_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the service chain result graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong></p></li>
+<li><p><strong>atr</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_timeline_graph">
+<span class="sig-name descname"><span class="pre">save_timeline_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">atr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/results_storage_driver.html#ResultsStorageDriver.save_timeline_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_timeline_graph" title="Link to this definition">#</a></dt>
+<dd><p>Save the timeline graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong></p></li>
+<li><p><strong>atr</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_simulation_scenario_results">
+<span class="sig-name descname"><span class="pre">save_simulation_scenario_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/results_storage_driver.html#ResultsStorageDriver.save_simulation_scenario_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_simulation_scenario_results" title="Link to this definition">#</a></dt>
+<dd><p>Save the results of the simulation scenario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>simulation</strong></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_hosts_cores_heatmap">
+<span class="sig-name descname"><span class="pre">save_hosts_cores_heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hosts_dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">atr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/results_storage_driver.html#ResultsStorageDriver.save_hosts_cores_heatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_hosts_cores_heatmap" title="Link to this definition">#</a></dt>
+<dd><p>Save the hosts cores heatmap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hosts_dict</strong></p></li>
+<li><p><strong>atr</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_all">
+<span class="sig-name descname"><span class="pre">save_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/results_storage_driver.html#ResultsStorageDriver.save_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_all" title="Link to this definition">#</a></dt>
+<dd><p>Save all the results of the simulation scenario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>simulation</strong></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="perfsim.drivers.results_storage_driver.ResultsStorageDriver.from_config">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_attrs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/perfsim/drivers/results_storage_driver.html#ResultsStorageDriver.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.from_config" title="Link to this definition">#</a></dt>
+<dd><p>Create a storage driver from the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conf</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>)</p></li>
+<li><p><strong>default_class</strong></p></li>
+<li><p><strong>name</strong></p></li>
+<li><p><strong>other_attrs</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver" title="perfsim.drivers.results_storage_driver.ResultsStorageDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResultsStorageDriver</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="perfsim.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">perfsim</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="perfsim.environment.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">perfsim.environment</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.drivers">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.drivers.file_storage_driver">perfsim.drivers.file_storage_driver module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.base_dir"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.base_dir</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_all"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_all()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_simulation_scenario_results"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_simulation_scenario_results()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_cluster_topology_graph"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_cluster_topology_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_original_graph"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_service_chains_original_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_alternative_graph"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_service_chains_alternative_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chain_result_graph"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_service_chain_result_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_timeline_graph"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_timeline_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.file_storage_driver.FileStorageDriver.save_hosts_cores_heatmap"><code class="docutils literal notranslate"><span class="pre">FileStorageDriver.save_hosts_cores_heatmap()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.drivers.neptune_storage_driver">perfsim.drivers.neptune_storage_driver module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.handler"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.handler</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.init_neptune"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.init_neptune()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_simulation_scenario_results"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_simulation_scenario_results()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_cluster_topology_graph"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_cluster_topology_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chains_original_graph"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_service_chains_original_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chains_alternative_graph"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_service_chains_alternative_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_service_chain_result_graph"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_service_chain_result_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_timeline_graph"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_timeline_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.neptune_storage_driver.NeptuneStorageDriver.save_hosts_cores_heatmap"><code class="docutils literal notranslate"><span class="pre">NeptuneStorageDriver.save_hosts_cores_heatmap()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-perfsim.drivers.results_storage_driver">perfsim.drivers.results_storage_driver module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.results_with_graphs"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.results_with_graphs</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.name"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chains_original_graph"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_service_chains_original_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chains_alternative_graph"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_service_chains_alternative_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_cluster_topology_graph"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_cluster_topology_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_service_chain_result_graph"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_service_chain_result_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_timeline_graph"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_timeline_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_simulation_scenario_results"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_simulation_scenario_results()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_hosts_cores_heatmap"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_hosts_cores_heatmap()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.save_all"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.save_all()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perfsim.drivers.results_storage_driver.ResultsStorageDriver.from_config"><code class="docutils literal notranslate"><span class="pre">ResultsStorageDriver.from_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michel Gokan Khan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Michel Gokan Khan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
