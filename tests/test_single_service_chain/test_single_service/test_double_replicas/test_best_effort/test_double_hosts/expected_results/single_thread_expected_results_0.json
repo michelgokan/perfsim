@@ -1,0 +1,484 @@
+{
+  "traffic_types": {
+    "1batchps_1sec_1paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        }
+      }
+    },
+    "1batchps_1sec_2paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        }
+      }
+    },
+    "1batchps_60sec_1paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        }
+      }
+    },
+    "1batchps_60sec_2paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        }
+      }
+    },
+    "2batchps_1sec_1paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        }
+      }
+    },
+    "2batchps_1sec_2paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 935293281.0,
+              "expected_max": 937165741.0,
+              "expected_actual": 936229511.0
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 770137448.0,
+              "expected_max": 771679266.0,
+              "expected_actual": 770908357.0
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 770137448.0,
+              "expected_max": 771679266.0,
+              "expected_actual": 770908357.0
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 770137448.0,
+              "expected_max": 771679266.0,
+              "expected_actual": 770908357.0
+            }
+          }
+        }
+      }
+    },
+    "2batchps_60sec_1paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 854972249.375,
+              "expected_max": 856683907.375,
+              "expected_actual": 855828078.375
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 854972249.375,
+              "expected_max": 856683907.375,
+              "expected_actual": 855828078.375
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 854972249.375,
+              "expected_max": 856683907.375,
+              "expected_actual": 855828078.375
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 854972249.375,
+              "expected_max": 856683907.375,
+              "expected_actual": 855828078.375
+            }
+          }
+        }
+      }
+    },
+    "2batchps_60sec_2paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 49609226057.2125,
+              "expected_max": 49708543827.2125,
+              "expected_actual": 49658884942.2125
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 24654198747.0125,
+              "expected_max": 24703556503.0125,
+              "expected_actual": 24678877625.0125
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 17991163413.375,
+              "expected_max": 18027181759.375,
+              "expected_actual": 18009172586.375
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 15260946770.204166,
+              "expected_max": 15291499216.204166,
+              "expected_actual": 15276222993.204166
+            }
+          }
+        }
+      }
+    },
+    "3batchps_1sec_1paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 749307828.3333334,
+              "expected_max": 750807944.3333334,
+              "expected_actual": 750057886.3333334
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 715666721.0,
+              "expected_max": 717099489.0,
+              "expected_actual": 716383105.0
+            }
+          }
+        }
+      }
+    },
+    "3batchps_1sec_2paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 1552297716.8333333,
+              "expected_max": 1555405420.8333333,
+              "expected_actual": 1553851568.8333333
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 862084428.0,
+              "expected_max": 863810324.0,
+              "expected_actual": 862947376.0
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 771607345.6666666,
+              "expected_max": 773152105.6666666,
+              "expected_actual": 772379725.6666666
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 771607345.6666666,
+              "expected_max": 773152105.6666666,
+              "expected_actual": 772379725.6666666
+            }
+          }
+        }
+      }
+    },
+    "3batchps_60sec_1paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 24743017021.033333,
+              "expected_max": 24792552591.033333,
+              "expected_actual": 24767784806.033333
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 901407425.5111111,
+              "expected_max": 903212045.5111111,
+              "expected_actual": 902309735.5111111
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 901407425.5111111,
+              "expected_max": 903212045.5111111,
+              "expected_actual": 902309735.5111111
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 901407425.5111111,
+              "expected_max": 903212045.5111111,
+              "expected_actual": 902309735.5111111
+            }
+          }
+        }
+      }
+    },
+    "3batchps_60sec_2paralleluser": {
+      "topology_types": {
+        "tau_2host_1core_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 89055559155.175,
+              "expected_max": 89233848563.175,
+              "expected_actual": 89144703859.175
+            }
+          }
+        },
+        "tau_2host_2cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 35343235056.388885,
+              "expected_max": 35413992284.388885,
+              "expected_actual": 35378613670.388885
+            }
+          }
+        },
+        "tau_2host_4cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 19729089385.794445,
+              "expected_max": 19768587063.794445,
+              "expected_actual": 19748838224.794445
+            }
+          }
+        },
+        "tau_2host_8cores_host_scenario": {
+          "service_chains": {
+            "sfc1_1s_1thread": {
+              "expected_min": 16209112836.772223,
+              "expected_max": 16241563514.772223,
+              "expected_actual": 16225338175.772223
+            }
+          }
+        }
+      }
+    }
+  }
+}

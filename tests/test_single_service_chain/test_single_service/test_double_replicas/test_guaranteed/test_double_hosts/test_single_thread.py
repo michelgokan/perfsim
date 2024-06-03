@@ -1,0 +1,49 @@
+#  Copyright (C) 2020 Michel Gokan Khan
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License along
+#  with this program; if not, write to the Free Software Foundation, Inc.,
+#  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+#
+#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.
+#  Written by Michel Gokan Khan, February 2020
+
+import pytest
+
+from perfsim import SimulationScenarioManager
+
+test_name = "single_thread_expected_results"
+traffic_topology_combs, names = pytest.get_traffic_topology_expected_combination(file_name=test_name,
+                                                                                 include_guaranteed_only=True,
+                                                                                 gen_mode=pytest.gen_mode)
+sfc = pytest.sfc_one_service_one_thread
+
+
+@pytest.mark.usefixtures("client", "server_app")
+class Test1SFC1S2R1T2HGE:  # GE = guaranteed
+    @pytest.mark.parametrize(pytest.test_attributes, traffic_topology_combs, ids=names)
+    def test_all_traffic_types_all_topologies(self, traff_proto_name, topo_name, expected_avg_lats_obj, ras, filepath):
+        # Because lightest_threads_in_rq schedule threads a bit randomly (check run_queue.py), we get slightly different
+        # results (e.g., one time avg is 872977265931.6375 and the other time its 872977265923.6708)
+        # But it's fine, and because the error margin is 0.1%, we can ignore it.
+        # Also, when the ResourceNotAvailableError is raised, it's because the resource is not available in the
+        # cluster to schedule the container. This is because the cluster is not big enough to schedule all the
+        # containers. This is expected, and it's actually a part of the test to see if the scheduler can handle
+        # this situation.
+        m: SimulationScenarioManager = pytest.exec_scenario(
+            traffic_prototype=pytest.traffic_prototypes[traff_proto_name],
+            tau=pytest.t[topo_name],
+            sfc=sfc,
+            microservices=[pytest.ms1_single_thread],
+            replica_count=2,
+            resource_allocation_scenario=ras,
+            number_of_threads=1)
+        pytest.assertions(m, traff_proto_name, topo_name, expected_avg_lats_obj, ras, sfc, pytest.gen_mode, filepath)

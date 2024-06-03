@@ -1,0 +1,2304 @@
+{
+  "prototypes": {
+    "microservices": {
+      "s1": {
+        "f1_1": {
+          "instructions": [
+            1209325186
+          ],
+          "avg_cpi": [
+            0.76008072
+          ],
+          "avg_cpu_usage": [
+            1
+          ],
+          "memory_accesses": [
+            414016086
+          ],
+          "single_core_isolated_cache_misses": [
+            75266
+          ],
+          "single_core_isolated_cache_refs": [
+            799434
+          ],
+          "avg_cache_miss_penalty": [
+            5.71
+          ],
+          "avg_blkio_rw": [
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f1_2": {
+          "instructions": [
+            2826910606,
+            2809512712,
+            43538310
+          ],
+          "avg_cpi": [
+            0.75692900775,
+            0.72419132054,
+            1.69449567518
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            955257795,
+            986543590,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            171886,
+            207174,
+            122059
+          ],
+          "single_core_isolated_cache_refs": [
+            1278830,
+            1471952,
+            856822
+          ],
+          "avg_cache_miss_penalty": [
+            2.6,
+            2.6,
+            4
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f1_1_snd50MBx2": {
+          "instructions": [
+            1519071307
+          ],
+          "avg_cpi": [
+            1.2172097988287525
+          ],
+          "avg_cpu_usage": [
+            1
+          ],
+          "memory_accesses": [
+            463489373
+          ],
+          "single_core_isolated_cache_misses": [
+            6040602
+          ],
+          "single_core_isolated_cache_refs": [
+            35122070
+          ],
+          "avg_cache_miss_penalty": [
+            5
+          ],
+          "avg_blkio_rw": [
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f1_2_snd50MB": {
+          "instructions": [
+            3084995654,
+            2902547800,
+            449249953,
+            15829223
+          ],
+          "avg_cpi": [
+            0.7699481255087693,
+            0.721704888029751,
+            1.4490332601103244,
+            1.3451772711774923
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            1069489499,
+            1002456377,
+            151421465,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            173935,
+            118014,
+            2252846,
+            42909
+          ],
+          "single_core_isolated_cache_refs": [
+            1489872,
+            1447625,
+            15435330,
+            179809
+          ],
+          "avg_cache_miss_penalty": [
+            10,
+            10,
+            1,
+            1
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f1_1_snd50MBx3": {
+          "instructions": [
+            1951591463,
+            67169342,
+            62415189,
+            24429422,
+            21725888
+          ],
+          "avg_cpi": [
+            1.1486473319339376,
+            0.9277464858893512,
+            1.1924596110731958,
+            2.374952956316363,
+            1.1015500494157018
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            640325109,
+            0,
+            31668559,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            4984985,
+            66729,
+            144279,
+            108892,
+            39877
+          ],
+          "single_core_isolated_cache_refs": [
+            42078835,
+            429988,
+            634962,
+            445792,
+            175650
+          ],
+          "avg_cache_miss_penalty": [
+            6,
+            1,
+            1,
+            1,
+            1
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f1_2_rcv50MB": {
+          "instructions": [
+            6427776466,
+            6427776466,
+            16020736,
+            14804059
+          ],
+          "avg_cpi": [
+            0.816238427355417,
+            0.816238427355417,
+            0.9663377512743484,
+            1.0575446909526638
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            2213566998,
+            2213566998,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            1535355,
+            1535355,
+            29356,
+            19168
+          ],
+          "single_core_isolated_cache_refs": [
+            22417927,
+            22417927,
+            131609,
+            124013
+          ],
+          "avg_cache_miss_penalty": [
+            10,
+            10,
+            1,
+            1
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f1_1_rcv50MB": {
+          "instructions": [
+            1899935548,
+            21176071,
+            11721571
+          ],
+          "avg_cpi": [
+            0.9385091556800537,
+            0.9041557803617111,
+            1.1186882713929729
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            651532718,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            1020777,
+            52305,
+            20837
+          ],
+          "single_core_isolated_cache_refs": [
+            14751517,
+            157250,
+            102080
+          ],
+          "avg_cache_miss_penalty": [
+            6,
+            1,
+            1
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f1_2_rcv50MB_snd50MB": {
+          "instructions": [
+            6939924138,
+            6939924138,
+            27424301,
+            21554180,
+            13970781,
+            13778684,
+            12333340,
+            11060765,
+            10541477
+          ],
+          "avg_cpi": [
+            0.8656178644816189,
+            0.8656178644816189,
+            1.1879980095025942,
+            0.8554924381256906,
+            2.610624917819555,
+            1.118802855192847,
+            1.0319686313683074,
+            1.075995195630682,
+            0.8477760754019574
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            2437117089,
+            2437117089,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            3634491,
+            3634491,
+            59856,
+            65943,
+            62175,
+            33384,
+            28034,
+            26763,
+            32315
+          ],
+          "single_core_isolated_cache_refs": [
+            41140607,
+            41140607,
+            332328,
+            152310,
+            295016,
+            114240,
+            107751,
+            96461,
+            106365
+          ],
+          "avg_cache_miss_penalty": [
+            10,
+            10,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        }
+      },
+      "s2": {
+        "f2_1": {
+          "instructions": [
+            745340355,
+            22990898,
+            3673642,
+            2456260,
+            645202
+          ],
+          "avg_cpi": [
+            0.48581735789,
+            0.85475395523,
+            0.91009140248,
+            5.89508683934,
+            3.94384239354
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            207564353,
+            0,
+            0,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            1661689,
+            45281,
+            10432,
+            27767,
+            7357
+          ],
+          "single_core_isolated_cache_refs": [
+            2809945,
+            143932,
+            26163,
+            89409,
+            21492
+          ],
+          "avg_cache_miss_penalty": [
+            0.71,
+            5,
+            5,
+            5,
+            5
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f2_2": {
+          "instructions": [
+            203899507,
+            20006370,
+            13136004,
+            12504549,
+            8202102
+          ],
+          "avg_cpi": [
+            0.64434873302,
+            0.78278943156,
+            0.80489454783,
+            0.80296812059,
+            0.78693737774
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            66585191,
+            0,
+            0,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            336407,
+            51647,
+            21593,
+            21939,
+            11868
+          ],
+          "single_core_isolated_cache_refs": [
+            661235,
+            123112,
+            65077,
+            73047,
+            31653
+          ],
+          "avg_cache_miss_penalty": [
+            2.4,
+            0,
+            0,
+            0,
+            0
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f2_1_rcv50MB": {
+          "instructions": [
+            1478675966
+          ],
+          "avg_cpi": [
+            0.865562328345844
+          ],
+          "avg_cpu_usage": [
+            1
+          ],
+          "memory_accesses": [
+            453821664
+          ],
+          "single_core_isolated_cache_misses": [
+            3100007
+          ],
+          "single_core_isolated_cache_refs": [
+            29295303
+          ],
+          "avg_cache_miss_penalty": [
+            5
+          ],
+          "avg_blkio_rw": [
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f2_1_rcv50MB_snd50MBx2": {
+          "instructions": [
+            1994590909,
+            125129385,
+            90687493,
+            71655817,
+            66978128,
+            34432479,
+            32275561,
+            19825965,
+            18625415,
+            18371240,
+            15434501
+          ],
+          "avg_cpi": [
+            1.268516070429959,
+            0.8271609022932543,
+            0.9516015620808924,
+            1.0976574030270285,
+            1.0514139332171242,
+            0.7863785236026718,
+            0.7363737844866585,
+            0.8104074127034926,
+            1.1796907612528365,
+            1.0566276963340526,
+            0.8204024866110022
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            561671844,
+            56442780,
+            41923542,
+            26254931,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            7648126,
+            122239,
+            111164,
+            163763,
+            133292,
+            69436,
+            52927,
+            37271,
+            49782,
+            48928,
+            26512
+          ],
+          "single_core_isolated_cache_refs": [
+            68034912,
+            671867,
+            620114,
+            551151,
+            665343,
+            210795,
+            172623,
+            128222,
+            258401,
+            164636,
+            104712
+          ],
+          "avg_cache_miss_penalty": [
+            5,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f2_2_snd50MB": {
+          "instructions": [
+            465862424,
+            30640753,
+            14790984
+          ],
+          "avg_cpi": [
+            1.5306945962226823,
+            1.0480966313066784,
+            1.1053389686582042
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            154395892,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            2106657,
+            39278,
+            25394
+          ],
+          "single_core_isolated_cache_refs": [
+            19211675,
+            224826,
+            123103
+          ],
+          "avg_cache_miss_penalty": [
+            5,
+            1,
+            1
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f2_2_rcv50MB": {
+          "instructions": [
+            852795101
+          ],
+          "avg_cpi": [
+            0.9493716568618046
+          ],
+          "avg_cpu_usage": [
+            1
+          ],
+          "memory_accesses": [
+            251763641
+          ],
+          "single_core_isolated_cache_misses": [
+            2249019
+          ],
+          "single_core_isolated_cache_refs": [
+            19408452
+          ],
+          "avg_cache_miss_penalty": [
+            5
+          ],
+          "avg_blkio_rw": [
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f2_2_rcv50MB_snd50MB": {
+          "instructions": [
+            1109653978,
+            94152345,
+            41138449,
+            29321203,
+            25144821
+          ],
+          "avg_cpi": [
+            1.2112857148699376,
+            0.8825010253329325,
+            1.2333602805492254,
+            0.9588581682681983,
+            1.0359751616446187
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            357542278,
+            41656059,
+            0,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            3508169,
+            315389,
+            126306,
+            75793,
+            54256
+          ],
+          "single_core_isolated_cache_refs": [
+            35451090,
+            1081893,
+            410040,
+            223194,
+            172882
+          ],
+          "avg_cache_miss_penalty": [
+            5,
+            1,
+            1,
+            1,
+            1
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        }
+      },
+      "s3": {
+        "f3_1": {
+          "instructions": [
+            237510277,
+            17425484,
+            11805088,
+            4651468,
+            1075435
+          ],
+          "avg_cpi": [
+            0.65018991578,
+            0.93894769293,
+            0.74391965566,
+            0.63154578296,
+            9.15679701702
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            76873510,
+            0,
+            0,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            547488,
+            33748,
+            19417,
+            4841,
+            18777
+          ],
+          "single_core_isolated_cache_refs": [
+            1329815,
+            109686,
+            53826,
+            17864,
+            60270
+          ],
+          "avg_cache_miss_penalty": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "avg_blkio_rw": [
+            512000000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f3_2": {
+          "instructions": [
+            434159594,
+            20491713,
+            14541361,
+            6513643,
+            2547219
+          ],
+          "avg_cpi": [
+            0.75441580821,
+            0.90317339502,
+            0.69348818174,
+            0.8682107693,
+            0.67245886592
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            42310946,
+            0,
+            0,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            1638540,
+            37364,
+            19296,
+            16116,
+            3128
+          ],
+          "single_core_isolated_cache_refs": [
+            3782859,
+            108750,
+            58252,
+            44375,
+            12488
+          ],
+          "avg_cache_miss_penalty": [
+            3.9,
+            1,
+            1,
+            1,
+            1
+          ],
+          "avg_blkio_rw": [
+            10240000000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f3_1_rcv50MB": {
+          "instructions": [
+            686285714
+          ],
+          "avg_cpi": [
+            1.2383918339876736
+          ],
+          "avg_cpu_usage": [
+            1
+          ],
+          "memory_accesses": [
+            109247716
+          ],
+          "single_core_isolated_cache_misses": [
+            3197153
+          ],
+          "single_core_isolated_cache_refs": [
+            20874854
+          ],
+          "avg_cache_miss_penalty": [
+            5
+          ],
+          "avg_blkio_rw": [
+            0
+          ],
+          "request_timeout": -1
+        },
+        "f3_2_rcv50MB_snd50MB": {
+          "instructions": [
+            1503882599,
+            86480225,
+            81283998,
+            59673834,
+            32477763,
+            24687872,
+            20804929,
+            17102671
+          ],
+          "avg_cpi": [
+            1.2805274655618248,
+            0.9213047722759741,
+            0.7356967111780107,
+            1.037071222874669,
+            1.5392260544545509,
+            0.8241414245828883,
+            0.8084647152605039,
+            0.8875574464362905
+          ],
+          "avg_cpu_usage": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "memory_accesses": [
+            316794132,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "single_core_isolated_cache_misses": [
+            6462362,
+            162190,
+            111052,
+            145459,
+            109037,
+            47022,
+            43678,
+            30623
+          ],
+          "single_core_isolated_cache_refs": [
+            48517326,
+            544265,
+            441757,
+            389165,
+            340956,
+            149776,
+            130996,
+            101929
+          ],
+          "avg_cache_miss_penalty": [
+            5,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "avg_blkio_rw": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "request_timeout": -1
+        }
+      }
+    },
+    "hosts": {
+      "host_type1": {
+        "cores_count": 4,
+        "cpu_clock_rate": 1596090000,
+        "ram_speed": 2675787694,
+        "memory_capacity": 16,
+        "storage_speed": 10695000,
+        "storage_capacity": 1000,
+        "network_bandwidth": 117300000
+      },
+      "host_type2": {
+        "cores_count": 4,
+        "cpu_clock_rate": 1596090000,
+        "ram_speed": 2675787694,
+        "memory_capacity": 16,
+        "storage_speed": 10695000,
+        "storage_capacity": 1000,
+        "network_bandwidth": 112300000
+      },
+      "host_type3": {
+        "cores_count": 4,
+        "cpu_clock_rate": 1596090000,
+        "ram_speed": 2675787694,
+        "memory_capacity": 16,
+        "storage_speed": 10695000,
+        "storage_capacity": 1000,
+        "network_bandwidth": 116800000
+      },
+      "host_type4": {
+        "cores_count": 4,
+        "cpu_clock_rate": 1596090000,
+        "ram_speed": 2675787694,
+        "memory_capacity": 16,
+        "storage_speed": 10695000,
+        "storage_capacity": 1000,
+        "network_bandwidth": 1167000000
+      }
+    },
+    "routers": {
+      "router_type1": {
+        "latency": 730000,
+        "bandwidth": 1250000000,
+        "ports_count": 101
+      },
+      "router_type2": {
+        "latency": 1400000,
+        "bandwidth": 125000000,
+        "ports_count": 101
+      }
+    },
+    "links": {
+      "link_type1": {
+        "latency": 420000
+      }
+    },
+    "traffics": {
+      "traffic_type0d25": {
+        "arrival_interval_ns": 4000000000,
+        "parallel_user": 1,
+        "duration": 60
+      },
+      "traffic_type0d5": {
+        "arrival_interval_ns": 2000000000,
+        "parallel_user": 1,
+        "duration": 60
+      },
+      "traffic_type0d75": {
+        "arrival_interval_ns": 1333333333,
+        "parallel_user": 1,
+        "duration": 60
+      },
+      "traffic_type1": {
+        "arrival_interval_ns": 1000000000,
+        "parallel_user": 1,
+        "duration": 60
+      },
+      "traffic_type2": {
+        "arrival_interval_ns": 500000000,
+        "parallel_user": 1,
+        "duration": 60
+      },
+      "traffic_type3": {
+        "arrival_interval_ns": 333333333,
+        "parallel_user": 1,
+        "duration": 60
+      },
+      "traffic_type4": {
+        "arrival_interval_ns": 250000000,
+        "parallel_user": 1,
+        "duration": 60
+      }
+    }
+  },
+  "equipments": {
+    "hosts": {
+      "h1": "host_type1",
+      "h2": "host_type2",
+      "h3": "host_type3",
+      "h4": "host_type4",
+      "h5": "host_type1",
+      "h6": "host_type2",
+      "h7": "host_type3",
+      "h8": "host_type4",
+      "h9": "host_type1",
+      "h10": "host_type2",
+      "h11": "host_type3",
+      "h12": "host_type4"
+    },
+    "routers": {
+      "rho1": "router_type1",
+      "rho2": "router_type2",
+      "rho3": "router_type1"
+    }
+  },
+  "topologies": {
+    "tau1": {
+      "nodes": {
+        "rho1": {
+          "type": "router",
+          "name": "rho1"
+        },
+        "h1": {
+          "type": "host",
+          "name": "h1"
+        },
+        "h2": {
+          "type": "host",
+          "name": "h2"
+        },
+        "h3": {
+          "type": "host",
+          "name": "h3"
+        },
+        "h4": {
+          "type": "host",
+          "name": "h4"
+        }
+      },
+      "edges": {
+        "l1": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h1"
+          ]
+        },
+        "l2": {
+          "link_type": "link_type1",
+          "connection": [
+            "h1",
+            "rho1"
+          ]
+        },
+        "l3": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h2"
+          ]
+        },
+        "l4": {
+          "link_type": "link_type1",
+          "connection": [
+            "h2",
+            "rho1"
+          ]
+        },
+        "l5": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h3"
+          ]
+        },
+        "l6": {
+          "link_type": "link_type1",
+          "connection": [
+            "h3",
+            "rho1"
+          ]
+        },
+        "l7": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h4"
+          ]
+        },
+        "l8": {
+          "link_type": "link_type1",
+          "connection": [
+            "h4",
+            "rho1"
+          ]
+        }
+      },
+      "egress_err": 0.05,
+      "ingress_err": 0.05
+    },
+    "tau2": {
+      "nodes": {
+        "rho1": {
+          "type": "router",
+          "name": "rho1"
+        },
+        "rho2": {
+          "type": "router",
+          "name": "rho2"
+        },
+        "rho3": {
+          "type": "router",
+          "name": "rho3"
+        },
+        "h1": {
+          "type": "host",
+          "name": "h1"
+        },
+        "h2": {
+          "type": "host",
+          "name": "h2"
+        },
+        "h3": {
+          "type": "host",
+          "name": "h3"
+        },
+        "h4": {
+          "type": "host",
+          "name": "h4"
+        }
+      },
+      "edges": {
+        "l1": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h1"
+          ]
+        },
+        "l2": {
+          "link_type": "link_type1",
+          "connection": [
+            "h1",
+            "rho1"
+          ]
+        },
+        "l3": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho3",
+            "h2"
+          ]
+        },
+        "l4": {
+          "link_type": "link_type1",
+          "connection": [
+            "h2",
+            "rho3"
+          ]
+        },
+        "l5": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h3"
+          ]
+        },
+        "l6": {
+          "link_type": "link_type1",
+          "connection": [
+            "h3",
+            "rho1"
+          ]
+        },
+        "l7": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho3",
+            "h4"
+          ]
+        },
+        "l8": {
+          "link_type": "link_type1",
+          "connection": [
+            "h4",
+            "rho3"
+          ]
+        },
+        "l9": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho2",
+            "rho1"
+          ]
+        },
+        "l10": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "rho2"
+          ]
+        },
+        "l11": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho3",
+            "rho2"
+          ]
+        },
+        "l12": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho2",
+            "rho3"
+          ]
+        }
+      },
+      "egress_err": 0.05,
+      "ingress_err": 0.05
+    },
+    "tau3": {
+      "nodes": {
+        "rho1": {
+          "type": "router",
+          "name": "rho1"
+        },
+        "rho2": {
+          "type": "router",
+          "name": "rho2"
+        },
+        "rho3": {
+          "type": "router",
+          "name": "rho3"
+        },
+        "h1": {
+          "type": "host",
+          "name": "h1"
+        },
+        "h2": {
+          "type": "host",
+          "name": "h2"
+        },
+        "h3": {
+          "type": "host",
+          "name": "h3"
+        },
+        "h4": {
+          "type": "host",
+          "name": "h4"
+        },
+        "h5": {
+          "type": "host",
+          "name": "h5"
+        },
+        "h6": {
+          "type": "host",
+          "name": "h6"
+        },
+        "h7": {
+          "type": "host",
+          "name": "h5"
+        },
+        "h8": {
+          "type": "host",
+          "name": "h5"
+        },
+        "h9": {
+          "type": "host",
+          "name": "h5"
+        },
+        "h10": {
+          "type": "host",
+          "name": "h5"
+        },
+        "h11": {
+          "type": "host",
+          "name": "h5"
+        },
+        "h12": {
+          "type": "host",
+          "name": "h5"
+        }
+      },
+      "edges": {
+        "l1": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h1"
+          ]
+        },
+        "l2": {
+          "link_type": "link_type1",
+          "connection": [
+            "h1",
+            "rho1"
+          ]
+        },
+        "l3": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho3",
+            "h2"
+          ]
+        },
+        "l4": {
+          "link_type": "link_type1",
+          "connection": [
+            "h2",
+            "rho3"
+          ]
+        },
+        "l5": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h3"
+          ]
+        },
+        "l6": {
+          "link_type": "link_type1",
+          "connection": [
+            "h3",
+            "rho1"
+          ]
+        },
+        "l7": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho3",
+            "h4"
+          ]
+        },
+        "l8": {
+          "link_type": "link_type1",
+          "connection": [
+            "h4",
+            "rho3"
+          ]
+        },
+        "l9": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho2",
+            "rho1"
+          ]
+        },
+        "l10": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "rho2"
+          ]
+        },
+        "l11": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho3",
+            "rho2"
+          ]
+        },
+        "l12": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho2",
+            "rho3"
+          ]
+        },
+        "l13": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h5"
+          ]
+        },
+        "l14": {
+          "link_type": "link_type1",
+          "connection": [
+            "h5",
+            "rho1"
+          ]
+        },
+        "l15": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho3",
+            "h6"
+          ]
+        },
+        "l16": {
+          "link_type": "link_type1",
+          "connection": [
+            "h6",
+            "rho3"
+          ]
+        },
+        "l17": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h7"
+          ]
+        },
+        "l18": {
+          "link_type": "link_type1",
+          "connection": [
+            "h7",
+            "rho1"
+          ]
+        },
+        "l19": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho3",
+            "h8"
+          ]
+        },
+        "l20": {
+          "link_type": "link_type1",
+          "connection": [
+            "h8",
+            "rho3"
+          ]
+        },
+        "l21": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h9"
+          ]
+        },
+        "l22": {
+          "link_type": "link_type1",
+          "connection": [
+            "h9",
+            "rho1"
+          ]
+        },
+        "l23": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho3",
+            "h10"
+          ]
+        },
+        "l24": {
+          "link_type": "link_type1",
+          "connection": [
+            "h10",
+            "rho3"
+          ]
+        },
+        "l25": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho1",
+            "h11"
+          ]
+        },
+        "l26": {
+          "link_type": "link_type1",
+          "connection": [
+            "h11",
+            "rho1"
+          ]
+        },
+        "l27": {
+          "link_type": "link_type1",
+          "connection": [
+            "rho3",
+            "h12"
+          ]
+        },
+        "l28": {
+          "link_type": "link_type1",
+          "connection": [
+            "h12",
+            "rho3"
+          ]
+        }
+      },
+      "egress_err": 0.05,
+      "ingress_err": 0.05
+    }
+  },
+  "service_chains": {
+    "sfc1": {
+      "nodes": {
+        "n1": {
+          "microservice": "s1",
+          "endpoint": "f1_1"
+        }
+      },
+      "edges": {}
+    },
+    "sfc1_2": {
+      "nodes": {
+        "n1": {
+          "microservice": "s1",
+          "endpoint": "f1_2"
+        }
+      },
+      "edges": {}
+    },
+    "sfc2": {
+      "nodes": {
+        "n1": {
+          "microservice": "s2",
+          "endpoint": "f2_1"
+        }
+      },
+      "edges": {}
+    },
+    "sfc2_2": {
+      "nodes": {
+        "n1": {
+          "microservice": "s2",
+          "endpoint": "f2_2"
+        }
+      },
+      "edges": {}
+    },
+    "sfc3": {
+      "nodes": {
+        "n1": {"microservice": "s3", "endpoint": "f3_1"}
+      },
+      "edges": {}
+    },
+    "sfc3_2": {
+      "nodes": {
+        "n1": {"microservice": "s3","endpoint": "f3_2"}
+      },
+      "edges": {}
+    },
+    "sfc4": {
+      "nodes": {
+        "n1": {
+          "microservice": "s1",
+          "endpoint": "f1_1_snd50MBx2"
+        },
+        "n2": {
+          "microservice": "s2",
+          "endpoint": "f2_1_rcv50MB"
+        },
+        "n3": {
+          "microservice": "s3",
+          "endpoint": "f3_1_rcv50MB"
+        }
+      },
+      "edges": {
+        "e_4_1": {
+          "request_size": 52428800,
+          "connection": [
+            "n1",
+            "n2"
+          ]
+        },
+        "e_4_2": {
+          "request_size": 52428800,
+          "connection": [
+            "n1",
+            "n3"
+          ]
+        }
+      }
+    },
+    "sfc5": {
+      "nodes": {
+        "n1": {
+          "microservice": "s1",
+          "endpoint": "f1_1_snd50MBx2"
+        },
+        "n2": {
+          "microservice": "s2",
+          "endpoint": "f2_1_rcv50MB"
+        },
+        "n3": {
+          "microservice": "s3",
+          "endpoint": "f3_1_rcv50MB"
+        }
+      },
+      "edges": {
+        "e_5_1": {
+          "request_size": 52428800,
+          "connection": [
+            "n1",
+            "n2"
+          ]
+        },
+        "e_5_2": {
+          "request_size": 52428800,
+          "connection": [
+            "n1",
+            "n3"
+          ]
+        }
+      }
+    },
+    "sfc6": {
+      "nodes": {
+        "f_1_1_snd_x3": {
+          "microservice": "s1",
+          "endpoint": "f1_1_snd50MBx3"
+        },
+        "f_1_1_rcv": {
+          "microservice": "s1",
+          "endpoint": "f1_1_rcv50MB"
+        },
+        "f_1_2_rcv_snd": {
+          "microservice": "s1",
+          "endpoint": "f1_2_rcv50MB_snd50MB"
+        },
+        "f_1_2_rcv": {
+          "microservice": "s1",
+          "endpoint": "f1_2_rcv50MB"
+        },
+        "f_2_1_rcv_snd_x2": {
+          "microservice": "s2",
+          "endpoint": "f2_1_rcv50MB_snd50MBx2"
+        },
+        "f_2_2_rcv_snd": {
+          "microservice": "s2",
+          "endpoint": "f2_2_rcv50MB_snd50MB"
+        },
+        "f_3_1_rcv": {
+          "microservice": "s3",
+          "endpoint": "f3_1_rcv50MB"
+        },
+        "f_3_2_rcv_snd": {
+          "microservice": "s3",
+          "endpoint": "f3_2_rcv50MB_snd50MB"
+        }
+      },
+      "edges": {
+        "e_6_1": {
+          "request_size": 52428800,
+          "connection": [
+            "f_1_1_snd_x3",
+            "f_2_1_rcv_snd_x2"
+          ]
+        },
+        "e_6_2": {
+          "request_size": 52428800,
+          "connection": [
+            "f_1_1_snd_x3",
+            "f_3_1_rcv"
+          ]
+        },
+        "e_6_3": {
+          "request_size": 52428800,
+          "connection": [
+            "f_1_1_snd_x3",
+            "f_1_2_rcv_snd"
+          ]
+        },
+        "e_6_4": {
+          "request_size": 52428800,
+          "connection": [
+            "f_2_1_rcv_snd_x2",
+            "f_3_1_rcv"
+          ]
+        },
+        "e_6_5": {
+          "request_size": 52428800,
+          "connection": [
+            "f_2_1_rcv_snd_x2",
+            "f_1_1_rcv"
+          ]
+        },
+        "e_6_6": {
+          "request_size": 52428800,
+          "connection": [
+            "f_1_2_rcv_snd",
+            "f_2_2_rcv_snd"
+          ]
+        },
+        "e_6_7": {
+          "request_size": 52428800,
+          "connection": [
+            "f_2_2_rcv_snd",
+            "f_3_2_rcv_snd"
+          ]
+        },
+        "e_6_8": {
+          "request_size": 52428800,
+          "connection": [
+            "f_3_2_rcv_snd",
+            "f_1_2_rcv"
+          ]
+        }
+      }
+    }
+  },
+  "resource_allocation_scenarios": {
+    "1": {
+      "cpu_requests": 100,
+      "cpu_limits": 100,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "2": {
+      "cpu_requests": 200,
+      "cpu_limits": 200,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "3": {
+      "cpu_requests": 300,
+      "cpu_limits": 300,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "4": {
+      "cpu_requests": 400,
+      "cpu_limits": 400,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "5": {
+      "cpu_requests": 500,
+      "cpu_limits": 500,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "6": {
+      "cpu_requests": 600,
+      "cpu_limits": 600,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "7": {
+      "cpu_requests": 700,
+      "cpu_limits": 700,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "8": {
+      "cpu_requests": 800,
+      "cpu_limits": 800,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "9": {
+      "cpu_requests": 900,
+      "cpu_limits": 900,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "10": {
+      "cpu_requests": 1000,
+      "cpu_limits": 1000,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "11": {
+      "cpu_requests": 1100,
+      "cpu_limits": 1100,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "12": {
+      "cpu_requests": 1200,
+      "cpu_limits": 1200,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "13": {
+      "cpu_requests": 1300,
+      "cpu_limits": 1300,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "14": {
+      "cpu_requests": 1400,
+      "cpu_limits": 1400,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "15": {
+      "cpu_requests": 1500,
+      "cpu_limits": 1500,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "16": {
+      "cpu_requests": 1600,
+      "cpu_limits": 1600,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "17": {
+      "cpu_requests": 1700,
+      "cpu_limits": 1700,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "18": {
+      "cpu_requests": 1800,
+      "cpu_limits": 1800,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "19": {
+      "cpu_requests": 1900,
+      "cpu_limits": 1900,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "40": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": 12500000,
+      "egress_bw": "",
+      "ingress_latency": 25000000,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "41": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": 25000000,
+      "egress_bw": "",
+      "ingress_latency": 25000000,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "42": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": 37500000,
+      "egress_bw": "",
+      "ingress_latency": 25000000,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "43": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": 50000000,
+      "egress_bw": "",
+      "ingress_latency": 25000000,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "44": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": 62500000,
+      "egress_bw": "",
+      "ingress_latency": 25000000,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "45": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": 75000000,
+      "egress_bw": "",
+      "ingress_latency": 25000000,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "46": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": 87500000,
+      "egress_bw": "",
+      "ingress_latency": 25000000,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "47": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": 100000000,
+      "egress_bw": "",
+      "ingress_latency": 25000000,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "48": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": 112500000,
+      "egress_bw": "",
+      "ingress_latency": 25000000,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "49": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": 125000000,
+      "egress_bw": "",
+      "ingress_latency": 25000000,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    },
+    "50": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": 12500000,
+      "ingress_latency": 0,
+      "egress_latency": 25000000,
+      "blkio_capacity": 0
+    },
+    "51": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": 25000000,
+      "ingress_latency": 0,
+      "egress_latency": 25000000,
+      "blkio_capacity": 0
+    },
+    "52": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": 37500000,
+      "ingress_latency": 0,
+      "egress_latency": 25000000,
+      "blkio_capacity": 0
+    },
+    "53": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": 50000000,
+      "ingress_latency": 0,
+      "egress_latency": 25000000,
+      "blkio_capacity": 0
+    },
+    "54": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": 62500000,
+      "ingress_latency": 0,
+      "egress_latency": 25000000,
+      "blkio_capacity": 0
+    },
+    "55": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": 75000000,
+      "ingress_latency": 0,
+      "egress_latency": 25000000,
+      "blkio_capacity": 0
+    },
+    "56": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": 87500000,
+      "ingress_latency": 0,
+      "egress_latency": 25000000,
+      "blkio_capacity": 0
+    },
+    "57": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": 100000000,
+      "ingress_latency": 0,
+      "egress_latency": 25000000,
+      "blkio_capacity": 0
+    },
+    "58": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": 112500000,
+      "ingress_latency": 0,
+      "egress_latency": 25000000,
+      "blkio_capacity": 0
+    },
+    "59": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": 125000000,
+      "ingress_latency": 0,
+      "egress_latency": 25000000,
+      "blkio_capacity": 0
+    },
+    "60": {
+      "cpu_requests": 1000,
+      "cpu_limits": -1,
+      "memory_capacity": 0,
+      "ingress_bw": "",
+      "egress_bw": "",
+      "ingress_latency": 0,
+      "egress_latency": 0,
+      "blkio_capacity": 0
+    }
+  },
+  "placement_algorithms": {
+    "1": {
+      "classpath": "perfsim.placement.least_fit",
+      "algorithm_class": "LeastFit",
+      "options": {
+        "w_cpu": 100,
+        "w_mem": 100,
+        "w_ingress": 100,
+        "w_egress": 100,
+        "w_blkio": 0
+      }
+    }
+  },
+  "affinity_rulesets": {
+    "s1_affinity_set1": {
+      "affinity": {
+        "microservice": [],
+        "host": []
+      },
+      "anti-affinity": {
+        "microservice": [
+          "s1"
+        ],
+        "host": []
+      }
+    },
+    "s2_affinity_set1": {
+      "affinity": {
+        "microservice": [],
+        "host": [
+          "h2",
+          "h3"
+        ]
+      },
+      "anti-affinity": {
+        "microservice": [
+          "s2"
+        ],
+        "host": []
+      }
+    },
+    "s3_affinity_set1": {
+      "affinity": {
+        "microservice": [],
+        "host": [
+          "h2",
+          "h3"
+        ]
+      },
+      "anti-affinity": {
+        "microservice": [
+          "s3"
+        ],
+        "host": []
+      }
+    }
+  },
+  "storage_driver": {
+    "driver_class": "NeptuneStorageDriver",
+    "classpath": "perfsim.drivers.neptune_storage_driver",
+    "params": {
+       "name": "neptune_storage_driver1",
+       "project_id": "kau/PerfSim-Integration-Test",
+       "api_token": "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiIyODJhZjFhZS0wZDA2LTRiYWMtOTBkYi1jZGZiNWE4MGQzMWEifQ=="
+    }
+  },
+  "simulation_scenarios": {
+    "1": {
+      "name": "1",
+      "traffic_scenario": {
+        "name": "single_request",
+        "service_chains": {
+          "sfc1": {
+            "traffic_type": "traffic_type1"
+          }
+        }
+      },
+      "scaling_scenarios": [
+        {
+          "microservice": {
+            "s1": {
+              "replica_count": 1,
+              "resource_allocation_scenario": "60"
+            }
+          }
+        }
+      ],
+      "affinity_scenarios": [],
+      "placement_algorithm": "1",
+      "topology": "tau1",
+      "network_timeout": -1,
+      "debug": {
+            "debug_level": 10,
+            "log_cpu_events": true,
+        "log_timeline": true
+      }
+    }
+  }
+}

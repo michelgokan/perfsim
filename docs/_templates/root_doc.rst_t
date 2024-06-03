@@ -1,0 +1,35 @@
+.. {{ project }} documentation master file, created by
+   sphinx-quickstart on {{ now }}.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. raw:: html
+
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            $('#bd-docs-nav').find('*').each(function(index, value){$(this).collapse('show').css('display','block')})
+        })
+    </script>
+
+
+
+.. mdinclude:: ../README.md
+
+
+PerfSim's documentation
+==========={{ project_underline }}=================
+
+.. toctree::
+   :maxdepth: 6
+   :caption: Table of Contents:
+   :titlesonly:
+
+{{ mastertoctree }}
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
