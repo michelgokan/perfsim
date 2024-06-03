@@ -1,5 +1,16 @@
 # PerfSim: A Performance Simulator for Cloud Native Microservice Chains
 
+## Description
+
+PerfSim is a discrete-event simulator designed to approximate and predict the performance of cloud-native
+service chains in various user-defined scenarios. It leverages a systematic approach for analyzing network traces and
+simulating the behavior of service chains to provide insights into system KPIs, such as the average response time of
+requests.
+
+> [!NOTE]
+> The performance modeling part required to create the service chain models is not included in this suite. Users will
+> need to prepare their models based on their own data or existing benchmarks.
+
 > [!CAUTION]
 > The current open source version of this package is a mere research prototype and is not intended for production use. 
 > It is provided as-is, without any guarantees or warranties. Please do not consider this package as a fully functional 
@@ -11,17 +22,6 @@
 > This package contains several bugs and issues that we are actively working on fixing. Please be aware that the package
 > may not work as expected in all cases. We are working on resolving these issues and will provide updates as soon as
 > possible. If you encounter any problems, please open an issue on the GitHub repository, so we know.
-
-## Description
-
-PerfSim is a discrete-event simulator designed to approximate and predict the performance of cloud-native
-service chains in various user-defined scenarios. It leverages a systematic approach for analyzing network traces and
-simulating the behavior of service chains to provide insights into system KPIs, such as the average response time of
-requests.
-
-> [!NOTE]
-> The performance modeling part required to create the service chain models is not included in this suite. Users will
-> need to prepare their models based on their own data or existing benchmarks.
 
 
 ## Features
