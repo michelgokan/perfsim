@@ -11,12 +11,16 @@ requests.
 > The performance modeling part required to create the service chain models is not included in this suite. Users will
 > need to prepare their models based on their own data or existing benchmarks.
 
+---
+
 > [!CAUTION]
 > The current open source version of this package is a mere research prototype and is not intended for production use. 
 > It is provided as-is, without any guarantees or warranties. Please do not consider this package as a fully functional 
 > product at the moment. We are actively working on improving the package and adding new features, but we cannot provide
 > any support for it at this time. There may or may not be a commercial version available soon, but we cannot guarantee.
 > Use at your own risk. If you have any questions or concerns, please open an issue on the GitHub repository.
+
+---
 
 > [!CAUTION]
 > This package contains several bugs and issues that we are actively working on fixing. Please be aware that the package
@@ -74,21 +78,15 @@ Bibtex:
 ## Installation Instructions
 
 1. Clone [PerfSim repository](https://github.com/michelgokan/perfsim) by running the following command:
-
-    ```bash
-    git clone git@github.com:michelgokan/perfsim.git
-    ```
-
-    or via GitHub CLI:
-
-    ```bash
-    gh repo clone michelgokan/perfsim
-    ```
+  ```
+  git clone git@github.com:michelgokan/perfsim.git
+  ```
 
 2. Navigate to the PerfSim directory:
    ```
    cd perfsim
    ```
+
 3. Install dependencies (ensure you have Python 3.8 or later installed):
    ```
    pip install -r requirements.txt
