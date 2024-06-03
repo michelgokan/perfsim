@@ -48,6 +48,29 @@ limitations:
 - **Networking Details**: Simplified networking simulation may not capture all nuances of real-world network behavior,
   particularly under specific or extreme conditions.
 
+## Citation
+
+If you use PerfSim in your scientific work, please consider citing us:
+
+```
+M. Gokan Khan, J. Taheri, A. Al-Dulaimy and A. Kassler, "PerfSim: A Performance Simulator for Cloud Native Microservice Chains," in IEEE Transactions on Cloud Computing, vol. 11, no. 2, pp. 1395-1413, 1 April-June 2023, doi: 10.1109/TCC.2021.3135757
+```
+
+Bibtex:
+
+```
+@ARTICLE{9652084,
+  author={Gokan Khan, Michel and Taheri, Javid and Al-Dulaimy, Auday and Kassler, Andreas},
+  journal={IEEE Transactions on Cloud Computing}, 
+  title={PerfSim: A Performance Simulator for Cloud Native Microservice Chains}, 
+  year={2023},
+  volume={11},
+  number={2},
+  pages={1395-1413},
+  keywords={Cloud computing;Computational modeling;Microservice architectures;Resource management;Emulation;Containers;Testing;Performance simulator;performance modeling;cloud native computing;service chains;simulation platform},
+  doi={10.1109/TCC.2021.3135757}}
+```
+
 ## Installation Instructions
 
 1. Clone [PerfSim repository](https://github.com/michelgokan/perfsim) by running the following command:
