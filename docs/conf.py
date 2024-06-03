@@ -77,10 +77,15 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'tests/*', '../tests/*',
 # html_theme = 'sizzle'
 # html_theme = 'alabaster'
 html_theme = 'sphinx_book_theme'
-# html_theme_options = {
-#     "rightsidebar": "true",
-#     "relbarbgcolor": "black"
-# }
+html_theme_options = {
+    # "rightsidebar": "true",
+    # "relbarbgcolor": "black",
+    "repository_url": "https://github.com/michelgokan/perfsim",
+    "use_repository_button": True,
+    "use_issues_button": True,
+    "use_download_button": True,
+}
+
 html_logo = "_static/logo/perfsim-logo.png"
 html_favicon = "_static/logo/perfsim-logo.png"
 html_title = "PerfSim: A Performance Simulator for Cloud-naive Computing"

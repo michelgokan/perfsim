@@ -23,6 +23,7 @@ requests.
 > The performance modeling part required to create the service chain models is not included in this suite. Users will
 > need to prepare their models based on their own data or existing benchmarks.
 
+
 ## Features
 
 - **Discrete-Event Simulation**: Offers precise simulation of cloud-native microservice behaviors over time.
@@ -49,10 +50,18 @@ limitations:
 
 ## Installation Instructions
 
-1. Clone the PerfSim repository:
-   ```
-   git clone https://github.com/yourgithub/perfsim.git
-   ```
+1. Clone [PerfSim repository](https://github.com/michelgokan/perfsim) by running the following command:
+
+    ```bash
+    git clone git@github.com:michelgokan/perfsim.git
+    ```
+
+    or via GitHub CLI:
+
+    ```bash
+    gh repo clone michelgokan/perfsim
+    ```
+
 2. Navigate to the PerfSim directory:
    ```
    cd perfsim
