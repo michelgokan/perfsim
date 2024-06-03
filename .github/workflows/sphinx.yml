@@ -30,6 +30,9 @@ jobs:
           chmod +x docs/rebuild-docs.sh
           ./docs/rebuild-docs.sh  # Runs your script to build the documentation
 
+      - name: Prepare CNAME
+        run: echo 'perfsim.com' > docs/_build/html/CNAME  # Creates a CNAME file in the publish directory
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
