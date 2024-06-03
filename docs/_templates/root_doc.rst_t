@@ -6,9 +6,11 @@
 .. raw:: html
 
     <script type="text/javascript" >
-        $(document).ready(function(){
-            $('#bd-docs-nav').find('*').each(function(index, value){$(this).collapse('show').css('display','block')})
-        })
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.bd-links .bd-toc-item details').forEach(function(details) {
+                details.open = true;  // This should expand the details element
+            });
+        });
     </script>
 
 
