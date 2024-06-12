@@ -35,3 +35,5 @@ make html
 #make latexpdf
 
 cp $ROOTPATH/docs/_static/logo/perfsim-logo-dark.png $ROOTPATH/docs/_build/html/_static/perfsim-logo-dark.png
+
+python $ROOTPATH/docs/replace_marker_in_html.py $ROOTPATH/docs/_build/html/index.html
