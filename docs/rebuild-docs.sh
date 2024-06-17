@@ -35,8 +35,18 @@ make html
 #make latexpdf
 
 echo "Copying $ROOTPATH/PRIVACY file to $ROOTPATH/docs/_build/html/privacy-policy and $ROOTPATH/docs/_build/html/privacy-policy.html"
-cp $ROOTPATH/PRIVACY $ROOTPATH/docs/_build/html/privacy-policy
-cp $ROOTPATH/PRIVACY $ROOTPATH/docs/_build/html/privacy-policy.html
+
+# Define input and output files
+INPUT_FILE="$ROOTPATH/PRIVACY"
+OUTPUT_FILE="$ROOTPATH/docs/_build/html/privacy-policy.html"
+
+# Create the HTML file
+echo "<html><head><title>Privacy Policy</title></head>" > $OUTPUT_FILE
+echo "<body><pre>" >> $OUTPUT_FILE
+cat $INPUT_FILE >> $OUTPUT_FILE
+echo "</pre></body></html>" >> $OUTPUT_FILE
+
+cp $OUTPUT_FILE $ROOTPATH/docs/_build/html/privacy-policy
 
 cp $ROOTPATH/docs/_static/logo/perfsim-logo-dark.png $ROOTPATH/docs/_build/html/_static/perfsim-logo-dark.png
 
