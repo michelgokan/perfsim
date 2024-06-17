@@ -1,6 +1,13 @@
 {% extends "!layout.html" %}
 
 {%- block extrahead %}
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T8KH8MHX');</script>
+<!-- End Google Tag Manager -->
 {{ super() }}  <!-- This will include the existing content of the 'extrahead' block from the parent template -->
 <meta property="og:image" content="_static/social_preview.jpg" />
 <meta name="twitter:image" content="_static/social_preview.jpg" />
@@ -11,4 +18,13 @@
 <meta name="twitter:description" content="PerfSim is a performance simulator for cloud native microservice chains. It is designed to help developers and operators to understand the performance of their microservice chains under different conditions." />
 <meta name="twitter:url" content="https://www.perfsim.com/" />
 <meta name="twitter:domain" content="perfsim.com" />
+
 {% endblock %}
+
+{%- block content %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8KH8MHX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{{ super() }}
+{%- endblock %}
