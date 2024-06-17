@@ -34,7 +34,9 @@ make clean
 make html
 #make latexpdf
 
+echo "Copying $ROOTPATH/PRIVACY file to $ROOTPATH/docs/_build/html/privacy-policy and $ROOTPATH/docs/_build/html/privacy-policy.html"
 cp $ROOTPATH/PRIVACY $ROOTPATH/docs/_build/html/privacy-policy
+cp $ROOTPATH/PRIVACY $ROOTPATH/docs/_build/html/privacy-policy.html
 
 cp $ROOTPATH/docs/_static/logo/perfsim-logo-dark.png $ROOTPATH/docs/_build/html/_static/perfsim-logo-dark.png
 
