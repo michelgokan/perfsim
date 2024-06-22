@@ -5,3 +5,24 @@
 .logo__image.only-dark {
     content: url('../../_static/perfsim-logo-dark.png');
 }
+
+html[data-theme='dark'] [data-cookiefirst-widget='banner'] {
+    background:#000!important;
+    border: #363636 solid 0.5px; 
+  }
+html[data-theme='dark'] [data-cookiefirst-widget="banner"] p {
+    color: #ced6dd!important;
+
+}
+html[data-theme='dark'] [data-cookiefirst-widget="modal"] p {
+    color: #ced6dd!important;
+}
+html[data-theme='dark'] [data-cookiefirst-widget="modal"] {
+    background: #000!important;
+}
+html[data-theme='dark'] [data-cookiefirst-widget="modal"] span {
+    color: #ced6dd!important;
+}
+html[data-theme='dark'] [data-cookiefirst-widget="modal"] {
+    color: #ced6dd!important;
+}
