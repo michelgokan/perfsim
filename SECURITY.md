@@ -6,10 +6,8 @@ Below are the versions of PerfSim that are currently supported with security upd
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 2.1.x   | :white_check_mark: |
-| 2.0.x   | :x:                |
-| 1.5.x   | :white_check_mark: |
-| < 1.5   | :x:                |
+| 0.9.x   | :white_check_mark: |
+| < 0.9.x   | :x:                |
 
 ## Reporting a Vulnerability
 
