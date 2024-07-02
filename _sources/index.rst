@@ -1,5 +1,5 @@
 .. perfsim documentation master file, created by
-   sphinx-quickstart on Tue Jul  2 21:58:08 2024.
+   sphinx-quickstart on Tue Jul  2 22:00:15 2024.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
