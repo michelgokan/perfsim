@@ -54,7 +54,7 @@ limitations:
 
 ## Citation
 
-If you use PerfSim in your scientific work, please consider citing us:
+If you use PerfSim in your scientific work, please consider citing [our original paper](https://ieeexplore.ieee.org/document/9652084):
 
 ```
 M. Gokan Khan, J. Taheri, A. Al-Dulaimy and A. Kassler, "PerfSim: A Performance Simulator for Cloud Native Microservice Chains," in IEEE Transactions on Cloud Computing, vol. 11, no. 2, pp. 1395-1413, 1 April-June 2023, doi: 10.1109/TCC.2021.3135757
