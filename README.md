@@ -1,6 +1,6 @@
 # PerfSim: A Performance Simulator for Cloud Native Microservice Chains
 [![CodeQL](https://github.com/michelgokan/perfsim/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/michelgokan/perfsim/actions/workflows/github-code-scanning/codeql) [![Deploy Sphinx documentation to Pages](https://github.com/michelgokan/perfsim/actions/workflows/sphinx.yml/badge.svg)](https://github.com/michelgokan/perfsim/actions/workflows/sphinx.yml) [![pages-build-deployment](https://github.com/michelgokan/perfsim/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/michelgokan/perfsim/actions/workflows/pages/pages-build-deployment)
-## Description
+## Description 
 
 PerfSim is a discrete-event simulator designed to approximate and predict the performance of cloud-native
 service chains in various user-defined scenarios. It leverages a systematic approach for analyzing network traces and
