@@ -38,3 +38,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/_build/html  # Directory where the built HTML files are located
+
+      - name: Deploy to GitHub Pages second attempt
+        uses: actions/deploy-pages@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html
