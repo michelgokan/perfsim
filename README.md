@@ -19,7 +19,7 @@ IEEE Transactions on Cloud Computing, vol. 11, no. 2, pp. 1395-1413, 1 April-Jun
 Karlstad University, Karlstad, Sweden
 </font>
 
-| <a href="https://perfsim.com">Webpage</a> | <a href="https://arxiv.org/abs/2103.08983">arXiv</a> | <a href="https://ieee-dataport.org/documents/experiments-data-used-evaluating-perfsim-simulation-accuracy-based-sfc-stress-workloads">Dataset</a> | <a href="https://www.youtube.com/watch?v=bVvymER-ZcM">Presentation video (my PhD defence)</a>
+| <a href="https://perfsim.com">Webpage</a> | <a href="https://arxiv.org/abs/2103.08983">arXiv</a> | <a href="https://ieee-dataport.org/documents/experiments-data-used-evaluating-perfsim-simulation-accuracy-based-sfc-stress-workloads">Dataset</a> | <a href="https://www.youtube.com/watch?v=bVvymER-ZcM">Presentation video (my PhD defence)</a> | <a href="https://ieeexplore.ieee.org/document/9652084">PerfSim in IEEE Xplore</a>
 
 ## Description 
 
