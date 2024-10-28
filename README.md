@@ -1,5 +1,26 @@
 # PerfSim: A Performance Simulator for Cloud Native Microservice Chains
 [![CodeQL](https://github.com/michelgokan/perfsim/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/michelgokan/perfsim/actions/workflows/github-code-scanning/codeql) [![Deploy Sphinx documentation to Pages](https://github.com/michelgokan/perfsim/actions/workflows/sphinx.yml/badge.svg)](https://github.com/michelgokan/perfsim/actions/workflows/sphinx.yml) [![pages-build-deployment](https://github.com/michelgokan/perfsim/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/michelgokan/perfsim/actions/workflows/pages/pages-build-deployment)
+
+
+<font size="4">
+IEEE Transactions on Cloud Computing, vol. 11, no. 2, pp. 1395-1413, 1 April-June 2023
+</font>
+<br>
+
+<font size="4">
+<a href="https://michelgokan.github.io/" style="font-size:100%;">Michel Gokan Khan</a>&emsp;
+<a href="https://pure.qub.ac.uk/en/persons/javid-taheri" style="font-size:100%;">Javid Taheri</a>&emsp;
+<a href="https://www.es.mdu.se/staff/4442-Auday_Al_Dulaimy" style="font-size:100%;">Auday Al-Dulaimy</a>&emsp;
+<a href="https://th-deg.de/en/Andreas%20J.-Kassler-Fakult%C3%A4t%20Angewandte%20Informatik-Professor:innen-5738888" style="font-size:100%;">Andreas Kassler</a>&emsp;
+</font>
+<br>
+
+<font size="4">
+Karlstad University, Karlstad, Sweden
+</font>
+
+| <a href="https://perfsim.com">Webpage</a> | <a href="https://arxiv.org/abs/2103.08983">arXiv</a> | <a href="https://ieee-dataport.org/documents/experiments-data-used-evaluating-perfsim-simulation-accuracy-based-sfc-stress-workloads">Dataset</a> | <a href="https://www.youtube.com/watch?v=bVvymER-ZcM">Presentation video (my PhD defence)</a>
+
 ## Description 
 
 PerfSim is a discrete-event simulator designed to approximate and predict the performance of cloud-native
