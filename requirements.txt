@@ -2,7 +2,7 @@ ipython==8.25.0
 ipython-genutils==0.2.0
 attrs==23.2.0
 cachetools==5.3.3
-certifi==2024.2.2
+certifi==2024.7.4
 chardet==5.2.0
 cloudpickle==3.0.0
 cycler==0.12.1
