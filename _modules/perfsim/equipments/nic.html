@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -346,24 +351,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span>
 
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Transmission</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Transmission</span>
 
 <span class="c1"># from overloading import overload</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Host</span><span class="p">,</span> <span class="n">Request</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">,</span> <span class="n">MicroserviceReplica</span><span class="p">,</span> <span class="n">Router</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Host</span><span class="p">,</span> <span class="n">Request</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">,</span> <span class="n">MicroserviceReplica</span><span class="p">,</span> <span class="n">Router</span>
 
 
 <div class="viewcode-block" id="Nic">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.nic.Nic">[docs]</a>
-<span class="k">class</span> <span class="nc">Nic</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Nic</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class represents a Network Interface Card (NIC) in a host or a router. A NIC is a hardware component that</span>
 <span class="sd">    connects the host or router to the network. It has a bandwidth that determines the maximum amount of data that can</span>
@@ -385,7 +390,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1">#: The total bandwidth requests on this NIC. Useful for scoring hosts.</span>
     <span class="n">bandwidth_requests_total</span><span class="p">:</span> <span class="nb">int</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                  <span class="n">bandwidth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                  <span class="n">equipment</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Host</span><span class="p">,</span> <span class="n">Router</span><span class="p">]):</span>
@@ -401,7 +406,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1"># def reserve_transmission(self, request):</span>
 <div class="viewcode-block" id="Nic.reserve_transmission_for_request">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.nic.Nic.reserve_transmission_for_request">[docs]</a>
-    <span class="k">def</span> <span class="nf">reserve_transmission_for_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reserve_transmission_for_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                          <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
                                          <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                                          <span class="n">src_replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">,</span>
@@ -433,7 +438,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1"># def release_transmission(self, request):</span>
 <div class="viewcode-block" id="Nic.release_transmission_for_request">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.nic.Nic.release_transmission_for_request">[docs]</a>
-    <span class="k">def</span> <span class="nf">release_transmission_for_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">release_transmission_for_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">subchain_id</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transmissions</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">release_transmission_in_nic</span><span class="p">(</span>
                 <span class="n">payload_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transmissions</span><span class="p">[(</span><span class="n">subchain_id</span><span class="p">,</span> <span class="n">request</span><span class="p">)],</span>
@@ -452,7 +457,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1"># def reserve_transmission(self, payload_size, destination_nic):</span>
 <div class="viewcode-block" id="Nic.reserve_transmission_in_nic">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.nic.Nic.reserve_transmission_in_nic">[docs]</a>
-    <span class="k">def</span> <span class="nf">reserve_transmission_in_nic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reserve_transmission_in_nic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                     <span class="n">payload_size</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                                     <span class="n">src_replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">,</span>
                                     <span class="n">destination_replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">):</span>
@@ -472,13 +477,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1"># def release_transmission(self, payload_size, destination_nic):</span>
 <div class="viewcode-block" id="Nic.release_transmission_in_nic">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.nic.Nic.release_transmission_in_nic">[docs]</a>
-    <span class="k">def</span> <span class="nf">release_transmission_in_nic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">payload_size</span><span class="p">,</span> <span class="n">destination_nic</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">release_transmission_in_nic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">payload_size</span><span class="p">,</span> <span class="n">destination_nic</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span></div>
 
 
 <div class="viewcode-block" id="Nic.calculate_transmission_time">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.nic.Nic.calculate_transmission_time">[docs]</a>
-    <span class="k">def</span> <span class="nf">calculate_transmission_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_transmission_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                     <span class="n">payload_size</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
                                     <span class="n">src_replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">,</span>
                                     <span class="n">destination_replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
@@ -539,7 +544,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Nic.dismiss_bw">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.nic.Nic.dismiss_bw">[docs]</a>
-    <span class="k">def</span> <span class="nf">dismiss_bw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bandwidth_request</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dismiss_bw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bandwidth_request</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This method is used to dismiss the bandwidth request from the NIC. It is used when the transmission is finished.</span>
 
@@ -555,7 +560,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Nic.request_bw">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.nic.Nic.request_bw">[docs]</a>
-    <span class="k">def</span> <span class="nf">request_bw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bandwidth_request</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">request_bw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bandwidth_request</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This method is used to request bandwidth from the NIC. It is used when a transmission is started.</span>
 
@@ -567,7 +572,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Nic.get_available">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.nic.Nic.get_available">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_available</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_available</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This simply returns the difference between the NIC&#39;s total bandwidth and requested bandwidth. If available bandwidth</span>
 <span class="sd">        is less than 0, it returns 0.</span>
@@ -641,8 +646,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

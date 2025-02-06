@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -346,27 +351,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">heapq</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">heapq</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">sortedcontainers</span> <span class="kn">import</span> <span class="n">SortedDict</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sortedcontainers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SortedDict</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">Utils</span><span class="p">,</span> <span class="n">LoadGeneratorLogObserver</span><span class="p">,</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">ServiceChainResultDict</span><span class="p">,</span> \
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">Utils</span><span class="p">,</span> <span class="n">LoadGeneratorLogObserver</span><span class="p">,</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">ServiceChainResultDict</span><span class="p">,</span> \
     <span class="n">SimulationScenarioResultDict</span>
-<span class="kn">from</span> <span class="nn">perfsim.observers.results_observer</span> <span class="kn">import</span> <span class="n">ResultsObserver</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim.observers.results_observer</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResultsObserver</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Simulation</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Simulation</span>
 
 
 <div class="viewcode-block" id="LoadGenerator">
 <a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator">[docs]</a>
-<span class="k">class</span> <span class="nc">LoadGenerator</span><span class="p">(</span><span class="n">Observable</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LoadGenerator</span><span class="p">(</span><span class="n">Observable</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class is responsible for generating a load for each service chain manager in a `simulation`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -462,7 +467,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1">#: This property stores the merged arrival tables from the traffic prototypes defined in the simulation scenario.</span>
     <span class="n">__merged_arrival_table</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Request</span><span class="p">]]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                  <span class="n">simulation</span><span class="p">:</span> <span class="n">Simulation</span><span class="p">,</span>
                  <span class="n">notify_observers_on_event</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
@@ -512,33 +517,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="bp">self</span><span class="o">.</span><span class="n">attach_observer</span><span class="p">(</span><span class="n">observer</span><span class="o">=</span><span class="n">LoadGeneratorLogObserver</span><span class="p">(</span><span class="n">load_generator</span><span class="o">=</span><span class="bp">self</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">attach_observer</span><span class="p">(</span><span class="n">observer</span><span class="o">=</span><span class="n">ResultsObserver</span><span class="p">(</span><span class="n">load_generator</span><span class="o">=</span><span class="bp">self</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">__calculate_total_requests_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__calculate_total_requests_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">requests_count</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">sfc_name</span><span class="p">,</span> <span class="n">traffic_type_object</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">scenario</span><span class="p">[</span><span class="s2">&quot;traffic_scenario&quot;</span><span class="p">][</span><span class="s2">&quot;service_chains&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">requests_count</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">traffic_prototypes_dict</span><span class="p">[</span><span class="n">traffic_type_object</span><span class="p">[</span><span class="s2">&quot;traffic_type&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">requests_count</span>
         <span class="k">return</span> <span class="n">requests_count</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">total_requests_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_requests_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__total_requests_count</span>
 
     <span class="nd">@total_requests_count</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">total_requests_count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_requests_count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
             <span class="s2">&quot;The attribute total_requests_count is read-only and can only be set during initialization &quot;</span>
             <span class="s2">&quot;based on give simulation scenario.&quot;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">merged_arrival_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merged_arrival_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__merged_arrival_table</span>
 
     <span class="nd">@merged_arrival_table</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">merged_arrival_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merged_arrival_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Cannot set merged_arrival_table!&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="LoadGenerator.register_events">
 <a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.register_events">[docs]</a>
-    <span class="k">def</span> <span class="nf">register_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_traffic_start&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_requests_start&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;after_requests_start&quot;</span><span class="p">)</span>
@@ -558,7 +563,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="LoadGenerator.execute_traffic">
 <a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.execute_traffic">[docs]</a>
-    <span class="k">def</span> <span class="nf">execute_traffic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">ReplicaThread</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute_traffic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">ReplicaThread</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This is the main function responsible to start the traffic in the cluster</span>
 
@@ -586,7 +591,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">threads</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_generate_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">load_balance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_generate_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">load_balance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">current_replicas</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">init_next_microservices</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_generate_request_threads</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> <span class="n">subchain_id</span><span class="o">=</span><span class="n">subchain_id</span><span class="p">)</span>
         <span class="n">replica_pair</span> <span class="o">=</span> <span class="n">current_replicas</span><span class="p">[</span><span class="n">subchain_id</span><span class="p">]</span>
@@ -602,7 +607,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">after_generate_request_threads</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> <span class="n">subchain_id</span><span class="o">=</span><span class="n">subchain_id</span><span class="p">,</span>
                               <span class="n">threads</span><span class="o">=</span><span class="n">threads</span><span class="p">,</span> <span class="n">current_replicas</span><span class="o">=</span><span class="n">current_replicas</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_initiate_next_endpoint_function_in_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_initiate_next_endpoint_function_in_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_generate_threads</span><span class="p">)</span>
 
         <span class="n">_id</span> <span class="o">=</span> <span class="mi">0</span>
@@ -617,7 +622,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="bp">self</span><span class="o">.</span><span class="n">next_event</span> <span class="o">=</span> <span class="s2">&quot;EXEC TIME EST&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">previous_event</span> <span class="o">=</span> <span class="s2">&quot;THREAD GEN&quot;</span>
 
-    <span class="k">def</span> <span class="nf">_exec_time_estimation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_exec_time_estimation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_exec_time_estimation</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">recalculate_transmissions_bw_on_all_links</span><span class="p">()</span>
@@ -651,7 +656,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">previous_event</span> <span class="o">=</span> <span class="s2">&quot;EXEC TIME EST&quot;</span>
 
-    <span class="k">def</span> <span class="nf">_run_threads_on_hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_run_threads_on_hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_executing_threads</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">duration_of_next_event</span>
@@ -673,7 +678,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                               <span class="n">current_completed_threads</span><span class="o">=</span><span class="n">current_completed_threads</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">previous_event</span> <span class="o">=</span> <span class="s2">&quot;RUN THREADS&quot;</span>
 
-    <span class="k">def</span> <span class="nf">_initiate_next_batch_of_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_initiate_next_batch_of_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">before_requests_start</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
@@ -702,7 +707,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="bp">self</span><span class="o">.</span><span class="n">notify_observers</span><span class="p">(</span><span class="n">event_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">after_requests_start</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">completed_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">completed_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return number of all completed requests</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -710,12 +715,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_completed_requests</span>
 
     <span class="nd">@completed_requests</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">completed_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">completed_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_completed_requests</span> <span class="o">=</span> <span class="n">v</span>
 
 <div class="viewcode-block" id="LoadGenerator.get_latencies_grouped_by_sfc">
 <a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.get_latencies_grouped_by_sfc">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_latencies_grouped_by_sfc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SimulationScenarioResultDict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_latencies_grouped_by_sfc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SimulationScenarioResultDict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return list of latencies for all requests of the service chain with the given name</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -760,7 +765,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="LoadGenerator.plot_latencies">
 <a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.plot_latencies">[docs]</a>
-    <span class="k">def</span> <span class="nf">plot_latencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot_latencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                        <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
                        <span class="n">show_numbers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -803,40 +808,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">last_transmission_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">last_transmission_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_transmission_id</span>
 
     <span class="nd">@last_transmission_id</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">last_transmission_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">last_transmission_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_last_transmission_id</span> <span class="o">=</span> <span class="n">v</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">next_trans_completion_times</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">next_trans_completion_times</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_trans_completion_times</span>
 
     <span class="nd">@next_trans_completion_times</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">next_trans_completion_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">next_trans_completion_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;next_trans_completion_times is read-only! It&#39;s going to be set automatically!&quot;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">requests_ready_for_thread_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">requests_ready_for_thread_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requests_ready_for_thread_generation</span>
 
     <span class="nd">@requests_ready_for_thread_generation</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">requests_ready_for_thread_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">requests_ready_for_thread_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;requests_ready_for_thread_generation is read-only! It&#39;s going to be set automatically!&quot;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">next_batch_arrival_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">next_batch_arrival_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_batch_arrival_time</span>
 
     <span class="nd">@next_batch_arrival_time</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">next_batch_arrival_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">next_batch_arrival_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;next_batch_arrival_time is read-only! It&#39;s going to be set automatically!&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="LoadGenerator.merge_arrival_tables">
 <a class="viewcode-back" href="../../../perfsim.traffic.html#perfsim.traffic.load_generator.LoadGenerator.merge_arrival_tables">[docs]</a>
-    <span class="k">def</span> <span class="nf">merge_arrival_tables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge_arrival_tables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">scm_name</span><span class="p">,</span> <span class="n">traffic_scenario_object</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">scenario</span><span class="p">[</span><span class="s1">&#39;traffic_scenario&#39;</span><span class="p">][</span><span class="s1">&#39;service_chains&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">traffic_proto</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">traffic_prototypes_dict</span><span class="p">[</span><span class="n">traffic_scenario_object</span><span class="p">[</span><span class="s1">&#39;traffic_type&#39;</span><span class="p">]]</span>
 
@@ -917,8 +922,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

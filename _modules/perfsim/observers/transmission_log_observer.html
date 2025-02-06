@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -345,24 +350,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.</span>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">LogObserver</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">LogObserver</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Transmission</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Transmission</span>
 
 
 <div class="viewcode-block" id="TransmissionLogObserver">
 <a class="viewcode-back" href="../../../perfsim.observers.html#perfsim.observers.transmission_log_observer.TransmissionLogObserver">[docs]</a>
-<span class="k">class</span> <span class="nc">TransmissionLogObserver</span><span class="p">(</span><span class="n">LogObserver</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transmission</span><span class="p">:</span> <span class="s1">&#39;Transmission&#39;</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TransmissionLogObserver</span><span class="p">(</span><span class="n">LogObserver</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transmission</span><span class="p">:</span> <span class="s1">&#39;Transmission&#39;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;TransmissionLogObserver&quot;</span><span class="p">,</span>
                          <span class="n">subject</span><span class="o">=</span><span class="n">transmission</span><span class="p">,</span>
                          <span class="n">logger</span><span class="o">=</span><span class="n">transmission</span><span class="o">.</span><span class="n">src_replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">logger</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">on_current_bw_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_bw</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">edge_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_current_bw_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_bw</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">edge_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">src_replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot; - Transmission bandwidth changed for a transmission on link &quot;</span> <span class="o">+</span> <span class="n">edge_data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span>
                             <span class="s2">&quot; related to request &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">subchain_id_request_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span>
@@ -372,7 +377,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">current_bw</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; | New bw = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">new_bw</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;B/s&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">on_all_transmissions_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_all_transmissions_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">src_replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">src_replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
                 <span class="s2">&quot;      ****** Transmitting a transmission related to request &quot;</span> <span class="o">+</span>
@@ -393,7 +398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">total_latency</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">on_all_transmissions_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">bytes_of_data_transmitted</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_all_transmissions_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">bytes_of_data_transmitted</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">src_replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">src_replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
                 <span class="s2">&quot;       ******* Transmitted &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">bytes_of_data_transmitted</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;B of data&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -401,7 +406,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="s2">&quot;         ******** - Remaining payload size = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">remaining_payload_size</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">on_before_transmission_time_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_before_transmission_time_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">src_replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">src_replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
                 <span class="s2">&quot;     ***** [Transmission] Calculating transmission time for request &quot;</span> <span class="o">+</span>
@@ -411,7 +416,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">dst_replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">on_after_transmission_time_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_after_transmission_time_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">src_replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">src_replica</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
                 <span class="s2">&quot;      ****** Transmission time = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">transmission_time</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
@@ -480,8 +485,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

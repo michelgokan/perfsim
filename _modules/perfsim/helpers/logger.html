@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -346,24 +351,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
 <span class="c1">#</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">prettytable</span> <span class="kn">import</span> <span class="n">PrettyTable</span>
-<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">prettytable</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrettyTable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tabulate</span><span class="w"> </span><span class="kn">import</span> <span class="n">tabulate</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Simulation</span><span class="p">,</span> <span class="n">ServiceChainManager</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Simulation</span><span class="p">,</span> <span class="n">ServiceChainManager</span>
 
 
 <div class="viewcode-block" id="Logger">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.logger.Logger">[docs]</a>
-<span class="k">class</span> <span class="nc">Logger</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Logger</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class represents a logger that logs the simulation events.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -373,7 +378,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="n">core_sorting_timer</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">sim</span><span class="p">:</span> <span class="n">Simulation</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation</span><span class="p">:</span> <span class="n">Simulation</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation</span><span class="p">:</span> <span class="n">Simulation</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="c1"># self.latencies = []</span>
         <span class="c1"># self.arrivals = []</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sim</span> <span class="o">=</span> <span class="n">simulation</span>
@@ -382,7 +387,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug_file_location</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug_file_location</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
             <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug_file_location</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_print_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_print_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug_file_location</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug_file_location</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">log_str</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
@@ -401,7 +406,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Logger.print_traffic_details">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.logger.Logger.print_traffic_details">[docs]</a>
-    <span class="k">def</span> <span class="nf">print_traffic_details</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">print_traffic_details</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">table</span> <span class="o">=</span> <span class="n">PrettyTable</span><span class="p">(</span>
             <span class="p">[</span><span class="s2">&quot;Traffic Generator Name/SCM ID&quot;</span><span class="p">,</span> <span class="s2">&quot;Duration&quot;</span><span class="p">,</span> <span class="s2">&quot;Arrival Delta T&quot;</span><span class="p">,</span> <span class="s2">&quot;Start at&quot;</span><span class="p">,</span> <span class="s2">&quot;Batch size&quot;</span><span class="p">,</span>
              <span class="s2">&quot;Total requests&quot;</span><span class="p">])</span>
@@ -421,7 +426,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Logger.print_hosts_info">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.logger.Logger.print_hosts_info">[docs]</a>
-    <span class="k">def</span> <span class="nf">print_hosts_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">print_hosts_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">hosts_table</span> <span class="o">=</span> <span class="n">PrettyTable</span><span class="p">([</span><span class="s2">&quot;Host Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Clock Rate&quot;</span><span class="p">,</span> <span class="s2">&quot;Cores&quot;</span><span class="p">])</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_print_log</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Hosts</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -432,7 +437,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Logger.print_microservices_info">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.logger.Logger.print_microservices_info">[docs]</a>
-    <span class="k">def</span> <span class="nf">print_microservices_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">print_microservices_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_print_log</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Microservices</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">table</span> <span class="o">=</span> <span class="n">PrettyTable</span><span class="p">([</span><span class="s2">&quot;MS Name&quot;</span><span class="p">,</span> <span class="s2">&quot;CPU Requests&quot;</span><span class="p">,</span> <span class="s2">&quot;CPU Limits&quot;</span><span class="p">,</span> <span class="s2">&quot;Replica Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Host&quot;</span><span class="p">,</span> <span class="s2">&quot;Endpoint Function ID&quot;</span><span class="p">,</span>
                              <span class="s2">&quot;Thread ID&quot;</span><span class="p">,</span> <span class="s2">&quot;Instructions&quot;</span><span class="p">,</span> <span class="s2">&quot;CPI&quot;</span><span class="p">,</span> <span class="s2">&quot;Misses&quot;</span><span class="p">,</span> <span class="s2">&quot;Refs&quot;</span><span class="p">,</span> <span class="s2">&quot;Penalty&quot;</span><span class="p">])</span>
@@ -472,7 +477,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Logger.print_cluster_info">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.logger.Logger.print_cluster_info">[docs]</a>
-    <span class="k">def</span> <span class="nf">print_cluster_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">print_cluster_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_print_log</span><span class="p">(</span><span class="n">log_str</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">placement_matrix</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">print_hosts_info</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">print_microservices_info</span><span class="p">()</span></div>
@@ -480,7 +485,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Logger.print_subchains">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.logger.Logger.print_subchains">[docs]</a>
-    <span class="k">def</span> <span class="nf">print_subchains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scm</span><span class="p">:</span> <span class="n">ServiceChainManager</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">print_subchains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scm</span><span class="p">:</span> <span class="n">ServiceChainManager</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_print_log</span><span class="p">(</span><span class="n">log_str</span><span class="o">=</span><span class="s2">&quot;----------------------&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_print_log</span><span class="p">(</span><span class="n">log_str</span><span class="o">=</span><span class="s2">&quot;Subchains of scm #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">scm</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
 
@@ -496,7 +501,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Logger.print_all">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.logger.Logger.print_all">[docs]</a>
-    <span class="k">def</span> <span class="nf">print_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">print_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">print_cluster_info</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">print_traffic_details</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">scm_name</span><span class="p">,</span> <span class="n">scm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">scm_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
@@ -505,14 +510,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Logger.log">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.logger.Logger.log">[docs]</a>
-    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug_level</span> <span class="o">&gt;=</span> <span class="n">level</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_print_log</span><span class="p">(</span><span class="n">log_str</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">msg</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Logger.print_latencies">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.logger.Logger.print_latencies">[docs]</a>
-    <span class="k">def</span> <span class="nf">print_latencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">print_latencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">detailed</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_print_log</span><span class="p">(</span><span class="n">log_str</span><span class="o">=</span><span class="n">tabulate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">latencies</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;psql&quot;</span><span class="p">))</span>
 
@@ -522,7 +527,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Logger.get_latencies_summary">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.logger.Logger.get_latencies_summary">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_latencies_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_latencies_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;avg. latency&quot;</span><span class="p">,</span> <span class="s2">&quot;max latency&quot;</span><span class="p">,</span> <span class="s2">&quot;min latency&quot;</span><span class="p">])</span>
         <span class="n">summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;avg. latency&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">latencies</span><span class="p">[</span><span class="s2">&quot;latency&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
                           <span class="s2">&quot;max latency&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">load_generator</span><span class="o">.</span><span class="n">latencies</span><span class="p">[</span><span class="s2">&quot;latency&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span>
@@ -604,8 +609,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

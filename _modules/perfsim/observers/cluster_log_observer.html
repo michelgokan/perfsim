@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -345,26 +350,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.</span>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">LogObserver</span><span class="p">,</span> <span class="n">Event</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogObserver</span><span class="p">,</span> <span class="n">Event</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Cluster</span><span class="p">,</span> <span class="n">Host</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">Request</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cluster</span><span class="p">,</span> <span class="n">Host</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">Request</span>
 
 
 <div class="viewcode-block" id="ClusterLogObserver">
 <a class="viewcode-back" href="../../../perfsim.observers.html#perfsim.observers.cluster_log_observer.ClusterLogObserver">[docs]</a>
-<span class="k">class</span> <span class="nc">ClusterLogObserver</span><span class="p">(</span><span class="n">LogObserver</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ClusterLogObserver</span><span class="p">(</span><span class="n">LogObserver</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class is responsible for logging the events of the cluster.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cluster</span><span class="p">:</span> <span class="s1">&#39;Cluster&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cluster</span><span class="p">:</span> <span class="s1">&#39;Cluster&#39;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;ClusterLogObserver&quot;</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">cluster</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">logger</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">after_finish_running_threads_on_a_host</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">after_finish_running_threads_on_a_host</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                                <span class="n">host</span><span class="p">:</span> <span class="s1">&#39;Host&#39;</span><span class="p">,</span>
                                                <span class="n">completed_threads_on_host</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                                                <span class="n">completed_threads_on_all_hosts</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
@@ -383,7 +388,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="s2">&quot; threads = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">completed_threads_on_all_hosts</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">after_finish_running_a_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">after_finish_running_a_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                       <span class="n">thread</span><span class="p">:</span> <span class="s1">&#39;ReplicaThread&#39;</span><span class="p">,</span>
                                       <span class="n">current_completed_threads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                                       <span class="n">completed_threads</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
@@ -403,13 +408,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span class="nb">str</span><span class="p">(</span><span class="n">completed_threads</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">cluster_scheduler</span><span class="o">.</span><span class="n">active_threads</span><span class="p">)),</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_transmitting_requests_in_network</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_transmitting_requests_in_network</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;    *** Number of active transmissions: &quot;</span> <span class="o">+</span>
                             <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">active_transmissions</span><span class="p">)))</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">in_transmitting_an_active_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">in_transmitting_an_active_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                                <span class="n">request</span><span class="p">:</span> <span class="s1">&#39;Request&#39;</span><span class="p">,</span>
                                                <span class="n">active_subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                                                <span class="n">duration</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]):</span>
@@ -434,7 +439,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span class="s2">&quot; its transmission time by &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">duration</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">after_transmitting_an_active_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">after_transmitting_an_active_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                                   <span class="n">request</span><span class="p">:</span> <span class="s1">&#39;Request&#39;</span><span class="p">,</span>
                                                   <span class="n">active_subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                                                   <span class="n">duration</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]):</span>
@@ -455,7 +460,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;     **** Transmission time &lt;= 0 -&gt; finish transmission&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_load_balancing_a_host</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="s1">&#39;Host&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_load_balancing_a_host</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="s1">&#39;Host&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the host that is going to be load balanced.</span>
 
@@ -467,7 +472,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot; ** Load balancing threads in host &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">host</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_calling_is_there_a_thread_that_ends_sooner_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_of_next_event</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_calling_is_there_a_thread_that_ends_sooner_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_of_next_event</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the time of the next event before calling the function is_there_a_thread_that_ends_sooner.</span>
 
@@ -481,7 +486,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="s2">&quot;not. If so, then we need to change the execution time...&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_checking_a_thread_ends_sooner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_checking_a_thread_ends_sooner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                              <span class="n">thread</span><span class="p">:</span> <span class="s1">&#39;ReplicaThread&#39;</span><span class="p">,</span>
                                              <span class="n">duration_to_finish</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
                                              <span class="n">time_to_finish</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
@@ -508,7 +513,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span class="s2">&quot;time_of_next_event with &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">time_to_finish</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">after_calling_is_there_a_thread_that_ends_sooner_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">after_calling_is_there_a_thread_that_ends_sooner_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                                                   <span class="n">result</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
                                                                   <span class="n">time_of_next_event</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
                                                                   <span class="n">duration_of_next_event</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]):</span>
@@ -594,8 +599,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

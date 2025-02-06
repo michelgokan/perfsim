@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -346,19 +351,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span>
 
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">from</span> <span class="nn">networkx</span> <span class="kn">import</span> <span class="n">DiGraph</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="kn">import</span> <span class="n">DiGraph</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">ServiceChain</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">,</span> <span class="n">Plotter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">ServiceChain</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">,</span> <span class="n">Plotter</span>
 
 
 <div class="viewcode-block" id="ServiceChainManager">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager">[docs]</a>
-<span class="k">class</span> <span class="nc">ServiceChainManager</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ServiceChainManager</span><span class="p">:</span>
     <span class="c1">#: The alternative graph for the service chain, with nodes as a tuple of (node number, MicroserviceEndpointFunction)</span>
     <span class="n">alternative_graph</span><span class="p">:</span> <span class="n">DiGraph</span>
 
@@ -377,7 +382,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1">#: The root node of the service chain</span>
     <span class="n">__root</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">service_chain</span><span class="p">:</span> <span class="n">ServiceChain</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">service_chain</span><span class="p">:</span> <span class="n">ServiceChain</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__node_labels_map</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alternative_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">service_chain</span> <span class="o">=</span> <span class="n">service_chain</span>
@@ -401,16 +406,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="c1"># self.subchains_count = len(self.subchains)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">root</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">root</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__root</span>
 
     <span class="nd">@root</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">root</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">root</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">]):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Error: root can&#39;t be set in service chain manager! It&#39;s set automatically in initialization.&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ServiceChainManager.generate_alternative_graph">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.generate_alternative_graph">[docs]</a>
-    <span class="k">def</span> <span class="nf">generate_alternative_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_alternative_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># nx.draw(self.service_chain)</span>
         <span class="c1"># plt.show()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">subchains</span> <span class="o">=</span> <span class="p">[[]]</span>
@@ -491,7 +496,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="ServiceChainManager.extract_subchains">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.extract_subchains">[docs]</a>
-    <span class="k">def</span> <span class="nf">extract_subchains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_node</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">extract_subchains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_node</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">successors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alternative_graph</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">current_node</span><span class="p">))</span>
         <span class="n">successors_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">successors</span><span class="p">)</span>
 
@@ -513,7 +518,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="ServiceChainManager.draw_service_chain">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.draw_service_chain">[docs]</a>
-    <span class="k">def</span> <span class="nf">draw_service_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">with_labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw_service_chain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">with_labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Plotter</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">G</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">service_chain</span><span class="p">),</span>
                                   <span class="c1"># node_labels_map=self.__node_labels_map,</span>
                                   <span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span>
@@ -524,7 +529,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="ServiceChainManager.draw_alternative_graph">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.draw_alternative_graph">[docs]</a>
-    <span class="k">def</span> <span class="nf">draw_alternative_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">with_labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">relabel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw_alternative_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">with_labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">relabel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Plotter</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">G</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">alternative_graph</span><span class="p">,</span>
                                   <span class="c1"># node_labels_map=self.__node_labels_map,</span>
                                   <span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span>
@@ -537,7 +542,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="ServiceChainManager.get_copy">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.service_chain_manager.ServiceChainManager.get_copy">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_copy</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_copy</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
         <span class="n">_G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">MultiDiGraph</span><span class="p">()</span>
         <span class="n">_edges</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -552,7 +557,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="n">_G</span></div>
 
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
 
 </pre></div>
@@ -617,8 +622,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

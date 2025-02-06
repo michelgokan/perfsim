@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -345,20 +350,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.</span>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">SimulationScenario</span><span class="p">,</span> <span class="n">ServiceChain</span><span class="p">,</span> <span class="n">PlacementAlgorithm</span><span class="p">,</span> <span class="n">ResourceAllocationScenario</span><span class="p">,</span> \
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimulationScenario</span><span class="p">,</span> <span class="n">ServiceChain</span><span class="p">,</span> <span class="n">PlacementAlgorithm</span><span class="p">,</span> <span class="n">ResourceAllocationScenario</span><span class="p">,</span> \
     <span class="n">AffinityPrototype</span><span class="p">,</span> <span class="n">Microservice</span><span class="p">,</span> <span class="n">TrafficPrototype</span><span class="p">,</span> <span class="n">LoadGenerator</span><span class="p">,</span> <span class="n">Cluster</span><span class="p">,</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">TopologyPrototype</span><span class="p">,</span> <span class="n">Topology</span><span class="p">,</span> \
     <span class="n">ResultsStorageDriver</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">SimulationScenarioManager</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimulationScenarioManager</span>
 
 
 <div class="viewcode-block" id="Simulation">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.simulation.Simulation">[docs]</a>
-<span class="k">class</span> <span class="nc">Simulation</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class represents a simulation. It contains all the necessary information to run a simulation.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -422,7 +427,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="n">DEFAULT_LOG_CPU_EVENTS</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">DEFAULT_LOG_TIMELINE</span> <span class="o">=</span> <span class="kc">False</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                  <span class="n">simulation_scenario</span><span class="p">:</span> <span class="n">SimulationScenario</span><span class="p">,</span>
                  <span class="n">service_chains_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChain</span><span class="p">],</span>
@@ -469,7 +474,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Simulation.set_object">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.simulation.Simulation.set_object">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">set_object</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">copy</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_object</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">copy</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set an object with or without copy</span>
 
@@ -485,7 +490,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Simulation.setting_scaling_scenario">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.simulation.Simulation.setting_scaling_scenario">[docs]</a>
-    <span class="k">def</span> <span class="nf">setting_scaling_scenario</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setting_scaling_scenario</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setting the scaling scenario</span>
 
@@ -513,7 +518,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Simulation.setting_affinity_scenarios">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.simulation.Simulation.setting_affinity_scenarios">[docs]</a>
-    <span class="k">def</span> <span class="nf">setting_affinity_scenarios</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setting_affinity_scenarios</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setting the affinity scenarios</span>
 
@@ -543,7 +548,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Simulation.validate_simulation_scenario">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.simulation.Simulation.validate_simulation_scenario">[docs]</a>
-    <span class="k">def</span> <span class="nf">validate_simulation_scenario</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim_scenario</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_simulation_scenario</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim_scenario</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validate the simulation scenario to make sure all the microservices are in the simulation scenario</span>
 <span class="sd">        It raises an exception if a microservice is not found in the simulation scenario</span>
@@ -560,7 +565,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Simulation.copy_sim_scenarios_to_dict">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.simulation.Simulation.copy_sim_scenarios_to_dict">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">copy_sim_scenarios_to_dict</span><span class="p">(</span><span class="n">sim_scenarios</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">SimulationScenario</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SimulationScenario</span><span class="p">]])</span> \
+    <span class="k">def</span><span class="w"> </span><span class="nf">copy_sim_scenarios_to_dict</span><span class="p">(</span><span class="n">sim_scenarios</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">SimulationScenario</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SimulationScenario</span><span class="p">]])</span> \
             <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SimulationScenario</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy simulation scenarios to a dictionary</span>
@@ -580,7 +585,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="k">return</span> <span class="n">simulation_scenarios_dict</span></div>
 
 
-    <span class="k">def</span> <span class="nf">__get_debug_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__get_debug_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a debug parameter</span>
 
@@ -604,7 +609,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Simulation.set_debug_properties">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.simulation.Simulation.set_debug_properties">[docs]</a>
-    <span class="k">def</span> <span class="nf">set_debug_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_debug_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                              <span class="n">level</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                              <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                              <span class="n">log_cpu_events</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -626,7 +631,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">log_timeline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_timeline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log timeline</span>
 
@@ -635,7 +640,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log_timeline</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Status of debug mode (automatically configured based on _debug_level)</span>
 
@@ -644,7 +649,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_debug</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">debug_level</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">debug_level</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Level of debug verbosity (1-5)</span>
 
@@ -653,7 +658,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_debug_level</span>
 
     <span class="nd">@debug_level</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">debug_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">debug_level</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">debug_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">debug_level</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set debug level (1-5)</span>
 <span class="sd">        :param debug_level:  Debug level (1-5)</span>
@@ -664,7 +669,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="bp">self</span><span class="o">.</span><span class="n">_debug_level</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_debug</span> <span class="ow">is</span> <span class="kc">False</span> <span class="ow">or</span> <span class="n">debug_level</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">debug_level</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">debug_file_location</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">debug_file_location</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return log file location</span>
 <span class="sd">        :return: Log file path - None if empty (then log will print out in console)</span>
@@ -674,11 +679,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_debug_file_location</span>
 
     <span class="nd">@debug_file_location</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">debug_file_location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">debug_file_location</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">debug_file_location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">debug_file_location</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_debug_file_location</span> <span class="o">=</span> <span class="n">debug_file_location</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">log_cpu_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_cpu_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Status of logging CPU events (used for drawing task load balancing heatmaps)</span>
 <span class="sd">        :return: bool</span>
@@ -687,7 +692,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log_cpu_events</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Simulation time</span>
 <span class="sd">        :return: Simulation time</span>
@@ -697,7 +702,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time</span>
 
     <span class="nd">@time</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set simulation time</span>
 
@@ -710,7 +715,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Simulation.from_scenarios_manager">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.simulation.Simulation.from_scenarios_manager">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">from_scenarios_manager</span><span class="p">(</span><span class="n">sm</span><span class="p">:</span> <span class="s1">&#39;SimulationScenarioManager&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;Simulation&#39;</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_scenarios_manager</span><span class="p">(</span><span class="n">sm</span><span class="p">:</span> <span class="s1">&#39;SimulationScenarioManager&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;Simulation&#39;</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create simulations from scenarios manager</span>
 
@@ -797,8 +802,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

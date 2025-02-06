@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -346,33 +351,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">webbrowser</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">webbrowser</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">plotly.figure_factory</span> <span class="k">as</span> <span class="nn">pff</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.figure_factory</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pff</span>
 <span class="c1"># from networkx.drawing.tests.test_pylab import plt</span>
-<span class="kn">from</span> <span class="nn">networkx.drawing.nx_agraph</span> <span class="kn">import</span> <span class="n">graphviz_layout</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
-<span class="kn">from</span> <span class="nn">sortedcontainers</span> <span class="kn">import</span> <span class="n">SortedList</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">networkx.drawing.nx_agraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graphviz_layout</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sortedcontainers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SortedList</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Utils</span><span class="p">,</span> <span class="n">Transmission</span><span class="p">,</span> <span class="n">SimulationScenarioResultDict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Utils</span><span class="p">,</span> <span class="n">Transmission</span><span class="p">,</span> <span class="n">SimulationScenarioResultDict</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">LoadGenerator</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoadGenerator</span>
 
 
 <div class="viewcode-block" id="Plotter">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter">[docs]</a>
-<span class="k">class</span> <span class="nc">Plotter</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Plotter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class is responsible for plotting the simulation results.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -380,12 +385,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Plotter.draw_topology">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_topology">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">draw_topology</span><span class="p">(</span><span class="n">cluster</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw_topology</span><span class="p">(</span><span class="n">cluster</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Draw the topology of the cluster.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="kn">from</span> <span class="nn">networkx.drawing.tests.test_pylab</span> <span class="kn">import</span> <span class="n">plt</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">networkx.drawing.tests.test_pylab</span><span class="w"> </span><span class="kn">import</span> <span class="n">plt</span>
         <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">cluster</span><span class="o">.</span><span class="n">topology</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
 
@@ -393,7 +398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Plotter.draw_timeline_graph">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_timeline_graph">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">draw_timeline_graph</span><span class="p">(</span><span class="n">results</span><span class="p">:</span> <span class="n">SimulationScenarioResultDict</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw_timeline_graph</span><span class="p">(</span><span class="n">results</span><span class="p">:</span> <span class="n">SimulationScenarioResultDict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Draw the timeline graph.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -436,7 +441,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Plotter.draw_figures">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_figures">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">draw_figures</span><span class="p">(</span><span class="n">load_generator</span><span class="p">:</span> <span class="n">LoadGenerator</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw_figures</span><span class="p">(</span><span class="n">load_generator</span><span class="p">:</span> <span class="n">LoadGenerator</span><span class="p">,</span>
                      <span class="n">scenario_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                      <span class="n">show_events</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="n">path_to_save_results</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/results/&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -452,7 +457,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="n">__base_path</span> <span class="o">=</span> <span class="n">path_to_save_results</span> <span class="o">+</span> <span class="n">scenario_name</span>
         <span class="n">Utils</span><span class="o">.</span><span class="n">mkdir_p</span><span class="p">(</span><span class="n">__base_path</span><span class="p">)</span>
         <span class="n">Utils</span><span class="o">.</span><span class="n">mkdir_p</span><span class="p">(</span><span class="n">__base_path</span> <span class="o">+</span> <span class="s2">&quot;/hosts&quot;</span><span class="p">)</span>
-        <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
         <span class="n">palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;hls&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">load_generator</span><span class="o">.</span><span class="n">threads</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">threads_color_code</span> <span class="o">=</span> <span class="p">{}</span>
@@ -623,7 +628,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Plotter.draw_graph">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.draw_graph">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">draw_graph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">with_labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">relabel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw_graph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">with_labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">relabel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                    <span class="n">node_labels_map</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Draw a graph.</span>
@@ -693,7 +698,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Plotter.convert_networkx_graph_to_cytoscape_json">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.convert_networkx_graph_to_cytoscape_json">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">convert_networkx_graph_to_cytoscape_json</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">edge_labels</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">node_style</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">convert_networkx_graph_to_cytoscape_json</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">edge_labels</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">node_style</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                                                  <span class="n">edge_style</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;euler&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert a NetworkX graph to a Cytoscape JSON object.</span>
@@ -818,7 +823,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Plotter.get_cytoscape_template">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.get_cytoscape_template">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_cytoscape_template</span><span class="p">(</span><span class="n">ready_script</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_cytoscape_template</span><span class="p">(</span><span class="n">ready_script</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the template for the Cytoscape graph.</span>
 
@@ -861,7 +866,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Plotter.figures_to_html">
 <a class="viewcode-back" href="../../../perfsim.helpers.html#perfsim.helpers.plotter.Plotter.figures_to_html">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">figures_to_html</span><span class="p">(</span><span class="n">figs</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dashboard.html&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">figures_to_html</span><span class="p">(</span><span class="n">figs</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dashboard.html&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save a list of figures to an HTML file.</span>
 
@@ -941,8 +946,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

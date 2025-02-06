@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -346,19 +351,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Dict</span>
 
-<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">ResultsStorageDriver</span><span class="p">,</span> <span class="n">SimulationScenarioResultDict</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">,</span> <span class="n">Utils</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">Host</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResultsStorageDriver</span><span class="p">,</span> <span class="n">SimulationScenarioResultDict</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">,</span> <span class="n">Utils</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">Host</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Simulation</span><span class="p">,</span> <span class="n">Cluster</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Simulation</span><span class="p">,</span> <span class="n">Cluster</span>
 
 
 <div class="viewcode-block" id="FileStorageDriver">
 <a class="viewcode-back" href="../../../perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver">[docs]</a>
-<span class="k">class</span> <span class="nc">FileStorageDriver</span><span class="p">(</span><span class="n">ResultsStorageDriver</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FileStorageDriver</span><span class="p">(</span><span class="n">ResultsStorageDriver</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    File storage driver is the class responsible for storing the results of the simulation in a file system.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -366,13 +371,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1">#: The base directory where the results will be stored.</span>
     <span class="n">base_dir</span><span class="p">:</span> <span class="nb">str</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;results/&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;results/&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">base_dir</span>
 
 <div class="viewcode-block" id="FileStorageDriver.save_all">
 <a class="viewcode-back" href="../../../perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_all">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation</span><span class="p">:</span> <span class="s1">&#39;Simulation&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation</span><span class="p">:</span> <span class="s1">&#39;Simulation&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save all the results of the simulation in the file system.</span>
 
@@ -403,7 +408,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="FileStorageDriver.save_simulation_scenario_results">
 <a class="viewcode-back" href="../../../perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_simulation_scenario_results">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_simulation_scenario_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation</span><span class="p">:</span> <span class="s1">&#39;Simulation&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_simulation_scenario_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation</span><span class="p">:</span> <span class="s1">&#39;Simulation&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save the results of the simulation scenario in the file system.</span>
 
@@ -416,7 +421,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="FileStorageDriver.save_cluster_topology_graph">
 <a class="viewcode-back" href="../../../perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_cluster_topology_graph">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_cluster_topology_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cluster</span><span class="p">:</span> <span class="s1">&#39;Cluster&#39;</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="s2">&quot;results/topologies&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_cluster_topology_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cluster</span><span class="p">:</span> <span class="s1">&#39;Cluster&#39;</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="s2">&quot;results/topologies&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save the topology graph of the cluster in the file system.</span>
 
@@ -430,7 +435,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="FileStorageDriver.save_service_chains_original_graph">
 <a class="viewcode-back" href="../../../perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_original_graph">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_service_chains_original_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_service_chains_original_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                            <span class="n">service_chain_managers_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">],</span>
                                            <span class="n">save_dir</span><span class="o">=</span><span class="s2">&quot;results/service_chains/</span><span class="si">{middle}</span><span class="s2">/original&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -453,7 +458,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="FileStorageDriver.save_service_chains_alternative_graph">
 <a class="viewcode-back" href="../../../perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chains_alternative_graph">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_service_chains_alternative_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_service_chains_alternative_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                               <span class="n">service_chain_managers_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">],</span>
                                               <span class="n">save_dir</span><span class="o">=</span><span class="s2">&quot;results/service_chains/</span><span class="si">{middle}</span><span class="s2">/alternative&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -476,7 +481,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="FileStorageDriver.save_service_chain_result_graph">
 <a class="viewcode-back" href="../../../perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_service_chain_result_graph">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_service_chain_result_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="s2">&quot;results/</span><span class="si">{result_key}</span><span class="s2">&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_service_chain_result_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="s2">&quot;results/</span><span class="si">{result_key}</span><span class="s2">&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save the results of the service chains in the file system.</span>
 
@@ -513,7 +518,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="FileStorageDriver.save_timeline_graph">
 <a class="viewcode-back" href="../../../perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_timeline_graph">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_timeline_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;results/</span><span class="si">{result_key}</span><span class="s2">&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_timeline_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;results/</span><span class="si">{result_key}</span><span class="s2">&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save the timeline graph of the results in the file system.</span>
 
@@ -529,7 +534,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="FileStorageDriver.save_hosts_cores_heatmap">
 <a class="viewcode-back" href="../../../perfsim.drivers.html#perfsim.drivers.file_storage_driver.FileStorageDriver.save_hosts_cores_heatmap">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_hosts_cores_heatmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hosts_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Host</span><span class="p">],</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;results/cpu/heatmap/</span><span class="si">{result_key}</span><span class="s2">&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_hosts_cores_heatmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hosts_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Host</span><span class="p">],</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;results/cpu/heatmap/</span><span class="si">{result_key}</span><span class="s2">&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save the hosts cores heatmap graph in the file system.</span>
 
@@ -608,8 +613,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

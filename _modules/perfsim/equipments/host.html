@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -346,22 +351,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Dict</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Nic</span><span class="p">,</span> <span class="n">CPU</span><span class="p">,</span> <span class="n">Storage</span><span class="p">,</span> <span class="n">Settings</span><span class="p">,</span> <span class="n">HostPrototype</span><span class="p">,</span> <span class="n">RamSet</span><span class="p">,</span> <span class="n">Router</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">CoreLogObserver</span><span class="p">,</span> \
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Nic</span><span class="p">,</span> <span class="n">CPU</span><span class="p">,</span> <span class="n">Storage</span><span class="p">,</span> <span class="n">Settings</span><span class="p">,</span> <span class="n">HostPrototype</span><span class="p">,</span> <span class="n">RamSet</span><span class="p">,</span> <span class="n">Router</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">CoreLogObserver</span><span class="p">,</span> \
     <span class="n">CPULogObserver</span><span class="p">,</span> <span class="n">Equipment</span><span class="p">,</span> <span class="n">CostDict</span><span class="p">,</span> <span class="n">CostEventsDict</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">MicroserviceReplica</span><span class="p">,</span> <span class="n">Cluster</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">MicroserviceReplica</span><span class="p">,</span> <span class="n">Cluster</span>
 
 
 <div class="viewcode-block" id="Host">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.host.Host">[docs]</a>
-<span class="k">class</span> <span class="nc">Host</span><span class="p">(</span><span class="n">HostPrototype</span><span class="p">,</span> <span class="n">Equipment</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Host</span><span class="p">(</span><span class="n">HostPrototype</span><span class="p">,</span> <span class="n">Equipment</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A Host object simulates a single host in a cluster. It has a single CPU and a</span>
 <span class="sd">    single NIC. The Number of cores in its CPU can be specified using the *cores_count*</span>
@@ -378,7 +383,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1">#: The cost events of this host</span>
     <span class="n">cost_events</span><span class="p">:</span> <span class="n">CostEventsDict</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                  <span class="n">cpu_core_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                  <span class="n">cpu_clock_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -440,7 +445,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Host.reinit">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.host.Host.reinit">[docs]</a>
-    <span class="k">def</span> <span class="nf">reinit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reinit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reinitialize the host object</span>
 
@@ -463,7 +468,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Cluster</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Cluster</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the cluster this host belongs to</span>
 <span class="sd">        :return:</span>
@@ -472,7 +477,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cluster</span>
 
     <span class="nd">@cluster</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cluster</span><span class="p">:</span> <span class="n">Cluster</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cluster</span><span class="p">:</span> <span class="n">Cluster</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sets the cluster this host belongs to and attaches the necessary observers to the host&#39;s CPU and cores</span>
 
@@ -486,7 +491,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">attach_observer</span><span class="p">(</span><span class="n">CPULogObserver</span><span class="p">(</span><span class="n">cpu</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="p">))</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">router</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Router</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">router</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Router</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the router this host is connected to (if any)</span>
 
@@ -496,7 +501,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__router</span>
 
     <span class="nd">@router</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">router</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Router</span><span class="p">,</span> <span class="kc">None</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">router</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Router</span><span class="p">,</span> <span class="kc">None</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sets the router this host is connected to (if any)</span>
 
@@ -511,7 +516,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Host.from_host_prototype">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.host.Host.from_host_prototype">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">from_host_prototype</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_host_prototype</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
                             <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                             <span class="n">host_prototype</span><span class="p">:</span> <span class="n">HostPrototype</span><span class="p">,</span>
                             <span class="n">cluster</span><span class="p">:</span> <span class="n">Cluster</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -543,7 +548,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Host.is_replica_placeable_on_host_from_resource_perspective">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.host.Host.is_replica_placeable_on_host_from_resource_perspective">[docs]</a>
-    <span class="k">def</span> <span class="nf">is_replica_placeable_on_host_from_resource_perspective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_replica_placeable_on_host_from_resource_perspective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if a replica can be placed on this host from a resource perspective (CPU, RAM, BLKIO, NIC)</span>
 
@@ -564,7 +569,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Host.place_replica">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.host.Host.place_replica">[docs]</a>
-    <span class="k">def</span> <span class="nf">place_replica</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">place_replica</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Place a replica on this host and reserve the necessary resources (CPU, RAM, BLKIO, NIC)</span>
 
@@ -591,7 +596,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Host.evict_replica">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.host.Host.evict_replica">[docs]</a>
-    <span class="k">def</span> <span class="nf">evict_replica</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evict_replica</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">replica</span><span class="p">:</span> <span class="n">MicroserviceReplica</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Evict a replica from this host and release the reserved resources (CPU, RAM, BLKIO, NIC)</span>
 
@@ -616,7 +621,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Host.is_active">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.host.Host.is_active">[docs]</a>
-    <span class="k">def</span> <span class="nf">is_active</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_active</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if the host is active (i.e., has at least one thread running)</span>
 
@@ -629,7 +634,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Host.generate_random_instances">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.host.Host.generate_random_instances">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">generate_random_instances</span><span class="p">(</span><span class="n">cluster</span><span class="p">:</span> <span class="n">Cluster</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_random_instances</span><span class="p">(</span><span class="n">cluster</span><span class="p">:</span> <span class="n">Cluster</span><span class="p">,</span>
                                   <span class="n">host_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                                   <span class="n">core_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">Settings</span><span class="o">.</span><span class="n">chunks</span><span class="p">[</span><span class="s2">&quot;host_cpu_core_count&quot;</span><span class="p">]),</span>
                                   <span class="n">cpu_clock_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">Settings</span><span class="o">.</span><span class="n">chunks</span><span class="p">[</span><span class="s2">&quot;host_cpu_clock_rate&quot;</span><span class="p">]),</span>
@@ -676,7 +681,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">threads</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">ReplicaThread</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">threads</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">ReplicaThread</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the threads running on the host (if any)</span>
 
@@ -685,7 +690,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__threads</span>
 
     <span class="nd">@threads</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">ReplicaThread</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">ReplicaThread</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the threads running on the host (if any)</span>
 
@@ -698,7 +703,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Host.from_config">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.host.Host.from_config">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">from_config</span><span class="p">(</span><span class="n">conf</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">host_prototypes_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;HostPrototype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;Host&#39;</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_config</span><span class="p">(</span><span class="n">conf</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">host_prototypes_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;HostPrototype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;Host&#39;</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create hosts from a configuration dictionary and a dictionary of host prototypes</span>
 
@@ -719,7 +724,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Host.to_dict">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.host.Host.to_dict">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="n">hosts_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Host</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Host</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="n">hosts_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Host</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Host</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert a list of hosts to a dictionary of hosts</span>
 
@@ -797,8 +802,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

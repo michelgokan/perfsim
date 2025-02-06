@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -345,25 +350,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  This file is a part of the PerfSim project, which is now open source and available under the GPLv2.</span>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Dict</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">LogObserver</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">LogObserver</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">LoadGenerator</span><span class="p">,</span> <span class="n">Request</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">MicroserviceReplica</span><span class="p">,</span> <span class="n">TrafficPrototype</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">LoadGenerator</span><span class="p">,</span> <span class="n">Request</span><span class="p">,</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">MicroserviceReplica</span><span class="p">,</span> <span class="n">TrafficPrototype</span>
 
 
 <div class="viewcode-block" id="LoadGeneratorLogObserver">
 <a class="viewcode-back" href="../../../perfsim.observers.html#perfsim.observers.load_generator_log_observer.LoadGeneratorLogObserver">[docs]</a>
-<span class="k">class</span> <span class="nc">LoadGeneratorLogObserver</span><span class="p">(</span><span class="n">LogObserver</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LoadGeneratorLogObserver</span><span class="p">(</span><span class="n">LogObserver</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class is responsible for logging the events of the load generator.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load_generator</span><span class="p">:</span> <span class="s1">&#39;LoadGenerator&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load_generator</span><span class="p">:</span> <span class="s1">&#39;LoadGenerator&#39;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LoadGeneratorLogObserver&quot;</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">load_generator</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">load_generator</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">logger</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_traffic_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_traffic_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the start of the traffic.</span>
 
@@ -373,7 +378,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">print_all</span><span class="p">()</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_requests_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_requests_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the start of the requests.</span>
 
@@ -384,7 +389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;--- REQUEST ---&quot;</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_generate_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_generate_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the generation of threads.</span>
 
@@ -395,7 +400,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;--- THREAD GENERATION ---&quot;</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_exec_time_estimation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_exec_time_estimation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the estimation of the execution time.</span>
 
@@ -408,7 +413,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot; * Next batch of requests will arrive at &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">next_batch_arrival_time</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_executing_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_executing_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the execution of threads.</span>
 
@@ -418,7 +423,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;--- RUN THREADS ---&quot;</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">after_completing_load_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">after_completing_load_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the completion of the load generation.</span>
 
@@ -430,7 +435,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;--- ***** Total execution time = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; ***** ---&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">after_next_batch_arrival_time_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">next_scm_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">next_batch_arrival_time</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">after_next_batch_arrival_time_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">next_scm_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">next_batch_arrival_time</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the calculation of the next batch arrival time.</span>
 
@@ -444,7 +449,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="s2">&quot; and will arrive at &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_batch_arrival_time</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_generate_request_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="s1">&#39;Request&#39;</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_generate_request_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="s1">&#39;Request&#39;</span><span class="p">,</span> <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the generation of threads for a request.</span>
 
@@ -458,7 +463,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="s2">&quot; for subchain #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">subchain_id</span><span class="p">))</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">after_generate_request_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">after_generate_request_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                        <span class="n">request</span><span class="p">:</span> <span class="s1">&#39;Request&#39;</span><span class="p">,</span>
                                        <span class="n">subchain_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                                        <span class="n">threads</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;ReplicaThread&#39;</span><span class="p">],</span>
@@ -484,7 +489,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">threads</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;) - threads ids=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">thread_ids</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">after_estimating_time_of_next_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">after_estimating_time_of_next_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                             <span class="n">next_trans_completion_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
                                             <span class="n">time_of_next_event</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
                                             <span class="n">next_batch_arrival_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
@@ -523,7 +528,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">duration_of_next_event</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;ns!&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_transmit_requests_in_network</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_transmit_requests_in_network</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the transmission of requests in the network.</span>
 
@@ -534,7 +539,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;- Transmitting packets for &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">duration_of_next_event</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;ns!&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">after_transmit_requests_in_network_and_load_balancing_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_completed_threads</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">after_transmit_requests_in_network_and_load_balancing_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_completed_threads</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the transmission of requests in the network and the load balancing of threads.</span>
 
@@ -552,7 +557,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <span class="s2">&quot; | total requests count == &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">total_requests_count</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">before_request_created</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">before_request_created</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                <span class="n">request_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                                <span class="n">scm_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                                <span class="n">request_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -572,7 +577,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="nb">str</span><span class="p">(</span><span class="n">traffic_prototype</span><span class="o">.</span><span class="n">requests_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; (id=&quot;</span> <span class="o">+</span> <span class="n">request_id</span> <span class="o">+</span> <span class="s2">&quot;) of scm ID &quot;</span> <span class="o">+</span> <span class="n">scm_name</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="nd">@Event</span>
-    <span class="k">def</span> <span class="nf">after_requests_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">after_requests_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Log the start of the requests.</span>
 
@@ -645,8 +650,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -346,24 +351,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="kn">import</span> <span class="n">Line2D</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.lines</span><span class="w"> </span><span class="kn">import</span> <span class="n">Line2D</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">ClusterScheduler</span><span class="p">,</span> <span class="n">Topology</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">,</span> <span class="n">Utils</span><span class="p">,</span> \
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClusterScheduler</span><span class="p">,</span> <span class="n">Topology</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">,</span> <span class="n">Utils</span><span class="p">,</span> \
     <span class="n">MicroserviceEndpointFunction</span><span class="p">,</span> <span class="n">ServiceChain</span><span class="p">,</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">ClusterLogObserver</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Microservice</span><span class="p">,</span> <span class="n">Simulation</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Microservice</span><span class="p">,</span> <span class="n">Simulation</span>
 
 
 <div class="viewcode-block" id="Cluster">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster">[docs]</a>
-<span class="k">class</span> <span class="nc">Cluster</span><span class="p">(</span><span class="n">Observable</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cluster</span><span class="p">(</span><span class="n">Observable</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A *Cluster* is imitating a real heterogeneous cluster with a configurable ``NetworkTopology``,</span>
 <span class="sd">    ``PlacementScenario`` and a set of ``ServiceChainManager``s.</span>
@@ -396,7 +401,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1">#: The parent `Simulation` instance</span>
     <span class="n">sim</span><span class="p">:</span> <span class="n">Simulation</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                  <span class="n">simulation</span><span class="p">:</span> <span class="n">Simulation</span><span class="p">,</span>
                  <span class="c1"># placement_scenario: PlacementScenario,</span>
@@ -442,7 +447,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.reinit">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.reinit">[docs]</a>
-    <span class="k">def</span> <span class="nf">reinit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reinit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reinitialize the cluster</span>
 
@@ -458,7 +463,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.count_total_service_edges">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.count_total_service_edges">[docs]</a>
-    <span class="k">def</span> <span class="nf">count_total_service_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_total_service_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Counts the total number of edges in the service topology that is being deployed in this cluster.</span>
 
@@ -473,7 +478,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.register_events">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.register_events">[docs]</a>
-    <span class="k">def</span> <span class="nf">register_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Register all events of the cluster</span>
 
@@ -491,7 +496,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="bp">self</span><span class="o">.</span><span class="n">register_event</span><span class="p">(</span><span class="s2">&quot;before_load_balancing_a_host&quot;</span><span class="p">)</span></div>
 
 
-    <span class="k">def</span> <span class="nf">__set_hosts_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__set_hosts_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the cluster of all hosts in the topology to this cluster</span>
 
@@ -501,7 +506,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">for</span> <span class="n">_host</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">hosts_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">_host</span><span class="o">.</span><span class="n">cluster</span> <span class="o">=</span> <span class="bp">self</span>
 
-    <span class="k">def</span> <span class="nf">__set_routers_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__set_routers_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the cluster of all routers in the topology to this cluster</span>
 
@@ -512,7 +517,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="n">_router</span><span class="o">.</span><span class="n">cluster</span> <span class="o">=</span> <span class="bp">self</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">scm_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scm_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of all `ServiceChainManager` references running on this cluster</span>
 
@@ -521,7 +526,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__scm_dict</span>
 
-    <span class="k">def</span> <span class="nf">__add_scm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scm</span><span class="p">:</span> <span class="n">ServiceChainManager</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__add_scm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scm</span><span class="p">:</span> <span class="n">ServiceChainManager</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a service chain manager to the cluster</span>
 
@@ -534,7 +539,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ServiceChainManager with name </span><span class="si">{</span><span class="n">scm</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> already exists&#39;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__add_microservices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">microservices_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Microservice</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__add_microservices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">microservices_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Microservice</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a set of microservices to the cluster</span>
 
@@ -547,7 +552,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.set_service_chains_dict">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.set_service_chains_dict">[docs]</a>
-    <span class="k">def</span> <span class="nf">set_service_chains_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_chains_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChain</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_service_chains_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_chains_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChain</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the service chains of the cluster</span>
 
@@ -564,7 +569,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.set_scm_dict">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.set_scm_dict">[docs]</a>
-    <span class="k">def</span> <span class="nf">set_scm_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scm_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_scm_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scm_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the service chain managers of the cluster. This method is used to set the service chain managers of the</span>
 <span class="sd">        cluster when the cluster is created from a dictionary of service chain managers.</span>
@@ -582,7 +587,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <span class="nd">@scm_dict</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">scm_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scm_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scm_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scm_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ServiceChainManager</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the service chain managers of the cluster. This method is used to set the service chain managers of the</span>
 <span class="sd">        cluster when the cluster is created from a dictionary of service chain managers.</span>
@@ -595,7 +600,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.is_there_a_thread_that_ends_sooner">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.is_there_a_thread_that_ends_sooner">[docs]</a>
-    <span class="k">def</span> <span class="nf">is_there_a_thread_that_ends_sooner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_of_next_event</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_there_a_thread_that_ends_sooner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_of_next_event</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check all active threads to see if there is one that ends sooner that ``time_of_next_event``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -648,7 +653,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.run_threads_on_hosts">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.run_threads_on_hosts">[docs]</a>
-    <span class="k">def</span> <span class="nf">run_threads_on_hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run_threads_on_hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Run all threads on all active hosts for ``duration`` nanoseconds</span>
 
@@ -675,7 +680,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.run_active_threads">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.run_active_threads">[docs]</a>
-    <span class="k">def</span> <span class="nf">run_active_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run_active_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Transmit all requests in network for ``duration`` nanoseconds</span>
 
@@ -696,7 +701,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.transmit_requests_in_network">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.transmit_requests_in_network">[docs]</a>
-    <span class="k">def</span> <span class="nf">transmit_requests_in_network</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">transmit_requests_in_network</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Transmit all requests in network for duration nanoseconds</span>
 
@@ -780,7 +785,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.load_balance_threads_in_all_hosts">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.load_balance_threads_in_all_hosts">[docs]</a>
-    <span class="k">def</span> <span class="nf">load_balance_threads_in_all_hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_balance_threads_in_all_hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Perform CPU load-balancing on all hosts</span>
 
@@ -794,7 +799,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.run_idle">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.run_idle">[docs]</a>
-    <span class="k">def</span> <span class="nf">run_idle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">until</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run_idle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">until</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Running threads idle for ``until`` - ``core.runqueue.time`` nanoseconds</span>
 
@@ -806,7 +811,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">microservices_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">microservices_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of all `Microservice` references running on this cluster</span>
 
@@ -815,10 +820,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__microservices_dict</span>
 
     <span class="nd">@microservices_dict</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">microservices_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">microservices_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;This property is read-only! Alter microservices via service_chain_managers!&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__add_microservice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">microservice</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__add_microservice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">microservice</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a microservice to the cluster.</span>
 
@@ -832,7 +837,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="c1"># So we should not raise an exception here.</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__microservices_dict</span><span class="p">[</span><span class="n">microservice</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">microservice</span>
 
-    <span class="k">def</span> <span class="nf">__remove_microservice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">microservice</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__remove_microservice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">microservice</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Remove a microservice from the cluster.</span>
 
@@ -846,7 +851,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.draw_all_service_chains">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.draw_all_service_chains">[docs]</a>
-    <span class="k">def</span> <span class="nf">draw_all_service_chains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw_all_service_chains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Draw all service chains of the cluster</span>
 
@@ -926,7 +931,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.calculate_average_latency_in_seconds">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.calculate_average_latency_in_seconds">[docs]</a>
-    <span class="k">def</span> <span class="nf">calculate_average_latency_in_seconds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_average_latency_in_seconds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the average latency in seconds</span>
 
@@ -939,7 +944,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.print_and_plot_scenarios">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.print_and_plot_scenarios">[docs]</a>
-    <span class="k">def</span> <span class="nf">print_and_plot_scenarios</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">printing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">plotting</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">print_and_plot_scenarios</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">printing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">plotting</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Print and plot the scenarios</span>
 
@@ -965,7 +970,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Cluster.plot_hosts_cpu_heatmaps">
 <a class="viewcode-back" href="../../perfsim.html#perfsim.cluster.Cluster.plot_hosts_cpu_heatmaps">[docs]</a>
-    <span class="k">def</span> <span class="nf">plot_hosts_cpu_heatmaps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot_hosts_cpu_heatmaps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot the hosts&#39; CPU heatmaps</span>
 
@@ -1040,8 +1045,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

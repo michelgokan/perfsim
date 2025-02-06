@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -346,19 +351,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
 
-<span class="kn">from</span> <span class="nn">sortedcontainers</span> <span class="kn">import</span> <span class="n">SortedDict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sortedcontainers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SortedDict</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">ThreadSet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">ThreadSet</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Core</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Core</span>
 
 
 <div class="viewcode-block" id="RunQueue">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue">[docs]</a>
-<span class="k">class</span> <span class="nc">RunQueue</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RunQueue</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    RunQueue is a queue of ReplicaThreads.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -410,7 +415,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1">#: The total number of the threads in the run queue</span>
     <span class="n">thread_set_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="n">ThreadSet</span><span class="p">]]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">:</span> <span class="s1">&#39;Core&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">:</span> <span class="s1">&#39;Core&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rq</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lightest_threads_in_rq</span> <span class="o">=</span> <span class="n">SortedDict</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_load</span> <span class="o">=</span> <span class="mi">0</span>
@@ -430,7 +435,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.reinit">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.reinit">[docs]</a>
-    <span class="k">def</span> <span class="nf">reinit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reinit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reinitialize the run queue.</span>
 
@@ -442,7 +447,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.requeue_task">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.requeue_task">[docs]</a>
-    <span class="k">def</span> <span class="nf">requeue_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">requeue_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Requeue a thread in the run queue.</span>
 
@@ -455,7 +460,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">__calc_buckets_limits</span><span class="p">(</span><span class="n">bucket_limits</span><span class="p">,</span> <span class="n">fair_share</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__calc_buckets_limits</span><span class="p">(</span><span class="n">bucket_limits</span><span class="p">,</span> <span class="n">fair_share</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the bucket limits.</span>
 
@@ -471,7 +476,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="n">_limited_buckets</span><span class="p">,</span> <span class="n">limited_bucket_count</span><span class="p">,</span> <span class="n">unlimited_bucket_count</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">__validate_thread_on_rq</span><span class="p">(</span><span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__validate_thread_on_rq</span><span class="p">(</span><span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validate if the thread is on the run queue.</span>
 
@@ -482,7 +487,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">thread</span><span class="o">.</span><span class="n">on_rq</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;How come thread is not in the rq?!&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_reset_sum_of_shares_in_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_reset_sum_of_shares_in_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reset the sum of shares in the sets, i.e., best effort, guaranteed, burstable, burstable unlimited, and</span>
 <span class="sd">        burstable limited.</span>
@@ -498,7 +503,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.recalculate_cpu_requests_shares">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.recalculate_cpu_requests_shares">[docs]</a>
-    <span class="k">def</span> <span class="nf">recalculate_cpu_requests_shares</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">recalculate_cpu_requests_shares</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Recalculate the CPU requests shares.</span>
 
@@ -539,7 +544,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.run_idle">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.run_idle">[docs]</a>
-    <span class="k">def</span> <span class="nf">run_idle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run_idle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Run the idle threads for the given duration.</span>
 
@@ -575,7 +580,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.assign_cpu_requests_share">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.assign_cpu_requests_share">[docs]</a>
-    <span class="k">def</span> <span class="nf">assign_cpu_requests_share</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">cpu_requests</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">assign_cpu_requests_share</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">cpu_requests</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Assign the CPU requests share to the thread.</span>
 
@@ -597,7 +602,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.categorize_thread_into_sets">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.categorize_thread_into_sets">[docs]</a>
-    <span class="k">def</span> <span class="nf">categorize_thread_into_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">categorize_thread_into_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Categorize the thread into the sets, i.e., best effort, guaranteed, burstable, burstable unlimited, and</span>
 <span class="sd">        burstable limited.</span>
@@ -622,7 +627,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.decategorize_thread_from_sets">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.decategorize_thread_from_sets">[docs]</a>
-    <span class="k">def</span> <span class="nf">decategorize_thread_from_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decategorize_thread_from_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Decategorize the thread from the sets, i.e., best effort, guaranteed, burstable, burstable unlimited, and</span>
 <span class="sd">        burstable limited.</span>
@@ -647,7 +652,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.enqueue_task">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.enqueue_task">[docs]</a>
-    <span class="k">def</span> <span class="nf">enqueue_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">load_balance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">enqueue_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">load_balance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Enqueue a thread in the run queue.</span>
 
@@ -704,7 +709,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.enqueue_tasks">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.enqueue_tasks">[docs]</a>
-    <span class="k">def</span> <span class="nf">enqueue_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threads</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ReplicaThread</span><span class="p">],</span> <span class="n">load_balance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">enqueue_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threads</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ReplicaThread</span><span class="p">],</span> <span class="n">load_balance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Enqueue a list of threads in the run queue at once.</span>
 
@@ -722,7 +727,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.remove_from_lightest_threads_in_rq">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.remove_from_lightest_threads_in_rq">[docs]</a>
-    <span class="k">def</span> <span class="nf">remove_from_lightest_threads_in_rq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">remove_from_lightest_threads_in_rq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Remove the thread from the lightest threads in the run queue.</span>
 
@@ -741,7 +746,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.add_to_lightest_threads_in_rq">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.add_to_lightest_threads_in_rq">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_to_lightest_threads_in_rq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_to_lightest_threads_in_rq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add the thread to the lightest threads in the run queue.</span>
 
@@ -760,7 +765,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="RunQueue.dequeue_task_by_thread">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.dequeue_task_by_thread">[docs]</a>
-    <span class="k">def</span> <span class="nf">dequeue_task_by_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">load_balance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dequeue_task_by_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">load_balance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dequeue a thread from the run queue by the thread.</span>
 
@@ -800,7 +805,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1"># def dequeue_task(self, _thread: int) -&gt; ReplicaThread:</span>
 <div class="viewcode-block" id="RunQueue.dequeue_task_by_thread_index">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.run_queue.RunQueue.dequeue_task_by_thread_index">[docs]</a>
-    <span class="k">def</span> <span class="nf">dequeue_task_by_thread_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">load_balance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReplicaThread</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dequeue_task_by_thread_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">load_balance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReplicaThread</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dequeue a thread from the run queue by the thread index in the run queue.</span>
 
@@ -815,7 +820,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the load of the run queue.</span>
 
@@ -825,7 +830,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load</span>
 
     <span class="nd">@load</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the load of the run queue.</span>
 
@@ -847,7 +852,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">add_to_pairs_sorted</span><span class="p">(</span><span class="n">pair_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">pair_id</span><span class="p">,</span>
                                               <span class="n">inverted_pair_load</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">pairs_load</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">pair_id</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compare the run queue with another run queue (less than).</span>
 
@@ -858,7 +863,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">RunQueue</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">load</span>
 
-    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compare the run queue with another run queue (greater than).</span>
 <span class="sd">        :param other:</span>
@@ -868,7 +873,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">RunQueue</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">load</span>
 
-    <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compare the run queue with another run queue (less than or equal to).</span>
 
@@ -879,7 +884,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">RunQueue</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">load</span> <span class="ow">or</span> <span class="bp">self</span> <span class="o">&lt;</span> <span class="n">other</span>
 
-    <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compare the run queue with another run queue (greater than or equal to).</span>
 
@@ -952,8 +957,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

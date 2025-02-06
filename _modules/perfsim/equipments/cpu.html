@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -346,23 +351,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">time</span> <span class="k">as</span> <span class="nn">tt</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Set</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Set</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-<span class="kn">from</span> <span class="nn">sortedcontainers</span> <span class="kn">import</span> <span class="n">SortedDict</span><span class="p">,</span> <span class="n">SortedSet</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sortedcontainers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SortedDict</span><span class="p">,</span> <span class="n">SortedSet</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">Core</span><span class="p">,</span> <span class="n">RunQueue</span><span class="p">,</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">CPULogObserver</span><span class="p">,</span> <span class="n">Utils</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">ReplicaThread</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">Core</span><span class="p">,</span> <span class="n">RunQueue</span><span class="p">,</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">CPULogObserver</span><span class="p">,</span> <span class="n">Utils</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">ReplicaThread</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">Host</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Host</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">A *CPU* object represents a single NUMA node with a given *clock_rate* and *name*</span>
@@ -389,7 +394,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU">[docs]</a>
-<span class="k">class</span> <span class="nc">CPU</span><span class="p">(</span><span class="n">Observable</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CPU</span><span class="p">(</span><span class="n">Observable</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The CPU class represents a single NUMA node in the system. It contains a number</span>
 <span class="sd">    of cores and has a clock rate. It is responsible for load balancing among the</span>
@@ -429,7 +434,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1">#: Stores the load of each pair (sorted by the load)</span>
     <span class="n">pairs_load</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cores_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">clock_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="n">Host</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cores_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">clock_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="n">Host</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clock_rate</span> <span class="o">=</span> <span class="n">clock_rate</span>  <span class="c1"># in hertz</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cores</span> <span class="o">=</span> <span class="p">[]</span>
@@ -468,7 +473,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.reinit">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.reinit">[docs]</a>
-    <span class="k">def</span> <span class="nf">reinit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reinit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reinitialize the CPU</span>
 
@@ -480,13 +485,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.register_events">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.register_events">[docs]</a>
-    <span class="k">def</span> <span class="nf">register_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
 
 <div class="viewcode-block" id="CPU.get_available">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_available">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_available</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_available</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns available cores in the *CPU*</span>
 
@@ -503,7 +508,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">capacity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">capacity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the total capacity of the *CPU* in terms of CPU requests (each core is 1000 milicores).</span>
 
@@ -519,7 +524,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.is_there_enough_resources_to_reserve">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.is_there_enough_resources_to_reserve">[docs]</a>
-    <span class="k">def</span> <span class="nf">is_there_enough_resources_to_reserve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_there_enough_resources_to_reserve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if there are enough resources to reserve *amount* of CPU in the *CPU*.</span>
 
@@ -535,7 +540,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.reserve">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.reserve">[docs]</a>
-    <span class="k">def</span> <span class="nf">reserve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reserve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Uniformly reserve a given *amount* of CPU within all the *cores* in the</span>
 <span class="sd">        *CPU*.</span>
@@ -551,7 +556,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.release">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.release">[docs]</a>
-    <span class="k">def</span> <span class="nf">release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Uniformly release a given *amount* of CPU within all the *cores* in the</span>
 <span class="sd">        *CPU*.</span>
@@ -566,7 +571,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="n">core</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">amount</span><span class="o">=</span><span class="n">cpu_requests_per_core</span><span class="p">)</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_get_clock_rate_in_nanohertz</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_clock_rate_in_nanohertz</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the clock rate of the CPU in nanohertz</span>
 
@@ -577,7 +582,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.get_idle_core_in_sd">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_idle_core_in_sd">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_idle_core_in_sd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sd_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sd</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">numa_node_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">current_core_in_sd</span><span class="p">:</span> <span class="n">Core</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_idle_core_in_sd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sd_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sd</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">numa_node_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">current_core_in_sd</span><span class="p">:</span> <span class="n">Core</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the idle core in the given sched domain</span>
 
@@ -608,7 +613,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.get_the_other_core_in_pair">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_the_other_core_in_pair">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_the_other_core_in_pair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">return_same_if_not_exists</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_the_other_core_in_pair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">return_same_if_not_exists</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the other core in the pair</span>
 
@@ -630,7 +635,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.get_core_pairs">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_core_pairs">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_core_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_core_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the core pairs</span>
 
@@ -652,7 +657,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.get_sched_domains">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_sched_domains">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_sched_domains</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_sched_domains</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the sched domains</span>
 
@@ -673,7 +678,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.get_busiest_core_in_pair_by_core_id">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_busiest_core_in_pair_by_core_id">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_busiest_core_in_pair_by_core_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_busiest_core_in_pair_by_core_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the busiest core in the pair</span>
 
@@ -701,7 +706,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.get_busiest_core_in_pair">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_busiest_core_in_pair">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_busiest_core_in_pair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_busiest_core_in_pair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the busiest core in the pair</span>
 
@@ -714,7 +719,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.get_busiest_core_in_busiest_pair">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.get_busiest_core_in_busiest_pair">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_busiest_core_in_busiest_pair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_pair_id</span><span class="p">,</span> <span class="n">numa_node_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_busiest_core_in_busiest_pair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_pair_id</span><span class="p">,</span> <span class="n">numa_node_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the busiest core in the busiest pair</span>
 
@@ -747,7 +752,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.load_balance_threads_among_runqueues">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.load_balance_threads_among_runqueues">[docs]</a>
-    <span class="k">def</span> <span class="nf">load_balance_threads_among_runqueues</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">RunQueue</span><span class="p">]]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_balance_threads_among_runqueues</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">RunQueue</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load balance threads among runqueues</span>
 
@@ -865,7 +870,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.emergency_load_balance_idle_cores">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.emergency_load_balance_idle_cores">[docs]</a>
-    <span class="k">def</span> <span class="nf">emergency_load_balance_idle_cores</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">emergency_load_balance_idle_cores</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Emergency load balance idle cores</span>
 
@@ -915,7 +920,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.recalculate_cpu_requests_shares">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.recalculate_cpu_requests_shares">[docs]</a>
-    <span class="k">def</span> <span class="nf">recalculate_cpu_requests_shares</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">recalculate_cpu_requests_shares</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Recalculate CPU requests shares</span>
 
@@ -928,7 +933,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.kill_zombie_threads">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.kill_zombie_threads">[docs]</a>
-    <span class="k">def</span> <span class="nf">kill_zombie_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">kill_zombie_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Kill zombie threads</span>
 
@@ -966,7 +971,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.plot">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.plot">[docs]</a>
-    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot the CPU requests share and threads count on run queues</span>
 
@@ -1082,7 +1087,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="p">[</span><span class="n">fig_share</span><span class="p">,</span> <span class="n">fig_threads</span><span class="p">]</span></div>
 
 
-    <span class="k">def</span> <span class="nf">__update_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__update_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">time</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">_time</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">thread_events</span><span class="p">[</span><span class="n">_time</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1094,7 +1099,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.load_balance">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.load_balance">[docs]</a>
-    <span class="k">def</span> <span class="nf">load_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load balance the CPU by balancing the threads among the runqueues</span>
 <span class="sd">        :return:</span>
@@ -1111,7 +1116,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.add_to_pairs_sorted">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.add_to_pairs_sorted">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_to_pairs_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair_id</span><span class="p">,</span> <span class="n">inverted_pair_load</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_to_pairs_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair_id</span><span class="p">,</span> <span class="n">inverted_pair_load</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add to pairs sorted dictionary</span>
 <span class="sd">        :param pair_id:</span>
@@ -1127,7 +1132,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.add_to_threads_sorted">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.add_to_threads_sorted">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_to_threads_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">inverted_thread_load</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_to_threads_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">inverted_thread_load</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add to threads sorted dictionary</span>
 <span class="sd">        :param thread:</span>
@@ -1150,7 +1155,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.remove_from_pairs_sorted">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.remove_from_pairs_sorted">[docs]</a>
-    <span class="k">def</span> <span class="nf">remove_from_pairs_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair_id</span><span class="p">,</span> <span class="n">inverted_pair_load</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">remove_from_pairs_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair_id</span><span class="p">,</span> <span class="n">inverted_pair_load</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Remove from pairs sorted dictionary</span>
 
@@ -1167,7 +1172,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.remove_from_threads_sorted">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.remove_from_threads_sorted">[docs]</a>
-    <span class="k">def</span> <span class="nf">remove_from_threads_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">inverted_thread_load</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">remove_from_threads_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread</span><span class="p">:</span> <span class="n">ReplicaThread</span><span class="p">,</span> <span class="n">inverted_thread_load</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Remove from threads sorted dictionary</span>
 
@@ -1196,7 +1201,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="CPU.update_idle_pairs">
 <a class="viewcode-back" href="../../../perfsim.equipments.html#perfsim.equipments.cpu.CPU.update_idle_pairs">[docs]</a>
-    <span class="k">def</span> <span class="nf">update_idle_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_idle_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update idle pairs in the CPU by checking the load of the cores in the pair</span>
 
@@ -1228,7 +1233,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">clock_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clock_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the clock rate of the CPU in Hertz</span>
 <span class="sd">        :return:</span>
@@ -1237,7 +1242,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clock_rate</span>
 
     <span class="nd">@clock_rate</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">clock_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clock_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the clock rate of the CPU in Hertz and update the clock rate in nanohertz</span>
 
@@ -1248,7 +1253,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="bp">self</span><span class="o">.</span><span class="n">_clock_rate_in_nanohertz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_clock_rate_in_nanohertz</span><span class="p">()</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">clock_rate_in_nanohertz</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clock_rate_in_nanohertz</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the clock rate of the CPU in nanohertz</span>
 
@@ -1258,7 +1263,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clock_rate_in_nanohertz</span>
 
     <span class="nd">@clock_rate_in_nanohertz</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">clock_rate_in_nanohertz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clock_rate_in_nanohertz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the clock rate of the CPU in nanohertz</span>
 
@@ -1268,7 +1273,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;clock_rate_in_nanohertz is read-only! Set clock_rate instead.&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        String representation of the CPU</span>
 
@@ -1339,8 +1344,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

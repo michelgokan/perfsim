@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5198dbed" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -193,9 +193,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -346,13 +351,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c1">#  Written by Michel Gokan Khan, February 2020</span>
 
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">perfsim</span> <span class="kn">import</span> <span class="n">LoadBalancer</span><span class="p">,</span> <span class="n">MicroserviceReplica</span><span class="p">,</span> <span class="n">MicroservicePrototype</span><span class="p">,</span> \
+<span class="kn">from</span><span class="w"> </span><span class="nn">perfsim</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoadBalancer</span><span class="p">,</span> <span class="n">MicroserviceReplica</span><span class="p">,</span> <span class="n">MicroservicePrototype</span><span class="p">,</span> \
     <span class="n">MicroserviceEndpointFunction</span><span class="p">,</span> <span class="n">ResourceAllocationScenario</span><span class="p">,</span> <span class="n">Host</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
@@ -361,7 +366,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Microservice">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice">[docs]</a>
-<span class="k">class</span> <span class="nc">Microservice</span><span class="p">(</span><span class="n">MicroservicePrototype</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Microservice</span><span class="p">(</span><span class="n">MicroservicePrototype</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class represents a microservice in a service chain. It has a name, a list of endpoints, a list of replicas, a</span>
 <span class="sd">    load balancer, and a resource allocation scenario.</span>
@@ -413,7 +418,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="c1">#: The memory request of the microservice</span>
     <span class="n">memory_requests</span><span class="p">:</span> <span class="nb">int</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                  <span class="n">endpoint_functions</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">MicroserviceEndpointFunction</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">replica_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
@@ -456,7 +461,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="viewcode-block" id="Microservice.from_prototype">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.from_prototype">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">from_prototype</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_prototype</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
                        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                        <span class="n">prototype</span><span class="p">:</span> <span class="n">MicroservicePrototype</span><span class="p">,</span>
                        <span class="n">replica_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
@@ -497,42 +502,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Microservice.is_best_effort">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.is_best_effort">[docs]</a>
-    <span class="k">def</span> <span class="nf">is_best_effort</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_best_effort</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span></div>
 
 
 <div class="viewcode-block" id="Microservice.is_guaranteed">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.is_guaranteed">[docs]</a>
-    <span class="k">def</span> <span class="nf">is_guaranteed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_guaranteed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span></div>
 
 
 <div class="viewcode-block" id="Microservice.is_burstable">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.is_burstable">[docs]</a>
-    <span class="k">def</span> <span class="nf">is_burstable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_burstable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span></div>
 
 
 <div class="viewcode-block" id="Microservice.is_unlimited_burstable">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.is_unlimited_burstable">[docs]</a>
-    <span class="k">def</span> <span class="nf">is_unlimited_burstable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_unlimited_burstable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span></div>
 
 
 <div class="viewcode-block" id="Microservice.is_limited_burstable">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.is_limited_burstable">[docs]</a>
-    <span class="k">def</span> <span class="nf">is_limited_burstable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_limited_burstable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_requests</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_limits</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_init_replicas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">replica_count</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_init_replicas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">replica_count</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__replicas</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">replica_id</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">replica_count</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__replicas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MicroserviceReplica</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">replica_id</span><span class="p">),</span> <span class="n">microservice</span><span class="o">=</span><span class="bp">self</span><span class="p">))</span>
 
 <div class="viewcode-block" id="Microservice.next_replica">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.next_replica">[docs]</a>
-    <span class="k">def</span> <span class="nf">next_replica</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">increase_replica_id</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MicroserviceReplica</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">next_replica</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">increase_replica_id</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MicroserviceReplica</span><span class="p">:</span>
         <span class="n">replica_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_replica_id</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__replicas</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">increase_replica_id</span><span class="p">:</span>
@@ -544,7 +549,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Microservice.add_microservice_affinity_with">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.add_microservice_affinity_with">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_microservice_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ms</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_microservice_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ms</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">ms</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ms</span><span class="p">,</span> <span class="n">Microservice</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__ms_affinity_rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ms_affinity_rules</span><span class="o">.</span><span class="n">union</span><span class="p">({</span><span class="n">ms</span><span class="p">})</span>
@@ -555,7 +560,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Microservice.add_host_affinity_with">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.add_host_affinity_with">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_host_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="n">Host</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_host_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="n">Host</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">host</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">Host</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__host_affinity_rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__host_affinity_rules</span><span class="o">.</span><span class="n">union</span><span class="p">({</span><span class="n">host</span><span class="p">})</span>
@@ -566,7 +571,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Microservice.delete_microservice_affinity_with">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.delete_microservice_affinity_with">[docs]</a>
-    <span class="k">def</span> <span class="nf">delete_microservice_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ms</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delete_microservice_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ms</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">ms</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ms</span><span class="p">,</span> <span class="n">Microservice</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__ms_affinity_rules</span> <span class="o">-=</span> <span class="p">{</span><span class="n">ms</span><span class="p">}</span>
@@ -577,7 +582,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Microservice.delete_host_affinity_with">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.delete_host_affinity_with">[docs]</a>
-    <span class="k">def</span> <span class="nf">delete_host_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="n">Host</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delete_host_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="n">Host</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">host</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">Host</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__host_affinity_rules</span> <span class="o">-=</span> <span class="p">{</span><span class="n">host</span><span class="p">}</span>
@@ -588,7 +593,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Microservice.add_microservice_anti_affinity_with">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.add_microservice_anti_affinity_with">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_microservice_anti_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ms</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_microservice_anti_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ms</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">ms</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ms</span><span class="p">,</span> <span class="n">Microservice</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__ms_antiaffinity_rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ms_antiaffinity_rules</span><span class="o">.</span><span class="n">union</span><span class="p">({</span><span class="n">ms</span><span class="p">})</span>
@@ -599,7 +604,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Microservice.add_host_anti_affinity_with">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.add_host_anti_affinity_with">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_host_anti_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="n">Host</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_host_anti_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="n">Host</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">host</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">Host</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__host_antiaffinity_rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__host_antiaffinity_rules</span><span class="o">.</span><span class="n">union</span><span class="p">({</span><span class="n">host</span><span class="p">})</span>
@@ -610,7 +615,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Microservice.delete_microservice_anti_affinity_with">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.delete_microservice_anti_affinity_with">[docs]</a>
-    <span class="k">def</span> <span class="nf">delete_microservice_anti_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ms</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delete_microservice_anti_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ms</span><span class="p">:</span> <span class="n">Microservice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">ms</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ms</span><span class="p">,</span> <span class="n">Microservice</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__ms_antiaffinity_rules</span> <span class="o">-=</span> <span class="p">{</span><span class="n">ms</span><span class="p">}</span>
@@ -621,7 +626,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="viewcode-block" id="Microservice.delete_host_anti_affinity_with">
 <a class="viewcode-back" href="../../../perfsim.service_chain.html#perfsim.service_chain.microservice.Microservice.delete_host_anti_affinity_with">[docs]</a>
-    <span class="k">def</span> <span class="nf">delete_host_anti_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="n">Host</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delete_host_anti_affinity_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="n">Host</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">host</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">Host</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__host_antiaffinity_rules</span> <span class="o">-=</span> <span class="p">{</span><span class="n">host</span><span class="p">}</span>
@@ -631,81 +636,81 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">ms_affinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ms_affinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ms_affinity_rules</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">ms_antiaffinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ms_antiaffinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ms_antiaffinity_rules</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">host_affinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">host_affinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__host_affinity_rules</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">host_antiaffinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">host_antiaffinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__host_antiaffinity_rules</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">replicas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">replicas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__replicas</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">replica_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">replica_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__replica_count</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__hosts</span>
 
     <span class="nd">@ms_affinity_rules</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">ms_affinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ms_affinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
             <span class="s2">&quot;You can&#39;t directly change microservice affinity rules. &quot;</span>
             <span class="s2">&quot;Use the add_microservice_affinity_with(ms) or delete_microservice_affinity_with(ms) methods instead.&quot;</span><span class="p">)</span>
 
     <span class="nd">@ms_antiaffinity_rules</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">ms_antiaffinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ms_antiaffinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
             <span class="s2">&quot;You can&#39;t directly change microservice anti-affinity rules. &quot;</span>
             <span class="s2">&quot;Use the add_microservice_anti_affinity_with(ms) or delete_microservice_anti_affinity_with(ms) &quot;</span>
             <span class="s2">&quot;methods instead.&quot;</span><span class="p">)</span>
 
     <span class="nd">@host_affinity_rules</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">host_affinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">host_affinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
             <span class="s2">&quot;You can&#39;t directly change host affinity rules. &quot;</span>
             <span class="s2">&quot;Use the add_host_affinity_with(ms) or delete_host_affinity_with(ms) methods instead.&quot;</span><span class="p">)</span>
 
     <span class="nd">@host_antiaffinity_rules</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">host_antiaffinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">host_antiaffinity_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
             <span class="s2">&quot;You can&#39;t directly change host anti-affinity rules. &quot;</span>
             <span class="s2">&quot;Use the add_host_anti_affinity_with(ms) or delete_host_anti_affinity_with(ms) &quot;</span>
             <span class="s2">&quot;methods instead.&quot;</span><span class="p">)</span>
 
     <span class="nd">@replicas</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">replicas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">replicas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;You can&#39;t change replicas of a microservice. Sorry!&quot;</span><span class="p">)</span>
 
     <span class="nd">@hosts</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;You can&#39;t change hosts of a microservice! It&#39;s the job of the scheduler.&quot;</span><span class="p">)</span>
 
     <span class="nd">@replica_count</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">replica_count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">replica_count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_init_replicas</span><span class="p">(</span><span class="n">replica_count</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__replica_count</span> <span class="o">=</span> <span class="n">v</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">cpu_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cpu_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_requests</span>
 
     <span class="nd">@cpu_requests</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">cpu_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cpu_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_cpu_limits&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_limits</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_limits</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;CPU requests can&#39;t be greater than CPU limits!&quot;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">v</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
@@ -719,11 +724,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="n">replica</span><span class="o">.</span><span class="n">reinit</span><span class="p">()</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">cpu_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cpu_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_limits</span>
 
     <span class="nd">@cpu_limits</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">cpu_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cpu_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_cpu_requests&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_requests</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cpu_requests</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;CPU limits can&#39;t be less than CPU requests!&quot;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">v</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
@@ -858,8 +863,8 @@ By Michel Gokan Khan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
