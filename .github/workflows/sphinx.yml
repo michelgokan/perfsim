@@ -12,6 +12,8 @@ permissions:  # Explicitly setting permissions
 jobs:
   build-and-deploy:
     runs-on: ubuntu-22.04  # Specifies the runner environment
+    environment:
+      name: github-pages  # This is the required environment name for GitHub Pages deployments
     steps:
       - name: Check out the repository
         uses: actions/checkout@v3  # Checks out your repository under $GITHUB_WORKSPACE, so your workflow can access it
